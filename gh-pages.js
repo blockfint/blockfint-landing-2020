@@ -3,11 +3,11 @@ let dayjs = require("dayjs");
 ghpages.publish(
   "out",
   {
-    branch: "master",
+    branch: "gh-pages",
     dotfiles: true,
     message: `🚀 Deploy [${dayjs().format("DD/MM/YY")}]`,
   },
   () => {
-    console.log("yayyy");
+    console.log("Deploy success");
   }
 );
