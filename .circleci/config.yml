@@ -19,4 +19,4 @@ jobs:
           command: yarn export
       - run:
           name: Run deploy
-          command: node gh-pages.j
+          command: node gh-pages.js
