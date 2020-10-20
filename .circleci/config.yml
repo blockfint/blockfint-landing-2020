@@ -6,9 +6,6 @@ jobs:
       - image: circleci/node:10.16.3
     steps:
       - checkout
-      - run:
-          name: Update NPM
-          command: "sudo yarn install global npm@5"
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
