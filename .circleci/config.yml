@@ -7,14 +7,16 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          key: yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: yarn install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
       - run:
-          name: Run tests
+          name: Run build
           command: yarn build
+      - run:
+          name: Run export
+          command: yarn export
+      - run:
+          name: Run deploy
+          command: node gh-pages.js
