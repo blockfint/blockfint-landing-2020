@@ -16,5 +16,11 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Run tests
+          name: Run build
           command: yarn build
+      - run:
+        name: Run export
+        command: yarn next export
+      - run:
+        name: Deploy
+        command: touch out/.nojekyll && node gh-pages.js
