@@ -12,5 +12,11 @@ jobs:
           name: Install Dependencies
           command: yarn install
       - run:
+          name: Run build
+          command: yarn build
+      - run:
+          name: Run export
+          command: yarn export
+      - run:
           name: Run deploy
-          command: yarn deploy
+          command: node gh-pages.j
