@@ -10,7 +10,7 @@ export const colors = {
 
 export default createMuiTheme({
   typography: {
-    fontFamily: ['Nunito Sans', 'sans-serif'].join(',')
+    fontFamily: ['Montserrat', 'sans-serif'].join(',')
   },
   overrides: {
     MuiPaper: {
