@@ -13,7 +13,7 @@ const ButtonContainer = styled(motion.button)`
   font-size: 1rem;
   line-height: 1.88;
   border-radius: 2rem;
-  border-color: transparent;
+  border: none;
   :focus {
     outline: none;
   }
@@ -47,8 +47,8 @@ const LogoWrapper = styled.div`
   left: 0.125rem;
   top: 0.125rem;
   bottom: 0.125rem;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   display: flex;
   place-items: center;
   place-content: center;
