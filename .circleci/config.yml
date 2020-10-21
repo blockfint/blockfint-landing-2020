@@ -1,10 +1,15 @@
 version: 2.1
+workflows:
+  version: 2.1
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - main
 jobs:
   deploy:
-    filters:
-      branches:
-        only:
-          - main
     working_directory: ~/repo
     docker:
       - image: circleci/node:10.16.3
