@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import GlobalStyle from 'assets/globalStyle'
+import { AllStyleProvider } from 'assets/globalStyle'
+import React from 'react'
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -9,8 +10,9 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <GlobalStyle />
-      <Component {...pageProps} />
+      <AllStyleProvider>
+        <Component {...pageProps} />
+      </AllStyleProvider>
     </>
   )
 }
