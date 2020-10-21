@@ -23,7 +23,7 @@ export default createGlobalStyle`
       font-family: 'Montserrat', sans-serif;
       margin:0;
       font-size:1rem;
-      color:var(--dark-blue-grey);
+      color:#333333;
       overflow-x:hidden;
     h1{
       font-weight:600;

@@ -9,11 +9,11 @@ const ButtonContainer = styled(motion.button)`
   overflow: hidden;
   background: transparent;
   color: #ffffff;
-  border-radius: 2rem;
-  border-color: transparent;
 
   font-size: 1rem;
   line-height: 1.88;
+  border-radius: 2rem;
+  border-color: transparent;
   :focus {
     outline: none;
   }
