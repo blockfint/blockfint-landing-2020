@@ -9,9 +9,8 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <GlobalStyle>
-        <Component {...pageProps} />
-      </GlobalStyle>
+      <GlobalStyle />
+      <Component {...pageProps} />
     </>
   )
 }
