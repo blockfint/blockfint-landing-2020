@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-
+import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles'
+import theme from './themes'
 export const SIZE = {
   tablet: '600px',
   desktop: '960px'
@@ -9,7 +10,7 @@ export const BREAKPOINT = {
   desktop: `only screen and (min-width: ${SIZE.desktop})`
 }
 
-export default createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 
 *,
 *::before,
@@ -23,7 +24,7 @@ export default createGlobalStyle`
       font-family: 'Montserrat', sans-serif;
       margin:0;
       font-size:1rem;
-      color:var(--dark-blue-grey);
+      color:#333333;
       overflow-x:hidden;
     h1{
       font-weight:600;
@@ -88,3 +89,12 @@ export default createGlobalStyle`
   }
   
 `
+
+export const AllStyleProvider: React.FC = ({ children }) => (
+  <>
+    <GlobalStyle />
+    <StylesProvider injectFirst>
+      <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+    </StylesProvider>
+  </>
+)
