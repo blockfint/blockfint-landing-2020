@@ -1,3 +1,4 @@
+import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles'
 import theme from './themes'
