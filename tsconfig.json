@@ -23,6 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.svg",
     "gh-pages.js"
   ],
   "exclude": [
