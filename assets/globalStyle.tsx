@@ -1,15 +1,16 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const SIZE = {
-  tablet: "600px",
-  desktop: "960px",
-};
+  tablet: '600px',
+  desktop: '960px'
+}
 export const BREAKPOINT = {
   tablet: `only screen and (min-width: ${SIZE.tablet})`,
-  desktop: `only screen and (min-width: ${SIZE.desktop})`,
-};
+  desktop: `only screen and (min-width: ${SIZE.desktop})`
+}
 
 export default createGlobalStyle`
+
 *,
 *::before,
 *::after {
@@ -17,6 +18,7 @@ export default createGlobalStyle`
   padding: 0;
   box-sizing: border-box;
 }
+
   body {
       font-family: 'Montserrat', sans-serif;
       margin:0;
@@ -85,4 +87,4 @@ export default createGlobalStyle`
     }
   }
   
-`;
+`

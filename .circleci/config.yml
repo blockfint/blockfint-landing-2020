@@ -1,6 +1,10 @@
 version: 2.1
 jobs:
-  build:
+  deploy:
+    filters:
+      branches:
+        only:
+          - main
     working_directory: ~/repo
     docker:
       - image: circleci/node:10.16.3
