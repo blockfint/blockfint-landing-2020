@@ -8,11 +8,11 @@ import { JoinUsBanner } from 'components/JoinUsBanner'
 export default function Home() {
   return (
     <div>
-      <div style={{ margin: '2rem' }}>
+      {/* <div style={{ margin: '2rem' }}>
         <SecondaryButton>SSS</SecondaryButton>
         <PrimaryButton logo={<Logo style={{ fontSize: '1.5rem' }} />}>Label</PrimaryButton>
         <PostCard title="Gideon" desc="Energy Trading Without Barriers" />
-      </div>
+      </div> */}
       <ContactBanner />
       <JoinUsBanner />
     </div>
