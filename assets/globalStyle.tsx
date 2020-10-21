@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-
+import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles'
+import theme from './themes'
 export const SIZE = {
   tablet: '600px',
   desktop: '960px'
@@ -9,7 +10,7 @@ export const BREAKPOINT = {
   desktop: `only screen and (min-width: ${SIZE.desktop})`
 }
 
-export default createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 
 *,
 *::before,
@@ -88,3 +89,12 @@ export default createGlobalStyle`
   }
   
 `
+
+export const AllStyleProvider: React.FC = ({ children }) => (
+  <>
+    <GlobalStyle />
+    <StylesProvider injectFirst>
+      <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+    </StylesProvider>
+  </>
+)
