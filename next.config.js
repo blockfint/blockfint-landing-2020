@@ -1,6 +1,4 @@
 module.exports = {
-  basePath: '/blockfint',
-  assetPrefix: '/blockfint/',
   webpack(config, options) {
     config.module.rules.push({
       test: /\.svg$/,
