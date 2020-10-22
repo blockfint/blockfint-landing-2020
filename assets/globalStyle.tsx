@@ -92,7 +92,7 @@ const GlobalStyle = createGlobalStyle`
       letter-spacing: -0.4px;
       @media ${BREAKPOINT.tablet}{
         letter-spacing:-1.2px;
-        font-size: 2.625rem;
+        font-size: 2.125rem;
       }
     }
     h5{
@@ -100,7 +100,7 @@ const GlobalStyle = createGlobalStyle`
       font-size:1rem;
       @media ${BREAKPOINT.tablet}{
         letter-spacing:-1px;
-        font-size: 2.625rem;
+        font-size: 1.625rem;
       }
     }
     
@@ -109,7 +109,7 @@ const GlobalStyle = createGlobalStyle`
       font-size:1rem;
       @media ${BREAKPOINT.tablet}{
         letter-spacing:-1px;
-        font-size: 2.625rem;
+        font-size: 1.25rem;
       }
     }
 
