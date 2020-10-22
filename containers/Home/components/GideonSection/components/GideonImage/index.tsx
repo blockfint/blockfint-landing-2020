@@ -4,6 +4,7 @@ import Thunder from './components/Thunder'
 import Oval from './components/Oval'
 import Triangle from './components/Triangle'
 import { motion } from 'framer-motion'
+import { BREAKPOINT } from 'assets/globalStyle'
 const Image = styled.img`
   max-width: 100vw;
 `
@@ -11,6 +12,15 @@ const Container = styled.div`
   position: relative;
   width: max-content;
   margin: 0 auto;
+  font-size: clamp(0.5rem, 2vw, 1rem);
+  /* font-size: 0.5rem; */
+
+  /* @media ${BREAKPOINT.tablet} {
+    font-size: 0.75rem;
+  }
+  @media ${BREAKPOINT.desktop} {
+    font-size: 1rem;
+  } */
 `
 
 const Wrapper = styled(motion.div)`
@@ -29,7 +39,7 @@ export const GideonImage: React.FC = () => {
       <IconWrapper top={'40%'} left="82.5%" size="1.8em">
         <Oval color="#00C1FF" />
       </IconWrapper>
-      <IconWrapper bottom={0} left="90%">
+      <IconWrapper bottom={0} right="5%">
         <Triangle color="#FF7278" />
       </IconWrapper>
       <IconWrapper bottom={'10%'} left="17.5%" size="1.2em">
