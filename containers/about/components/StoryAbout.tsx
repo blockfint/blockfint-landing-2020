@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { BREAKPOINT } from 'assets/globalStyle'
 const Topic = styled.h1`
   font-size: 34px;
 `
@@ -16,6 +17,7 @@ const StyledHr = styled.hr`
 const StyledH4 = styled.h4`
   font-weight: normal;
   color: #333333;
+  line-height: 1.88;
 `
 const Div = styled.div`
   display: grid;
@@ -24,14 +26,25 @@ const Div = styled.div`
 `
 const Background = styled.div`
   padding: 0 1.5rem 3.75rem;
+  @media ${BREAKPOINT.tablet} {
+    padding: 0 2.5rem 5rem;
+  }
+  @media ${BREAKPOINT.desktop} {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 8.1875rem;
+    padding: 0 14.6875rem 6.25rem 8.4375rem;
+  }
 `
 export const StoryAbout = () => {
   return (
     <Background>
-      <Topic>The Story About</Topic>
-      <StyledText>Blockfint</StyledText>
+      <div>
+        <Topic>The Story About</Topic>
+        <StyledText>Blockfint</StyledText>
+      </div>
       <Div>
-        <h4>Founded in 2017</h4>
+        <h4 style={{ fontSize: '1rem', fontWeight: 600 }}>Founded in 2017</h4>
         <StyledHr />
         <StyledH4>Blockfint believes that technology belongs to all the people.</StyledH4>
         <StyledH4>
