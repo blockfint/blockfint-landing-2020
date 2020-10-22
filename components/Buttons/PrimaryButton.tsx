@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion'
 
 const ButtonContainer = styled(motion.button)`
+  z-index: 1;
   position: relative;
   width: 15.625rem;
   height: 3rem;
