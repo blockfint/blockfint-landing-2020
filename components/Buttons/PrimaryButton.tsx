@@ -2,7 +2,8 @@ import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
 import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion'
 
-const ButtonContainer = styled(motion.button)`
+const ButtonContainer = styled(motion.button)<any>`
+  cursor: pointer;
   z-index: 1;
   position: relative;
   width: 15.625rem;
@@ -26,7 +27,7 @@ const ButtonContainer = styled(motion.button)`
     top: 0;
     bottom: 0;
     z-index: -2;
-    background-image: radial-gradient(circle at 0 100%, #00b0ff, #00b8de);
+    background-image: ${({ bg }) => bg};
   }
 `
 
@@ -58,11 +59,13 @@ export interface ButtonProps extends HTMLMotionProps<'button'> {
   duration?: number
   children?: string
   logo?: ReactNode
+  background?: string
 }
 
 const variants = {
-  hover: { fontSize: '7.5rem', opacity: 1 },
-  active: { fontSize: '50rem', opacity: 1 }
+  Hover: { fontSize: '7.5rem', opacity: 1 },
+  Active: { fontSize: '50rem', opacity: 1 },
+  Inactive: { fontSize: '0rem', opacity: 0 }
 }
 
 export const PrimaryButton: React.FC<ButtonProps> = ({
@@ -70,45 +73,49 @@ export const PrimaryButton: React.FC<ButtonProps> = ({
   onClick = () => null,
   duration = 0.35,
   logo,
+  background = 'radial-gradient(circle at 0 100%, #00b0ff, #00b8de)',
   ...props
 }) => {
-  const [ripples, setRipples] = useState([])
-  const [isActive, setActive] = useState(false)
+  const [ripple, setRipple] = useState({ x: 0, y: 0, mode: 'Inactive' })
+
   const handleHover = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const x = e.clientX - e.currentTarget.offsetLeft
-    const y = e.clientY - e.currentTarget.offsetTop
-    const newRippleIndex = `${ripples.length + 1}`
-    setRipples(() => [{ x, y, id: newRippleIndex, mode: 'hover' }])
+    const rom = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rom.left
+    const y = e.clientY - rom.top
+    setRipple(() => ({ x, y, mode: 'Hover' }))
   }
 
   const terminateRipple = () => {
-    setRipples([])
-    setActive(false)
+    setRipple((prev) => ({ ...prev, mode: 'Inactive' }))
   }
 
   const handleActive = () => {
-    setActive(true)
+    setRipple((prev) => ({ ...prev, mode: 'Active' }))
   }
 
   return (
-    <ButtonContainer {...props} onMouseMove={handleHover} onMouseDown={handleActive} onHoverEnd={terminateRipple}>
-      {logo && <LogoWrapper>{logo}</LogoWrapper>}
-      <span>
+    <AnimatePresence>
+      <ButtonContainer
+        {...props}
+        onMouseMove={handleHover}
+        onMouseDown={handleActive}
+        onHoverEnd={terminateRipple}
+        bg={background}
+      >
+        {logo && <LogoWrapper>{logo}</LogoWrapper>}
+
         {children}
-        <AnimatePresence>
-          {ripples.map(({ x, y }, index) => (
-            <Ripple
-              key={index}
-              style={{ left: x, top: y }}
-              initial={{ fontSize: '0rem', opacity: 0.5 }}
-              animate={isActive ? 'active' : 'hover'}
-              variants={variants}
-              exit={{ fontSize: '0rem', opacity: 0 }}
-              transition={{ duration }}
-            />
-          ))}
-        </AnimatePresence>
-      </span>
-    </ButtonContainer>
+
+        <Ripple
+          key={`${children}-ripple`}
+          style={{ left: ripple.x, top: ripple.y }}
+          initial={ripple.mode}
+          animate={ripple.mode}
+          variants={variants}
+          exit={ripple.mode}
+          transition={{ duration }}
+        />
+      </ButtonContainer>
+    </AnimatePresence>
   )
 }
