@@ -37,7 +37,7 @@ const AWithRipple = styled.a<ColorProps>`
   align-items: center;
   height: 1.5rem;
   margin: auto 0;
-  color: ${(props) => (props.status ? 'white' : 'var(--mid-blue)')};
+  color: ${(props) => (props.status ? 'white' : 'blue')};
   text-decoration: none;
   text-transform: none;
   position: relative;
@@ -48,7 +48,7 @@ const AWithRipple = styled.a<ColorProps>`
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: ${(props) => (props.status ? 'white' : 'var(--mid-blue)')};
+    background-color: ${(props) => (props.status ? 'white' : 'blue')};
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
@@ -69,7 +69,7 @@ const AWithRipple = styled.a<ColorProps>`
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: ${(props) => (props.status ? 'white' : 'var(--mid-blue)')};
+      background-color: ${(props) => (props.status ? 'white' : 'blue')};
       visibility: visible;
       transform: scaleX(1);
       visibility: visible;
