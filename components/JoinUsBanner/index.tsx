@@ -81,7 +81,7 @@ export const JoinUsBanner: React.FC = () => {
       <Container maxWidth="lg">
         <Content>
           <LeftContent>
-            <h3>Become our team?</h3>
+            <h5>Become our team?</h5>
             <Link passHref href="/contact">
               <a>
                 <SecondaryButton>Join us</SecondaryButton>
