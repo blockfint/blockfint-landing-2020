@@ -56,59 +56,65 @@ const GlobalStyle = createGlobalStyle`
     h1{
       font-weight:600;
       font-size: 2.625rem; 
+      letter-spacing:-1.2px;
       @media ${BREAKPOINT.tablet} {
-        //tablet
+        letter-spacing:-2px;
         font-size: 4.25rem;
       }    
     
     }
 
     h2{
-      font-weight:800;
-      @media ${BREAKPOINT.tablet}{
-        //tablet
-        font-size: 2.125rem;
-      }
-
-      @media ${BREAKPOINT.desktop}{
-        //desktop
-        font-size: 2.625rem;
-      }
-      
+      font-weight:600;
       font-size: 1.625rem; 
+      letter-spacing:-0.8px;
+      @media ${BREAKPOINT.tablet}{
+        letter-spacing:-1.6px;
+        font-size: 3.375rem;
+      }     
     }
 
     h3{
-      font-weight:800;
+      font-weight:700;
+      letter-spacing:-1px;
+      font-size: 1.625rem; 
       @media ${BREAKPOINT.tablet}{
-        //tablet
-        font-size: 1.25rem;
-      }
-      @media ${BREAKPOINT.desktop}{
-        //desktop
-        font-size: 1.5rem;
+        letter-spacing: -1.2px;
+        font-size: 2.625rem;
       }
       
-      //mobile
-      font-size: 1.125rem; 
+     
     }
 
     h4{
-      font-weight:800;
+      font-weight:700;
+      font-size: 1.25rem; 
+      letter-spacing: -0.4px;
       @media ${BREAKPOINT.tablet}{
-        //desktop
-        font-size: 1.25rem;
+        letter-spacing:-1.2px;
+        font-size: 2.625rem;
       }
-      @media ${BREAKPOINT.desktop}{
-        //tablet
-        font-size: 1.25rem;
+    }
+    h5{
+      font-weight:600;
+      font-size:1rem;
+      @media ${BREAKPOINT.tablet}{
+        letter-spacing:-1px;
+        font-size: 2.625rem;
       }
-      font-size: 1.125rem; 
+    }
+    
+    h6{
+      font-weight:600;
+      font-size:1rem;
+      @media ${BREAKPOINT.tablet}{
+        letter-spacing:-1px;
+        font-size: 2.625rem;
+      }
     }
 
     p{
       @media ${BREAKPOINT.tablet}{
-        //tablet
         font-size: 1rem;
       }
       font-size:0.875rem;
