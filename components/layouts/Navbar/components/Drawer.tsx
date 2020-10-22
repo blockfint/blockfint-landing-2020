@@ -11,6 +11,8 @@ import ListItemText from '@material-ui/core/ListItemText'
 import styled, { css, keyframes } from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
+import { ReactComponent as BlockFintColor } from 'assets/logos/Blockfint-Color.svg'
+import { ReactComponent as BlockFintWhite } from 'assets/logos/Blockfint-White.svg'
 import { useIntl } from 'react-intl'
 
 type MoveProps = {
@@ -44,7 +46,7 @@ const useStyles = makeStyles({
 })
 
 const MainNav = styled(List)`
-  color: var(--mid-blue);
+  color: blue;
 
   span {
     font-family: Nunito Sans;
@@ -71,7 +73,7 @@ const MainNav = styled(List)`
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: var(--mid-blue);
+      background-color: blue;
       visibility: visible;
       transform: scaleX(1);
       visibility: visible;
@@ -85,9 +87,9 @@ const MainNav = styled(List)`
 const DrawerPosition = styled('div')`
   padding-right: 1rem;
   padding-bottom: 4px;
-  /* @media ${BREAKPOINT.tablet} {
+  @media ${BREAKPOINT.tablet} {
     padding-right: 1.5rem;
-  } */
+  }
 `
 
 const BottomTitle = styled.div`
@@ -106,16 +108,16 @@ const BottomTitle = styled.div`
       font-style: normal;
       line-height: 1.5;
       letter-spacing: normal;
-      color: var(--mid-blue);
+      color: blue;
     }
     .bottomIcons {
       margin-top: 0.6rem;
       margin-bottom: 2.2rem;
       span {
-        color: var(--mid-blue);
+        color: blue;
         margin-left: 1.75rem;
         a {
-          color: var(--mid-blue);
+          color: blue;
         }
       }
     }
@@ -135,7 +137,7 @@ const RipleMiddle = styled(ListItemText)`
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--mid-blue);
+    background-color: blue;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;

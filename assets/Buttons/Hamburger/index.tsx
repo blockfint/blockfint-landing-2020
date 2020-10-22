@@ -17,11 +17,11 @@ const StyledBurger = styled.div`
   display: flex;
   justify-content: space-around;
   flex-flow: column nowrap;
-  
+
   div {
     width: 1.5rem;
     height: 0.25rem;
-    background-color: ${({ status, toggleColor }) => (status && toggleColor ? 'white' : 'var(--mid-blue)')};
+    background-color: ${({ status, toggleColor }) => (status && toggleColor ? 'white' : 'blue')};
     /* background-color:var(--mid-blue); */
     border-radius: 10px;
     transform-origin: 1px;
@@ -47,7 +47,7 @@ export const Hamburger = (props) => {
   const Toggle = props.DrawerToggle
 
   return (
-    <div style={{paddingBottom:'2px'}}>
+    <div style={{ paddingBottom: '2px' }}>
       <StyledBurger open={Open} status={Status} toggleColor={!Toggle}>
         <div />
         <div />
