@@ -25,5 +25,12 @@ const Button = styled(motion.button)`
   }
 `
 export const SecondaryButton: React.FC = ({ children }) => {
-  return <Button whileTap={{ boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 0)', scale: 0.98 }}>{children}</Button>
+  return (
+    <Button
+      whileTap={{ boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 0)', scale: 0.98 }}
+      whileHover={{ boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 0.3)', scale: 1.02 }}
+    >
+      {children}
+    </Button>
+  )
 }

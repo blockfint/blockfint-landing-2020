@@ -23,46 +23,56 @@ const Container = styled.div`
     font-size: 1rem;
   } */
 `
-
-const Wrapper = styled(motion.div)`
+const Floating = styled.div`
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `
+
 export const GideonImage: React.FC = () => {
   const { ref, inView } = useInView()
   return (
     <Container ref={ref}>
       <Image src="images/gideon-preview.png" />
       {inView && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: 0.5
-          }}
-        >
-          <IconWrapper bottom={0} left="50%">
-            <Thunder color="#7CD55E" />
-          </IconWrapper>
-          <IconWrapper top={'10%'} left="54%" size="2em">
-            <Oval color="#00C1FF" />
-          </IconWrapper>
-          <IconWrapper top={'40%'} left="82.5%" size="1.8em">
-            <Oval color="#00C1FF" />
-          </IconWrapper>
-          <IconWrapper bottom={0} right="5%">
-            <Triangle color="#FF7278" />
-          </IconWrapper>
-          <IconWrapper bottom={'10%'} left="17.5%" size="1.2em">
-            <Oval color="#FF7278" />
-          </IconWrapper>
-          <IconWrapper top={'5%'} left="5%" size="3.5em">
-            <Oval color="#FF7278" />
-          </IconWrapper>
-        </motion.div>
+        <Floating>
+          <motion.div
+            initial={{ opacity: 0, position: 'relative', translateY: -20, height: '100%' }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{
+              delay: 0.5
+            }}
+          >
+            <IconWrapper bottom={0} left="50%">
+              <Thunder color="#7CD55E" />
+            </IconWrapper>
+            <IconWrapper top={'10%'} left="54%" size="2em">
+              <Oval color="#00C1FF" />
+            </IconWrapper>
+            <IconWrapper top={'40%'} left="82.5%" size="1.8em">
+              <Oval color="#00C1FF" />
+            </IconWrapper>
+            <IconWrapper bottom={0} right="5%">
+              <Triangle color="#FF7278" />
+            </IconWrapper>
+            <IconWrapper bottom={'10%'} left="17.5%" size="1.2em">
+              <Oval color="#FF7278" />
+            </IconWrapper>
+            <IconWrapper top={'5%'} left="5%" size="3.5em">
+              <Oval color="#FF7278" />
+            </IconWrapper>
+          </motion.div>
+        </Floating>
       )}
     </Container>
   )
 }
+
+const Wrapper = styled(motion.div)`
+  position: absolute;
+`
 
 type Position = {
   left?: number | string
