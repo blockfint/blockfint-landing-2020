@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { ReactComponent as PalmSmall } from 'assets/logos/palm-small.svg'
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
-import { GideonImage } from './components/GideonImage'
+import { PlamImage } from './components/PlamImage'
 const Content = styled.div`
   margin: 6.25rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -25,7 +25,7 @@ export const PalmSection: React.FC = () => {
   return (
     <Container maxWidth="lg">
       <Content>
-        <GideonImage />
+        <PlamImage />
         <Title style={{ color: 'var(--primary)' }}>Agri Trac</Title>
         <Title>Advance Tracablity for Agricuture Products</Title>
         <Desc>
