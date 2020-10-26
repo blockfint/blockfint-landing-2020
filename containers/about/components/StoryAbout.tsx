@@ -1,23 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BREAKPOINT } from 'assets/globalStyle'
-const Topic = styled.h1`
-  font-size: 34px;
-`
-const StyledText = styled.h1`
-  font-size: 34px;
-  color: var(--primary);
-  padding-top: 0.25rem;
+const Topic = styled.h2`
+  font-size: 2.125rem;
+  @media ${BREAKPOINT.tablet} {
+    font-size: 2.625rem;
+    letter-spacing: -1.2px;
+  }
+  @media ${BREAKPOINT.desktop} {
+    font-weight: bold;
+    line-height: 1.33;
+  }
 `
 const StyledHr = styled.hr`
   width: 86px;
   height: 2px;
   background-color: #dddddd;
+  border: 0;
 `
-const StyledH4 = styled.h4`
+const StyledH6 = styled.h6`
   font-weight: normal;
   color: #333333;
   line-height: 1.88;
+  @media ${BREAKPOINT.tablet} {
+    font-size: 1rem;
+  }
 `
 const Div = styled.div`
   display: grid;
@@ -41,21 +48,21 @@ export const StoryAbout = () => {
     <Background>
       <div>
         <Topic>The Story About</Topic>
-        <StyledText>Blockfint</StyledText>
+        <Topic style={{ color: 'var(--primary)', paddingTop: '0.25rem' }}>Blockfint</Topic>
       </div>
       <Div>
-        <h4 style={{ fontSize: '1rem', fontWeight: 600 }}>Founded in 2017</h4>
+        <h6 style={{ fontSize: '1rem', fontWeight: 600, lineHeight: 1.88 }}>Founded in 2017</h6>
         <StyledHr />
-        <StyledH4>Blockfint believes that technology belongs to all the people.</StyledH4>
-        <StyledH4>
+        <StyledH6>Blockfint believes that technology belongs to all the people.</StyledH6>
+        <StyledH6>
           We believe that everyone deserves the highest quality of technology for the sustainability and enrichment of
           life. With that faith being announced, our mission is to create a technology where all parties have equal
           accessibility.
-        </StyledH4>
-        <StyledH4>
+        </StyledH6>
+        <StyledH6>
           Our team fearlessly takes up challenging obstacles and searches for the optimum solution to promote the true
           betterment of humanity.
-        </StyledH4>
+        </StyledH6>
       </Div>
     </Background>
   )

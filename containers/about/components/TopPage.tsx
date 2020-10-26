@@ -19,7 +19,6 @@ const StyledText = styled.h1`
 export const TopPage = () => {
   return (
     <Background>
-      {/*todo*/}
       <StyledText style={{ color: 'var(--primary)' }}>Make Future Innovations Happen Today</StyledText>
       <StyledText>Through Our Products</StyledText>
     </Background>

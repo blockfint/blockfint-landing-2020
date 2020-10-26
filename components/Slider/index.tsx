@@ -96,7 +96,7 @@ const Hr = styled.hr`
   width: 20.5rem;
   height: 2px;
   background-color: #19213c;
-  border-width: 0px 1px 0 1px;
+  border: 0;
   @media ${BREAKPOINT.tablet} {
     width: 42.75rem;
   }

@@ -11,6 +11,9 @@ const Group = styled.div`
     grid-column-gap: 0.5rem;
     width: 11.75rem;
   }
+  @media ${BREAKPOINT.desktop} {
+    grid-column-gap: 1.25rem;
+  }
 `
 const Image = styled.img`
   grid-area: image;
@@ -19,15 +22,25 @@ const Image = styled.img`
     width: 5rem;
   }
 `
-const Text = styled.h4`
+const Text = styled.h5`
   color: var(--primary);
+  line-height: 1.88;
+  letter-spacing: -0.8px;
   @media ${BREAKPOINT.tablet} {
-    font-size: 16px;
+    font-size: 1rem;
+    margin-bottom: -20px;
+  }
+  @media ${BREAKPOINT.desktop} {
+    margin-bottom: 0;
   }
 `
 const StyledNumber = styled.h1`
   align-self: end;
   font-size: 34px;
+  letter-spacing: -0.8px;
+  @media ${BREAKPOINT.tablet} {
+    font-weight: bold;
+  }
 `
 const Background = styled.div`
   padding: 3.75rem 4.25rem;
@@ -47,13 +60,12 @@ export const InfoGraphic = () => {
   return (
     <Background>
       <Group>
-        {/*todo*/}
         <Image src="/employer.png" alt="employer" />
         <StyledNumber>60+</StyledNumber>
         <Text>Employee</Text>
       </Group>
       <Group>
-        <Image src="/product.svg" alt="product" />
+        <Image src="/product.png" alt="product" />
         <StyledNumber>4</StyledNumber>
         <Text>Products</Text>
       </Group>
