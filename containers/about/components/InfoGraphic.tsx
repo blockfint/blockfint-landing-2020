@@ -34,6 +34,7 @@ const Background = styled.div`
   display: grid;
   grid-template-columns: max-content;
   grid-row-gap: 2.5rem;
+  justify-content: center;
   @media ${BREAKPOINT.tablet} {
     grid-template-columns: repeat(3, max-content);
     grid-column-gap: 2.5rem;

@@ -1,4 +1,5 @@
 import { BREAKPOINT } from 'assets/globalStyle'
+import { Slider } from 'components/Slider'
 import React from 'react'
 import styled from 'styled-components'
 import { InfoGraphic } from './components/InfoGraphic'
@@ -9,13 +10,19 @@ const Image = styled.img`
   width: 100%;
   height: 340px;
 `
+const Footer = styled.div`
+overflow:hidden;
+`
 export const About = () => {
   return (
-    <div>
+    <div style={{ overflow: 'hidden' }}>
       <TopPage />
       <Image src="/office-life.png" alt="" />
       <InfoGraphic />
-      <StoryAbout/>
+      <StoryAbout />
+      <Footer>
+        <Slider />
+      </Footer>
     </div>
   )
 }
