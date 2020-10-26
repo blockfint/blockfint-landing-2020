@@ -10,16 +10,18 @@ const Background = styled.div`
   }
 `
 const StyledText = styled.h1`
-  color: var(--primary);
-  font-size: 54px;
-  letter-spacing: -1.6px;
+  font-size: 2.125rem;
+  @media ${BREAKPOINT.tablet} {
+    font-size: 3.375rem;
+    letter-spacing: -1.6px;
+  }
 `
 export const TopPage = () => {
   return (
     <Background>
       {/*todo*/}
-      <StyledText>Make Future Innovations Happen Today</StyledText>
-      <h1 style={{ fontSize: '54px', letterSpacing: '-1.6px' }}>Through Our Products</h1>
+      <StyledText style={{ color: 'var(--primary)' }}>Make Future Innovations Happen Today</StyledText>
+      <StyledText>Through Our Products</StyledText>
     </Background>
   )
 }

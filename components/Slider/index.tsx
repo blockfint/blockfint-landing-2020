@@ -17,6 +17,21 @@ const StyledMotionDiv = styled(motion.div)`
     max-width: 42.875rem;
   }
 `
+const Background = styled.div`
+  background-color: #eff6f7;
+  padding-bottom: 6.25rem;
+  @media ${BREAKPOINT.desktop} {
+    padding-bottom: 0;
+    margin-bottom: -5rem;
+  }
+`
+const SectionName = styled.h2`
+  font-size: 2.125rem;
+  text-align: center;
+  padding: 3.75rem 4.25rem;
+  @media ${BREAKPOINT.desktop} {
+  }
+`
 const Container = styled.div`
   position: relative;
   display: flex;
@@ -113,74 +128,77 @@ export const Slider: React.FC<Props> = ({ sectionName, images, description }) =>
   const positionRightPic = position
   const positionLeftPic = position * -1
   return (
-    <Container>
-      <AnimatePresence initial={false} custom={{ direction, positionLeftPic }}>
-        <StyledMotionDiv
-          key={page}
-          custom={{ direction, positionLeftPic }}
-          variants={variantsLeft}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: 'spring', stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 }
-          }}
-        >
-          <StyledImage src={images[imageIndex % images.length]} />
-          <Description>{description[imageIndex % images.length]}</Description>
-          <Hr />
-        </StyledMotionDiv>
-      </AnimatePresence>
-      <AnimatePresence initial={true} custom={{ direction, transformDesktop }}>
-        <StyledMotionDiv
-          key={page + 1}
-          // src={images[(imageIndex + 1) % images.length]}
-          custom={{ direction, transformDesktop }}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: 'spring', stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 }
-          }}
-        >
-          <StyledImage src={images[(imageIndex + 1) % images.length]} />
-          <Description>{description[(imageIndex + 1) % images.length]}</Description>
-          <Hr />
-        </StyledMotionDiv>
-      </AnimatePresence>
-      <AnimatePresence initial={true} custom={{ direction, positionRightPic }}>
-        <StyledMotionDiv
-          key={page}
-          // src={images[(imageIndex + 2) % images.length]}
-          custom={{ direction, positionRightPic }}
-          variants={variantsRight}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: 'spring', stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 }
-          }}
-        >
-          <StyledImage src={images[(imageIndex + 2) % images.length]} />
-          <Description>{description[(imageIndex + 2) % images.length]}</Description>
-          <Hr />
-        </StyledMotionDiv>
-      </AnimatePresence>
-      <StyledButton className="next" onClick={() => paginate(1)}>
-        <Button>
-          <img src="/icons/right-arrow.svg" alt="rightarrow" />
-        </Button>
-      </StyledButton>
-      <StyledButton className="prev" onClick={() => paginate(-1)}>
-        <Button>
-          <img src="/icons/left-arrow.svg" alt="leftarrow" />
-        </Button>
-      </StyledButton>
-    </Container>
+    <Background>
+      <SectionName>{sectionName}</SectionName>
+      <Container>
+        <AnimatePresence initial={false} custom={{ direction, positionLeftPic }}>
+          <StyledMotionDiv
+            key={page}
+            custom={{ direction, positionLeftPic }}
+            variants={variantsLeft}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: 'spring', stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
+            }}
+          >
+            <StyledImage src={images[imageIndex % images.length]} />
+            <Description>{description[imageIndex % images.length]}</Description>
+            <Hr />
+          </StyledMotionDiv>
+        </AnimatePresence>
+        <AnimatePresence initial={true} custom={{ direction, transformDesktop }}>
+          <StyledMotionDiv
+            key={page + 1}
+            // src={images[(imageIndex + 1) % images.length]}
+            custom={{ direction, transformDesktop }}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: 'spring', stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
+            }}
+          >
+            <StyledImage src={images[(imageIndex + 1) % images.length]} />
+            <Description>{description[(imageIndex + 1) % images.length]}</Description>
+            <Hr />
+          </StyledMotionDiv>
+        </AnimatePresence>
+        <AnimatePresence initial={true} custom={{ direction, positionRightPic }}>
+          <StyledMotionDiv
+            key={page}
+            // src={images[(imageIndex + 2) % images.length]}
+            custom={{ direction, positionRightPic }}
+            variants={variantsRight}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: 'spring', stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
+            }}
+          >
+            <StyledImage src={images[(imageIndex + 2) % images.length]} />
+            <Description>{description[(imageIndex + 2) % images.length]}</Description>
+            <Hr />
+          </StyledMotionDiv>
+        </AnimatePresence>
+        <StyledButton className="next" onClick={() => paginate(1)}>
+          <Button>
+            <img src="/icons/right-arrow.svg" alt="rightarrow" />
+          </Button>
+        </StyledButton>
+        <StyledButton className="prev" onClick={() => paginate(-1)}>
+          <Button>
+            <img src="/icons/left-arrow.svg" alt="leftarrow" />
+          </Button>
+        </StyledButton>
+      </Container>
+    </Background>
   )
 }
 // const images = ['/images/slider.png', '/images/slider2.png', '/images/slider3.png']
