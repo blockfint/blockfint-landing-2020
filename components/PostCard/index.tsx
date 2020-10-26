@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
-import { ReactComponent as Arrow } from 'assets/icons/arrow.svg'
+
 import { motion } from 'framer-motion'
+import { ArrowLink } from 'components/ArrowLink'
 const Card = styled(motion.div)`
   border-radius: 1rem;
   box-shadow: 0 8px 16px 0 #f0f3fa;
@@ -31,15 +32,7 @@ const Title = styled.h3`
   color: var(--primary);
 `
 const Desc = styled.p``
-const A = styled.a`
-  display: grid;
-  grid-gap: 0.5rem;
-  grid-template-columns: max-content max-content;
-  align-items: center;
-  text-decoration: none;
-  color: var(--primary);
-  font-weight: 600;
-`
+
 interface Props {
   title?: string
   desc?: string
@@ -54,9 +47,7 @@ export const PostCard: React.FC<Props> = ({ title, desc, link = '/', imgSrc }) =
         <Title>{title}</Title>
         <Desc>{desc}</Desc>
         <Link href={link} passHref>
-          <A>
-            See more <Arrow />
-          </A>
+          <ArrowLink>See more</ArrowLink>
         </Link>
       </Content>
     </Card>
