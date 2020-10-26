@@ -1,9 +1,13 @@
-import { PrimaryButton } from '../components/Buttons/PrimaryButton'
-import { ReactComponent as Logo } from 'assets/logos/blockfint-small.svg'
-export default function Home() {
+import { Home } from 'containers/Home'
+import { NextPage } from 'next'
+import React from 'react'
+
+const Homepage: NextPage = () => {
   return (
     <div>
-      <PrimaryButton logo={<Logo style={{ fontSize: '1.5rem' }} />}>Label</PrimaryButton>
+      <Home />
     </div>
   )
 }
+
+export default Homepage
