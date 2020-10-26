@@ -31,7 +31,7 @@ export const GideonImage: React.FC = () => {
   const { ref, inView } = useInView()
   return (
     <Container ref={ref}>
-      <Image src="images/gideon-preview.png" />
+      <Image src="images/neobank.png" />
       {inView && (
         <motion.div
           initial={{ opacity: 0 }}

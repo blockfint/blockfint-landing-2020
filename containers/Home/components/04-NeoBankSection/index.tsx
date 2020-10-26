@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { ReactComponent as NeoBankSmall } from 'assets/logos/neobank-small.svg'
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
-import { GideonImage } from './components/GideonImage'
+import { NeobankImage } from './components/NeobankImage'
 const Content = styled.div`
   margin: 6.25rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -25,7 +25,8 @@ export const NeoBankSection: React.FC = () => {
   return (
     <Container maxWidth="lg">
       <Content>
-        <GideonImage />
+        <NeobankImage />
+
         <Title style={{ color: 'var(--primary)' }}>Neo Bank</Title>
         <Title>The New Era of Banking Services</Title>
         <Desc>
