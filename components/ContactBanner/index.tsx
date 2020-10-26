@@ -85,7 +85,7 @@ export const ContactBanner: React.FC = () => {
       <Container maxWidth="lg">
         <Content>
           <LeftContent>
-            <h3>Interested to be our partner?</h3>
+            <h5>Interested to be our partner?</h5>
             <Link passHref href="/contact">
               <a>
                 <SecondaryButton>Contact us</SecondaryButton>
