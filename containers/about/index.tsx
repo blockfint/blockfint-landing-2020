@@ -21,8 +21,10 @@ export const About = () => {
       <InfoGraphic />
       <StoryAbout />
       <Footer>
-        <Slider />
+        <Slider sectionName="Achievement" images={images} description={description}/>
       </Footer>
     </div>
   )
 }
+const images = ['/images/slider.png', '/images/slider2.png', '/images/slider3.png']
+const description = ['Enjoying free lunch', 'Enjoying free lunch', 'Enjoying free lunch']
