@@ -20,6 +20,7 @@ const TagsWrapper = styled.div`
 `
 const Title = styled.h3`
   margin-bottom: 1rem;
+  max-width: 60rem;
 `
 
 const Desc = styled.p`

@@ -84,7 +84,7 @@ export const projectInfos = {
   fiderser: {
     logoSrc: 'Fiderser.png',
     tags: ['Tracability', 'Agriculture'],
-    title: 'BLOCKFINT LAUNCHES SOUTH-EAST ASIA’S FIRST BLOCKCHAIN PLATFORM FOR PALM OIL TRACEABILITY',
+    title: 'Blockfint Launches South-East Asia’s First Blockchain Platform For Palm Oil Traceability',
     description:
       'World’s first blockchain based platform for crude palm oil traceability. This pioneering solution helps PCM manufacturers to “connect the dots” across the supply-chain and trace the raw material from farm to factory, ensuring transparency and safety.',
     linkHref:
@@ -112,7 +112,7 @@ export const projectInfos = {
     logoSrc: 'CU.png',
     tags: ['Energy Trading', 'National Platform'],
     title:
-      'BLOCKFINT’S GIDEON PLATFORM TO POWER ‘SMART-CITY’ P2P ELECTRICITY TRADING AND INTELLIGENT BUILDING PILOT INITIATIVE',
+      'Blockfint’s Gideon Platform To Power ‘smart-City’ P2p Electricity Trading And Intelligent Building Pilot Initiative',
     description:
       'Memorandum of Understanding signed with project partners Chulalongkorn University, Energy Absolute and Metropolitan Electricity Authority on 17 December 2019.',
     benefits: [
@@ -168,9 +168,8 @@ Application MorChana will collect use and disseminate only necessary data to pro
   },
 
   tbma: {
-    // ! need logo
     tags: ['Financial', 'Digital Bond'],
-    logoSrc: 'SE.svg',
+    logoSrc: 'BMA.png',
     title: 'First Thai Digital Bond Market Platform',
     description:
       'A decentralized system for storing debt securities. The system leverages blockchain technology. Launched first phase of the project covering bond booking, smart bonds, ePassbook with bond holder details and a management system.',
