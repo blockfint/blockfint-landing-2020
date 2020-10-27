@@ -26,5 +26,5 @@ export const About = () => {
     </div>
   )
 }
-const images = ['/images/slider.png', '/images/slider2.png', '/images/slider3.png']
+const images = ['/images/slide1.jpg', '/images/slide2.jpg', '/images/slide3.jpg']
 const description = ['Enjoying free lunch', 'Enjoying free lunch', 'Enjoying free lunch']

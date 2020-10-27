@@ -15,9 +15,9 @@ export const useWindow = () => {
       const tablet = window.matchMedia(`(min-width: ${SIZE.tablet})`)
       const desktop = window.matchMedia(`(min-width: ${SIZE.desktop})`)
       tablet.addListener(setSize)
-      // desktop.addListener(setSize)
+      desktop.addListener(setSize)
       setSize(tablet)
-      // setSize(desktop)
+      setSize(desktop)
     }
   }, [isWindowClient, setWindowSize])
   return windowSize
