@@ -1,4 +1,5 @@
 import { BREAKPOINT } from 'assets/globalStyle'
+import { ContactBanner } from 'components/ContactBanner'
 import { Slider } from 'components/Slider'
 import React from 'react'
 import styled from 'styled-components'
@@ -11,7 +12,7 @@ const Image = styled.img`
   height: 340px;
 `
 const Footer = styled.div`
-overflow:hidden;
+  overflow: hidden;
 `
 export const About = () => {
   return (
@@ -21,8 +22,9 @@ export const About = () => {
       <InfoGraphic />
       <StoryAbout />
       <Footer>
-        <Slider sectionName="Achievement" images={images} description={description}/>
+        <Slider sectionName="Achievement" images={images} description={description} />
       </Footer>
+      <ContactBanner />
     </div>
   )
 }
