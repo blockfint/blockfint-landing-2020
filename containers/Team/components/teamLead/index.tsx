@@ -27,10 +27,43 @@ const Background = styled.div`
 
 const Content = styled.div`
   padding: 8.25rem 0;
+  a {
+    text-decoration: none;
+    color: black;
+  }
   img {
-    margin-top: 40px;
+    display: block;
+    object-fit: contain;
     width: 15.25rem;
   }
+  .PictureOverlay {
+    position: relative;
+    margin: 2.5rem auto 0;
+    width: 15.25rem;
+    /* width: 100%; */
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 15.25rem;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: black;
+  }
+
+  .PictureOverlay:hover .overlay {
+    opacity: 0.75;
+  }
+  .text {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+  }
+
   .TeamLeadPic {
     h5 {
       padding-top: 0.5rem;
@@ -41,8 +74,14 @@ const Content = styled.div`
     }
   }
   @media ${BREAKPOINT.tablet} {
-    padding: 12rem 0;
+    /* padding: 12rem 0; */
     img {
+      width: 100%;
+    }
+    .PictureOverlay {
+      width: 10.25rem;
+    }
+    .overlay {
       width: 10.25rem;
     }
     .TeamLeadPic {
@@ -63,7 +102,13 @@ const Content = styled.div`
   @media ${BREAKPOINT.desktop} {
     min-height: 100vh;
     img {
-      width: 16.875rem;
+      width: 100%;
+    }
+    .PictureOverlay {
+      width: 16.25rem;
+    }
+    .overlay {
+      width: 16.25rem;
     }
     .TeamLeadPic {
       padding-top: 6.25rem;
@@ -89,20 +134,39 @@ const Title = styled.h1`
   }
 `
 
-const Desc = styled.p`
-  line-height: 1.88;
-  margin: 1.5rem auto 2.5rem;
+const Name_Positions = [
+  { name: 'Suttipong Kanakakorn', position: 'CEO', picture: 'num2X.jpg', key: 1 },
+  { name: 'Shimmy Thomas', position: 'Business Development', picture: 'mock.png', key: 2 },
+  { name: 'Wichai Patipaporn', position: 'Architecture', picture: 'mock.png', key: 3 },
+  { name: 'Ponlawat Tantivongampa', position: 'Project Management Director', picture: 'oak2X.png', key: 4 },
+  { name: 'Suwanna Nimitsurachart', position: 'Business Development', picture: 'suwan2X.png', key: 5 },
+  { name: 'Rattanapong Chairukwattana', position: 'CTO', picture: 'pae.png', key: 6 }
+]
 
-  @media ${BREAKPOINT.tablet} {
-    margin: 1.5rem auto 3.75rem;
-    padding: 0 7rem;
-  }
-  @media ${BREAKPOINT.desktop} {
-    max-width: 46rem;
-  }
-`
-
+const ImageOverlays: React.FC<{ picture: string }> = ({ picture }) => {
+  return (
+    <div className="PictureOverlay">
+      <img src={`/images/${picture}`} alt="Avatar" />
+      <div className="overlay">
+        <div className="text">Hello World</div>
+      </div>
+    </div>
+  )
+}
 export const TeamLead: React.FC = () => {
+  const FullDetail = Name_Positions.map((FullDetailItems) => {
+    return (
+      <div>
+        <Link passHref href="/teamDetail">
+          <a>
+            <ImageOverlays picture={FullDetailItems.picture} />
+            <h5>{FullDetailItems.name}</h5>
+            <h5 className="Position">{FullDetailItems.position}</h5>
+          </a>
+        </Link>
+      </div>
+    )
+  })
   return (
     <Background>
       <Container maxWidth="lg">
@@ -111,38 +175,7 @@ export const TeamLead: React.FC = () => {
             <Title>Strong Team and </Title>
             <Title style={{ color: '#19213c' }}>Unique Working Environment</Title>
           </div>
-          <div className="TeamLeadPic">
-            <div>
-              <img src={'/images/rectangle2x.jpg'} />
-              <h5>Suttipong Kanakakorn</h5>
-              <h5 className="Position">CEO</h5>
-            </div>
-            <div>
-              <img src={'/images/mock.png'} />
-              <h5>Shimmy Thomas</h5>
-              <h5 className="Position">Business Development</h5>
-            </div>
-            <div>
-              <img src={'/images/mock.png'} />
-              <h5>Wichai Patipaporn</h5>
-              <h5 className="Position">Architecture</h5>
-            </div>
-            <div>
-              <img src={'/images/oak2X.png'} />
-              <h5>Ponlawat Tantivongampa</h5>
-              <h5 className="Position">Project Management Director</h5>
-            </div>
-            <div>
-              <img src={'/images/suwan2X.png'} />
-              <h5>Suwanna Nimitsurachart</h5>
-              <h5 className="Position">Business Development</h5>
-            </div>
-            <div>
-              <img src={'/images/pae.png'} />
-              <h5>Rattanapong Chairukwattana</h5>
-              <h5 className="Position">CTO</h5>
-            </div>
-          </div>
+          <div className="TeamLeadPic">{FullDetail}</div>
         </Content>
       </Container>
     </Background>
