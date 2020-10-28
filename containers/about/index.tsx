@@ -18,7 +18,7 @@ export const About = () => {
   return (
     <div style={{ overflow: 'hidden' }}>
       <TopPage />
-      <Image src="/office-life.png" alt="" />
+      <Image src="images/blockfint-company.jpg" alt="blockfint-company" />
       <InfoGraphic />
       <StoryAbout />
       <Footer>
