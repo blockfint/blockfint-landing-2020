@@ -1,10 +1,16 @@
-import { Container } from '@material-ui/core'
 import React from 'react'
-import { ProductDetail } from 'templates/productDetail'
-
+import styled from 'styled-components'
+import { ProductConclusion } from 'components/productConclusion'
+import { ProductDetail } from 'components/productDetail'
+import Image from 'next/image'
+const Wrapper = styled.div`
+  margin: 0 auto;
+  justify-content: center;
+  display: flex;
+`
 export const ProductGideon: React.FC = () => {
   return (
-    <Container maxWidth="lg">
+    <>
       <ProductDetail
         {...{
           name: 'Gideon',
@@ -13,9 +19,19 @@ export const ProductGideon: React.FC = () => {
             'Imagine a world where producers and buyers trade smartly with ease in a trusted secure environment. With the advent of blockchain technology, we realized such an environment could be built, a digital marketplace where people are empowered to transact without barriers. ',
           linkHref: 'https://gideon.energy',
           secondaryTitle:
-            'The multi-dimensional energy trading platform where everyone can easily buy and sell electrical energy.'
+            'The multi-dimensional energy trading platform where everyone can easily buy and sell electrical energy.',
+          youtube: '0JO1ovT4Nvo'
         }}
+      >
+        <Wrapper>
+          <Image src="/images/products/diagram-gideon.svg" width={937.5} height={625} />
+        </Wrapper>
+      </ProductDetail>
+
+      <ProductConclusion
+        problem="with the lack of systematic energy transaction platform, the excession of electrical energy that already had produced will be wasted."
+        solution="Gideon is the platform where everyone can utilize excess solar energy and be a part of green society with the systematic transaction implementation."
       />
-    </Container>
+    </>
   )
 }
