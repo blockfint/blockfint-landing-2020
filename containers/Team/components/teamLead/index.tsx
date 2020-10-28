@@ -1,6 +1,7 @@
 import { Container } from '@material-ui/core'
 import React from 'react'
 import styled from 'styled-components'
+import Vector from 'assets/icons/atoms-icon-link.svg'
 import { BREAKPOINT } from 'assets/globalStyle'
 import Link from 'next/link'
 const Background = styled.div`
@@ -59,9 +60,18 @@ const Content = styled.div`
     opacity: 0.75;
   }
   .text {
+    display: flex;
+    align-items: center;
     color: white;
     font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 25%;
     text-align: center;
+    img {
+      width: 2rem;
+      padding-left: 0.5rem;
+    }
   }
 
   .TeamLeadPic {
@@ -135,18 +145,18 @@ const Title = styled.h1`
 `
 
 const Name_Positions = [
-  { name: 'Suttipong Kanakakorn', path: 'Suttipong', position: 'CEO', picture: 'num2X.jpg', key: 1 },
-  { name: 'Shimmy Thomas', path: 'Thomas', position: 'Business Development', picture: 'mock.png', key: 2 },
-  { name: 'Wichai Patipaporn', path: 'Wichai', position: 'Architecture', picture: 'wichai2X.png', key: 3 },
+  { name: 'Suttipong Kanakakorn', path: 'suttipong', position: 'CEO', picture: 'num2X.jpg', key: 1 },
+  { name: 'Shimmy Thomas', path: 'thomas', position: 'Business Development', picture: 'Thomas.png', key: 2 },
+  { name: 'Wichai Patipaporn', path: 'wichai', position: 'Architecture', picture: 'wichai2X.png', key: 3 },
   {
     name: 'Ponlawat Tantivongampa',
-    path: 'Ponlawat',
+    path: 'ponlawat',
     position: 'Project Management Director',
     picture: 'oak2X.png',
     key: 4
   },
-  { name: 'Suwanna Nimitsurachart', path: 'Suwanna', position: 'Business Development', picture: 'suwan2X.png', key: 5 },
-  { name: 'Rattanapong Chairukwattana', path: 'Rattanapong', position: 'CTO', picture: 'pae3X.png', key: 6 }
+  { name: 'Suwanna Nimitsurachart', path: 'suwanna', position: 'Business Development', picture: 'suwan2X.png', key: 5 },
+  { name: 'Rattanapong Chairukwattana', path: 'rattanapong', position: 'CTO', picture: 'pae3X.png', key: 6 }
 ]
 
 const ImageOverlays: React.FC<{ picture: string }> = ({ picture }) => {
@@ -154,7 +164,9 @@ const ImageOverlays: React.FC<{ picture: string }> = ({ picture }) => {
     <div className="PictureOverlay">
       <img src={`/images/${picture}`} alt="Avatar" />
       <div className="overlay">
-        <div className="text">Hello World</div>
+        <div className="text">
+          Read Bio <img src={Vector} className="Vector" />
+        </div>
       </div>
     </div>
   )
@@ -163,7 +175,7 @@ export const TeamLead: React.FC = () => {
   const FullDetail = Name_Positions.map((FullDetailItems) => {
     return (
       <div>
-        <Link passHref href={`/teamDetail/${FullDetailItems.path}`}>
+        <Link passHref href={`/team/${FullDetailItems.path}`}>
           <a>
             <ImageOverlays picture={FullDetailItems.picture} />
             <h5>{FullDetailItems.name}</h5>

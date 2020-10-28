@@ -1,15 +1,12 @@
 import { Container } from '@material-ui/core'
 import React from 'react'
+import { PeopleInfo } from 'contents/PeopleInfo'
 import styled from 'styled-components'
 import { BREAKPOINT } from 'assets/globalStyle'
 import MailIcon from 'assets/icons/atoms-icon-mail.svg'
 import { LinkButton } from 'components/Buttons'
 import Link from 'next/link'
 import { ParsedUrlQuery } from 'querystring'
-
-interface names {
-  name: ParsedUrlQuery
-}
 
 const Background = styled.div`
   min-height: 42rem;
@@ -160,11 +157,24 @@ const ContainerButton = styled(Container)`
   }
 `
 
-const ImageOverlay = () => {
-  return <Person src={'/images/num2X.jpg'} alt="Credit by Poster" />
-}
-
-export const TeamDetailpage: React.FC<names> = ({ name }) => {
+export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, imgSrc, contact }) => {
+  const ImageOverlay = () => {
+    return <Person src={`/images/${imgSrc}`} alt="Credit by Poster" />
+  }
+  const ContactDetail = () => {
+    if (contact) {
+      return (
+        <div style={{ display: 'flex', alignItems: 'start' }}>
+          <div style={{ paddingTop: '0.3rem', paddingRight: '0.5rem' }}>
+            <img src={MailIcon} className="mailIcon" />
+          </div>
+          {contact}
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
   return (
     <Background>
       <ContainerButton>
@@ -181,40 +191,13 @@ export const TeamDetailpage: React.FC<names> = ({ name }) => {
           <Content>
             <div className="TeamLeadPic">
               <div className="Info">
-                <h5 className="Name">Suttipong Kanakakorn</h5>
-                <h5 className="Position">CEO</h5>
-                <h6 className="Story">
-                  <div>
-                    “Nick” is a technology wizard. He dreams about tech even in his sleep!. Before founding Blockfint,
-                    he worked with large multinational tech companies in the US leading their product development
-                    efforts for over 25 years. He is a passionate fitness enthusiast competing himself and stretching
-                    his physical limits.
-                    <br />
-                    <br />
-                  </div>
-                  <div>
-                    His fitness passion has taken him across the world participating in Iron Man and Marathons. He is
-                    humble in his conquests. He is also our resident Blockchain guru and can talk technology and
-                    business with ease.
-                    <br />
-                    <br />
-                  </div>
-                  <div>
-                    His brilliance and humility has made the startup strong and successful and clients love us for our
-                    grit and determination and passion to deliver the best. He is also our part-time barista serving the
-                    best coffee to our coffee loving Blockfinters’.
-                    <br />
-                  </div>
-                </h6>
+                <h5 className="Name">{name}</h5>
+                <h5 className="Position">{position}</h5>
+                <h6 className="Story">{desc}</h6>
               </div>
               <div className="Contact">
-                <h6>Reach out to him at</h6>
                 <h6>
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <img src={MailIcon} className="mailIcon" />
-                    Nick@blockfint.com <br />
-                  </div>
-                  and he will be happy to have a technology infused coffee with you anytime.
+                  <ContactDetail />
                 </h6>
               </div>
             </div>
