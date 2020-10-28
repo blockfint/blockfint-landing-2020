@@ -1,5 +1,3 @@
-import { m } from 'framer-motion'
-
 export interface Benefit {
   iconSrc: string
   title: string
