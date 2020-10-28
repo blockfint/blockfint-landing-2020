@@ -1,7 +1,9 @@
-import { BREAKPOINT } from 'assets/globalStyle'
 import React from 'react'
 import styled from 'styled-components'
+import { BREAKPOINT } from 'assets/globalStyle'
 import { ProjectCard } from './components/ProjectCard'
+import { projectInfos } from 'contents/projects'
+
 const StoryContainer = styled.div`
   padding: 3.5625rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -60,6 +62,7 @@ const Div = styled.div`
   }
 `
 export const SuccessStory = () => {
+  const projectData = projectInfos
   return (
     <StoryContainer>
       <Topic>Success Stories</Topic>
@@ -67,44 +70,40 @@ export const SuccessStory = () => {
         <H5>Blockfint project includes:</H5>
         <Hr />
         <ProjectContainer>
-          {projectList?.map((project) => (
-            <ProjectCard project={project} />
-          ))}
+          {projectPath?.map(({ projectId, link }) => {
+            const {title,tags} = projectData[projectId]
+            return <ProjectCard project={{title,link,tags}} />
+          })}
+          {}
         </ProjectContainer>
       </Div>
     </StoryContainer>
   )
 }
 
-const projectList = [
+const projectPath = [
   {
-    tags: ['National Platform'],
-    name: 'Digital Identity for all',
-    link: ''
+    projectId: 'ndid',
+    link: '/projects/ndid'
   },
   {
-    tags: ['Traceability', 'Agriculture'],
-    name: 'Blockfint launches south-east asia’s first blockchain platform',
-    link: ''
+    projectId: 'fiderser',
+    link: '/projects/fiderser'
   },
   {
-    tags: ['Traceability', 'National Platform'],
-    name: 'Morchana - COVID-19 Traceability  (Part of Volunteer team)',
-    link: ''
+    projectId: 'morchana',
+    link: '/projects/morchana'
   },
   {
-    tags: ['Financial', 'Digital Bond'],
-    name: 'PDMO readies 2nd batch of 1-baht savings bonds',
-    link: ''
+    projectId: 'thila',
+    link: '/projects/thila'
   },
   {
-    tags: ['Energy Trading', 'National Platform'],
-    name: 'Blockfint ’s Gideon platform to power electricity trading and intelligent building pilot',
-    link: ''
+    projectId: 'cu',
+    link: '/projects/cu'
   },
   {
-    tags: ['Financial', 'Digital Bond'],
-    name: 'First Thai digital bond market platform',
-    link: ''
+    projectId: 'tbma',
+    link: '/projects/tbma'
   }
 ]

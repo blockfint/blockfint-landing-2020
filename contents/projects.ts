@@ -81,7 +81,7 @@ export const projectInfos = {
 
   fiderser: {
     logoSrc: 'Fiderser.png',
-    tags: ['Tracability', 'Agriculture'],
+    tags: ['Traceability', 'Agriculture'],
     title: 'Blockfint Launches South-East Asia’s First Blockchain Platform For Palm Oil Traceability',
     description:
       'World’s first blockchain based platform for crude palm oil traceability. This pioneering solution helps PCM manufacturers to “connect the dots” across the supply-chain and trace the raw material from farm to factory, ensuring transparency and safety.',
@@ -135,7 +135,7 @@ export const projectInfos = {
 
   morchana: {
     logoSrc: 'DGA.png',
-    tags: ['Volunteer', 'National Platform', 'Tracablility'],
+    tags: ['National Platform', 'Traceability'],
     title: 'Morchana - COVID-19 Tracability  (Part of Volunteer team)',
     description: `
     Application MorChana is a tool to assist Medical Staffs, Government Agencies, Business Owners, and most importantly, YOU in taking care and protect oneself from the spread of COVID-19

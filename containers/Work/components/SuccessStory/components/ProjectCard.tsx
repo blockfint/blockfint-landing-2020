@@ -15,7 +15,11 @@ const TagGroup = styled.div`
   display: inline-flex;
   padding-bottom: 0.75rem;
 `
-const Name = styled.h4`
+const Title = styled.h4`
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   line-height: 1.8;
   @media ${BREAKPOINT.tablet} {
     font-size: 1.25rem;
@@ -26,11 +30,11 @@ const Name = styled.h4`
 interface Props {
   project: {
     tags: string[]
-    name: string
+    title: string
     link: string
   }
 }
-export const ProjectCard: React.FC<Props> = ({ project: { tags, name, link } }) => {
+export const ProjectCard: React.FC<Props> = ({ project: { tags, title, link } }) => {
   return (
     <Box>
       <TagGroup>
@@ -42,7 +46,7 @@ export const ProjectCard: React.FC<Props> = ({ project: { tags, name, link } }) 
           )
         )}
       </TagGroup>
-      <Name>{name}</Name>
+      <Title>{title}</Title>
       <Link href={link} passHref>
         <ArrowLink>See the project</ArrowLink>
       </Link>

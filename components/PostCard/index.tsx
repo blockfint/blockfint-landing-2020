@@ -64,7 +64,7 @@ interface Props {
 }
 export const PostCard: React.FC<Props> = ({ title, desc, link = '/', imgSrc }) => {
   return (
-    <Card initial={{ scale: 1 }} whileHover={{ scale: 1 }} whileTap={{ backgroundColor: '#f3f3f3' }}>
+    <Card initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} whileTap={{ backgroundColor: '#f3f3f3' }}>
       <Image src={imgSrc} />
       <Content>
         <Title>{title}</Title>
