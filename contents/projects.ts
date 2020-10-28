@@ -136,8 +136,7 @@ export const projectInfos = {
   },
 
   morchana: {
-    // ! need logo
-    logoSrc: 'SE.svg',
+    logoSrc: 'DGA.png',
     tags: ['Volunteer', 'National Platform', 'Tracablility'],
     title: 'Morchana - COVID-19 Tracability  (Part of Volunteer team)',
     description: `
