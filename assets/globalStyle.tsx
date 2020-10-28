@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
 --primary-2:#eff6f7;
 --secondary:#f7941d;
 
---gradient-gideon:  radial-gradient(circle at 100% 0, var(--blockfint-secondary-yellow-mellow-2), #fb8900 100%);
+--gradient-gideon:  radial-gradient(circle at 100% 0, #ebcc72, #fb8900 100%);
 --gradient-neo-bank:  radial-gradient(circle at 100% 0, #00ace8, #2f3396);
 --gradient-palm:  radial-gradient(circle at 100% 0, #38ef7d, #11998e);
 --gradient-thinker:  radial-gradient(circle at 100% 0, #0ea4c8, #097f9c);
@@ -55,66 +55,72 @@ const GlobalStyle = createGlobalStyle`
       overflow-x:hidden;
     h1{
       font-weight:600;
-      font-size: 2.625rem; 
+      font-size: 2.625rem;
+      letter-spacing:-1.2px;
       @media ${BREAKPOINT.tablet} {
-        //tablet
+        letter-spacing:-2px;
         font-size: 4.25rem;
-      }    
-    
+      }
+
     }
 
     h2{
-      font-weight:800;
+      font-weight:600;
+      font-size: 1.625rem;
+      letter-spacing:-0.8px;
       @media ${BREAKPOINT.tablet}{
-        //tablet
-        font-size: 2.125rem;
+        letter-spacing:-1.6px;
+        font-size: 3.375rem;
       }
-
-      @media ${BREAKPOINT.desktop}{
-        //desktop
-        font-size: 2.625rem;
-      }
-      
-      font-size: 1.625rem; 
     }
 
     h3{
-      font-weight:800;
+      font-weight:700;
+      letter-spacing:-1px;
+      font-size: 1.625rem;
       @media ${BREAKPOINT.tablet}{
-        //tablet
-        font-size: 1.25rem;
+        letter-spacing: -1.2px;
+        font-size: 2.625rem;
       }
-      @media ${BREAKPOINT.desktop}{
-        //desktop
-        font-size: 1.5rem;
-      }
-      
-      //mobile
-      font-size: 1.125rem; 
+
+
     }
 
     h4{
-      font-weight:800;
+      font-weight:700;
+      font-size: 1.25rem;
+      letter-spacing: -0.4px;
       @media ${BREAKPOINT.tablet}{
-        //desktop
+        letter-spacing:-1.2px;
+        font-size: 2.125rem;
+      }
+    }
+    h5{
+      font-weight:600;
+      font-size:1rem;
+      @media ${BREAKPOINT.tablet}{
+        letter-spacing:-1px;
+        font-size: 1.625rem;
+      }
+    }
+
+    h6{
+      font-weight:600;
+      font-size:1rem;
+      @media ${BREAKPOINT.tablet}{
+        letter-spacing:-1px;
         font-size: 1.25rem;
       }
-      @media ${BREAKPOINT.desktop}{
-        //tablet
-        font-size: 1.25rem;
-      }
-      font-size: 1.125rem; 
     }
 
     p{
       @media ${BREAKPOINT.tablet}{
-        //tablet
         font-size: 1rem;
       }
       font-size:0.875rem;
     }
   }
-  
+
 `
 
 export const AllStyleProvider: React.FC = ({ children }) => (
