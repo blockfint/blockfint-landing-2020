@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { useInView } from 'react-intersection-observer'
 const Image = styled.img`
-  max-width: 100vw;
+  max-width: 95vw;
 `
 const Container = styled.div`
   position: relative;

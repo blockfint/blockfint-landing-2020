@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { ReactComponent as ThinkerSmall } from 'assets/logos/thinker-small.svg'
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
-import { GideonImage } from './components/GideonImage'
+import { ThinkerImage } from './components/ThinkerImage'
 const Content = styled.div`
   margin: 6.25rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -25,7 +25,7 @@ export const ThinkerSection: React.FC = () => {
   return (
     <Container maxWidth="lg">
       <Content>
-        <GideonImage />
+        <ThinkerImage />
         <Title style={{ color: 'var(--primary)' }}>Thinker</Title>
         <Title>Make Rapid, Optimized & Data Driven Decision </Title>
         <Desc>Leading change of processes with data-driven tool that wil change the way of working forever.</Desc>
