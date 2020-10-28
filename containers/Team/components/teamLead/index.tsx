@@ -135,12 +135,18 @@ const Title = styled.h1`
 `
 
 const Name_Positions = [
-  { name: 'Suttipong Kanakakorn', position: 'CEO', picture: 'num2X.jpg', key: 1 },
-  { name: 'Shimmy Thomas', position: 'Business Development', picture: 'mock.png', key: 2 },
-  { name: 'Wichai Patipaporn', position: 'Architecture', picture: 'mock.png', key: 3 },
-  { name: 'Ponlawat Tantivongampa', position: 'Project Management Director', picture: 'oak2X.png', key: 4 },
-  { name: 'Suwanna Nimitsurachart', position: 'Business Development', picture: 'suwan2X.png', key: 5 },
-  { name: 'Rattanapong Chairukwattana', position: 'CTO', picture: 'pae.png', key: 6 }
+  { name: 'Suttipong Kanakakorn', path: 'Suttipong', position: 'CEO', picture: 'num2X.jpg', key: 1 },
+  { name: 'Shimmy Thomas', path: 'Thomas', position: 'Business Development', picture: 'mock.png', key: 2 },
+  { name: 'Wichai Patipaporn', path: 'Wichai', position: 'Architecture', picture: 'wichai2X.png', key: 3 },
+  {
+    name: 'Ponlawat Tantivongampa',
+    path: 'Ponlawat',
+    position: 'Project Management Director',
+    picture: 'oak2X.png',
+    key: 4
+  },
+  { name: 'Suwanna Nimitsurachart', path: 'Suwanna', position: 'Business Development', picture: 'suwan2X.png', key: 5 },
+  { name: 'Rattanapong Chairukwattana', path: 'Rattanapong', position: 'CTO', picture: 'pae3X.png', key: 6 }
 ]
 
 const ImageOverlays: React.FC<{ picture: string }> = ({ picture }) => {
@@ -157,7 +163,7 @@ export const TeamLead: React.FC = () => {
   const FullDetail = Name_Positions.map((FullDetailItems) => {
     return (
       <div>
-        <Link passHref href="/teamDetail">
+        <Link passHref href={`/teamDetail/${FullDetailItems.path}`}>
           <a>
             <ImageOverlays picture={FullDetailItems.picture} />
             <h5>{FullDetailItems.name}</h5>

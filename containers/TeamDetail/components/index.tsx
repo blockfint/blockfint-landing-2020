@@ -5,6 +5,11 @@ import { BREAKPOINT } from 'assets/globalStyle'
 import MailIcon from 'assets/icons/atoms-icon-mail.svg'
 import { LinkButton } from 'components/Buttons'
 import Link from 'next/link'
+import { ParsedUrlQuery } from 'querystring'
+
+interface names {
+  name: ParsedUrlQuery
+}
 
 const Background = styled.div`
   min-height: 42rem;
@@ -34,21 +39,21 @@ const Content = styled.div`
     width: 1.5rem;
     padding-right: 4px;
   }
+  h6 {
+    color: var(--black);
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.88;
+    letter-spacing: normal;
+  }
   .TeamLeadPic {
     h5 {
       text-align: left;
     }
-    h6 {
-      color: grey;
-      text-align: left;
-      font-family: Montserrat;
-      font-size: 16px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.88;
-      letter-spacing: normal;
-    }
+
     .Name {
       padding-top: 1.5rem;
     }
@@ -59,6 +64,9 @@ const Content = styled.div`
     }
     .Info {
       padding-bottom: 1.875rem;
+      .story {
+        text-align: left;
+      }
     }
     .Contact {
       padding-bottom: 3.75rem;
@@ -67,6 +75,9 @@ const Content = styled.div`
   }
   @media ${BREAKPOINT.tablet} {
     .TeamLeadPic {
+      .Story {
+        max-width: 28.25rem;
+      }
       .Name {
         padding-top: 0;
       }
@@ -76,24 +87,26 @@ const Content = styled.div`
       }
     }
   }
-  @media ${BREAKPOINT.desktop} {
+  @media ${BREAKPOINT.desktopHd} {
     .TeamLeadPic {
       .Story {
-        max-width: 28.25rem;
+        max-width: 39.25rem;
       }
     }
   }
-  text-align: center;
+  /* text-align: center; */
 `
 
 const Person = styled.img`
   width: 100%;
-
   @media ${BREAKPOINT.tablet} {
     width: 15.7rem;
   }
   @media ${BREAKPOINT.desktop} {
     width: 23.125rem;
+  }
+  @media ${BREAKPOINT.desktopHd} {
+    width: 28.125rem;
   }
 `
 
@@ -101,7 +114,7 @@ const Layout = styled.div`
   @media ${BREAKPOINT.tablet} {
     padding-top: 4.125rem;
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 1fr 1fr;
     /* grid-column-gap: 2.5rem; */
   }
   @media ${BREAKPOINT.desktop} {
@@ -122,9 +135,13 @@ const ContainerPicture = styled(Container)`
       padding-top: 0;
     }
   }
+  @media ${BREAKPOINT.desktop} {
+    &&& {
+      padding-left: 8.4375rem;
+    }
+  }
 `
 const ContainerButton = styled(Container)`
-  background-color: lightgrey;
   &&& {
     padding: 1rem;
   }
@@ -144,10 +161,10 @@ const ContainerButton = styled(Container)`
 `
 
 const ImageOverlay = () => {
-  return <Person src={'/images/rectangle2x.jpg'} alt="Avatar" />
+  return <Person src={'/images/num2X.jpg'} alt="Credit by Poster" />
 }
 
-export const TeamDetailpage: React.FC = () => {
+export const TeamDetailpage: React.FC<names> = ({ name }) => {
   return (
     <Background>
       <ContainerButton>
@@ -170,8 +187,8 @@ export const TeamDetailpage: React.FC = () => {
                   <div>
                     “Nick” is a technology wizard. He dreams about tech even in his sleep!. Before founding Blockfint,
                     he worked with large multinational tech companies in the US leading their product development
-                    efforts for over 25years. He is a passionate fitness enthusiast competing himself and stretching his
-                    physical limits.
+                    efforts for over 25 years. He is a passionate fitness enthusiast competing himself and stretching
+                    his physical limits.
                     <br />
                     <br />
                   </div>
