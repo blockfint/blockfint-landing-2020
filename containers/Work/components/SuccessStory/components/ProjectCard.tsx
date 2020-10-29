@@ -40,9 +40,10 @@ export const ProjectCard: React.FC<Props> = ({ project: { tags, title, link } })
       <TagGroup>
         {tags?.map(
           (
-            tag: 'Traceability' | 'National Platform' | 'Agriculture' | 'Financial' | 'Digital Bond' | 'Energy Trading'
+            tag: 'Traceability' | 'National Platform' | 'Agriculture' | 'Financial' | 'Digital Bond' | 'Energy Trading',
+            index
           ) => (
-            <ChipTag label={tag} style={{ marginRight: '0.5rem' }} />
+            <ChipTag label={tag} style={{ marginRight: '0.5rem' }} key={tag + index} />
           )
         )}
       </TagGroup>
