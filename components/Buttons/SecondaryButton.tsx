@@ -1,5 +1,5 @@
 import { BREAKPOINT } from 'assets/globalStyle'
-import { motion } from 'framer-motion'
+import { HTMLMotionProps, motion } from 'framer-motion'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -24,9 +24,13 @@ const Button = styled(motion.button)`
     outline: none;
   }
 `
-export const SecondaryButton: React.FC = ({ children }) => {
+type Props = {
+  onClick?: () => void
+}
+export const SecondaryButton: React.FC<Props> = ({ children, onClick }) => {
   return (
     <Button
+      onClick={onClick}
       whileTap={{ boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 0)', scale: 0.98 }}
       whileHover={{ boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 0.3)', scale: 1.02 }}
     >

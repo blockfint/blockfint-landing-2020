@@ -34,8 +34,10 @@ const StyleHeroTop = styled(HeroTop)`
   top: -0.5em;
   z-index: -1;
   font-size: clamp(11rem, 20vw, 17rem);
+  color: #f4f4f4;
 `
 const StyleHeroBottom = styled(HeroBottom)`
+  color: #f4f4f4;
   position: absolute;
   bottom: -10%;
   right: 0;

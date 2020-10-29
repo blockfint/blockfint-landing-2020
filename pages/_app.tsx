@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import { AllStyleProvider } from 'assets/globalStyle'
 import React from 'react'
+
+import { ContactDialog } from 'components/ContactDialog'
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -10,8 +12,11 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
+
       <AllStyleProvider>
-        <Component {...pageProps} />
+        <ContactDialog>
+          <Component {...pageProps} />
+        </ContactDialog>
       </AllStyleProvider>
     </>
   )
