@@ -28,7 +28,7 @@ const TwoColumn = styled.div`
   max-height: 75vh;
   overflow-y: auto;
   display: grid;
-  grid-gap: 1.5rem;
+  grid-gap: 1.75rem 1.5rem;
   @media ${BREAKPOINT.tablet} {
     grid-gap: 1.75rem 1.25rem;
     grid-auto-rows: 3rem;
@@ -173,8 +173,13 @@ export const FormContent: React.FC = () => {
                         }}
                       >
                         <option value="" disabled></option>
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
+                        {['Agri Trac', 'Gideon', 'Neo Bank', 'Thinker'].map((value) => (
+                          <option value={value} key={value}>
+                            {value}
+                          </option>
+                        ))}
+
+                        <option value="Others">Others</option>
                       </OutlineTextField>
                     }
                     control={control}
@@ -193,8 +198,24 @@ export const FormContent: React.FC = () => {
                         }}
                       >
                         <option value="" disabled></option>
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
+                        {[
+                          'Agency',
+                          'Business Consultant',
+                          'Design',
+                          'Entertainment',
+                          'Finance & Banking',
+                          'Food & Berverage',
+                          'Health Care',
+                          'Innovation & Technology',
+                          'Insurance',
+                          'News',
+                          'Real Estate'
+                        ].map((value) => (
+                          <option value={value} key={value}>
+                            {value}
+                          </option>
+                        ))}
+                        <option value="Others">Others</option>
                       </OutlineTextField>
                     }
                     control={control}
