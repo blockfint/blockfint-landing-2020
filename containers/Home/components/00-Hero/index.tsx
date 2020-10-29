@@ -87,7 +87,7 @@ export const Hero: React.FC = () => {
             We are path breakers. We love to develop technology that simplifies complexity. Our technology serves as
             building blocks redefining financial and commodity markets.
           </Desc>
-          <Link href="/#about" passHref>
+          <Link href="/about" passHref>
             <a>
               <PrimaryButton logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}>About</PrimaryButton>
             </a>
