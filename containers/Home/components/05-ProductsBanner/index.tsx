@@ -2,7 +2,6 @@ import { Container } from '@material-ui/core'
 import { SecondaryButton } from 'components/Buttons'
 import React from 'react'
 import styled from 'styled-components'
-import MailSvg from 'assets/icons/mail.svg'
 import Link from 'next/link'
 import { BREAKPOINT } from 'assets/globalStyle'
 const Background = styled.div`
@@ -77,7 +76,9 @@ const ExploreImg = styled.img`
 
 const ImageWrapper = styled.div`
   position: static;
-
+  img {
+    max-width: 100vw;
+  }
   @media ${BREAKPOINT.tablet} {
     position: relative;
     overflow: hidden;
@@ -100,7 +101,6 @@ export const ProductsBanner: React.FC = () => {
           <ImageWrapper>
             <ExploreImg src={'images/explore.png'} />
           </ImageWrapper>
-
           <RightContent>
             <h5>Interesting in our products? </h5>
             <Link passHref href="/work">
