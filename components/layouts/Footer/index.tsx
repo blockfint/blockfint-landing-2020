@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { Container } from '@material-ui/core'
 const Background = styled.div`
+  position: relative;
   padding: 1.5rem 0;
   display: grid;
   grid-template-areas:
@@ -108,9 +109,22 @@ const StyledIconButton = styled.a`
   cursor: pointer;
   padding-right: 1rem;
 `
+const ButtonToTop = styled(StyledIconButton)`
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  padding: 0;
+  @media ${BREAKPOINT.tablet} {
+    top: 1.5rem;
+  }
+  @media ${BREAKPOINT.desktop} {
+    right: 1rem;
+    top: 2.5rem;
+  }
+`
 export const Footer = () => {
   return (
-    <Container>
+    <Container maxWidth="lg">
       <Background>
         <Who>
           <Title>Who we are</Title>
@@ -118,7 +132,7 @@ export const Footer = () => {
             <Text>About</Text>
           </Link>
           <Link href="">
-            <Text>Career</Text>
+            <Text style={{ paddingTop: '0.25rem' }}>Career</Text>
           </Link>
         </Who>
         <What>
@@ -127,7 +141,7 @@ export const Footer = () => {
             <Text>Work</Text>
           </Link>
           <Link href="">
-            <Text>Life at Blockfint</Text>
+            <Text style={{ paddingTop: '0.25rem' }}>Life at Blockfint</Text>
           </Link>
         </What>
         <Address>
@@ -158,7 +172,15 @@ export const Footer = () => {
           </StyledIconButton>
         </Social>
         <Privacy>Privacy & Policy</Privacy>
-        <SmallText style={{ gridArea: 'copyright' }}>Copyright 2020. Blockfint All Rights Reserved</SmallText>
+        <SmallText style={{ gridArea: 'copyright' }}>Copyright 2020. Blockfint All Rights Reserved.</SmallText>
+        <ButtonToTop
+          onClick={(e) => {
+            let rootElement = document.documentElement
+            e.target.addEventListener('click', () => rootElement.scrollTo({ top: 0, behavior: 'smooth' }))
+          }}
+        >
+          <img src="/icons/arrow-to-top.svg" alt="linkin" width="36" />
+        </ButtonToTop>
       </Background>
     </Container>
   )
