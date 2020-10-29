@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import { AllStyleProvider } from 'assets/globalStyle'
 import React from 'react'
+import { ContactDialog } from 'components/ContactDialog'
 import { DefaultSeo } from 'next-seo'
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -17,7 +19,9 @@ function MyApp({ Component, pageProps }) {
         description="Make Future Innovations Happen Today"
       />
       <AllStyleProvider>
-        <Component {...pageProps} />
+        <ContactDialog>
+          <Component {...pageProps} />
+        </ContactDialog>
       </AllStyleProvider>
     </>
   )
