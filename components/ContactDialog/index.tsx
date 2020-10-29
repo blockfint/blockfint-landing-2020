@@ -50,19 +50,19 @@ const CloseButtonWrapper = styled.div`
     right: 3.75rem;
   }
 `
-type ContactInfo = { open: boolean; onOpen: () => void }
+type ContactInfo = { open: boolean; onOpen: () => void; onClose: () => void }
 
-const ContactContext = createContext<ContactInfo>({ open: false, onOpen: () => null })
+const ContactContext = createContext<ContactInfo>({ open: false, onOpen: () => null, onClose: () => null })
 
 export const ContactDialog: React.FC = ({ children }) => {
   const [open, setOpen] = useState(true)
-  const handleClose = () => setOpen(false)
+  const onClose = () => setOpen(false)
   const onOpen = () => {
     setOpen(true)
   }
 
   return (
-    <ContactContext.Provider value={{ open, onOpen }}>
+    <ContactContext.Provider value={{ open, onOpen, onClose }}>
       <AnimatePresence>
         {open && (
           <Background initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -70,7 +70,7 @@ export const ContactDialog: React.FC = ({ children }) => {
             <StyleHeroBottom />
             <LockScroll />
             <CloseButtonWrapper>
-              <IconButton onClick={handleClose}>
+              <IconButton onClick={onClose}>
                 <CloseSvg />
               </IconButton>
             </CloseButtonWrapper>
