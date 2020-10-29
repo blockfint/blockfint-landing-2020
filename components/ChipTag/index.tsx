@@ -6,15 +6,19 @@ const StyledChip = styled(Chip)<{ colour: string }>`
     color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
+    line-height: 1.88;
   }
   &&& {
+    height: 1.75rem;
+    border-radius: 1.125rem;
     background-color: ${({ colour }) => colour};
   }
 `
 interface Props {
   label: 'Traceability' | 'National Platform' | 'Agriculture' | 'Financial' | 'Digital Bond' | 'Energy Trading'
+  style?: React.CSSProperties
 }
-export const ChipTag: React.FC<Props> = ({ label }) => {
+export const ChipTag: React.FC<Props> = ({ label, style }) => {
   const colorDict = {
     Traceability: '#f4d482',
     'National Platform': '#8dd3dd',
@@ -23,9 +27,5 @@ export const ChipTag: React.FC<Props> = ({ label }) => {
     'Digital Bond': '#f6b9b8',
     'Energy Trading': '#ffb17d'
   }
-  return (
-    <div>
-      <StyledChip label={label} colour={colorDict[label]} />
-    </div>
-  )
+  return <StyledChip label={label} colour={colorDict[label]} style={style}/>
 }
