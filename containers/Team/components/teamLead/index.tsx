@@ -35,12 +35,13 @@ const Content = styled.div`
   img {
     display: block;
     object-fit: contain;
-    width: 15.25rem;
+    width: 100%;
   }
   .PictureOverlay {
     position: relative;
     margin: 2.5rem auto 0;
     width: 15.25rem;
+
     /* width: 100%; */
   }
   .overlay {
@@ -68,12 +69,11 @@ const Content = styled.div`
     top: 50%;
     left: 25%;
     text-align: center;
-    img {
-      width: 2rem;
-      padding-left: 0.5rem;
-    }
   }
-
+  .Vector {
+    width: 2rem;
+    padding-left: 0.5rem;
+  }
   .TeamLeadPic {
     h5 {
       padding-top: 0.5rem;
@@ -94,6 +94,13 @@ const Content = styled.div`
     .overlay {
       width: 10.25rem;
     }
+    .text {
+      font-size: 20px;
+    }
+    .Vector {
+      width: 2rem;
+      padding-left: 0.5rem;
+    }
     .TeamLeadPic {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -113,9 +120,12 @@ const Content = styled.div`
     min-height: 100vh;
     img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .PictureOverlay {
       width: 16.25rem;
+      height: 22.5rem;
     }
     .overlay {
       width: 16.25rem;

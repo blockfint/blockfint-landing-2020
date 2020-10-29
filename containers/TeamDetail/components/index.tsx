@@ -1,5 +1,7 @@
 import { Container } from '@material-ui/core'
 import React from 'react'
+import { JoinUsBanner } from 'components/JoinUsBanner'
+import { Slider } from 'components/Slider'
 import { PeopleInfo } from 'contents/PeopleInfo'
 import styled from 'styled-components'
 import { BREAKPOINT } from 'assets/globalStyle'
@@ -13,7 +15,7 @@ const Background = styled.div`
   overflow: hidden;
   @media ${BREAKPOINT.tablet} {
     min-height: 62rem;
-    background-color: lightgrey;
+    background-color: white;
   }
   @media ${BREAKPOINT.desktop} {
     min-height: 100vh;
@@ -30,7 +32,9 @@ const Background = styled.div`
     background: #fafafa;
   }
 `
-
+const Footer = styled.div`
+  overflow: hidden;
+`
 const Content = styled.div`
   .mailIcon {
     width: 1.5rem;
@@ -204,6 +208,12 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
           </Content>
         </Container>
       </Layout>
+      <Footer>
+        <Slider sectionName="Our Team" images={images} description={description} />
+      </Footer>
+      <JoinUsBanner />
     </Background>
   )
 }
+const images = ['/images/slide1.jpg', '/images/slide2.jpg', '/images/slide3.jpg']
+const description = ['Enjoying free lunch', 'Enjoying free lunch', 'Enjoying free lunch']
