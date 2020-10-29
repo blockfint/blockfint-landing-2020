@@ -7,8 +7,8 @@ import styled from 'styled-components'
 import { BREAKPOINT } from 'assets/globalStyle'
 import MailIcon from 'assets/icons/atoms-icon-mail.svg'
 import { LinkButton } from 'components/Buttons'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { ParsedUrlQuery } from 'querystring'
 
 const Background = styled.div`
   min-height: 42rem;
@@ -162,6 +162,8 @@ const ContainerButton = styled(Container)`
 `
 
 export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, imgSrc, contact }) => {
+  const router = useRouter()
+
   const ImageOverlay = () => {
     return <Person src={`/images/${imgSrc}`} alt="Credit by Poster" />
   }
@@ -179,10 +181,13 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
       return null
     }
   }
+  // const handleClick = () => {
+  //   router.push(`/team`, `/team`, { shallow: true })
+  // }
   return (
     <Background>
       <ContainerButton>
-        <div className="Button">
+        <div className="Button" onClick={() => router.push(`/team`, `/team`, { shallow: true })}>
           <LinkButton>Back</LinkButton>
         </div>
       </ContainerButton>

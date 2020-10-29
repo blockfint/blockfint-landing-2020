@@ -1,12 +1,9 @@
 import { TeamDetailpage } from 'containers/TeamDetail/components/index'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { useRouter } from 'next/router'
 import React from 'react'
 import { peopleInfos, PeopleInfo } from 'contents/PeopleInfo'
 
 const TeamDetailPage: NextPage<PeopleInfo> = (props) => {
-  const router = useRouter()
-  // console.log(router.query)
   return (
     <div>
       <TeamDetailpage {...props} />

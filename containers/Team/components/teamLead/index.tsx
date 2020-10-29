@@ -95,7 +95,7 @@ const Content = styled.div`
       width: 10.25rem;
     }
     .text {
-      font-size: 20px;
+      font-size: 15px;
     }
     .Vector {
       width: 2rem;
@@ -129,6 +129,13 @@ const Content = styled.div`
     }
     .overlay {
       width: 16.25rem;
+    }
+    .text {
+      font-size: 20px;
+    }
+    .Vector {
+      width: 2rem;
+      padding-left: 0.5rem;
     }
     .TeamLeadPic {
       padding-top: 6.25rem;
