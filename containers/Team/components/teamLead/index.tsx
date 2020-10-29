@@ -34,15 +34,14 @@ const Content = styled.div`
   }
   img {
     display: block;
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
+    height: 100%;
   }
   .PictureOverlay {
     position: relative;
     margin: 2.5rem auto 0;
     width: 15.25rem;
-
-    /* width: 100%; */
   }
   .overlay {
     position: absolute;
@@ -84,12 +83,9 @@ const Content = styled.div`
     }
   }
   @media ${BREAKPOINT.tablet} {
-    /* padding: 12rem 0; */
-    img {
-      width: 100%;
-    }
     .PictureOverlay {
       width: 10.25rem;
+      height: 13.6875rem;
     }
     .overlay {
       width: 10.25rem;
@@ -118,11 +114,7 @@ const Content = styled.div`
   }
   @media ${BREAKPOINT.desktop} {
     min-height: 100vh;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+
     .PictureOverlay {
       width: 16.25rem;
       height: 22.5rem;

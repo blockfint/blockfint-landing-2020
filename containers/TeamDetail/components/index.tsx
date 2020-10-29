@@ -33,6 +33,7 @@ const Background = styled.div`
   }
 `
 const Footer = styled.div`
+  padding-top: 3.75rem;
   overflow: hidden;
 `
 const Content = styled.div`
@@ -105,9 +106,11 @@ const Person = styled.img`
   }
   @media ${BREAKPOINT.desktop} {
     width: 23.125rem;
+    height: 30.8125rem;
   }
   @media ${BREAKPOINT.desktopHd} {
     width: 28.125rem;
+    height: 35.8125rem;
   }
 `
 
