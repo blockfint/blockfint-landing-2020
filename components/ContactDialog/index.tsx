@@ -55,7 +55,7 @@ type ContactInfo = { open: boolean; onOpen: () => void; onClose: () => void }
 const ContactContext = createContext<ContactInfo>({ open: false, onOpen: () => null, onClose: () => null })
 
 export const ContactDialog: React.FC = ({ children }) => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const onClose = () => setOpen(false)
   const onOpen = () => {
     setOpen(true)

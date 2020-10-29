@@ -26,7 +26,7 @@ const Form = styled.form`
 `
 const TwoColumn = styled.div`
   max-height: 75vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   display: grid;
   grid-gap: 1.5rem;
   @media ${BREAKPOINT.tablet} {
