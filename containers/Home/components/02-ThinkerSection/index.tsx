@@ -5,6 +5,7 @@ import { ReactComponent as ThinkerSmall } from 'assets/logos/thinker-small.svg'
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { ThinkerImage } from './components/ThinkerImage'
+import Link from 'next/link'
 const Content = styled.div`
   margin: 6.25rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -29,9 +30,13 @@ export const ThinkerSection: React.FC = () => {
         <Title style={{ color: 'var(--primary)' }}>Thinker</Title>
         <Title>Make Rapid, Optimized & Data Driven Decision </Title>
         <Desc>Leading change of processes with data-driven tool that wil change the way of working forever.</Desc>
-        <PrimaryButton logo={<ThinkerSmall />} background={'var(--gradient-thinker)'}>
-          Read more
-        </PrimaryButton>
+        <Link href={'/products/thinker'} passHref>
+          <a>
+            <PrimaryButton logo={<ThinkerSmall />} background={'var(--gradient-thinker)'}>
+              Read more
+            </PrimaryButton>
+          </a>
+        </Link>
       </Content>
     </Container>
   )

@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import { AllStyleProvider } from 'assets/globalStyle'
 import React from 'react'
-
 import { ContactDialog } from 'components/ContactDialog'
+import { DefaultSeo } from 'next-seo'
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -12,7 +13,11 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-
+      <DefaultSeo
+        title="Blockfint"
+        titleTemplate="%s | Make Future Innovations Happen Today"
+        description="Make Future Innovations Happen Today"
+      />
       <AllStyleProvider>
         <ContactDialog>
           <Component {...pageProps} />
