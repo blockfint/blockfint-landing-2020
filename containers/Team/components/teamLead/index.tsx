@@ -183,7 +183,7 @@ const ImageOverlays: React.FC<{ picture: string }> = ({ picture }) => {
 export const TeamLead: React.FC = () => {
   const FullDetail = Name_Positions.map((FullDetailItems) => {
     return (
-      <div>
+      <div key={FullDetailItems.path}>
         <Link passHref href={`/team/${FullDetailItems.path}`}>
           <a>
             <ImageOverlays picture={FullDetailItems.picture} />
