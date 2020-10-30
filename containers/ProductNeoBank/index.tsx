@@ -4,6 +4,7 @@ import { ProductConclusion } from 'components/productConclusion'
 import { ProductDetail } from 'components/productDetail'
 import Image from 'next/image'
 import { IconWithInfoList } from './components/IconWithInfoList'
+import { ContactBanner } from 'components/ContactBanner'
 const Wrapper = styled.div`
   margin: 0 auto;
   justify-content: center;
@@ -32,6 +33,7 @@ export const ProductNeoBank: React.FC = () => {
         problem="Banking transaction is expected the complicated process. Customers need to open each account for each transaction."
         solution="Neo bank is turning mobile banking application to a branch of bank. Customers only need one account for every transaction."
       />
+      <ContactBanner />
     </>
   )
 }

@@ -27,7 +27,7 @@ const CardContainer = styled.div`
     grid-gap: 1.875rem;
   }
 `
-export const Work = () => {
+export const Works = () => {
   return (
     <>
       <Container>

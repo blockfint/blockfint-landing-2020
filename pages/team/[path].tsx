@@ -2,12 +2,13 @@ import { TeamDetailpage } from 'containers/TeamDetail/components/index'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { peopleInfos, PeopleInfo } from 'contents/PeopleInfo'
+import { Layout } from 'components/layouts'
 
 const TeamDetailPage: NextPage<PeopleInfo> = (props) => {
   return (
-    <div>
+    <Layout>
       <TeamDetailpage {...props} />
-    </div>
+    </Layout>
   )
 }
 

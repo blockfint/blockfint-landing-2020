@@ -17,7 +17,7 @@ const Button = styled(motion.button)`
   border-color: transparent;
   font-size: 1rem;
   background-color: var(--secondary);
-  border: solid 1px #f2f2f2;
+  /* border: solid 1px #f2f2f2; */
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
   color: white;
   :focus {

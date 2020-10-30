@@ -1,12 +1,13 @@
+import { Layout } from 'components/layouts'
 import { Team } from 'containers/Team'
 import { NextPage } from 'next'
 import React from 'react'
 
 const TeamPage: NextPage = () => {
   return (
-    <div>
+    <Layout>
       <Team />
-    </div>
+    </Layout>
   )
 }
 
