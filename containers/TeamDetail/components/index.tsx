@@ -164,26 +164,27 @@ const ContainerButton = styled(Container)`
   }
 `
 
+const ImageOverlay: React.FC<{ imgSrc: string }> = ({ imgSrc }) => {
+  return <Person src={`/images/${imgSrc}`} alt="Credit by Poster" />
+}
+const ContactDetail: React.FC<{ contact: string }> = ({ contact }) => {
+  if (contact) {
+    return (
+      <div style={{ display: 'flex', alignItems: 'start' }}>
+        <div style={{ paddingTop: '0.3rem', paddingRight: '0.5rem' }}>
+          <img src={MailIcon} className="mailIcon" />
+        </div>
+        {contact}
+      </div>
+    )
+  } else {
+    return null
+  }
+}
+
 export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, imgSrc, contact }) => {
   const router = useRouter()
 
-  const ImageOverlay = () => {
-    return <Person src={`/images/${imgSrc}`} alt="Credit by Poster" />
-  }
-  const ContactDetail = () => {
-    if (contact) {
-      return (
-        <div style={{ display: 'flex', alignItems: 'start' }}>
-          <div style={{ paddingTop: '0.3rem', paddingRight: '0.5rem' }}>
-            <img src={MailIcon} className="mailIcon" />
-          </div>
-          {contact}
-        </div>
-      )
-    } else {
-      return null
-    }
-  }
   // const handleClick = () => {
   //   router.push(`/team`, `/team`, { shallow: true })
   // }
@@ -196,7 +197,7 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
       </ContainerButton>
       <Layout>
         <ContainerPicture>
-          <ImageOverlay />
+          <ImageOverlay imgSrc={imgSrc} />
         </ContainerPicture>
 
         <Container maxWidth="lg">
@@ -209,7 +210,7 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
               </div>
               <div className="Contact">
                 <h6>
-                  <ContactDetail />
+                  <ContactDetail contact={contact} />
                 </h6>
               </div>
             </div>
