@@ -53,27 +53,27 @@ const projects = [
     name: 'Gideon',
     image: '/images/gideon-card.png',
     description: 'Energy Trading Without Barriers',
-    link: ''
+    link: '/products/gideon'
   },
   {
     id: 'neo_bank',
     name: 'Neo Bank',
     image: '/images/neobank-card.png',
     description: 'The New era of Banking Services',
-    link: ''
+    link: '/products/neobank'
   },
   {
     id: 'thinker',
     name: 'Thinker',
     image: '/images/thinker-card.png',
     description: 'Make Rapid, Optimized & Data Driven Decision.',
-    link: ''
+    link: '/products/thinker'
   },
   {
     id: 'agritrac',
     name: 'Agri Trac',
     image: '/images/agritrac-card.png',
     description: 'Advance Traceability for Agriculture Products.',
-    link: ''
+    link: '/products/agri-trac'
   }
 ]

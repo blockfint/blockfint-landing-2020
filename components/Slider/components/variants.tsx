@@ -10,7 +10,7 @@ interface customProps {
 export const variantsLeft = {
   enter: (custom: customProps) => {
     return {
-      x: custom.direction > 0 ? custom.positionLeftPic - 300 : custom.positionLeftPic + 300,
+      x: custom.direction < 0 ? custom.positionLeftPic - 300 : custom.positionLeftPic + 300,
       opacity: 1
     }
   },
@@ -23,9 +23,9 @@ export const variantsLeft = {
   },
   exit: (custom: customProps) => {
     return {
-      x: custom.direction < 0 ? custom.positionLeftPic - 300 : custom.positionLeftPic + 600,
-      y: custom.direction < 0 ? 0 : custom.transformDesktop.y,
-      scale: custom.direction < 0 ? 0 : custom.transformDesktop.scale,
+      x: custom.direction > 0 ? custom.positionLeftPic - 300 : custom.positionLeftPic + 600,
+      y: custom.direction > 0 ? 0 : custom.transformDesktop.y,
+      scale: custom.direction > 0 ? 0 : custom.transformDesktop.scale,
       opacity: 0,
       zIndex: 0
     }
@@ -34,7 +34,7 @@ export const variantsLeft = {
 export const variants = {
   enter: (custom: customProps) => {
     return {
-      x: custom.direction > 0 ? -277 : 323,
+      x: custom.direction < 0 ? -277 : 323,
       opacity: 1,
       zIndex: 2
     }
@@ -50,7 +50,7 @@ export const variants = {
   },
   exit: (custom: customProps) => {
     return {
-      x: custom.direction > 0 ? 323 : -277,
+      x: custom.direction > 0 ? -277 : 323,
       y: 0,
       scale: 1,
       opacity: 0,
@@ -61,8 +61,7 @@ export const variants = {
 export const variantsRight = {
   enter: (custom: customProps) => {
     return {
-      x: custom.direction > 0 ? custom.positionRightPic - 300 : custom.positionRightPic + 300,
-
+      x: custom.direction < 0 ? custom.positionRightPic - 300 : custom.positionRightPic + 300,
       opacity: 1
     }
   },
@@ -75,9 +74,9 @@ export const variantsRight = {
   },
   exit: (custom: customProps) => {
     return {
-      x: custom.direction < 0 ? custom.positionRightPic - 600 : custom.positionRightPic + 300,
-      y: custom.direction > 0 ? 0 : custom.transformDesktop.y,
-      scale: custom.direction > 0 ? 0 : custom.transformDesktop.scale,
+      x: custom.direction > 0 ? custom.positionRightPic - 600 : custom.positionRightPic + 300,
+      y: custom.direction < 0 ? 0 : custom.transformDesktop.y,
+      scale: custom.direction < 0 ? 0 : custom.transformDesktop.scale,
       opacity: 0,
       zIndex: 0
     }
