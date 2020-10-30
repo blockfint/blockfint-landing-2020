@@ -11,9 +11,6 @@ import ListItemText from '@material-ui/core/ListItemText'
 import styled, { css, keyframes } from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
-import { ReactComponent as BlockFintColor } from 'assets/logos/Blockfint-Color.svg'
-import { ReactComponent as BlockFintWhite } from 'assets/logos/Blockfint-White.svg'
-import { useIntl } from 'react-intl'
 
 type MoveProps = {
   move: boolean
@@ -269,7 +266,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
         <Link passHref href={`/about`} as={`/about`}>
           <ListItem
             button
-            selected={selectedIndex === `//about`}
+            selected={selectedIndex === `/about`}
             onClick={(event) => handleListItemClick(event, `/about`)}
           >
             <RipleMiddle primary="About Us" />

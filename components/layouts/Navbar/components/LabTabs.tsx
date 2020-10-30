@@ -1,11 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
-// import { useIntl } from 'react-intl'
-// import { ReactComponent as Blue } from '@gideon/assets/logo_gideon.svg'
-// import { ReactComponent as White } from '@gideon/assets/logo_gideon_white.svg'
 import styled from 'styled-components'
 import { BREAKPOINT } from '../../../../assets/globalStyle'
+import { OrangeButton } from 'components/Buttons'
 import { ReactComponent as BlockFintColor } from '../../../../assets/logos/Blockfint-Color.svg'
 import { ReactComponent as BlockFintWhite } from '../../../../assets/logos/Blockfint-White.svg'
 
@@ -37,7 +35,7 @@ const AWithRipple = styled.a<ColorProps>`
   align-items: center;
   height: 1.5rem;
   margin: auto 0;
-  color: ${(props) => (props.status ? 'white' : 'blue')};
+  color: ${(props) => (props.status ? 'white' : 'var(--black)')};
   text-decoration: none;
   text-transform: none;
   position: relative;
@@ -48,7 +46,7 @@ const AWithRipple = styled.a<ColorProps>`
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: ${(props) => (props.status ? 'white' : 'blue')};
+    background-color: ${(props) => (props.status ? 'white' : 'var(--black)')};
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
@@ -69,7 +67,7 @@ const AWithRipple = styled.a<ColorProps>`
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: ${(props) => (props.status ? 'white' : 'blue')};
+      background-color: ${(props) => (props.status ? 'white' : 'var(--black)')};
       visibility: visible;
       transform: scaleX(1);
       visibility: visible;
@@ -97,18 +95,6 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
 
   return (
     <LeftnavTab>
-      <Link href={`/`} as={`/`} passHref>
-        {status ? (
-          <a style={{ width: '7rem' }}>
-            <BlockFintWhite />
-          </a>
-        ) : (
-          <a style={{ width: '7rem' }}>
-            <BlockFintColor />
-          </a>
-        )}
-      </Link>
-
       <RoutesList className="NavTab">
         {routes.map(({ label, path }) => {
           const isActive = router.asPath.includes(path)
@@ -121,6 +107,11 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
             </Link>
           )
         })}
+        <Link passHref href="/contact">
+          <a>
+            <OrangeButton>Contact us</OrangeButton>
+          </a>
+        </Link>
       </RoutesList>
     </LeftnavTab>
   )
@@ -128,23 +119,15 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
 
 const routes = [
   {
-    label: 'Features',
-    path: '/features'
-  },
-  {
-    label: 'Projects',
-    path: '/projects'
-  },
-  {
-    label: 'News & Update',
-    path: '/news'
-  },
-  {
-    label: 'About Us',
+    label: 'About',
     path: '/about'
   },
   {
-    label: 'Contact Us',
-    path: '/contact'
+    label: 'Works',
+    path: '/works'
+  },
+  {
+    label: 'Team',
+    path: '/team'
   }
 ]

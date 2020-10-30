@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button, Container, IconButton } from '@material-ui/core'
-
 import { Drawer } from './components/Drawer'
 import { BREAKPOINT } from '../../../assets/globalStyle'
 import { LabTabs } from './components/LabTabs'
+import { Logo } from './components/Logo'
 
 type BoxShadow = {
   status: boolean
@@ -93,6 +93,9 @@ const RightNavBar = ({ status, id }: PropsColor) => {
           EN
         </IconButton>
       </div> */}
+      <div style={{ paddingRight: '2.5rem' }}>
+        <LabTabs status={status} id={id} />
+      </div>
       <div className="Drawer">
         <Drawer status={status} id={id} />
       </div>
@@ -113,12 +116,12 @@ export const Navbar: React.FC<Props> = ({ transparent, id }) => {
     <Box status={transparent}>
       <Container maxWidth="lg">
         <MenuMainLayout>
-          <div style={{ maxWidth: '70%' }}>
-            <LabTabs status={transparent} id={id} />
+          <div>
+            <Logo status={transparent} id={id} />
           </div>
         </MenuMainLayout>
       </Container>
-      <div style={{ maxWidth: '30%' }}>
+      <div>
         <RightNavBar status={transparent} id={id} />
       </div>
     </Box>

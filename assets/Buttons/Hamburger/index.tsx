@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-// import RightNav from './RightNav'
+
 type OpenProps = {
   open: boolean
   status: boolean
@@ -10,9 +10,7 @@ type OpenProps = {
 const StyledBurger = styled.div`
   width: 1.5rem;
   height: 1.5rem;
-  /* position: fixed; */
-  /* top: 15px;
-  right: 20px; */
+
   z-index: 1600 !important;
   display: flex;
   justify-content: space-around;
@@ -21,8 +19,8 @@ const StyledBurger = styled.div`
   div {
     width: 1.5rem;
     height: 0.25rem;
-    background-color: ${({ status, toggleColor }) => (status && toggleColor ? 'white' : 'blue')};
-    /* background-color:var(--mid-blue); */
+    background-color: ${({ status, toggleColor }) => (status && toggleColor ? 'white' : 'var(--black)')};
+
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
