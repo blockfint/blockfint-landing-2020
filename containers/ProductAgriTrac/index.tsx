@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { ProductConclusion } from 'components/productConclusion'
 import { ProductDetail } from 'components/productDetail'
 import Image from 'next/image'
+import { ContactBanner } from 'components/ContactBanner'
 const Wrapper = styled.div`
   margin: 0 auto;
   justify-content: center;
@@ -31,6 +32,7 @@ export const ProductAgriTrac: React.FC = () => {
         problem="The palm oil processing can not be tracked. Therefore, illegal palm oil from abroad leak into the producing chain."
         solution="Agri Trac plays the part in tracking and controlling the whole process of palm oil from the beginning to the end users."
       />
+      <ContactBanner />
     </>
   )
 }

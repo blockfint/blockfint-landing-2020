@@ -122,26 +122,41 @@ const ButtonToTop = styled(StyledIconButton)`
     top: 2.5rem;
   }
 `
+const StyledLink = styled.a`
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--gray-1);
+  display: block;
+  width: max-content;
+`
 export const Footer = () => {
   return (
     <Container maxWidth="lg">
       <Background>
         <Who>
           <Title>Who we are</Title>
-          <Link href="">
-            <Text>About</Text>
+          <Link href="/about" passHref>
+            <StyledLink>
+              <Text>About</Text>
+            </StyledLink>
           </Link>
-          <Link href="">
-            <Text style={{ paddingTop: '0.25rem' }}>Career</Text>
+          <Link href="#" passHref>
+            <StyledLink>
+              <Text style={{ paddingTop: '0.25rem' }}>Career</Text>
+            </StyledLink>
           </Link>
         </Who>
         <What>
           <Title>What we do</Title>
-          <Link href="">
-            <Text>Work</Text>
+          <Link href="/works" passHref>
+            <StyledLink>
+              <Text>Works</Text>
+            </StyledLink>
           </Link>
-          <Link href="">
-            <Text style={{ paddingTop: '0.25rem' }}>Life at Blockfint</Text>
+          <Link href="https://www.instagram.com/blockfint/" passHref>
+            <StyledLink>
+              <Text style={{ paddingTop: '0.25rem' }}>Life at Blockfint</Text>
+            </StyledLink>
           </Link>
         </What>
         <Address>
@@ -155,19 +170,19 @@ export const Footer = () => {
         </Call>
         <Social>
           <Title>What We do daily</Title>
-          <StyledIconButton>
+          <StyledIconButton href="https://www.facebook.com/Blockfint/">
             <img src="/icons/facebook.svg" alt="facebook" width="36" />
           </StyledIconButton>
-          <StyledIconButton>
+          <StyledIconButton href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g">
             <img src="/icons/youtube.svg" alt="youtube" width="36" />
           </StyledIconButton>
-          <StyledIconButton>
+          {/* <StyledIconButton>
             <img src="/icons/twitter.svg" alt="twitter" width="36" />
-          </StyledIconButton>
-          <StyledIconButton>
+          </StyledIconButton> */}
+          <StyledIconButton href="https://www.instagram.com/blockfint/">
             <img src="/icons/instagram.svg" alt="instagram" width="36" />
           </StyledIconButton>
-          <StyledIconButton>
+          <StyledIconButton href="https://th.linkedin.com/company/blockfint">
             <img src="/icons/linkin.svg" alt="linkin" width="36" />
           </StyledIconButton>
         </Social>
