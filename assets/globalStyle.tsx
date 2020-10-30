@@ -50,10 +50,12 @@ const GlobalStyle = createGlobalStyle`
 }
 
   body {
+
       font-family: 'Montserrat', sans-serif;
       margin:0;
       font-size:1rem;
       color:#333333;
+      max-width:100vw;
       overflow-x:hidden;
     h1{
       font-weight:600;

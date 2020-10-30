@@ -32,7 +32,7 @@ const Background = styled.div`
 `
 const StyleHeroTop = styled(HeroTop)`
   position: absolute;
-  top: -0.5em;
+  top: -0.25em;
   z-index: -1;
   font-size: clamp(11rem, 20vw, 17rem);
   color: #f4f4f4;
