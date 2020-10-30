@@ -4,11 +4,13 @@ import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles'
 import theme from './themes'
 export const SIZE = {
   tablet: '600px',
-  desktop: '960px'
+  desktop: '960px',
+  desktopHd: '1280px'
 }
 export const BREAKPOINT = {
   tablet: `only screen and (min-width: ${SIZE.tablet})`,
-  desktop: `only screen and (min-width: ${SIZE.desktop})`
+  desktop: `only screen and (min-width: ${SIZE.desktop})`,
+  desktopHd: `only screen and (min-width: ${SIZE.desktopHd})`
 }
 
 const GlobalStyle = createGlobalStyle`
