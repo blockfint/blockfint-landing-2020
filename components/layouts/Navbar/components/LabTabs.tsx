@@ -6,6 +6,7 @@ import { BREAKPOINT } from '../../../../assets/globalStyle'
 import { OrangeButton } from 'components/Buttons'
 import { ReactComponent as BlockFintColor } from '../../../../assets/logos/Blockfint-Color.svg'
 import { ReactComponent as BlockFintWhite } from '../../../../assets/logos/Blockfint-White.svg'
+import { useContactContext } from 'components/ContactDialog'
 
 const LeftnavTab = styled.div`
   display: flex;
@@ -90,9 +91,11 @@ interface PropsColor {
 
 export const LabTabs = ({ status, id = '' }: PropsColor) => {
   const router = useRouter()
-
   // const { locale } = useIntl()
-
+  const { onOpen } = useContactContext()
+  const handleOpen = () => {
+    onOpen()
+  }
   return (
     <LeftnavTab>
       <RoutesList className="NavTab">
@@ -107,11 +110,11 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
             </Link>
           )
         })}
-        <Link passHref href="/contact">
-          <a>
-            <OrangeButton>Contact us</OrangeButton>
-          </a>
-        </Link>
+        {/* <Link passHref href="/contact"> */}
+        <a onClick={handleOpen}>
+          <OrangeButton>Contact us</OrangeButton>
+        </a>
+        {/* </Link> */}
       </RoutesList>
     </LeftnavTab>
   )
