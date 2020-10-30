@@ -42,7 +42,7 @@ interface animationProps {
 }
 export const AnimationImage: React.FC<animationProps> = ({ variants, images, description, type, custom, page }) => {
   const imageIndex = wrap(0, images.length, page)
-  const index = { 'left': 0, 'center': 1, 'right': 2 }
+  const index = { 'left': 2, 'center': 1, 'right': 0 }
   return (
     <AnimatePresence initial={false} custom={custom}>
       <StyledMotionDiv
