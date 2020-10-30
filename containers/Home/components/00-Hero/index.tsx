@@ -9,6 +9,7 @@ import { PrimaryButton } from 'components/Buttons'
 import { ReactComponent as BlockfintSmallLogo } from 'assets/logos/blockfint-small.svg'
 import Link from 'next/link'
 const Background = styled.div`
+  margin-top: -5rem;
   min-height: 42rem;
   overflow: hidden;
   @media ${BREAKPOINT.tablet} {

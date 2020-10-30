@@ -107,13 +107,13 @@ export const Slider: React.FC<Props> = ({ sectionName, images, description }) =>
       variants: variants,
       type: 'center',
       custom: { transformDesktop },
-      page: page + 1
+      page: page
     },
     {
       variants: variantsRight,
       type: 'right',
       custom: { positionRightPic, transformDesktop },
-      page: page + 2
+      page: page
     }
   ]
   return (
