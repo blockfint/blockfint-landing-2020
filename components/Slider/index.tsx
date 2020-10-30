@@ -7,6 +7,7 @@ import { BREAKPOINT } from 'assets/globalStyle'
 import { useWindow } from 'hooks/useWindow'
 import { AnimationImage } from './components/AnimationImage'
 import { variantsRight, variants, variantsLeft } from './components/variants'
+import { AnimateSharedLayout } from 'framer-motion'
 const Background = styled.div`
   background-color: #eff6f7;
   padding-bottom: 6.25rem;
@@ -107,32 +108,34 @@ export const Slider: React.FC<Props> = ({ sectionName, images, description }) =>
       variants: variants,
       type: 'center',
       custom: { transformDesktop },
-      page: page + 1
+      page: page
     },
     {
       variants: variantsRight,
       type: 'right',
       custom: { positionRightPic, transformDesktop },
-      page: page + 2
+      page: page
     }
   ]
   return (
     <Background>
       <SectionName>{sectionName}</SectionName>
       <Container>
-        {listItemProps?.map((Item, index) => {
-          return (
-            <AnimationImage
-              key={index}
-              variants={Item.variants}
-              images={images}
-              description={description}
-              type={Item.type}
-              custom={{ direction, ...Item.custom }}
-              page={Item.page}
-            />
-          )
-        })}
+        <AnimateSharedLayout>
+          {listItemProps?.map((Item, index) => {
+            return (
+              <AnimationImage
+                key={index}
+                variants={Item.variants}
+                images={images}
+                description={description}
+                type={Item.type}
+                custom={{ direction, ...Item.custom }}
+                page={Item.page}
+              />
+            )
+          })}
+        </AnimateSharedLayout>
         <StyledButton className="next" onClick={() => paginate(1)}>
           <Button>
             <img src="/icons/right-arrow.svg" alt="rightarrow" />
