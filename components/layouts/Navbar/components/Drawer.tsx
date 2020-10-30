@@ -11,6 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import styled, { css, keyframes } from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
+import { ReactComponent as BlockFintColor } from '../../../../assets/logos/Blockfint-Color.svg'
 
 type MoveProps = {
   move: boolean
@@ -43,22 +44,30 @@ const useStyles = makeStyles({
 })
 
 const MainNav = styled(List)`
-  color: blue;
+  color: var(--black);
 
-  span {
-    font-family: Nunito Sans;
-    font-size: 16px;
-    font-weight: 600;
+  .MuiButtonBase-root {
+    height: 4.25rem;
   }
   .MuiButtonBase-root:hover {
     background-color: white;
   }
-  .MuiListItem-root {
-    width: fit-content;
-  }
+  /* .MuiList-root {
+    height: 6.25rem;
+    
+  } */
 
   &&&.MuiList-padding {
-    margin-left: 11px;
+    margin-left: 2.56rem;
+  }
+  .MuiTypography-root {
+    font-size: 1.625rem;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.46;
+    letter-spacing: -1px;
   }
 
   .Mui-selected {
@@ -70,7 +79,7 @@ const MainNav = styled(List)`
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: blue;
+      background-color: var(--black);
       visibility: visible;
       transform: scaleX(1);
       visibility: visible;
@@ -88,7 +97,6 @@ const DrawerPosition = styled('div')`
     padding-right: 1.5rem;
   }
 `
-
 const BottomTitle = styled.div`
   position: fixed;
   bottom: 0;
@@ -105,16 +113,19 @@ const BottomTitle = styled.div`
       font-style: normal;
       line-height: 1.5;
       letter-spacing: normal;
-      color: blue;
+      color: var(--black);
     }
     .bottomIcons {
       margin-top: 0.6rem;
       margin-bottom: 2.2rem;
+      img {
+        margin-right: 0.6875rem;
+      }
       span {
-        color: blue;
-        margin-left: 1.75rem;
+        color: var(--black);
+        margin-left: 1rem;
         a {
-          color: blue;
+          color: var(--black) f9fa3;
         }
       }
     }
@@ -218,10 +229,8 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
       <TopLogoWithHam>
         <div>
           <a href="/" style={{ cursor: 'pointer' }}>
-            <img
-              src="/images/logo_gideon1.svg"
-              alt="logo gideon"
-              style={{ marginTop: '2rem', marginBottom: '2rem', marginLeft: '11px', height: '2rem', width: '9rem' }}
+            <BlockFintColor
+              style={{ marginTop: '2rem', marginBottom: '2rem', marginLeft: '2.56rem', height: '2rem', width: '9rem' }}
             />
           </a>
         </div>
@@ -231,45 +240,31 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
       </TopLogoWithHam>
 
       <MainNav>
-        <Link passHref href={`/`} as={`/`}>
-          <ListItem button selected={selectedIndex === `/`} onClick={(event) => handleListItemClick(event, `/`)}>
-            <RipleMiddle primary="Home" />
-          </ListItem>
-        </Link>
-        <Link passHref href={`/features`} as={`/features`}>
-          <ListItem
-            button
-            selected={selectedIndex === `/features`}
-            onClick={(event) => handleListItemClick(event, `/features`)}
-          >
-            <RipleMiddle primary="Features" />
-          </ListItem>
-        </Link>
-        <Link passHref href={`/projects`} as={`/projects`}>
-          <ListItem
-            button
-            selected={selectedIndex === `/projects${id}`}
-            onClick={(event) => handleListItemClick(event, `/projects`)}
-          >
-            <RipleMiddle primary="Projects" />
-          </ListItem>
-        </Link>
-        <Link passHref href={`/news`} as={`/news`}>
-          <ListItem
-            button
-            selected={selectedIndex === `/news`}
-            onClick={(event) => handleListItemClick(event, `/news`)}
-          >
-            <RipleMiddle primary="New & Update" />
-          </ListItem>
-        </Link>
         <Link passHref href={`/about`} as={`/about`}>
           <ListItem
             button
             selected={selectedIndex === `/about`}
             onClick={(event) => handleListItemClick(event, `/about`)}
           >
-            <RipleMiddle primary="About Us" />
+            <RipleMiddle primary="About" />
+          </ListItem>
+        </Link>
+        <Link passHref href={`/work`} as={`/work`}>
+          <ListItem
+            button
+            selected={selectedIndex === `/work`}
+            onClick={(event) => handleListItemClick(event, `/work`)}
+          >
+            <RipleMiddle primary="Works" />
+          </ListItem>
+        </Link>
+        <Link passHref href={`/team`} as={`/team`}>
+          <ListItem
+            button
+            selected={selectedIndex === `/team`}
+            onClick={(event) => handleListItemClick(event, `/team`)}
+          >
+            <RipleMiddle primary="Team" />
           </ListItem>
         </Link>
         <Link passHref href={`/contact`} as={`/contact`}>
@@ -285,18 +280,18 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
 
       <BottomTitle>
         <div className="title">
-          <span>Follow Us</span>
           <div className="bottomIcons">
             <span>
               <a
                 href="https://www.facebook.com/Blockfint-498494450914265/"
                 style={{ cursor: 'pointer', color: 'white' }}
               >
-                <img src="/images/Facebook-Blue.svg" alt="new" style={{ height: '2rem', marginRight: '0.5rem' }} />
+                <img src="/icons/facebook.svg" alt="facebook" width="36" />
               </a>
-              <img src="/images/Twitter-Blue.svg" alt="new" style={{ height: '2rem', marginRight: '0.5rem' }} />
-              <img src="/images/Linkedin-Blue.svg" alt="new" style={{ height: '2rem', marginRight: '0.5rem' }} />
-              <img src="/images/Youtube-Blue.svg" alt="new" style={{ height: '2rem' }} />
+              <img src="/icons/youtube.svg" alt="youtube" width="36" />
+              <img src="/icons/twitter.svg" alt="twitter" width="36" />
+              <img src="/icons/instagram.svg" alt="instagram" width="36" />
+              <img src="/icons/linkin.svg" alt="linkin" width="36" />{' '}
             </span>
           </div>
         </div>
