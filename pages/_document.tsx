@@ -36,7 +36,12 @@ export default class CustomDocument extends Document<{
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body>
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YDP043C7H" />
           <script
