@@ -37,9 +37,24 @@ export default class CustomDocument extends Document<{
     return (
       <Html lang="en">
         <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
-            rel="stylesheet"
+          <script
+            async
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
+              WebFontConfig = {
+                google: { families: [ 'Lato:400,400i,700|Roboto+Slab:400,700' ] }
+              };
+              (function() {
+                var wf = document.createElement('script');
+                wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+              })();
+`
+            }}
           />
         </Head>
         <body>
