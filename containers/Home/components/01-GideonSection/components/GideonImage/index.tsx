@@ -6,22 +6,17 @@ import Triangle from './components/Triangle'
 import { motion } from 'framer-motion'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { useInView } from 'react-intersection-observer'
-const Image = styled.img`
+import Image from 'next/image'
+const StyleImage = styled.div`
   max-width: 95vw;
+  width: 100%;
 `
 const Container = styled.div`
   position: relative;
-  width: max-content;
+  width: 100%;
+  max-width: 48rem;
   margin: 0 auto;
   font-size: clamp(0.5rem, 2vw, 1rem);
-  /* font-size: 0.5rem; */
-
-  /* @media ${BREAKPOINT.tablet} {
-    font-size: 0.75rem;
-  }
-  @media ${BREAKPOINT.desktop} {
-    font-size: 1rem;
-  } */
 `
 const Floating = styled.div`
   position: absolute;
@@ -35,7 +30,10 @@ export const GideonImage: React.FC = () => {
   const { ref, inView } = useInView()
   return (
     <Container ref={ref}>
-      <Image src="images/gideon-preview.png" />
+      <StyleImage>
+        <Image src="/images/gideon-preview.png" width={2304} height={1050} />
+      </StyleImage>
+
       {inView && (
         <Floating>
           <motion.div

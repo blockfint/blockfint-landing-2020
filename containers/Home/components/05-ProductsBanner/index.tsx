@@ -4,6 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { BREAKPOINT } from 'assets/globalStyle'
+import Image from 'next/image'
 const Background = styled.div`
   position: relative;
   height: 27.125rem;
@@ -58,7 +59,7 @@ const RightContent = styled.div`
   }
 `
 
-const ExploreImg = styled.img`
+const ExploreImg = styled.div`
   position: absolute;
   bottom: 57.5%;
   left: -2rem;
@@ -99,7 +100,9 @@ export const ProductsBanner: React.FC = () => {
       <Container maxWidth="lg">
         <Content>
           <ImageWrapper>
-            <ExploreImg src={'images/explore.png'} />
+            <ExploreImg>
+              <Image src={'/images/explore.png'} width={430} height={233} />
+            </ExploreImg>
           </ImageWrapper>
           <RightContent>
             <h5>Interesting in our products? </h5>

@@ -2,6 +2,7 @@ import { Container } from '@material-ui/core'
 import React from 'react'
 import styled from 'styled-components'
 import Tree from './components/Tree'
+import Image from 'next/image'
 const Content = styled.div`
   display: grid;
   grid-template-columns: 60% auto;
@@ -14,7 +15,7 @@ const StyleTree = styled(Tree)`
   max-width: 100%;
   font-size: clamp(10rem, 20vw, 20rem);
 `
-const Image = styled.img`
+const ImageWrapper = styled.div`
   width: 100%;
   max-width: 25rem;
   object-fit: contain;
@@ -25,7 +26,9 @@ export const ThinkerImage: React.FC = () => {
     <Container maxWidth="lg">
       <Content>
         <StyleTree />
-        <Image src="images/thinker-person.png" />
+        <ImageWrapper>
+          <Image src="/images/thinker-person.png" width={400} height={363} />
+        </ImageWrapper>
       </Content>
     </Container>
   )
