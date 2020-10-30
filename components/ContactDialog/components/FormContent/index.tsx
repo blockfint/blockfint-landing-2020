@@ -11,6 +11,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ReactComponent as HeroBottom } from 'assets/bg/hero-bottom.svg'
 import { ReactComponent as CloseSvg } from 'assets/icons/close.svg'
 import { Container, IconButton } from '@material-ui/core'
+import axios from 'axios'
 const StyleHeroTop = styled(HeroBottom)`
   position: absolute;
   top: -10%;
@@ -156,6 +157,20 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
   })
   const onSubmit = (data) => {
     //TODO send here
+    axios({
+      method: 'post',
+      url: window.location.origin + '/api/SendEmail',
+      data: {
+        name: data.name,
+        email: data.email,
+        subject: data.subject,
+        phone: data.phone,
+        company: data.company,
+        service: data.service,
+        business: data.business,
+        contents: data.message
+      }
+    })
     setIsSended(true)
   }
 
