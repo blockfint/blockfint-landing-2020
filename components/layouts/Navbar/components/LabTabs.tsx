@@ -100,7 +100,7 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
           const isActive = router.asPath.includes(path)
 
           return (
-            <Link href={`/${path}`} as={`/${path}`} passHref key={label}>
+            <Link href={`${path}`} as={`${path}`} passHref key={label}>
               <AWithRipple status={status} id={id} className={isActive && 'active'}>
                 {label}
               </AWithRipple>
