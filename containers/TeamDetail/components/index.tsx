@@ -224,5 +224,19 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
     </Background>
   )
 }
-const images = ['/images/slide1.jpg', '/images/slide2.jpg', '/images/slide3.jpg']
-const description = ['Enjoying free lunch', 'Enjoying free lunch', 'Enjoying free lunch']
+const images = [
+  '/images/Blockfint-Outing.jpg',
+  '/images/Daily-stand-up.jpg',
+  '/images/Developer-consulting.jpg',
+  '/images/Focusing-work.jpg',
+  '/images/Townhall.jpg',
+  '/images/Trained-national-coach.jpg'
+]
+const description = [
+  'Blockfint Outing',
+  'Daily standup',
+  'Developer Consulting',
+  'Focusing Work',
+  'Townhall',
+  'Trained National Coach'
+]
