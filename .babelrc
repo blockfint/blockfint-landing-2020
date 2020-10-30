@@ -6,7 +6,7 @@
       ],
       "plugins": [
         [
-          "styled-components",
+          "babel-plugin-styled-components",
           {
             "pure": true,
             "ssr": true,
@@ -22,7 +22,7 @@
       ],
       "plugins": [
         [
-          "styled-components",
+          "babel-plugin-styled-components",
           {
             "pure": true,
             "ssr": true,
