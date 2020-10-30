@@ -95,7 +95,7 @@ export const ContactBanner: React.FC = () => {
             <SecondaryButton onClick={handleOpen}>Contact us</SecondaryButton>
           </LeftContent>
           <MailImage>
-            <Image src={'/images/mailbox.png'} width={285} height={291} />
+            <Image src={'/images/mailbox.png'} width={285} height={291} alt="Mailbox" />
           </MailImage>
         </Content>
       </Container>

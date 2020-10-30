@@ -27,7 +27,7 @@ export const ThinkerImage: React.FC = () => {
       <Content>
         <StyleTree />
         <ImageWrapper>
-          <Image src="/images/thinker-person.png" width={400} height={363} />
+          <Image src="/images/thinker-person.png" width={400} height={363} alt="thinker person" />
         </ImageWrapper>
       </Content>
     </Container>

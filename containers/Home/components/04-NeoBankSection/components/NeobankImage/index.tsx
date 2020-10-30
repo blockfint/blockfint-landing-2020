@@ -73,7 +73,7 @@ export const NeobankImage: React.FC = () => {
   const { ref, inView } = useInView()
   return (
     <Container ref={ref}>
-      <Image src="/images/neobank.png" width={2060} height={960} />
+      <Image src="/images/neobank.png" width={2060} height={960} alt="phone" />
       {inView && (
         <motion.div initial={'closed'} animate={'open'} variants={variantsParent}>
           <motion.div variants={variantsTab}>

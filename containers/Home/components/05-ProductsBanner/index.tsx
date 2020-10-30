@@ -101,7 +101,7 @@ export const ProductsBanner: React.FC = () => {
         <Content>
           <ImageWrapper>
             <ExploreImg>
-              <Image src={'/images/explore.png'} width={430} height={233} />
+              <Image src={'/images/explore.png'} width={430} height={233} alt="explore hand" />
             </ExploreImg>
           </ImageWrapper>
           <RightContent>

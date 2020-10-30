@@ -31,7 +31,7 @@ export const GideonImage: React.FC = () => {
   return (
     <Container ref={ref}>
       <StyleImage>
-        <Image src="/images/gideon-preview.png" width={2304} height={1050} />
+        <Image src="/images/gideon-preview.png" width={2304} height={1050} alt="phone & tablet" />
       </StyleImage>
 
       {inView && (
