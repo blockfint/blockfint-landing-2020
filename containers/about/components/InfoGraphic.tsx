@@ -1,4 +1,5 @@
 import { BREAKPOINT } from 'assets/globalStyle'
+import { Counter } from 'components/Counter'
 import React from 'react'
 import styled from 'styled-components'
 const Group = styled.div`
@@ -61,17 +62,23 @@ export const InfoGraphic = () => {
     <Background>
       <Group>
         <Image src="/employer.png" alt="employer" />
-        <StyledNumber>60+</StyledNumber>
+        <StyledNumber>
+          <Counter from={0} to={60} />+
+        </StyledNumber>
         <Text>Employee</Text>
       </Group>
       <Group>
         <Image src="/product.png" alt="product" />
-        <StyledNumber>4</StyledNumber>
+        <StyledNumber>
+          <Counter from={0} to={4} />
+        </StyledNumber>
         <Text>Products</Text>
       </Group>
       <Group>
         <Image src="/partner.png" alt="partner" />
-        <StyledNumber>10+</StyledNumber>
+        <StyledNumber>
+          <Counter from={0} to={10} />+
+        </StyledNumber>
         <Text>Projects</Text>
       </Group>
     </Background>
