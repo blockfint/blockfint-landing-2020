@@ -5,7 +5,7 @@ import React from 'react'
 
 const Homepage: NextPage = () => {
   return (
-    <Layout>
+    <Layout transparent>
       <Home />
     </Layout>
   )
