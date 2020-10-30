@@ -1,4 +1,4 @@
-import { Button, FormControl, InputLabel, TextField } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core'
 import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import styled from 'styled-components'
@@ -8,6 +8,48 @@ import * as yup from 'yup'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { Success } from './components/Success'
 import { AnimatePresence, motion } from 'framer-motion'
+import { ReactComponent as HeroBottom } from 'assets/bg/hero-bottom.svg'
+import { ReactComponent as CloseSvg } from 'assets/icons/close.svg'
+import { Container, IconButton } from '@material-ui/core'
+const StyleHeroTop = styled(HeroBottom)`
+  position: absolute;
+  top: -10%;
+  left: 0;
+  z-index: -1;
+  transform: scale(-1, -1);
+  color: #ffffff;
+  font-size: clamp(8rem, 20vw, 17rem);
+`
+
+const StyleHeroBottom = styled(HeroBottom)`
+  position: absolute;
+  bottom: -10%;
+  right: 0;
+  z-index: -1;
+  color: var(--white);
+  font-size: clamp(8rem, 20vw, 17rem);
+`
+
+const Background = styled(motion.div)`
+  padding: 8rem 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: #eef6f7;
+`
+
+const CloseButtonWrapper = styled.div`
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  @media ${BREAKPOINT.tablet} {
+    top: 3.75rem;
+    right: 3.75rem;
+  }
+`
 const Content = styled.div`
   max-width: 41.25rem;
   margin: 0 auto;
@@ -94,7 +136,11 @@ const schema = yup.object().shape({
   business: yup.string().notOneOf([''], 'Please select business')
 })
 
-export const FormContent: React.FC = () => {
+interface Props {
+  onClose: () => void
+}
+
+export const FormContent: React.FC<Props> = ({ onClose }) => {
   const [isSended, setIsSended] = useState(false)
   const { handleSubmit, errors, control, register } = useForm({
     defaultValues: {
@@ -115,137 +161,152 @@ export const FormContent: React.FC = () => {
 
   return (
     <>
-      <AnimatePresence>
-        {!isSended && (
-          <motion.div
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, translateX: -100 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Content>
-              <Title>
-                Get in touch and
-                <br /> find out how we can help
-              </Title>
-              <Form onSubmit={handleSubmit(onSubmit)}>
-                <TwoColumn>
-                  <OutlineTextField
-                    label="Name"
-                    name="name"
-                    inputRef={register}
-                    error={Boolean(errors?.name)}
-                    helperText={<ErrorMessage errors={errors} name="name" />}
-                  />
-                  <OutlineTextField
-                    label="Email"
-                    name="email"
-                    inputRef={register}
-                    error={Boolean(errors?.email)}
-                    helperText={<ErrorMessage errors={errors} name="email" />}
-                  />
-                  <OutlineTextField
-                    label="Phone number"
-                    name="phone"
-                    type="tel"
-                    inputRef={register}
-                    error={Boolean(errors?.phone)}
-                    helperText={<ErrorMessage errors={errors} name="phone" />}
-                  />
-                  <OutlineTextField
-                    label="Your company"
-                    name="company"
-                    inputRef={register}
-                    error={Boolean(errors?.company)}
-                    helperText={<ErrorMessage errors={errors} name="company" />}
-                  />
+      <Background initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <StyleHeroTop />
+        <StyleHeroBottom />
 
-                  <Controller
-                    name="service"
-                    as={
+        <CloseButtonWrapper>
+          <IconButton onClick={onClose}>
+            <CloseSvg />
+          </IconButton>
+        </CloseButtonWrapper>
+
+        <Container maxWidth="lg">
+          <AnimatePresence>
+            {!isSended && (
+              <motion.div
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, translateX: -100 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Content>
+                  <Title>
+                    Get in touch and
+                    <br /> find out how we can help
+                  </Title>
+                  <Form onSubmit={handleSubmit(onSubmit)}>
+                    <TwoColumn>
                       <OutlineTextField
-                        select
-                        error={Boolean(errors?.service)}
-                        helperText={<ErrorMessage errors={errors} name="service" />}
-                        label="Select your interested service"
-                        SelectProps={{
-                          native: true
-                        }}
-                      >
-                        <option value="" disabled></option>
-                        {['Agri Trac', 'Gideon', 'Neo Bank', 'Thinker'].map((value) => (
-                          <option value={value} key={value}>
-                            {value}
-                          </option>
-                        ))}
-
-                        <option value="Others">Others</option>
-                      </OutlineTextField>
-                    }
-                    control={control}
-                  />
-
-                  <Controller
-                    name="business"
-                    as={
+                        label="Name"
+                        name="name"
+                        inputRef={register}
+                        error={Boolean(errors?.name)}
+                        helperText={<ErrorMessage errors={errors} name="name" />}
+                      />
                       <OutlineTextField
-                        select
-                        error={Boolean(errors?.business)}
-                        helperText={<ErrorMessage errors={errors} name="business" />}
-                        label="  Select your business"
-                        SelectProps={{
-                          native: true
-                        }}
-                      >
-                        <option value="" disabled></option>
-                        {[
-                          'Agency',
-                          'Business Consultant',
-                          'Design',
-                          'Entertainment',
-                          'Finance & Banking',
-                          'Food & Berverage',
-                          'Health Care',
-                          'Innovation & Technology',
-                          'Insurance',
-                          'News',
-                          'Real Estate'
-                        ].map((value) => (
-                          <option value={value} key={value}>
-                            {value}
-                          </option>
-                        ))}
-                        <option value="Others">Others</option>
-                      </OutlineTextField>
-                    }
-                    control={control}
-                  />
-                  <OutlinedTextarea
-                    multiline
-                    fullWidth
-                    rows={4}
-                    inputRef={register}
-                    name="message"
-                    label="Send us your message"
-                  />
-                  <SendButton type="submit">Send</SendButton>
-                </TwoColumn>
-              </Form>
-            </Content>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {isSended && (
-          <motion.div
-            initial={{ opacity: 0, translateX: 100 }}
-            animate={{ opacity: 1, translateX: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            <Success />
-          </motion.div>
-        )}
-      </AnimatePresence>
+                        label="Email"
+                        name="email"
+                        inputRef={register}
+                        error={Boolean(errors?.email)}
+                        helperText={<ErrorMessage errors={errors} name="email" />}
+                      />
+                      <OutlineTextField
+                        label="Phone number"
+                        name="phone"
+                        type="tel"
+                        inputRef={register}
+                        error={Boolean(errors?.phone)}
+                        helperText={<ErrorMessage errors={errors} name="phone" />}
+                      />
+                      <OutlineTextField
+                        label="Your company"
+                        name="company"
+                        inputRef={register}
+                        error={Boolean(errors?.company)}
+                        helperText={<ErrorMessage errors={errors} name="company" />}
+                      />
+
+                      <Controller
+                        name="service"
+                        as={
+                          <OutlineTextField
+                            select
+                            error={Boolean(errors?.service)}
+                            helperText={<ErrorMessage errors={errors} name="service" />}
+                            label="Select your interested service"
+                            SelectProps={{
+                              native: true
+                            }}
+                          >
+                            <option value="" disabled></option>
+                            {['Agri Trac', 'Gideon', 'Neo Bank', 'Thinker'].map((value) => (
+                              <option value={value} key={value}>
+                                {value}
+                              </option>
+                            ))}
+
+                            <option value="Others">Others</option>
+                          </OutlineTextField>
+                        }
+                        control={control}
+                      />
+
+                      <Controller
+                        name="business"
+                        as={
+                          <OutlineTextField
+                            select
+                            error={Boolean(errors?.business)}
+                            helperText={<ErrorMessage errors={errors} name="business" />}
+                            label="  Select your business"
+                            SelectProps={{
+                              native: true
+                            }}
+                          >
+                            <option value="" disabled></option>
+                            {[
+                              'Agency',
+                              'Business Consultant',
+                              'Design',
+                              'Entertainment',
+                              'Finance & Banking',
+                              'Food & Berverage',
+                              'Health Care',
+                              'Innovation & Technology',
+                              'Insurance',
+                              'News',
+                              'Real Estate'
+                            ].map((value) => (
+                              <option value={value} key={value}>
+                                {value}
+                              </option>
+                            ))}
+                            <option value="Others">Others</option>
+                          </OutlineTextField>
+                        }
+                        control={control}
+                      />
+                      <OutlinedTextarea
+                        multiline
+                        fullWidth
+                        rows={4}
+                        inputRef={register}
+                        name="message"
+                        label="Send us your message"
+                      />
+                      <SendButton type="submit">Send</SendButton>
+                    </TwoColumn>
+                  </Form>
+                </Content>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {isSended && (
+              <motion.div
+                initial={{ opacity: 0, translateX: 100 }}
+                animate={{ opacity: 1, translateX: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                <Success />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </Container>
+      </Background>
     </>
   )
 }
+
+export default FormContent
