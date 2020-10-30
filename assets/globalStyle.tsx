@@ -14,7 +14,6 @@ export const BREAKPOINT = {
 }
 
 const GlobalStyle = createGlobalStyle`
-// Colors
 :root{
 
 --border-color:#fafafa;
