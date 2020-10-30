@@ -1,12 +1,13 @@
+import { Layout } from 'components/layouts'
 import { ProductGideon } from 'containers/ProductGideon'
 import { NextPage } from 'next'
 import React from 'react'
 
 const GideonPage: NextPage = () => {
   return (
-    <div>
+    <Layout>
       <ProductGideon />
-    </div>
+    </Layout>
   )
 }
 

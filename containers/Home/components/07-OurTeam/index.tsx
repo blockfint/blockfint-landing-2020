@@ -1,6 +1,7 @@
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { ArrowLink } from 'components/ArrowLink'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
@@ -53,8 +54,8 @@ const Desc = styled.p`
     max-width: 38ch;
   }
 `
-const Image = styled.img`
-  width: 100%;
+const ImageWrapper = styled.div`
+  max-width: 95vw;
   @media ${BREAKPOINT.desktop} {
     width: calc(100% + 5rem);
   }
@@ -76,7 +77,10 @@ export const OurTeam: React.FC = () => {
               <ArrowLink>Meet the team</ArrowLink>
             </Link>
           </div>
-          <Image src="images/team@3x.png" />
+          {/* <StyleImage src="/images/team@3x.png" /> */}
+          <ImageWrapper>
+            <Image src="/images/team@3x.png" width={2064} height={1935} quality={100} />
+          </ImageWrapper>
         </Wrapper>
       </Container>
     </Background>

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { ProductConclusion } from 'components/productConclusion'
 import { ProductDetail } from 'components/productDetail'
 import Image from 'next/image'
+import { ContactBanner } from 'components/ContactBanner'
 const Wrapper = styled.div`
   margin: 0 auto;
   justify-content: center;
@@ -31,6 +32,7 @@ export const ProductThinker: React.FC = () => {
         problem="The processing of creating new loan products takes long time. So as the approval decisions for the customer."
         solution="The processing of creating new loan products takes long time. So as the approval decisions for the customer."
       />
+      <ContactBanner />
     </>
   )
 }
