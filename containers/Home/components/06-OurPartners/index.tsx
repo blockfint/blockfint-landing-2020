@@ -39,7 +39,7 @@ export const OurPartners: React.FC = () => {
       <PartnerWrapper>
         <Logo src={'images/partners/AF.png'} />
         <Logo src={'images/partners/BMA.png'} />
-        <Logo src={'images/partners/CU.png'} />
+        <Logo src={'images/partners/Cu.png'} />
         <Logo src={'images/partners/EA.png'} />
         <Logo src={'images/partners/Fiderser.png'} />
         <Logo src={'images/partners/KA.svg'} />
