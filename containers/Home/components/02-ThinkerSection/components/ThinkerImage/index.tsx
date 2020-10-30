@@ -5,7 +5,7 @@ import Tree from './components/Tree'
 import Image from 'next/image'
 const Content = styled.div`
   display: grid;
-  grid-template-columns: 60% auto;
+  grid-template-columns: 60% 40%;
   justify-items: center;
   align-items: center;
   margin: 4rem 0;

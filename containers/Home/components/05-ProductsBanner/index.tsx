@@ -61,6 +61,7 @@ const RightContent = styled.div`
 
 const ExploreImg = styled.div`
   position: absolute;
+  max-width: 100vw;
   bottom: 57.5%;
   left: -2rem;
   /* transform: translateX(-50%); */
