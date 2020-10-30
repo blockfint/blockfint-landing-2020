@@ -32,7 +32,7 @@ export const projectInfos = {
         iconSrc: 'NDID/identify.svg',
         title: 'Identify and Verification',
         description:
-          'To be an important digital infrastructure system designed under the decentralized concept based on the blockchain technology, that will help make electronic transactions more effective, reliable and achieve international standards'
+          'To be an important digital infrastructure system designed under the decentralized concept that will help make electronic transactions more effective, reliable and achieve international standards'
       },
       {
         iconSrc: 'NDID/Promote-online-self-service.svg',
@@ -44,7 +44,7 @@ export const projectInfos = {
         iconSrc: 'NDID/data-sharing.svg',
         title: 'Data Sharing',
         description:
-          'To support data exchange between relevant organizations, like a main superhighway that systematically connects all parties without the repetition of complex authentication and in which customers, as owners of the information, must provide consent before any further action'
+          'To support data exchange between organizations that systematically connects all parties without the repetition of complex authentication, as owners of the information, consent must provided before any further action'
       }
     ]
   },

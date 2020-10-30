@@ -94,18 +94,17 @@ export const PrimaryButton: React.FC<ButtonProps> = ({
   }
 
   return (
-    <AnimatePresence>
-      <ButtonContainer
-        {...props}
-        onMouseMove={handleHover}
-        onMouseDown={handleActive}
-        onHoverEnd={terminateRipple}
-        bg={background}
-      >
-        {logo && <LogoWrapper>{logo}</LogoWrapper>}
+    <ButtonContainer
+      {...props}
+      onMouseMove={handleHover}
+      onMouseDown={handleActive}
+      onHoverEnd={terminateRipple}
+      bg={background}
+    >
+      {logo && <LogoWrapper>{logo}</LogoWrapper>}
 
-        {children}
-
+      {children}
+      <AnimatePresence>
         <Ripple
           key={`${children}-ripple`}
           style={{ left: ripple.x, top: ripple.y }}
@@ -115,7 +114,7 @@ export const PrimaryButton: React.FC<ButtonProps> = ({
           exit={ripple.mode}
           transition={{ duration }}
         />
-      </ButtonContainer>
-    </AnimatePresence>
+      </AnimatePresence>
+    </ButtonContainer>
   )
 }

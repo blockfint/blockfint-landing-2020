@@ -35,7 +35,7 @@ const Container = styled.div`
     height: 29.25rem;
   }
   @media ${BREAKPOINT.desktop} {
-    width: 37vw;
+    width: 35vw;
     height: 47rem;
   }
 `

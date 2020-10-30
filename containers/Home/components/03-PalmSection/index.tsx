@@ -5,6 +5,7 @@ import { ReactComponent as PalmSmall } from 'assets/logos/palm-small.svg'
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { PlamImage } from './components/PlamImage'
+import Link from 'next/link'
 const Content = styled.div`
   margin: 6.25rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -32,9 +33,13 @@ export const PalmSection: React.FC = () => {
           World’s first blockchain based platform for agricuture products traceability. For sustainability of Thai
           farmer, which currently apply on palm oil product.
         </Desc>
-        <PrimaryButton logo={<PalmSmall />} background={'var(--gradient-palm)'}>
-          Read more
-        </PrimaryButton>
+        <Link href={'/products/agri-trac'} passHref>
+          <a>
+            <PrimaryButton logo={<PalmSmall />} background={'var(--gradient-palm)'}>
+              Read more
+            </PrimaryButton>
+          </a>
+        </Link>
       </Content>
     </Container>
   )

@@ -71,8 +71,8 @@ export const SuccessStory = () => {
         <Hr />
         <ProjectContainer>
           {projectPath?.map(({ projectId, link }) => {
-            const {title,tags} = projectData[projectId]
-            return <ProjectCard project={{title,link,tags}} />
+            const { title, tags } = projectData[projectId]
+            return <ProjectCard project={{ title, link, tags }} key={projectId} />
           })}
           {}
         </ProjectContainer>
