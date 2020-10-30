@@ -109,11 +109,17 @@ const StyledIconButton = styled.a`
   cursor: pointer;
   padding-right: 1rem;
 `
-const ButtonToTop = styled(StyledIconButton)`
+const ButtonToTop = styled.button`
+  cursor: pointer;
   position: absolute;
   top: 1rem;
   right: 0;
   padding: 0;
+  background-color: white;
+  border: 0;
+  :focus{
+    outline: none;
+  }
   @media ${BREAKPOINT.tablet} {
     top: 1.5rem;
   }
@@ -191,7 +197,7 @@ export const Footer = () => {
         <ButtonToTop
           onClick={(e) => {
             let rootElement = document.documentElement
-            e.target.addEventListener('click', () => rootElement.scrollTo({ top: 0, behavior: 'smooth' }))
+            rootElement.scrollTo({ top: 0, behavior: 'smooth' })
           }}
         >
           <img src="/icons/arrow-to-top.svg" alt="linkin" width="36" />
