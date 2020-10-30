@@ -32,7 +32,7 @@ export const projectInfos = {
         iconSrc: 'NDID/identify.svg',
         title: 'Identify and Verification',
         description:
-          'To be an important digital infrastructure system designed under the decentralized concept based on the blockchain technology, that will help make electronic transactions more effective, reliable and achieve international standards'
+          'To be an important digital infrastructure system designed under the decentralized concept that will help make electronic transactions more effective, reliable and achieve international standards'
       },
       {
         iconSrc: 'NDID/Promote-online-self-service.svg',
@@ -44,7 +44,7 @@ export const projectInfos = {
         iconSrc: 'NDID/data-sharing.svg',
         title: 'Data Sharing',
         description:
-          'To support data exchange between relevant organizations, like a main superhighway that systematically connects all parties without the repetition of complex authentication and in which customers, as owners of the information, must provide consent before any further action'
+          'To support data exchange between organizations that systematically connects all parties without the repetition of complex authentication, as owners of the information, consent must provided before any further action'
       }
     ]
   },
@@ -81,7 +81,7 @@ export const projectInfos = {
 
   fiderser: {
     logoSrc: 'Fiderser.png',
-    tags: ['Tracability', 'Agriculture'],
+    tags: ['Traceability', 'Agriculture'],
     title: 'Blockfint Launches South-East Asia’s First Blockchain Platform For Palm Oil Traceability',
     description:
       'World’s first blockchain based platform for crude palm oil traceability. This pioneering solution helps PCM manufacturers to “connect the dots” across the supply-chain and trace the raw material from farm to factory, ensuring transparency and safety.',
@@ -135,7 +135,7 @@ export const projectInfos = {
 
   morchana: {
     logoSrc: 'DGA.png',
-    tags: ['Volunteer', 'National Platform', 'Tracablility'],
+    tags: ['National Platform', 'Traceability'],
     title: 'Morchana - COVID-19 Tracability  (Part of Volunteer team)',
     description: `
     Application MorChana is a tool to assist Medical Staffs, Government Agencies, Business Owners, and most importantly, YOU in taking care and protect oneself from the spread of COVID-19

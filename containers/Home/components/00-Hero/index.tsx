@@ -34,8 +34,10 @@ const StyleHeroTop = styled(HeroTop)`
   top: -0.5em;
   z-index: -1;
   font-size: clamp(11rem, 20vw, 17rem);
+  color: #f4f4f4;
 `
 const StyleHeroBottom = styled(HeroBottom)`
+  color: #f4f4f4;
   position: absolute;
   bottom: -10%;
   right: 0;
@@ -87,7 +89,7 @@ export const Hero: React.FC = () => {
             We are path breakers. We love to develop technology that simplifies complexity. Our technology serves as
             building blocks redefining financial and commodity markets.
           </Desc>
-          <Link href="/#about" passHref>
+          <Link href="/about" passHref>
             <a>
               <PrimaryButton logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}>About</PrimaryButton>
             </a>

@@ -5,6 +5,7 @@ import { ReactComponent as GideonSmall } from 'assets/logos/gideon-small.svg'
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { GideonImage } from './components/GideonImage'
+import Link from 'next/link'
 const Content = styled.div`
   margin: 6.25rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -32,9 +33,13 @@ export const GideonSection: React.FC = () => {
           Next-generation electricity trading platform enabling market participants to transact directly leading to
           better efficiencies.
         </Desc>
-        <PrimaryButton logo={<GideonSmall />} background={'var(--gradient-gideon)'}>
-          Read more
-        </PrimaryButton>
+        <Link href={'/products/gideon'} passHref>
+          <a>
+            <PrimaryButton logo={<GideonSmall />} background={'var(--gradient-gideon)'}>
+              Read more
+            </PrimaryButton>
+          </a>
+        </Link>
       </Content>
     </Container>
   )

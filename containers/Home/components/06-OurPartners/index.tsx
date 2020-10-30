@@ -20,9 +20,15 @@ const PartnerWrapper = styled.div`
 const Logo = styled.img`
   filter: grayscale(1);
   flex: 0 1 150px;
-  margin: 1.875rem 1.5rem;
-  width: 9.375rem;
-  height: 2.75rem;
+  margin: 2.5rem 0;
+  justify-content: space-between;
+  // width: 5rem;
+  height: 2.25rem;
+  @media ${BREAKPOINT.tablet} {
+    margin: 1.875rem 1.5rem;
+    width: 9.375rem;
+    height: 2.75rem;
+  }
 
   object-fit: contain;
 `
