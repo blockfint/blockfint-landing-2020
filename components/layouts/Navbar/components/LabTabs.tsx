@@ -4,8 +4,8 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { BREAKPOINT } from '../../../../assets/globalStyle'
 import { OrangeButton } from 'components/Buttons'
-import { ReactComponent as BlockFintColor } from '../../../../assets/logos/Blockfint-Color.svg'
-import { ReactComponent as BlockFintWhite } from '../../../../assets/logos/Blockfint-White.svg'
+// import { ReactComponent as BlockFintColor } from '../../../../assets/logos/Blockfint-Color.svg'
+// import { ReactComponent as BlockFintWhite } from '../../../../assets/logos/Blockfint-White.svg'
 import { useContactContext } from 'components/ContactDialog'
 
 const LeftnavTab = styled.div`
@@ -31,12 +31,12 @@ type ColorProps = {
 
 const AWithRipple = styled.a<ColorProps>`
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   display: flex;
   align-items: center;
   height: 1.5rem;
   margin: auto 0;
-  color: ${(props) => (props.status ? 'white' : 'var(--black)')};
+  color: var(--gray-1);
   text-decoration: none;
   text-transform: none;
   position: relative;
@@ -112,7 +112,7 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
         })}
         {/* <Link passHref href="/contact"> */}
         <a onClick={handleOpen}>
-          <OrangeButton>Contact us</OrangeButton>
+          <OrangeButton>Contact</OrangeButton>
         </a>
         {/* </Link> */}
       </RoutesList>

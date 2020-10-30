@@ -39,7 +39,7 @@ export const Logo = ({ status, id = '' }: PropsColor) => {
   return (
     <LeftnavTab>
       <Link href={`/`} as={`/`} passHref>
-        {status ? (
+        {/* {status ? (
           <a style={{ width: '7rem' }}>
             <BlockFintWhite />
           </a>
@@ -47,7 +47,10 @@ export const Logo = ({ status, id = '' }: PropsColor) => {
           <a style={{ width: '7rem' }}>
             <BlockFintColor />
           </a>
-        )}
+        )} */}
+        <a style={{ width: '7rem' }}>
+          <BlockFintColor />
+        </a>
       </Link>
     </LeftnavTab>
   )

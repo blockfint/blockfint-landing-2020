@@ -13,7 +13,7 @@ const Box = styled.div<BoxShadow>`
   height: 4.5rem;
   width: 100%;
   background-color: ${(props) => (props.status ? 'transparent' : 'white')};
-  color: #2076a9;
+  /* color: #2076a9; */
   box-sizing: border-box;
   box-shadow: ${(props) => (props.status ? '0' : '0 2px 4px 0 rgba(0, 0, 0, 0.1)')};
   display: flex;
@@ -113,18 +113,18 @@ interface Props {
 export const Navbar: React.FC<Props> = ({ transparent, id }) => {
   // console.log(transparent)
   return (
-    <Box status={transparent}>
-      <Container maxWidth="lg">
-        <MenuMainLayout>
+        <Box status={transparent}>
+          <Container maxWidth="lg">
+            <MenuMainLayout>
+              <div>
+                <Logo status={transparent} id={id} />
+              </div>
+            </MenuMainLayout>
+          </Container>
           <div>
-            <Logo status={transparent} id={id} />
+            <RightNavBar status={transparent} id={id} />
           </div>
-        </MenuMainLayout>
-      </Container>
-      <div>
-        <RightNavBar status={transparent} id={id} />
-      </div>
-    </Box>
+        </Box>
   )
 }
 export default Navbar
