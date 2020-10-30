@@ -2,11 +2,12 @@ import { ProjectDetail } from 'containers/ProjectDetail'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { projectInfos, ProjectInfo } from 'contents/projects'
+import { Layout } from 'components/layouts'
 const ProjectDetailPage: NextPage<ProjectInfo> = (props) => {
   return (
-    <div>
+    <Layout>
       <ProjectDetail {...props} />
-    </div>
+    </Layout>
   )
 }
 
