@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { ProductConclusion } from 'components/productConclusion'
 import { ProductDetail } from 'components/productDetail'
 import Image from 'next/image'
+import { ContactBanner } from 'components/ContactBanner'
 const Wrapper = styled.div`
   margin: 0 auto;
   justify-content: center;
@@ -32,6 +33,7 @@ export const ProductGideon: React.FC = () => {
         problem="with the lack of systematic energy transaction platform, the excession of electrical energy that already had produced will be wasted."
         solution="Gideon is the platform where everyone can utilize excess solar energy and be a part of green society with the systematic transaction implementation."
       />
+      <ContactBanner />
     </>
   )
 }

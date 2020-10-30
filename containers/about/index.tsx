@@ -29,4 +29,8 @@ export const About = () => {
   )
 }
 const images = ['/images/slide1.jpg', '/images/slide2.jpg', '/images/slide3.jpg']
-const description = ['Enjoying free lunch', 'Enjoying free lunch', 'Enjoying free lunch']
+const description = [
+  'Prouded to be partner with ThaiBMA',
+  'Award for Mhor Chana, original version of health passport',
+  'Together with ThaiBMA board'
+]

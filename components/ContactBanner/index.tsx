@@ -1,6 +1,7 @@
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { SecondaryButton } from 'components/Buttons'
+import { useContactContext } from 'components/ContactDialog'
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
@@ -80,17 +81,17 @@ const MailImage = styled.img`
   }
 `
 export const ContactBanner: React.FC = () => {
+  const { onOpen } = useContactContext()
+  const handleOpen = () => {
+    onOpen()
+  }
   return (
     <Background>
       <Container maxWidth="lg">
         <Content>
           <LeftContent>
             <h5>Interested to be our partner?</h5>
-            <Link passHref href="/contact">
-              <a>
-                <SecondaryButton>Contact us</SecondaryButton>
-              </a>
-            </Link>
+            <SecondaryButton onClick={handleOpen}>Contact us</SecondaryButton>
           </LeftContent>
           <MailImage src={'/images/mailbox.png'} />
         </Content>
