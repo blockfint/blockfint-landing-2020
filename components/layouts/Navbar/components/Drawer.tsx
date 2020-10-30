@@ -291,7 +291,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
               <img src="/icons/youtube.svg" alt="youtube" width="36" />
               <img src="/icons/twitter.svg" alt="twitter" width="36" />
               <img src="/icons/instagram.svg" alt="instagram" width="36" />
-              <img src="/icons/linkin.svg" alt="linkin" width="36" />{' '}
+              <img src="/icons/linkin.svg" alt="linkin" width="36" />
             </span>
           </div>
         </div>
