@@ -6,11 +6,12 @@ import Oval from './components/Oval'
 import Euro from './components/Euro'
 import Dollar from './components/Dollar'
 import { useInView } from 'react-intersection-observer'
+import Image from 'next/image'
 const Container = styled.div`
   position: relative;
   margin: 0 auto;
 `
-const Image = styled.img`
+const ImageWrapper = styled.div`
   width: 100%;
 
   object-fit: contain;
@@ -72,7 +73,7 @@ export const NeobankImage: React.FC = () => {
   const { ref, inView } = useInView()
   return (
     <Container ref={ref}>
-      <Image src="images/neobank.png" />
+      <Image src="/images/neobank.png" width={2060} height={960} alt="phone" />
       {inView && (
         <motion.div initial={'closed'} animate={'open'} variants={variantsParent}>
           <motion.div variants={variantsTab}>

@@ -3,6 +3,7 @@ import { AllStyleProvider } from 'assets/globalStyle'
 import React from 'react'
 import { ContactDialog } from 'components/ContactDialog'
 import { DefaultSeo } from 'next-seo'
+import { css } from 'styled-components'
 import App from 'next/app'
 class MyApp extends App {
   componentDidMount() {
@@ -18,9 +19,24 @@ class MyApp extends App {
     return (
       <>
         <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
-            rel="stylesheet"
+          <script
+            async
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
+              WebFontConfig = {
+                google: { families: [ 'Lato:400,400i,700|Roboto+Slab:400,700' ] }
+              };
+              (function() {
+                var wf = document.createElement('script');
+                wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+              })();
+`
+            }}
           />
         </Head>
         <DefaultSeo
