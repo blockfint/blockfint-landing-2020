@@ -6,10 +6,11 @@ import styled from 'styled-components'
 import { InfoGraphic } from './components/InfoGraphic'
 import { StoryAbout } from './components/StoryAbout'
 import { TopPage } from './components/TopPage'
-const Image = styled.img`
+import Image from 'next/image'
+const CoverImage = styled(Image)`
   object-fit: cover;
-  width: 100%;
   height: 340px;
+  width: 100%;
 `
 const Footer = styled.div`
   overflow: hidden;
@@ -18,7 +19,7 @@ export const About = () => {
   return (
     <div style={{ overflow: 'hidden' }}>
       <TopPage />
-      <Image src="images/blockfint-company.jpg" alt="blockfint-company" />
+      <CoverImage src="/images/blockfint-company.jpg" unsized quality={100} />
       <InfoGraphic />
       <StoryAbout />
       <Footer>
