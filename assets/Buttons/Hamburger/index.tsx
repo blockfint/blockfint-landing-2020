@@ -19,8 +19,8 @@ const StyledBurger = styled.div`
   div {
     width: 1.5rem;
     height: 0.25rem;
-    background-color: ${({ status, toggleColor }) => (status && toggleColor ? 'white' : 'var(--black)')};
-
+    /* background-color: ${({ status, toggleColor }) => (status && toggleColor ? 'white' : 'var(--black)')}; */
+    background-color: var(--grey-1);
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
