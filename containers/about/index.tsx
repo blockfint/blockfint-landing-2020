@@ -1,3 +1,4 @@
+import { BREAKPOINT } from 'assets/globalStyle'
 import { ContactBanner } from 'components/ContactBanner'
 import { Slider } from 'components/Slider'
 import React from 'react'
@@ -5,8 +6,6 @@ import styled from 'styled-components'
 import { InfoGraphic } from './components/InfoGraphic'
 import { StoryAbout } from './components/StoryAbout'
 import { TopPage } from './components/TopPage'
-import ProgressiveImage from 'react-progressive-image'
-
 const Image = styled.img`
   object-fit: cover;
   width: 100%;
@@ -19,10 +18,7 @@ export const About = () => {
   return (
     <div style={{ overflow: 'hidden' }}>
       <TopPage />
-      {/* <MyImage src="/images/blockfint-company.jpg" alt="blockfint-company" width={1200} height={340} quality={100} /> */}
-      <ProgressiveImage src="/images/blockfint-company.jpg" placeholder="/images/blockfint-company-lowq.jpg">
-        {(src) => <Image src={src} alt="blockfint-company" />}
-      </ProgressiveImage>
+      <Image src="images/blockfint-company.jpg" alt="blockfint-company" />
       <InfoGraphic />
       <StoryAbout />
       <Footer>
