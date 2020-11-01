@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
 import { Footer } from './Footer'
@@ -30,6 +30,14 @@ export const Layout: React.FC<Props> = ({ children, transparent = false, id }) =
   // const color = useTransform(scrollY, YRangeTrigger, ['#ffffff', 'rgb(25, 33, 60)'])
   const changeTransparent = useTransform(scrollY, YRangeTrigger, [0, 64])
   const [transparentValue, setTransparent] = useState(transparent)
+
+  useEffect(() => {
+    if (scrollY.get() < 20) {
+      setTransparent(transparent)
+    } else {
+      setTransparent(false)
+    }
+  }, [changeTransparent])
   changeTransparent.onChange((lastest) => {
     if (lastest < 20) {
       setTransparent(transparent)
