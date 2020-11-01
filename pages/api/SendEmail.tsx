@@ -1,19 +1,18 @@
-// import aws from 'aws-sdk'
-// use AWS global variables
-// aws.config.credentials.accessKeyId = process.env.ACCESS_KEY_ID
-// aws.config.credentials.secretAccessKey = process.env.SECRET_ACCESS_KEY
-// aws.config.region = process.env.REGION
-
-// var aws = require('aws-sdk')
 import aws from 'aws-sdk'
-aws.config.credentials.accessKeyId = process.env.NEXT_PUBLIC_ACCESS_KEY_ID
-aws.config.credentials.secretAccessKey = process.env.NEXT_PUBLIC_SECRET_ACCESS_KEY
-aws.config.region = process.env.NEXT_PUBLIC_REGION
+aws.config.update({
+  accessKeyId: process.env.NEXT_PUBLIC_ACCESS_KEY_ID,
+  secretAccessKey: process.env.NEXT_PUBLIC_SECRET_ACCESS_KEY,
+  region: process.env.NEXT_PUBLIC_REGION
+})
+
+// aws.config.credentials.accessKeyId = process.env.NEXT_PUBLIC_ACCESS_KEY_ID
+// aws.config.credentials.secretAccessKey = process.env.NEXT_PUBLIC_SECRET_ACCESS_KEY
+// aws.config.region = process.env.NEXT_PUBLIC_REGION
 
 // Create an Email function
 function Email(to, sub, content) {
   const ses = new aws.SES()
-  const CustomerSubject = 'Hello Customer'
+  const CustomerSubject = 'Thanks for your contact.'
   const from = 'dev@blockfint.com'
   // 'dev@blockfint.com' // The email address added here must be verified in Amazon SES
   //Amazon SES email format
@@ -40,7 +39,7 @@ function Email(to, sub, content) {
             <div class="emailwrapper">
                 <div class="main">
                     <div class="content">
-                    <div>                    
+                    <div>
                     <h1>Let’s keep in touch!</h1>
                     <div>
                         <div style="padding:20px;">
@@ -64,15 +63,11 @@ function Email(to, sub, content) {
       }
     }
   )
-
-  const devmail = ['theeraphat.a@blockfint.com']
-  const devSubject = 'Test Dev1'
-  const devContent = 'test content1'
-
+  const adminEmail = ['theeraphat.a@blockfint.com', 'max.jakkapat@gmail.com']
   ses.sendEmail(
     {
       Source: from,
-      Destination: { ToAddresses: devmail },
+      Destination: { ToAddresses: adminEmail },
       Message: {
         Subject: {
           Data: sub
@@ -104,7 +99,7 @@ export default (req, res) => {
       const sub = req.body.subject
 
       // In this email we are sending HTML
-      const content = req.body.name + req.body.contents
+      const content = JSON.stringify(req.body)
       // Use the Email function of our send email utility
       Email(to, sub, content)
       res.json({ message: 'Success!' })

@@ -137,13 +137,22 @@ const schema = yup.object().shape({
   business: yup.string().notOneOf([''], 'Please select business')
 })
 
+type FormInfo = {
+  name: string
+  email: string
+  phone: string
+  company: string
+  service: string
+  business: string
+  message: string
+}
 interface Props {
   onClose: () => void
 }
 
 export const FormContent: React.FC<Props> = ({ onClose }) => {
   const [isSended, setIsSended] = useState(false)
-  const { handleSubmit, errors, control, register } = useForm({
+  const { handleSubmit, errors, control, register } = useForm<FormInfo>({
     defaultValues: {
       name: ``,
       email: ``,
@@ -155,7 +164,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
     },
     resolver: yupResolver(schema)
   })
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormInfo) => {
     //TODO send here
     axios({
       method: 'post',
@@ -163,7 +172,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
       data: {
         name: data.name,
         email: data.email,
-        subject: data.subject,
+        subject: `${data.name} interested ${data.service}`,
         phone: data.phone,
         company: data.company,
         service: data.service,
