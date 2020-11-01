@@ -45,8 +45,6 @@ const useStyles = makeStyles({
 })
 
 const MainNav = styled(List)`
-  color: var(--black);
-
   .MuiButtonBase-root {
     height: 4.25rem;
   }
@@ -112,7 +110,6 @@ const BottomTitle = styled.div`
       font-style: normal;
       line-height: 1.5;
       letter-spacing: normal;
-      color: var(--black);
     }
     .bottomIcons {
       margin-top: 0.6rem;
@@ -121,11 +118,7 @@ const BottomTitle = styled.div`
         margin-right: 0.6875rem;
       }
       span {
-        color: var(--black);
         margin-left: 1rem;
-        a {
-          color: var(--black) f9fa3;
-        }
       }
     }
   }
@@ -163,22 +156,23 @@ const DrawerHamburgerButton = styled(Button)<{ move: string }>`
   animation-name: example;
   animation-duration: 0.2s;
   animation-fill-mode: forwards;
-  ${({ move }) =>
+  /* ${({ move }) =>
     move === 'true'
       ? css`
           animation: 0.2s ${MoveDown} forwards;
         `
       : css`
           animation: 0.2s ${MoveUp} forwards;
-        `};
+        `}; */
 `
 
 const TopLogoWithHam = styled.div`
-  display: grid;
+  display: flex;
   align-items: center;
   justify-items: center;
-  grid-gap: 4.375rem;
-  grid-template-columns: 1fr 1fr;
+
+  justify-content: space-between;
+  padding-right: 1.5rem;
 `
 interface PropsColor {
   status: boolean
@@ -316,6 +310,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
           </DrawerHamburgerButton>
           <SwipeableDrawer
             anchor={anchor}
+            // open={false}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
             onOpen={toggleDrawer(anchor, true)}

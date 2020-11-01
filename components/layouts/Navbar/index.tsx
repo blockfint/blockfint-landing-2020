@@ -119,11 +119,9 @@ export const Navbar: React.FC<Props> = ({ transparent, id }) => {
           <div>
             <Logo status={transparent} id={id} />
           </div>
+          <RightNavBar status={transparent} id={id} />
         </MenuMainLayout>
       </Container>
-      <div>
-        <RightNavBar status={transparent} id={id} />
-      </div>
     </Box>
   )
 }
