@@ -27,7 +27,7 @@ class MyApp extends App {
             dangerouslySetInnerHTML={{
               __html: `
               WebFontConfig = {
-                google: { families: [ 'Lato:400,400i,700|Roboto+Slab:400,700' ] }
+                google: { families: [ 'Montserrat:400,500,600,700' ] }
               };
               (function() {
                 var wf = document.createElement('script');
