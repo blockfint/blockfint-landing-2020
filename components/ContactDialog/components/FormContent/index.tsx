@@ -54,6 +54,8 @@ const CloseButtonWrapper = styled.div`
 const Content = styled.div`
   max-width: 41.25rem;
   margin: 0 auto;
+  max-height: 75vh;
+  overflow-y: auto;
 `
 const Title = styled.h2`
   text-align: center;
@@ -68,8 +70,6 @@ const Form = styled.form`
   margin: 2.5rem 0;
 `
 const TwoColumn = styled.div`
-  max-height: 75vh;
-  overflow-y: auto;
   display: grid;
   grid-gap: 1.75rem 1.5rem;
   @media ${BREAKPOINT.tablet} {
