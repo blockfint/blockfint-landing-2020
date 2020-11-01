@@ -146,11 +146,11 @@ export const Footer = () => {
               <Text>About</Text>
             </StyledLink>
           </Link>
-          <Link href="#" passHref>
+          {/* <Link href="#" passHref>
             <StyledLink>
               <Text style={{ paddingTop: '0.25rem' }}>Career</Text>
             </StyledLink>
-          </Link>
+          </Link> */}
         </Who>
         <What>
           <Title>What we do</Title>

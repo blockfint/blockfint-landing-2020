@@ -24,7 +24,7 @@ const Title = styled.h4`
   @media ${BREAKPOINT.tablet} {
     font-size: 1.25rem;
     letter-spacing: -0.4px;
-    width: 18.75rem;
+    width: 19.7rem;
   }
 `
 interface Props {
