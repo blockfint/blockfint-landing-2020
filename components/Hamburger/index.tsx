@@ -28,7 +28,7 @@ const StyledBurger = styled.div`
       transform: ${({ open }: OpenProps) => (open ? 'rotate(45deg)' : 'rotate(0)')};
     }
     &:nth-child(2) {
-      transform: ${({ open }: OpenProps) => (open ? 'translateX(100%)' : 'translateX(0)')};
+      //transform: ${({ open }: OpenProps) => (open ? 'translateX(100%)' : 'translateX(0)')};
       opacity: ${({ open }: OpenProps) => (open ? 0 : 1)};
     }
     &:nth-child(3) {

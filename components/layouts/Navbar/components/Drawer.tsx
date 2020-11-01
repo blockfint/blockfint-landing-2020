@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
-import { BREAKPOINT } from '../../../../assets/globalStyle'
-import { Hamburger } from '../../../../assets/Buttons/Hamburger'
+import { BREAKPOINT } from 'assets/globalStyle'
+import { Hamburger } from 'components/Hamburger'
 import { makeStyles } from '@material-ui/core/styles'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import Button from '@material-ui/core/Button'
@@ -11,7 +11,8 @@ import ListItemText from '@material-ui/core/ListItemText'
 import styled, { css, keyframes } from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
-import { ReactComponent as BlockFintColor } from '../../../../assets/logos/Blockfint-Color.svg'
+import { ReactComponent as BlockFintColor } from 'assets/logos/Blockfint-Color.svg'
+import { useContactContext } from 'components/ContactDialog'
 
 type MoveProps = {
   move: boolean
@@ -44,8 +45,6 @@ const useStyles = makeStyles({
 })
 
 const MainNav = styled(List)`
-  color: var(--black);
-
   .MuiButtonBase-root {
     height: 4.25rem;
   }
@@ -54,7 +53,7 @@ const MainNav = styled(List)`
   }
   /* .MuiList-root {
     height: 6.25rem;
-    
+
   } */
 
   &&&.MuiList-padding {
@@ -62,7 +61,7 @@ const MainNav = styled(List)`
   }
   .MuiTypography-root {
     font-size: 1.625rem;
-    font-family: Montserrat;
+
     font-weight: 600;
     font-stretch: normal;
     font-style: normal;
@@ -91,11 +90,9 @@ const MainNav = styled(List)`
   }
 `
 const DrawerPosition = styled('div')`
-  padding-right: 1rem;
-  padding-bottom: 4px;
-  @media ${BREAKPOINT.tablet} {
+  /* @media ${BREAKPOINT.tablet} {
     padding-right: 1.5rem;
-  }
+  } */
 `
 const BottomTitle = styled.div`
   position: fixed;
@@ -106,14 +103,13 @@ const BottomTitle = styled.div`
       margin-left: 1.75rem;
       width: 72px;
       height: 24px;
-      font-family: Nunito Sans;
+
       font-size: 16px;
       font-weight: 600;
       font-stretch: normal;
       font-style: normal;
       line-height: 1.5;
       letter-spacing: normal;
-      color: var(--black);
     }
     .bottomIcons {
       margin-top: 0.6rem;
@@ -122,11 +118,7 @@ const BottomTitle = styled.div`
         margin-right: 0.6875rem;
       }
       span {
-        color: var(--black);
         margin-left: 1rem;
-        a {
-          color: var(--black) f9fa3;
-        }
       }
     }
   }
@@ -164,22 +156,23 @@ const DrawerHamburgerButton = styled(Button)<{ move: string }>`
   animation-name: example;
   animation-duration: 0.2s;
   animation-fill-mode: forwards;
-  ${({ move }) =>
+  /* ${({ move }) =>
     move === 'true'
       ? css`
           animation: 0.2s ${MoveDown} forwards;
         `
       : css`
           animation: 0.2s ${MoveUp} forwards;
-        `};
+        `}; */
 `
 
 const TopLogoWithHam = styled.div`
-  display: grid;
+  display: flex;
   align-items: center;
   justify-items: center;
-  grid-gap: 4.375rem;
-  grid-template-columns: 1fr 1fr;
+
+  justify-content: space-between;
+  padding-right: 1.5rem;
 `
 interface PropsColor {
   status: boolean
@@ -195,7 +188,10 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
   const [animate, setAnimate] = React.useState(true)
   const router = useRouter()
   const [selectedIndex, setSelectedIndex] = React.useState(router.asPath)
-
+  const { onOpen } = useContactContext()
+  const handleOpen = () => {
+    onOpen()
+  }
   const handleListItemClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: any) => {
     setSelectedIndex(index)
     // console.log(router.asPath)
@@ -267,15 +263,10 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
             <RipleMiddle primary="Team" />
           </ListItem>
         </Link>
-        <Link passHref href={`/contact`} as={`/contact`}>
-          <ListItem
-            button
-            selected={selectedIndex === `/contact`}
-            onClick={(event) => handleListItemClick(event, `/contact`)}
-          >
-            <RipleMiddle primary="Contact" />
-          </ListItem>
-        </Link>
+
+        <ListItem button selected={selectedIndex === `/contact`} onClick={handleOpen}>
+          <RipleMiddle primary="Contact" />
+        </ListItem>
       </MainNav>
 
       <BottomTitle>
@@ -288,10 +279,20 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
               >
                 <img src="/icons/facebook.svg" alt="facebook" width="36" />
               </a>
-              <img src="/icons/youtube.svg" alt="youtube" width="36" />
-              <img src="/icons/twitter.svg" alt="twitter" width="36" />
-              <img src="/icons/instagram.svg" alt="instagram" width="36" />
-              <img src="/icons/linkin.svg" alt="linkin" width="36" />
+              <a href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g" style={{ cursor: 'pointer' }}>
+                <img src="/icons/youtube.svg" alt="youtube" width="36" />
+              </a>
+              {/*{' '}
+              <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
+                <img src="/icons/twitter.svg" alt="twitter" width="36" />
+              </a>{' '}
+              */}
+              <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
+                <img src="/icons/instagram.svg" alt="instagram" width="36" />
+              </a>
+              <a href="https://th.linkedin.com/company/blockfint" style={{ cursor: 'pointer' }}>
+                <img src="/icons/linkin.svg" alt="linkin" width="36" />
+              </a>
             </span>
           </div>
         </div>
@@ -309,6 +310,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
           </DrawerHamburgerButton>
           <SwipeableDrawer
             anchor={anchor}
+            // open={false}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
             onOpen={toggleDrawer(anchor, true)}

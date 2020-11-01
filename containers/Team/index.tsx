@@ -1,4 +1,4 @@
-import { JoinUsBanner } from 'components/JoinUsBanner'
+import { ContactBanner } from 'components/ContactBanner'
 import { TeamLead } from './components/teamLead'
 import styled from 'styled-components'
 import { Slider } from 'components/Slider'
@@ -14,7 +14,7 @@ export const Team: React.FC = () => {
       <Footer>
         <Slider sectionName="Our Team" images={images} description={description} />
       </Footer>
-      <JoinUsBanner />
+      <ContactBanner />
     </>
   )
 }
@@ -32,5 +32,5 @@ const description = [
   'Developer Consulting',
   'Focusing Work',
   'Townhall',
-  'Trained National Coach'
+  'Ping-Pong time'
 ]

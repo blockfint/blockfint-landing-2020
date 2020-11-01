@@ -156,15 +156,15 @@ const Title = styled.h1`
 const Name_Positions = [
   { name: 'Suttipong Kanakakorn', path: 'suttipong', position: 'CEO', picture: 'num2X.jpg', key: 1 },
   { name: 'Shimmy Thomas', path: 'thomas', position: 'Business Development', picture: 'Thomas.png', key: 2 },
-  { name: 'Wichai Patipaporn', path: 'wichai', position: 'Architecture', picture: 'wichai2X.png', key: 3 },
+  { name: 'Wichai Patipaporn', path: 'wichai', position: 'Co-Founder', picture: 'wichai2X.png', key: 3 },
   {
     name: 'Ponlawat Tantivongampa',
     path: 'ponlawat',
     position: 'Project Management Director',
-    picture: 'oak2X.png',
+    picture: 'oak2x.png',
     key: 4
   },
-  { name: 'Suwanna Nimitsurachart', path: 'suwanna', position: 'Business Development', picture: 'suwan2X.png', key: 5 },
+  { name: 'Suwanna Nimitsurachart', path: 'suwanna', position: 'Business Analyst', picture: 'suwan2x.png', key: 5 },
   { name: 'Rattanapong Chairukwattana', path: 'rattanapong', position: 'CTO', picture: 'pae3X.png', key: 6 }
 ]
 
