@@ -19,6 +19,8 @@ class MyApp extends App {
     return (
       <>
         <Head>
+          <link rel="shortcut icon" href="/favicon/favicon.png" />
+          <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
           <script
             async
             type="text/javascript"
