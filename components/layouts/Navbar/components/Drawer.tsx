@@ -286,10 +286,20 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
               >
                 <img src="/icons/facebook.svg" alt="facebook" width="36" />
               </a>
-              <img src="/icons/youtube.svg" alt="youtube" width="36" />
-              <img src="/icons/twitter.svg" alt="twitter" width="36" />
-              <img src="/icons/instagram.svg" alt="instagram" width="36" />
-              <img src="/icons/linkin.svg" alt="linkin" width="36" />
+              <a href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g" style={{ cursor: 'pointer' }}>
+                <img src="/icons/youtube.svg" alt="youtube" width="36" />
+              </a>
+             { /*{' '}
+              <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
+                <img src="/icons/twitter.svg" alt="twitter" width="36" />
+              </a>{' '}
+              */}
+              <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
+                <img src="/icons/instagram.svg" alt="instagram" width="36" />
+              </a>
+              <a href="https://th.linkedin.com/company/blockfint" style={{ cursor: 'pointer' }}>
+                <img src="/icons/linkin.svg" alt="linkin" width="36" />
+              </a>
             </span>
           </div>
         </div>
