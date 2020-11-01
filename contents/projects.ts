@@ -107,7 +107,7 @@ export const projectInfos = {
   },
 
   cu: {
-    logoSrc: 'CU.png',
+    logoSrc: 'Cu.png',
     tags: ['Energy Trading', 'National Platform'],
     title:
       'Blockfint’s Gideon Platform To Power ‘smart-City’ P2p Electricity Trading And Intelligent Building Pilot Initiative',

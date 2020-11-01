@@ -14,7 +14,6 @@ export const BREAKPOINT = {
 }
 
 const GlobalStyle = createGlobalStyle`
-// Colors
 :root{
 
 --border-color:#fafafa;
@@ -44,16 +43,19 @@ const GlobalStyle = createGlobalStyle`
 *,
 *::before,
 *::after {
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
   body {
+
       font-family: 'Montserrat', sans-serif;
       margin:0;
       font-size:1rem;
       color:#333333;
+      max-width:100vw;
       overflow-x:hidden;
     h1{
       font-weight:600;

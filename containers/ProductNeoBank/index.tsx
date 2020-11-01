@@ -15,7 +15,7 @@ export const ProductNeoBank: React.FC = () => {
     <>
       <ProductDetail
         {...{
-          name: 'Neobank',
+          name: 'Neo bank',
           title: 'The New Era of Banking Services',
           description:
             "An endless opportunity maker for the new era of banking services. Forget every core banking concepts you've known earlier as Neo bank - Neo loan you the unique banking system where everything is possible. From a pure mobile banking where physical branch is no longer relevant to an effective microfinancing service and various sets of special functions.",

@@ -26,7 +26,6 @@ const Card = styled(motion.div)`
 `
 
 const Image = styled.img`
-  background: blue;
   width: 100%;
   height: 100%;
 `

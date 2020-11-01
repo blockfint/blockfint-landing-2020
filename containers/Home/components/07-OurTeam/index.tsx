@@ -8,6 +8,8 @@ import styled from 'styled-components'
 
 const Background = styled.div`
   background-color: #f8faff;
+  max-width: 100vw;
+  overflow: hidden;
 `
 
 const BlueTitle = styled.h3`
@@ -39,7 +41,7 @@ const Wrapper = styled.div`
   align-items: center;
 
   @media ${BREAKPOINT.tablet} {
-    grid-template-columns: minmax(50%, 28.125rem) 50%;
+    grid-template-columns: minmax(50%, 28.125rem) minmax(0%, 50%);
   }
 `
 const Desc = styled.p`
@@ -56,7 +58,7 @@ const Desc = styled.p`
 `
 const ImageWrapper = styled.div`
   max-width: 95vw;
-  @media ${BREAKPOINT.desktop} {
+  @media ${BREAKPOINT.desktopHd} {
     width: calc(100% + 5rem);
   }
   object-fit: contain;

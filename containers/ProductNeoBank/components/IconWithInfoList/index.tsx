@@ -10,11 +10,12 @@ const Container = styled.div`
   display: grid;
 
   margin: 3.75rem auto;
-  padding: 0 2rem;
+  justify-content: center;
   grid-gap: 2.5rem;
   grid-template-columns: repeat(1, max-content);
   @media ${BREAKPOINT.tablet} {
-    justify-content: center;
+    padding: 0 2rem;
+
     grid-gap: 4.75rem;
   }
 
@@ -28,9 +29,11 @@ const Container = styled.div`
 const IconWrapper = styled.div`
   grid-area: icon;
   padding: 2rem;
+  margin-bottom: 1rem;
   background-color: var(--primary-2);
   border-radius: 50%;
   @media ${BREAKPOINT.tablet} {
+    margin-bottom: unset;
     background-color: transparent;
     border-radius: unset;
     padding: 0;
@@ -39,16 +42,18 @@ const IconWrapper = styled.div`
 
 const Item = styled.div`
   display: grid;
-  max-width: 20rem;
+  max-width: 18rem;
+
   justify-items: center;
   text-align: center;
-  grid-template-rows: 9.75rem auto auto;
+  grid-template-rows: 1fr auto auto;
   grid-gap: 0.25rem 4rem;
   grid-template-areas:
     'icon'
     'title'
     'desc';
   @media ${BREAKPOINT.tablet} {
+    max-width: 20rem;
     max-width: unset;
     grid-template-columns: 6.25rem 17rem;
     grid-template-rows: unset;

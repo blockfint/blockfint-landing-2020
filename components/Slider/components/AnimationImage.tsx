@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { AnimatePresence, motion, Variants } from 'framer-motion'
 import { wrap } from 'popmotion'
+import Image from 'next/image'
 const StyledMotionDiv = styled(motion.div)`
   position: absolute;
   max-width: 20.5rem;
@@ -10,7 +11,7 @@ const StyledMotionDiv = styled(motion.div)`
     max-width: 42.875rem;
   }
 `
-const StyledImage = styled.img`
+const StyledImage = styled(Image)`
   width: 100%;
 `
 const Description = styled.h5`
@@ -57,7 +58,7 @@ export const AnimationImage: React.FC<animationProps> = ({ variants, images, des
           opacity: { duration: 0.2 }
         }}
       >
-        <StyledImage src={images[(imageIndex + index[type]) % images.length]} />
+        <StyledImage src={images[(imageIndex + index[type]) % images.length]} unsized quality={100}/>
         <Description>{description[(imageIndex + index[type]) % images.length]}</Description>
         <Hr />
       </StyledMotionDiv>

@@ -19,8 +19,8 @@ const StyledBurger = styled.div`
   div {
     width: 1.5rem;
     height: 0.25rem;
-    background-color: ${({ status, toggleColor }) => (status && toggleColor ? 'white' : 'var(--black)')};
-
+    /* background-color: ${({ status, toggleColor }) => (status && toggleColor ? 'white' : 'var(--black)')}; */
+    background-color: var(--grey-1);
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
@@ -28,7 +28,7 @@ const StyledBurger = styled.div`
       transform: ${({ open }: OpenProps) => (open ? 'rotate(45deg)' : 'rotate(0)')};
     }
     &:nth-child(2) {
-      transform: ${({ open }: OpenProps) => (open ? 'translateX(100%)' : 'translateX(0)')};
+      //transform: ${({ open }: OpenProps) => (open ? 'translateX(100%)' : 'translateX(0)')};
       opacity: ${({ open }: OpenProps) => (open ? 0 : 1)};
     }
     &:nth-child(3) {

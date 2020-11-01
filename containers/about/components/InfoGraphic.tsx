@@ -65,7 +65,7 @@ export const InfoGraphic = () => {
         <StyledNumber>
           <Counter from={0} to={60} />+
         </StyledNumber>
-        <Text>Employee</Text>
+        <Text>Employees</Text>
       </Group>
       <Group>
         <Image src="/product.png" alt="product" />

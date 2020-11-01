@@ -43,14 +43,14 @@ export const peopleInfos = {
     name: 'Ponlawat Tantivongampai',
     position: 'Project Management Director',
     desc: `Oak has finished both his bachelor and master degree from Chulalongkorn University majoring in electrical engineering and telecommunications engineering, respectively. He has gain over 12 years of experiences in wide IT, Mobile, BSS, OSS and Mobile Application. Oak is goal-oriented person. He loves to achieve those challenges and makes everything possible with the team. Blockfint for him is the combination freshness and experience. They are likely to tackle problems with fun, creativity but serious in a way. However, this mixture of combinations share one goal together, succession.`,
-    imgSrc: 'oak2X.png'
+    imgSrc: 'oak2x.png'
   },
 
   suwanna: {
     name: 'Suwanna Nimitsurachart',
     position: 'Business Analyst',
     desc: `Before P’Su joined Blockfint, she has been experiencing in Implement and Support Banking for over 37 years through all well-known banks in significant positions. With her rounded and wisdom, she will definitely guide Blockfint to solidifying go forward.`,
-    imgSrc: 'suwan2X.png'
+    imgSrc: 'suwan2x.png'
   },
 
   rattanapong: {

@@ -36,7 +36,27 @@ export default class CustomDocument extends Document<{
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <script
+            async
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
+              WebFontConfig = {
+                google: { families: [ 'Lato:400,400i,700|Roboto+Slab:400,700' ] }
+              };
+              (function() {
+                var wf = document.createElement('script');
+                wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+              })();
+`
+            }}
+          />
+        </Head>
         <body>
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YDP043C7H" />
           <script

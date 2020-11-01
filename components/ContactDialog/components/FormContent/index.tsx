@@ -11,6 +11,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ReactComponent as HeroBottom } from 'assets/bg/hero-bottom.svg'
 import { ReactComponent as CloseSvg } from 'assets/icons/close.svg'
 import { Container, IconButton } from '@material-ui/core'
+import axios from 'axios'
 const StyleHeroTop = styled(HeroBottom)`
   position: absolute;
   top: -10%;
@@ -53,6 +54,8 @@ const CloseButtonWrapper = styled.div`
 const Content = styled.div`
   max-width: 41.25rem;
   margin: 0 auto;
+  max-height: 75vh;
+  overflow-y: auto;
 `
 const Title = styled.h2`
   text-align: center;
@@ -67,8 +70,6 @@ const Form = styled.form`
   margin: 2.5rem 0;
 `
 const TwoColumn = styled.div`
-  max-height: 75vh;
-  overflow-y: auto;
   display: grid;
   grid-gap: 1.75rem 1.5rem;
   @media ${BREAKPOINT.tablet} {
@@ -136,13 +137,22 @@ const schema = yup.object().shape({
   business: yup.string().notOneOf([''], 'Please select business')
 })
 
+type FormInfo = {
+  name: string
+  email: string
+  phone: string
+  company: string
+  service: string
+  business: string
+  message: string
+}
 interface Props {
   onClose: () => void
 }
 
 export const FormContent: React.FC<Props> = ({ onClose }) => {
   const [isSended, setIsSended] = useState(false)
-  const { handleSubmit, errors, control, register } = useForm({
+  const { handleSubmit, errors, control, register } = useForm<FormInfo>({
     defaultValues: {
       name: ``,
       email: ``,
@@ -154,8 +164,22 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
     },
     resolver: yupResolver(schema)
   })
-  const onSubmit = (data) => {
+  const onSubmit = (data: FormInfo) => {
     //TODO send here
+    axios({
+      method: 'post',
+      url: window.location.origin + '/api/SendEmail',
+      data: {
+        name: data.name,
+        email: data.email,
+        subject: `${data.name} interested ${data.service}`,
+        phone: data.phone,
+        company: data.company,
+        service: data.service,
+        business: data.business,
+        contents: data.message
+      }
+    })
     setIsSended(true)
   }
 

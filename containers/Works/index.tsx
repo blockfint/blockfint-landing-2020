@@ -32,7 +32,7 @@ export const Works = () => {
     <>
       <Container>
         <TopPage>
-          <TopText style={{ color: 'var(--primary)' }}>Our work</TopText>
+          <TopText style={{ color: 'var(--primary)' }}>Our works</TopText>
           <TopText>The Products That Challenge The World</TopText>
         </TopPage>
         <CardContainer>
