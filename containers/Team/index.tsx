@@ -32,5 +32,5 @@ const description = [
   'Developer Consulting',
   'Focusing Work',
   'Townhall',
-  'Trained National Coach'
+  'Ping-Pong time'
 ]
