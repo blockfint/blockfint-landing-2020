@@ -39,13 +39,13 @@ const RightNav = styled.div`
   .LangButton {
     .ThaiButton {
       color: #2076a9;
-      font-family: Nunito Sans;
+
       font-size: 0.9rem;
       margin-right: 0.75rem;
     }
     .EngButton {
       color: white;
-      font-family: Nunito Sans;
+
       font-size: 0.9rem;
       background-color: #2076a9;
       margin-right: 1.4rem;
@@ -61,7 +61,7 @@ const RightNav = styled.div`
       padding-right: 2.15rem;
       .LoginAndRegis {
         color: #2076a9;
-        font-family: Nunito Sans;
+
         font-size: 0.9rem;
         font-weight: 600;
       }
@@ -113,18 +113,18 @@ interface Props {
 export const Navbar: React.FC<Props> = ({ transparent, id }) => {
   // console.log(transparent)
   return (
-        <Box status={transparent}>
-          <Container maxWidth="lg">
-            <MenuMainLayout>
-              <div>
-                <Logo status={transparent} id={id} />
-              </div>
-            </MenuMainLayout>
-          </Container>
+    <Box status={transparent}>
+      <Container maxWidth="lg">
+        <MenuMainLayout>
           <div>
-            <RightNavBar status={transparent} id={id} />
+            <Logo status={transparent} id={id} />
           </div>
-        </Box>
+        </MenuMainLayout>
+      </Container>
+      <div>
+        <RightNavBar status={transparent} id={id} />
+      </div>
+    </Box>
   )
 }
 export default Navbar

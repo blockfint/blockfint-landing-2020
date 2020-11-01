@@ -43,7 +43,7 @@ const Content = styled.div`
   }
   h6 {
     color: var(--black);
-    font-family: Montserrat;
+
     font-size: 1rem;
     font-weight: 400;
     font-stretch: normal;

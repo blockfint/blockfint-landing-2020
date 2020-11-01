@@ -54,7 +54,7 @@ const MainNav = styled(List)`
   }
   /* .MuiList-root {
     height: 6.25rem;
-    
+
   } */
 
   &&&.MuiList-padding {
@@ -62,7 +62,7 @@ const MainNav = styled(List)`
   }
   .MuiTypography-root {
     font-size: 1.625rem;
-    font-family: Montserrat;
+
     font-weight: 600;
     font-stretch: normal;
     font-style: normal;
@@ -106,7 +106,7 @@ const BottomTitle = styled.div`
       margin-left: 1.75rem;
       width: 72px;
       height: 24px;
-      font-family: Nunito Sans;
+
       font-size: 16px;
       font-weight: 600;
       font-stretch: normal;
