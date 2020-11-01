@@ -12,6 +12,7 @@ import styled, { css, keyframes } from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 import { ReactComponent as BlockFintColor } from 'assets/logos/Blockfint-Color.svg'
+import { useContactContext } from 'components/ContactDialog'
 
 type MoveProps = {
   move: boolean
@@ -193,7 +194,10 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
   const [animate, setAnimate] = React.useState(true)
   const router = useRouter()
   const [selectedIndex, setSelectedIndex] = React.useState(router.asPath)
-
+  const { onOpen } = useContactContext()
+  const handleOpen = () => {
+    onOpen()
+  }
   const handleListItemClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: any) => {
     setSelectedIndex(index)
     // console.log(router.asPath)
@@ -265,15 +269,10 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
             <RipleMiddle primary="Team" />
           </ListItem>
         </Link>
-        <Link passHref href={`/contact`} as={`/contact`}>
-          <ListItem
-            button
-            selected={selectedIndex === `/contact`}
-            onClick={(event) => handleListItemClick(event, `/contact`)}
-          >
-            <RipleMiddle primary="Contact" />
-          </ListItem>
-        </Link>
+
+        <ListItem button selected={selectedIndex === `/contact`} onClick={handleOpen}>
+          <RipleMiddle primary="Contact" />
+        </ListItem>
       </MainNav>
 
       <BottomTitle>
@@ -289,7 +288,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
               <a href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g" style={{ cursor: 'pointer' }}>
                 <img src="/icons/youtube.svg" alt="youtube" width="36" />
               </a>
-             { /*{' '}
+              {/*{' '}
               <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
                 <img src="/icons/twitter.svg" alt="twitter" width="36" />
               </a>{' '}
