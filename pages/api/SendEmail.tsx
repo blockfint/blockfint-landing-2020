@@ -16,17 +16,18 @@ function Email(to, sub, content) {
   const from = 'dev@blockfint.com'
   // 'dev@blockfint.com' // The email address added here must be verified in Amazon SES
   //Amazon SES email format
-  ses.sendEmail(
-    {
-      Source: from,
-      Destination: { ToAddresses: to },
-      Message: {
-        Subject: {
-          Data: CustomerSubject
-        },
-        Body: {
-          Html: {
-            Data: `<html>
+  try {
+    ses.sendEmail(
+      {
+        Source: from,
+        Destination: { ToAddresses: to },
+        Message: {
+          Subject: {
+            Data: CustomerSubject
+          },
+          Body: {
+            Html: {
+              Data: `<html>
             <head>
                 <title>Your New Token</title>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -50,44 +51,47 @@ function Email(to, sub, content) {
             </div>
             </body>
             </html>`
+            }
           }
         }
-      }
-    },
-    function (err, data) {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log('Email sent:')
-        console.log(data)
-      }
-    }
-  )
-  const adminEmail = ['theeraphat.a@blockfint.com', 'max.jakkapat@gmail.com']
-  ses.sendEmail(
-    {
-      Source: from,
-      Destination: { ToAddresses: adminEmail },
-      Message: {
-        Subject: {
-          Data: sub
-        },
-        Body: {
-          Html: {
-            Data: content
-          }
+      },
+      function (err, data) {
+        if (err) {
+          throw new Error('Send message to customer failed')
+        } else {
+          console.log('Email sent:')
+          console.log(data)
         }
       }
-    },
-    function (err, data) {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log('Email sent:')
-        console.log(data)
+    )
+    const adminEmail = ['theeraphat.a@blockfint.com', 'max.jakkapat@gmail.com']
+    ses.sendEmail(
+      {
+        Source: from,
+        Destination: { ToAddresses: adminEmail },
+        Message: {
+          Subject: {
+            Data: sub
+          },
+          Body: {
+            Html: {
+              Data: content
+            }
+          }
+        }
+      },
+      function (err, data) {
+        if (err) {
+          throw new Error('Send message to admin failed')
+        } else {
+          console.log('Email sent:')
+          console.log(data)
+        }
       }
-    }
-  )
+    )
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export default (req, res) => {
