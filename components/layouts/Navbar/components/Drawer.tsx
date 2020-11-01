@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
-import { BREAKPOINT } from '../../../../assets/globalStyle'
-import { Hamburger } from '../../../../assets/Buttons/Hamburger'
+import { BREAKPOINT } from 'assets/globalStyle'
+import { Hamburger } from 'components/Hamburger'
 import { makeStyles } from '@material-ui/core/styles'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import Button from '@material-ui/core/Button'
@@ -11,7 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import styled, { css, keyframes } from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
-import { ReactComponent as BlockFintColor } from '../../../../assets/logos/Blockfint-Color.svg'
+import { ReactComponent as BlockFintColor } from 'assets/logos/Blockfint-Color.svg'
 
 type MoveProps = {
   move: boolean
@@ -91,11 +91,9 @@ const MainNav = styled(List)`
   }
 `
 const DrawerPosition = styled('div')`
-  padding-right: 1rem;
-  padding-bottom: 4px;
-  @media ${BREAKPOINT.tablet} {
+  /* @media ${BREAKPOINT.tablet} {
     padding-right: 1.5rem;
-  }
+  } */
 `
 const BottomTitle = styled.div`
   position: fixed;
