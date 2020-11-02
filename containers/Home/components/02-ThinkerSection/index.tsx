@@ -29,7 +29,7 @@ export const ThinkerSection: React.FC = () => {
         <ThinkerImage />
         <Title style={{ color: 'var(--primary)' }}>Thinker</Title>
         <Title>Make Rapid, Optimized & Data Driven Decision </Title>
-        <Desc>Leading change of processes with data-driven tool that wil change the way of working forever.</Desc>
+        <Desc>Leading change of processes with data-driven tool that will change the way of working forever.</Desc>
         <Link href={'/products/thinker'} passHref>
           <a>
             <PrimaryButton logo={<ThinkerSmall />} background={'var(--gradient-thinker)'}>

@@ -15,9 +15,9 @@ export const ProductThinker: React.FC = () => {
       <ProductDetail
         {...{
           name: 'Thinker',
-          title: 'Make rapid, optimized & data driven decision ',
+          title: 'Make rapid, optimized & data driven decision',
           description:
-            'A tool that make your personalized decision making process available in computer system. What if computer can understand your approval criterias & procedures and rapidly respond to your valuable customers? Thinker enables you to create an Origination System using the concept of decision tree. You can build, drag, and connect as many tree you need without writing a single programing code.. ',
+            'A tool that make your personalized decision making process available in computer system. What if computer can understand your approval criterias & procedures and rapidly respond to your valuable customers? Thinker enables you to create an Origination System using the concept of decision tree. You can build, drag, and connect as many tree you need without writing a single programing code.',
 
           secondaryTitle: 'The system that simplify all the complicated working proces'
           // youtube: '0JO1ovT4Nvo'

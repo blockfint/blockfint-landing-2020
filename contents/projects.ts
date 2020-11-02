@@ -32,19 +32,19 @@ export const projectInfos = {
         iconSrc: 'NDID/identify.svg',
         title: 'Identify and Verification',
         description:
-          'To be an important digital infrastructure system designed under the decentralized concept that will help make electronic transactions more effective, reliable and achieve international standards'
+          'To be an important digital infrastructure system designed under the decentralized concept that will help make electronic transactions more effective, reliable and achieve international standards.'
       },
       {
         iconSrc: 'NDID/Promote-online-self-service.svg',
         title: 'Promote Online Self Service',
         description:
-          'To provide services in real time through online channels; elevate their service to customers through various channels; makes their service more efficient; and reduces management costs'
+          'To provide services in real time through online channels; elevate their service to customers through various channels; makes their service more efficient; and reduces management costs.'
       },
       {
         iconSrc: 'NDID/data-sharing.svg',
         title: 'Data Sharing',
         description:
-          'To support data exchange between organizations that systematically connects all parties without the repetition of complex authentication, as owners of the information, consent must provided before any further action'
+          'To support data exchange between organizations that systematically connects all parties without the repetition of complex authentication, as owners of the information, consent must provided before any further action.'
       }
     ]
   },
@@ -57,7 +57,7 @@ export const projectInfos = {
 
     The imminent tranche will be offered to general investors through Krungthai Bank's e-wallet, the same as the previous lot, said Patricia Mongkhonvanit, director-general of PDMO.
 
-    With the e-wallet, people, particularly the younger generation and the elderly, can more easily access the distribution channel`,
+    With the e-wallet, people, particularly the younger generation and the elderly, can more easily access the distribution channel.`,
     linkHref:
       'https://www.posttoday.com/finance-stock/news/626168?fbclid=IwAR3Ji9Aibjlnj2cW2DGx5UnkDtZimMarxam1vGJ7x62FviiuT4POfIVAEpY',
     benefits: [
@@ -74,7 +74,7 @@ export const projectInfos = {
       {
         iconSrc: 'KTB/Promote.svg',
         title: ' Plant the structure',
-        description: 'of digital business into the society'
+        description: 'of digital business into the society.'
       }
     ]
   },
@@ -101,7 +101,7 @@ export const projectInfos = {
       {
         iconSrc: 'Fideser/transparent.svg',
         title: 'Transparent',
-        description: 'and verify the market of palm trading  '
+        description: 'and verify the market of palm trading.'
       }
     ]
   },
