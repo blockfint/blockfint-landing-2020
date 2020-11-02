@@ -109,7 +109,7 @@ export const ProductsBanner: React.FC = () => {
             <h5>Interesting in our products? </h5>
             <Link passHref href="/works">
               <a>
-                <SecondaryButton>See all work</SecondaryButton>
+                <SecondaryButton>See all works</SecondaryButton>
               </a>
             </Link>
           </RightContent>
