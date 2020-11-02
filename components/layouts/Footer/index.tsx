@@ -117,7 +117,7 @@ const ButtonToTop = styled.button`
   padding: 0;
   background-color: white;
   border: 0;
-  :focus{
+  :focus {
     outline: none;
   }
   @media ${BREAKPOINT.tablet} {
@@ -134,6 +134,11 @@ const StyledLink = styled.a`
   color: var(--gray-1);
   display: block;
   width: max-content;
+`
+const LinkCall = styled(StyledLink)`
+  :hover {
+    text-decoration: underline;
+  }
 `
 export const Footer = () => {
   return (
@@ -172,7 +177,9 @@ export const Footer = () => {
         </Address>
         <Call>
           <Title>Call</Title>
-          <Text>+66 (0)20 3027 7900</Text>
+          <LinkCall href="tel:021147182">
+            <Text className="call">+66 (0)2 114 7182</Text>
+          </LinkCall>
         </Call>
         <Social>
           <Title>What We do daily</Title>
