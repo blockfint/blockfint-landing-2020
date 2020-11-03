@@ -206,8 +206,7 @@ export const TeamLead: React.FC = () => {
       <Container maxWidth="lg">
         <Content>
           <div>
-            <Title>Strong Team and </Title>
-            <Title style={{ color: '#19213c' }}>Unique Working Environment</Title>
+            <Title style={{ color: '#19213c' }}>Our Leaders</Title>
           </div>
           <div className="TeamLeadPic">{FullDetail}</div>
         </Content>
