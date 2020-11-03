@@ -31,7 +31,7 @@ export const About = () => {
 }
 const images = ['/images/slide1.jpg', '/images/slide2.jpg', '/images/slide3.jpg']
 const description = [
-  'Prouded to be partner with ThaiBMA',
+  'Registrar Service Platform',
   'Award for Mhor Chan',
   'Together with ThaiBMA board'
 ]
