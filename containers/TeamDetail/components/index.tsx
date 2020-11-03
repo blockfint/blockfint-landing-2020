@@ -243,7 +243,7 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
           </ContainerContents>
         </Layout>
       </Container>
-      <JoinUsBanner />
+      <ContactBanner />
     </Background>
   )
 }
