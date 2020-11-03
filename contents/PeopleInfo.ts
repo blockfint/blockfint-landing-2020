@@ -15,8 +15,12 @@ export const peopleInfos = {
   suttipong: {
     name: 'Suttipong Kanakakorn',
     position: 'Chief Executive Officer',
-    desc: `“Nick” is a technology wizard. He dreams about tech even in his sleep!. Before founding Blockfint, he worked with large multinational tech companies in the US leading their product development efforts for over 25years. He is a passionate fitness enthusiast competing himself and stretching his physical limits. His fitness passion has taken him across the world participating in Iron Man and Marathons. He is humble in his conquests. He is also our resident Blockchain guru and can talk technology and business with ease. His brilliance and humility has made the startup strong and successful and clients love us for our grit and determination and passion to deliver the best. He is also our part-time barista serving the best coffee to our coffee loving Blockfinters’.
-   `,
+    desc: `Nick worked with multiple early stage startups in Silicon Valley for more than twenty years. The notably successful exit companies include Nutanix (6th employee) and Andiamo (acquired by Cisco). He brings distributed system expertise and Silicon Valley work culture to Blockfint. He has comprehensive skills to architect the solution and reach milestones quickly. 
+
+    Nick wants to make BlockFint relevant and has a big presence while offering transformation toward the better and fairer financial market. He helped design the first issued bond on digital ledger technology in Thailand. He is one of the main designers of Thailand National Digital ID systems (NDID).
+    
+    He is also our resident Blockchain guru and can talk technology and business with ease. His brilliance and humility has made the startup strong and clients love us for our grit, determination and passion to deliver the best.
+    He is an endurance sport enthusiast competing himself and stretching his physical limits. It has taken him across the world participating in Ironman and Ultra Trail Running races.`,
     imgSrc: 'num2X.png',
     contact: 'Reach out to him at Nick@blockfint.com',
     quote: 'and he will be happy to have a technology infused coffee with you anytime.'
