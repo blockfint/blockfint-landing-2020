@@ -40,6 +40,9 @@ const SecondaryTitle = styled.h4`
     font-size: 1.625rem;
     max-width: 35rem;
   }
+  @media ${BREAKPOINT.desktop} {
+    max-width: 61.25rem;
+  }
 `
 interface Props {
   name: string
