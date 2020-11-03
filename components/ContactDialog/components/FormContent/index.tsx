@@ -74,7 +74,7 @@ const TwoColumn = styled.div`
   grid-gap: 1.75rem 1.5rem;
   @media ${BREAKPOINT.tablet} {
     grid-gap: 1.75rem 1.25rem;
-    grid-auto-rows: 3rem;
+    grid-auto-rows: 3.25rem;
     grid-template-columns: 1fr 1fr;
   }
 `
@@ -102,6 +102,9 @@ export const OutlineTextField = styled(TextField).attrs((props) => ({ ...props, 
     font-weight: 400;
     opacity: 0.5;
     color: var(--grey-1);
+  }
+  .MuiSelect-select:focus {
+    background: transparent;
   }
 `
 const OutlinedTextarea = styled(OutlineTextField)`
@@ -164,9 +167,9 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
     },
     resolver: yupResolver(schema)
   })
-  const onSubmit = (data: FormInfo) => {
+  const onSubmit = async (data: FormInfo) => {
     //TODO send here
-    axios({
+    await axios({
       method: 'post',
       url: window.location.origin + '/api/SendEmail',
       data: {
@@ -205,10 +208,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                 transition={{ duration: 0.5 }}
               >
                 <Content>
-                  <Title>
-                    Get in touch and
-                    <br /> find out how we can help
-                  </Title>
+                  <Title>Contact Us</Title>
                   <Form onSubmit={handleSubmit(onSubmit)}>
                     <TwoColumn>
                       <OutlineTextField
@@ -248,7 +248,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                             select
                             error={Boolean(errors?.service)}
                             helperText={<ErrorMessage errors={errors} name="service" />}
-                            label="Select your interested service"
+                            label="Select your interested product"
                             SelectProps={{
                               native: true
                             }}
@@ -273,7 +273,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                             select
                             error={Boolean(errors?.business)}
                             helperText={<ErrorMessage errors={errors} name="business" />}
-                            label="  Select your business"
+                            label="Industry"
                             SelectProps={{
                               native: true
                             }}
@@ -285,7 +285,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                               'Design',
                               'Entertainment',
                               'Finance & Banking',
-                              'Food & Berverage',
+                              'Food & Beverage',
                               'Health Care',
                               'Innovation & Technology',
                               'Insurance',
