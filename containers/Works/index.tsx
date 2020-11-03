@@ -12,11 +12,15 @@ const TopText = styled.h2`
     font-size: 3.375rem;
     line-height: 1.22;
   }
-  @media ${BREAKPOINT.desktop} {
-  }
 `
 const TopPage = styled.div`
-  padding: 6.25rem 0;
+  padding: 2.5rem 0;
+  @media ${BREAKPOINT.tablet} {
+    padding: 3.75rem 0;
+  }
+  @media ${BREAKPOINT.desktop} {
+    padding: 6.25rem 0;
+  }
 `
 const CardContainer = styled.div`
   display: grid;
