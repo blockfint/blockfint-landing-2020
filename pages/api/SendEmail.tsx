@@ -30,7 +30,7 @@ function Email(to, sub, content) {
             },
             Body: {
               Html: {
-                Data: `<<html>
+                Data: `<html>
 
                 <head>
                     <title>Gideon Email Contact</title>
@@ -106,7 +106,7 @@ function Email(to, sub, content) {
                         <div class="main">
                             <div class="content">
                                 <div class="Logo">
-                                    <img src="logo_gideon.svg" alt="images_Logos">
+                                    <img src="https://www.img.in.th/images/c52ae8a99e12dd062b8f3151e304411e.png" alt="images_Logos">
                                 </div>
                                 <div>
                                     <div class="MainLayout">
