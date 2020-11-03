@@ -132,38 +132,6 @@ export const projectInfos = {
     ],
     linkHref: 'https://gideon.energy/en/news/5f193869523e6a00018b836a'
   },
-
-  morchana: {
-    logoSrc: 'DGA.png',
-    tags: ['National Platform', 'Traceability'],
-    title: 'Morchana - COVID-19 Tracability  (Part of Volunteer team)',
-    description: `
-    Application MorChana is a tool to assist Medical Staffs, Government Agencies, Business Owners, and most importantly, YOU in taking care and protect oneself from the spread of COVID-19
-
-Application MorChana will collect use and disseminate only necessary data to protect or suppress dangers to life, body, and health of you, the people around you and all citizen. The application will track infection, probability and risk of COVID-19 and observe the outbreak situation from data provided by you.
-    `,
-    benefits: [
-      {
-        title: 'Reminding application',
-        description: 'for preventing Covid-19 infection risk case.',
-        iconSrc: 'DGA/Remaining.svg'
-      },
-      {
-        title: 'Assuring ',
-        description: 'the reliability of country reopening after COVID-19 pandemic.',
-        iconSrc: 'DGA/Assuring.svg'
-      },
-      {
-        title: 'Supporting healthcare',
-        description:
-          'professionals by rapidly analyze the degree of infection risk among patients who are hospitalized.',
-        iconSrc: 'DGA/Supporting.svg'
-      }
-    ],
-    linkHref: 'https://www.dga.or.th/th/content/913/14144/',
-    youtube: 'D2MY4-HTSaA'
-  },
-
   tbma: {
     tags: ['Financial', 'Digital Bond'],
     logoSrc: 'BMA.png',

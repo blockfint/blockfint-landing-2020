@@ -29,9 +29,9 @@ export const About = () => {
     </div>
   )
 }
-const images = ['/images/slide1.jpg', '/images/slide2.jpg', '/images/slide3.jpg']
+const images = ['/images/slide1.jpg', '/images/slide3.jpg']
 const description = [
-  'Registrar Service Platform',
-  'Award for Mhor Chan',
-  'Together with ThaiBMA board'
+  // 'Registrar Service Platform',
+  // 'Award for Mhor Chan',
+  // 'Together with ThaiBMA board'
 ]

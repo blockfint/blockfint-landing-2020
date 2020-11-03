@@ -60,7 +60,7 @@ export const AnimationImage: React.FC<animationProps> = ({ variants, images, des
       >
         <StyledImage src={images[(imageIndex + index[type]) % images.length]} unsized quality={100}/>
         <Description>{description[(imageIndex + index[type]) % images.length]}</Description>
-        <Hr />
+        {/* <Hr /> */}
       </StyledMotionDiv>
     </AnimatePresence>
   )
