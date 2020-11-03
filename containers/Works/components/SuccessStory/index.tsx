@@ -91,10 +91,6 @@ const projectPath = [
     link: '/projects/fiderser'
   },
   {
-    projectId: 'morchana',
-    link: '/projects/morchana'
-  },
-  {
     projectId: 'thila',
     link: '/projects/thila'
   },
