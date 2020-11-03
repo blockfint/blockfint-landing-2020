@@ -43,31 +43,31 @@ function Email(to, sub, content) {
                             line-height: 1.56;
                             letter-spacing: normal;
                         }
-                
+
                         .Logo {
                             padding-top: 2.75rem;
                             text-align: center;
-                
+
                         }
-                
+
                         img {
                             width: 10rem;
                         }
-                
+
                         .MainLayout {
                             padding-top: 2rem;
                             text-align: center;
                             max-width: 321px;
                             margin: 0 auto;
                         }
-                
+
                         .box {
                             margin-top: 1.5rem;
                             box-shadow: 0 0 14px 8px rgba(0, 0, 0, 0.06);
                             width: 321px;
                             height: 312px;
                         }
-                
+
                         .contents {
                             padding-left: 1.5rem;
                             padding-right: 1.5rem;
@@ -76,21 +76,21 @@ function Email(to, sub, content) {
                             text-align: start;
                             max-width: 273px;
                         }
-                
+
                         .sub-contents {
                             display: flex;
                             margin-top: 0.5rem;
-                
+
                         }
-                
+
                         h2 {
                             font-family: Nunito Sans;
                             font-size: 14px;
                             font-weight: 800;
                             margin: 0;
-                
+
                         }
-                
+
                         h3 {
                             font-family: Nunito Sans;
                             font-size: 14px;
@@ -100,7 +100,7 @@ function Email(to, sub, content) {
                         }
                     </style>
                 </head>
-                
+
                 <body>
                     <div class="emailwrapper">
                         <div class="main">
@@ -159,10 +159,10 @@ function Email(to, sub, content) {
                                         </div>
                                     </div>
                                 </div>
-                
+
                             </div>
                 </body>
-                
+
                 </html>`
               }
             }
@@ -210,7 +210,7 @@ function Email(to, sub, content) {
   })
 }
 
-export default (req, res) => {
+export default async (req, res) => {
   if (req.method === 'POST') {
     try {
       const to = [req.body.email] // Email address must be an array
@@ -221,7 +221,7 @@ export default (req, res) => {
       // In this email we are sending HTML
       const content = JSON.stringify(req.body)
       // Use the Email function of our send email utility
-      Email(to, sub, content)
+      await Email(to, sub, content)
       res.json({ message: 'Success!' })
       console.log(req.body)
     } catch (err) {
