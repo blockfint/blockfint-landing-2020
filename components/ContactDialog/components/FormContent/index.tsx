@@ -74,7 +74,7 @@ const TwoColumn = styled.div`
   grid-gap: 1.75rem 1.5rem;
   @media ${BREAKPOINT.tablet} {
     grid-gap: 1.75rem 1.25rem;
-    grid-auto-rows: 3rem;
+    grid-auto-rows: 3.25rem;
     grid-template-columns: 1fr 1fr;
   }
 `
