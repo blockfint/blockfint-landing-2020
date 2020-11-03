@@ -32,10 +32,6 @@ const Background = styled.div`
     background: #fafafa;
   }
 `
-const Footer = styled.div`
-  padding-top: 3.75rem;
-  overflow: hidden;
-`
 const Content = styled.div`
   .mailIcon {
     width: 1.5rem;
@@ -43,7 +39,6 @@ const Content = styled.div`
   }
   h6 {
     color: var(--black);
-
     font-size: 1rem;
     font-weight: 400;
     font-stretch: normal;
@@ -58,9 +53,11 @@ const Content = styled.div`
 
     .Name {
       padding-top: 1.5rem;
+      font-size: 1.625rem;
     }
     .Position {
       color: #00b8de;
+      font-size: 1rem;
       padding-top: 1.5rem;
       padding-bottom: 1.5rem;
     }
@@ -72,7 +69,7 @@ const Content = styled.div`
     }
     .Contact {
       padding-bottom: 3.75rem;
-      max-width: 22rem;
+      /* max-width: 22rem; */
     }
   }
   @media ${BREAKPOINT.tablet} {
@@ -82,17 +79,25 @@ const Content = styled.div`
       }
       .Name {
         padding-top: 0;
+        font-size: 1.625rem;
       }
       .Position {
+        font-size: 1.25rem;
         padding: 0;
         padding-bottom: 1rem;
       }
     }
   }
-  @media ${BREAKPOINT.desktopHd} {
+  @media ${BREAKPOINT.desktop} {
     .TeamLeadPic {
       .Story {
         max-width: 39.25rem;
+      }
+      .Name {
+        font-size: 2.625rem;
+      }
+      .Position {
+        font-size: 1.625rem;
       }
     }
   }
@@ -109,8 +114,8 @@ const Person = styled.img`
     height: 30.8125rem;
   }
   @media ${BREAKPOINT.desktopHd} {
-    width: 28.125rem;
-    height: 35.8125rem;
+    width: 19.125rem;
+    height: 25.8125rem;
   }
 `
 
@@ -119,15 +124,15 @@ const Layout = styled.div`
     padding-top: 4.125rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* grid-column-gap: 2.5rem; */
   }
   @media ${BREAKPOINT.desktop} {
     padding-top: 6.25rem;
-    grid-column-gap: 4.75rem;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 3.75rem;
   }
 `
 
-const ContainerPicture = styled(Container)`
+const ContainerPicture = styled.div`
   &&& {
     padding: 0;
   }
@@ -141,7 +146,7 @@ const ContainerPicture = styled(Container)`
   }
   @media ${BREAKPOINT.desktop} {
     &&& {
-      padding-left: 8.4375rem;
+      /* padding-left: 8.4375rem; */
     }
   }
 `
@@ -161,6 +166,23 @@ const ContainerButton = styled(Container)`
     .Button {
       display: none;
     }
+  }
+`
+const ContainerContents = styled.div`
+  &&& {
+    padding: 0;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @media ${BREAKPOINT.tablet} {
+    &&& {
+      /* padding: 2.5rem; */
+      /* text-align: center; */
+      padding-top: 0;
+    }
+  }
+  @media ${BREAKPOINT.desktop} {
   }
 `
 
@@ -190,53 +212,38 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
   // }
   return (
     <Background>
-      <ContainerButton>
-        <div className="Button" onClick={() => router.push(`/team`, `/team`, { shallow: true })}>
-          <LinkButton>Back</LinkButton>
-        </div>
-      </ContainerButton>
-      <Layout>
-        <ContainerPicture>
-          <ImageOverlay imgSrc={imgSrc} />
-        </ContainerPicture>
+      <Container maxWidth="lg" style={{ paddingBottom: '6.25rem' }}>
+        <ContainerButton>
+          <div className="Button" onClick={() => router.push(`/team`, `/team`, { shallow: true })}>
+            <LinkButton>Back</LinkButton>
+          </div>
+        </ContainerButton>
+        <Layout>
+          <ContainerPicture>
+            <ImageOverlay imgSrc={imgSrc} />
+          </ContainerPicture>
 
-        <Container maxWidth="lg">
-          <Content>
-            <div className="TeamLeadPic">
-              <div className="Info">
-                <h5 className="Name">{name}</h5>
-                <h5 className="Position">{position}</h5>
-                <h6 className="Story">{desc}</h6>
+          <ContainerContents>
+            <Content>
+              <div className="TeamLeadPic">
+                <div className="Info">
+                  <h5 className="Name">{name}</h5>
+                  <h5 className="Position">{position}</h5>
+                  <h6 className="Story" style={{ textIndent: '50px' }}>
+                    {desc}
+                  </h6>
+                </div>
+                <div className="Contact">
+                  <h6>
+                    <ContactDetail contact={contact} />
+                  </h6>
+                </div>
               </div>
-              <div className="Contact">
-                <h6>
-                  <ContactDetail contact={contact} />
-                </h6>
-              </div>
-            </div>
-          </Content>
-        </Container>
-      </Layout>
-      <Footer>
-        <Slider sectionName="Our Team" images={images} description={description} />
-      </Footer>
+            </Content>
+          </ContainerContents>
+        </Layout>
+      </Container>
       <JoinUsBanner />
     </Background>
   )
 }
-const images = [
-  '/images/Blockfint-Outing.jpg',
-  '/images/Daily-stand-up.jpg',
-  '/images/Developer-consulting.jpg',
-  '/images/Focusing-work.jpg',
-  '/images/Townhall.jpg',
-  '/images/Trained-national-coach.jpg'
-]
-const description = [
-  'Blockfint Outing',
-  'Daily standup',
-  'Developer Consulting',
-  'Focusing Work',
-  'Townhall',
-  'Trained National Coach'
-]

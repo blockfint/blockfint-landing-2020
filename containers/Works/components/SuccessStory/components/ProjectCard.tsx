@@ -16,6 +16,7 @@ const TagGroup = styled.div`
   padding-bottom: 0.75rem;
 `
 const Title = styled.h4`
+  cursor: pointer;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -25,6 +26,15 @@ const Title = styled.h4`
     font-size: 1.25rem;
     letter-spacing: -0.4px;
     width: 19.7rem;
+  }
+`
+const StyledButton = styled.button`
+  cursor: pointer;
+  background-color: white;
+  border: 0;
+  width: max-content;
+  :focus {
+    outline: none;
   }
 `
 interface Props {
@@ -47,9 +57,13 @@ export const ProjectCard: React.FC<Props> = ({ project: { tags, title, link } })
           )
         )}
       </TagGroup>
-      <Title>{title}</Title>
       <Link href={link} passHref>
-        <ArrowLink>See the project</ArrowLink>
+        <>
+          <Title>{title}</Title>
+          <StyledButton>
+            <ArrowLink>See the project</ArrowLink>
+          </StyledButton>
+        </>
       </Link>
     </Box>
   )

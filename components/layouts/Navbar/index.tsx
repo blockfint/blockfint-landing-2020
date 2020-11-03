@@ -93,7 +93,7 @@ const RightNavBar = ({ status, id }: PropsColor) => {
           EN
         </IconButton>
       </div> */}
-      <div style={{ paddingRight: '2.5rem' }}>
+      <div>
         <LabTabs status={status} id={id} />
       </div>
       <div className="Drawer">

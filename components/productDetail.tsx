@@ -5,8 +5,14 @@ import { BREAKPOINT } from 'assets/globalStyle'
 import { Container } from '@material-ui/core'
 
 const Content = styled.div`
-  margin: 6.25rem 0 2rem;
   padding: 0 0.5rem;
+  margin: 2.5rem 0;
+  @media ${BREAKPOINT.tablet} {
+    margin: 3.75rem 0;
+  }
+  @media ${BREAKPOINT.desktop} {
+    margin: 6.25rem 0;
+  }
 `
 const BlueTitle = styled.h2`
   max-width: 60rem;
@@ -39,6 +45,9 @@ const SecondaryTitle = styled.h4`
   @media ${BREAKPOINT.tablet} {
     font-size: 1.625rem;
     max-width: 35rem;
+  }
+  @media ${BREAKPOINT.desktop} {
+    max-width: 61.25rem;
   }
 `
 interface Props {
