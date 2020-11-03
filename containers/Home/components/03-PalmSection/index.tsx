@@ -27,7 +27,7 @@ export const PalmSection: React.FC = () => {
     <Container maxWidth="lg">
       <Content>
         <PlamImage />
-        <Title style={{ color: 'var(--primary)' }}>Agri Trac</Title>
+        <Title style={{ color: 'var(--primary)' }}>Agri Trac (Palm Yang Yuen) </Title>
         <Title>Advance Tracablity for Agricuture Products</Title>
         <Desc>
           World’s first blockchain based platform for agricuture products traceability. For sustainability of Thai
