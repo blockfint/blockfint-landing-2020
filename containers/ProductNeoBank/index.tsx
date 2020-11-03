@@ -30,7 +30,7 @@ export const ProductNeoBank: React.FC = () => {
         </Wrapper> */}
       </ProductDetail>
       <ProductConclusion
-        problem="Banking transaction is expected the complicated process. Customers need to open each account for each transaction."
+        problem="Current banking software is not designed for digital bank, using very old technology, low performance and expensive."
         solution="Neo bank is turning mobile banking application to a branch of bank. Customers only need one account for every transaction."
       />
       <ContactBanner />
