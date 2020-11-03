@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowLink } from 'components/ArrowLink'
 import { BREAKPOINT } from 'assets/globalStyle'
 const Card = styled(motion.div)`
+  cursor: pointer;
   border-radius: 1rem;
   box-shadow: 0 8px 16px 0 #f0f3fa;
   border: solid 1px #fafafa;
@@ -21,7 +22,7 @@ const Card = styled(motion.div)`
   @media ${BREAKPOINT.desktop} {
     grid-template-columns: 1fr 1fr;
     width: 37.5rem;
-    height: 12.6875rem; 
+    height: 12.6875rem;
   }
 `
 
@@ -32,11 +33,11 @@ const Image = styled.img`
 
 const Content = styled.div`
   display: grid;
-  grid-template-rows: repeat(3,max-content) ;
+  grid-template-rows: repeat(3, max-content);
   margin: 1.5rem 1.25rem 1.3125rem;
   @media ${BREAKPOINT.tablet} {
     grid-template-rows: max-content auto max-content;
-    margin:2.5rem;
+    margin: 2.5rem;
   }
   @media ${BREAKPOINT.desktop} {
     margin: 1.5rem;
@@ -63,15 +64,15 @@ interface Props {
 }
 export const PostCard: React.FC<Props> = ({ title, desc, link = '/', imgSrc }) => {
   return (
-    <Card initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} whileTap={{ backgroundColor: '#f3f3f3' }}>
-      <Image src={imgSrc} />
-      <Content>
-        <Title>{title}</Title>
-        <Desc>{desc}</Desc>
-        <Link href={link} passHref>
+    <Link href={link} passHref>
+      <Card initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} whileTap={{ backgroundColor: '#f3f3f3' }}>
+        <Image src={imgSrc} />
+        <Content>
+          <Title>{title}</Title>
+          <Desc>{desc}</Desc>
           <ArrowLink>See more</ArrowLink>
-        </Link>
-      </Content>
-    </Card>
+        </Content>
+      </Card>
+    </Link>
   )
 }
