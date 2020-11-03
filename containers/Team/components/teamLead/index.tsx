@@ -27,7 +27,7 @@ const Background = styled.div`
 `
 
 const Content = styled.div`
-  padding: 8.25rem 0;
+  padding-top: 3.75rem;
   a {
     text-decoration: none;
     color: black;
@@ -74,6 +74,7 @@ const Content = styled.div`
     padding-left: 0.5rem;
   }
   .TeamLeadPic {
+    padding-top: 1.875rem;
     h5 {
       padding-top: 0.5rem;
     }
@@ -154,7 +155,7 @@ const Title = styled.h1`
 `
 
 const Name_Positions = [
-  { name: 'Suttipong Kanakakorn', path: 'suttipong', position: 'CEO', picture: 'num2X.jpg', key: 1 },
+  { name: 'Suttipong Kanakakorn', path: 'suttipong', position: 'CEO', picture: 'num2X.png', key: 1 },
   { name: 'Shimmy Thomas', path: 'thomas', position: 'Business Development', picture: 'Thomas.png', key: 2 },
   { name: 'Wichai Patipaporn', path: 'wichai', position: 'Co-Founder', picture: 'wichai2X.png', key: 3 },
   {
@@ -165,7 +166,7 @@ const Name_Positions = [
     key: 4
   },
   { name: 'Suwanna Nimitsurachart', path: 'suwanna', position: 'Business Analyst', picture: 'suwan2x.png', key: 5 },
-  { name: 'Rattanapong Chairukwattana', path: 'rattanapong', position: 'CTO', picture: 'pae3X.png', key: 6 }
+  { name: 'Rattanapong Chairukwattana', path: 'rattanapong', position: 'CTO', picture: 'pae2X.png', key: 6 }
 ]
 
 const ImageOverlays: React.FC<{ picture: string }> = ({ picture }) => {
