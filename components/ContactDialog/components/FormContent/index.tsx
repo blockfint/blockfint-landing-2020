@@ -164,9 +164,9 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
     },
     resolver: yupResolver(schema)
   })
-  const onSubmit = (data: FormInfo) => {
+  const onSubmit = async (data: FormInfo) => {
     //TODO send here
-    axios({
+    await axios({
       method: 'post',
       url: window.location.origin + '/api/SendEmail',
       data: {
