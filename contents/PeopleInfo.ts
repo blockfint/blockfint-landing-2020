@@ -36,7 +36,7 @@ export const peopleInfos = {
   wichai: {
     name: 'Wichai Patitaporn',
     position: 'Executive Director',
-    desc: `P’Wichai is another tech nerd in the company. He is a seasoned tech evangelist. Invented the first Thai CU word writer in his early days. He has handled critical national projects for the Stock Exchange, Defense Services and large corporate clients. After his long stint with a leading Systems Integrator as Chief of R&D, he relied on his inner instincts to join with our founder and contribute with his deep technology insights. He leads our product efforts in the AgriTech venture while nudging the other product teams developing our financial and commodity market products.
+    desc: `Wichai is another tech nerd in the company. He is a seasoned tech evangelist. Invented the first Thai CU word writer in his early days. He has handled critical national projects for the Stock Exchange, Defense Services and large corporate clients. After his long stint with a leading Systems Integrator as Chief of R&D, he relied on his inner instincts to join with our founder and contribute with his deep technology insights. He leads our product efforts in the AgriTech venture while nudging the other product teams developing our financial and commodity market products.
 
     Clients and Blockfinters’ alike love him for his depth of discussion and he can handle long lectures on technology and on any general topic of interest with ease.`,
     imgSrc: 'wichai2X.png',
@@ -53,7 +53,7 @@ export const peopleInfos = {
   suwanna: {
     name: 'Suwanna Nimitsurachart',
     position: 'Senior Vice President',
-    desc: `Before P’Su joined Blockfint, she has been experiencing in Implement and Support Banking for over 37 years through all well-known banks in significant positions. With her rounded and wisdom, she will definitely guide Blockfint to solidifying go forward.`,
+    desc: `Before Su joined Blockfint, she has been experiencing in Implement and Support Banking for over 37 years through all well-known banks in significant positions. With her rounded and wisdom, she will definitely guide Blockfint to solidifying go forward.`,
     imgSrc: 'suwan2x.png'
   },
 
