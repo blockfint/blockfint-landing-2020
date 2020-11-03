@@ -15,9 +15,9 @@ export const ProductAgriTrac: React.FC = () => {
       <ProductDetail
         {...{
           name: 'Agri Trac',
-          title: 'Advance Tracablity For Agricuture Products',
+          title: 'Advance Tracablity For Agricuture',
           description:
-            'World’s first blockchain based platform for crude palm oil traceability. This pioneering solution helps PCM manufacturers to “connect the dots” across the supply-chain and trace the raw material from farm to factory, ensuring transparency and safety.',
+            'World first blockchain based platform for crude palm oil traceability. This pioneering solution helps PCM manufacturers to “connect the dots” across the supply-chain and trace the raw material from farm to factory, ensuring transparency and safety.',
 
           secondaryTitle: 'The summary of how blockchain tracking the flow of palm oil processing'
           // youtube: '0JO1ovT4Nvo'
