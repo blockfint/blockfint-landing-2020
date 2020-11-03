@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { useState } from 'react'
 import { wrap } from 'popmotion'
-import { Button } from '@material-ui/core'
+// import { Button } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { useWindow } from 'hooks/useWindow'
 import { AnimationImage } from './components/AnimationImage'
@@ -73,6 +73,19 @@ const StyledButton = styled.div`
     }
   }
 `
+const ArrowButton = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  background-color: var(--secondary);
+  border-radius: 50%;
+  @media ${BREAKPOINT.desktop} {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+`
 interface Props {
   sectionName: string
   images: string[]
@@ -137,14 +150,14 @@ export const Slider: React.FC<Props> = ({ sectionName, images, description }) =>
           })}
         </AnimateSharedLayout>
         <StyledButton className="next" onClick={() => paginate(1)}>
-          <Button>
+          <ArrowButton>
             <img src="/icons/right-arrow.svg" alt="rightarrow" />
-          </Button>
+          </ArrowButton>
         </StyledButton>
         <StyledButton className="prev" onClick={() => paginate(-1)}>
-          <Button>
+          <ArrowButton>
             <img src="/icons/left-arrow.svg" alt="leftarrow" />
-          </Button>
+          </ArrowButton>
         </StyledButton>
       </Container>
     </Background>
