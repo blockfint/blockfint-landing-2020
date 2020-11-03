@@ -140,6 +140,11 @@ const LinkCall = styled(StyledLink)`
     text-decoration: underline;
   }
 `
+const InLine = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
 export const Footer = () => {
   return (
     <Container maxWidth="lg">
@@ -176,10 +181,19 @@ export const Footer = () => {
           <AddressText>139 Sethiwan Tower, 4th Floor, Pan Rd, Silom, Bang Rak, Bangkok 10500</AddressText>
         </Address>
         <Call>
-          <Title>Call</Title>
-          <LinkCall href="tel:021147182">
-            <Text className="call">+66 (0)2 114 7182</Text>
-          </LinkCall>
+          <Title />
+          <InLine>
+            <img src="/icons/call.svg" alt="mail" width="24" height="24" />
+            <LinkCall href="tel:021147182">
+              <Text className="call" style={{ paddingLeft: '0.5rem' }}>
+                +66 (0)2 114 7182
+              </Text>
+            </LinkCall>
+          </InLine>
+          <InLine style={{ paddingTop: '0.5rem' }}>
+            <img src="/icons/mail.svg" alt="mail" width="24" height="24" />
+            <Text style={{ paddingLeft: '0.5rem' }}>blockfint@gmail.com</Text>
+          </InLine>
         </Call>
         <Social>
           <Title>What We do daily</Title>
