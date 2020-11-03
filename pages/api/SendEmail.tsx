@@ -1,13 +1,13 @@
 import aws from 'aws-sdk'
 aws.config.update({
-  accessKeyId: process.env.NEXT_PUBLIC_ACCESS_KEY_ID,
-  secretAccessKey: process.env.NEXT_PUBLIC_SECRET_ACCESS_KEY,
-  region: process.env.NEXT_PUBLIC_REGION
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID_GIDEON,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_GIDEON,
+  region: process.env.AWS_REGION_GIDEON
 })
 
-// aws.config.credentials.accessKeyId = process.env.NEXT_PUBLIC_ACCESS_KEY_ID
-// aws.config.credentials.secretAccessKey = process.env.NEXT_PUBLIC_SECRET_ACCESS_KEY
-// aws.config.region = process.env.NEXT_PUBLIC_REGION
+// aws.config.credentials.accessKeyId = process.env.AWS_ACCESS_KEY_ID_GIDEON
+// aws.config.credentials.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY_GIDEON
+// aws.config.region = process.env.AWS_REGION_GIDEON
 
 // Create an Email function
 function Email(to, sub, content) {
