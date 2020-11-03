@@ -12,6 +12,11 @@ const BlueTitle = styled.h2`
   max-width: 60rem;
   color: var(--primary);
   margin-bottom: 1rem;
+
+  font-size: 2.125rem;
+  @media ${BREAKPOINT.tablet} {
+    font-size: 3.375rem;
+  }
 `
 const Title = styled.h3`
   max-width: 60rem;

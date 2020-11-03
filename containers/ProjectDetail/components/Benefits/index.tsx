@@ -43,7 +43,7 @@ export const Benefits: React.FC<{ benefits: Benefit[] }> = ({ benefits }) => {
   return (
     <Container>
       {benefits.map(({ iconSrc, title, description }) => (
-        <div>
+        <div key={title}>
           <OvalWrapper>
             <OvalIcon src={`/images/partners/iconBenefits/${iconSrc}`} />
           </OvalWrapper>

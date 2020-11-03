@@ -52,14 +52,14 @@ const projects = [
     id: 'gideon',
     name: 'Gideon',
     image: '/images/gideon-card.png',
-    description: 'Energy Trading Without Barriers',
+    description: 'Energy Trading Without Barriers.',
     link: '/products/gideon'
   },
   {
     id: 'neo_bank',
     name: 'Neo Bank',
     image: '/images/neobank-card.png',
-    description: 'The New era of Banking Services',
+    description: 'The New era of Banking Services.',
     link: '/products/neobank'
   },
   {
