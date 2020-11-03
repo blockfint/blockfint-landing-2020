@@ -25,6 +25,7 @@ const Description = styled.h5`
   }
 `
 const Hr = styled.hr`
+  opacity: 0;
   width: 20.5rem;
   height: 2px;
   background-color: #19213c;
@@ -43,7 +44,7 @@ interface animationProps {
 }
 export const AnimationImage: React.FC<animationProps> = ({ variants, images, description, type, custom, page }) => {
   const imageIndex = wrap(0, images.length, page)
-  const index = { 'left': 2, 'center': 1, 'right': 0 }
+  const index = { left: 2, center: 1, right: 0 }
   return (
     <AnimatePresence initial={false} custom={custom}>
       <StyledMotionDiv
@@ -58,9 +59,9 @@ export const AnimationImage: React.FC<animationProps> = ({ variants, images, des
           opacity: { duration: 0.2 }
         }}
       >
-        <StyledImage src={images[(imageIndex + index[type]) % images.length]} unsized quality={100}/>
+        <StyledImage src={images[(imageIndex + index[type]) % images.length]} unsized quality={100} />
         <Description>{description[(imageIndex + index[type]) % images.length]}</Description>
-        {/* <Hr /> */}
+        <Hr />
       </StyledMotionDiv>
     </AnimatePresence>
   )

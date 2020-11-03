@@ -58,12 +58,12 @@ export const ProjectCard: React.FC<Props> = ({ project: { tags, title, link } })
         )}
       </TagGroup>
       <Link href={link} passHref>
-        <>
+        <a style={{ textDecoration: 'none',color:'initial' }}>
           <Title>{title}</Title>
           <StyledButton>
             <ArrowLink>See the project</ArrowLink>
           </StyledButton>
-        </>
+        </a>
       </Link>
     </Box>
   )

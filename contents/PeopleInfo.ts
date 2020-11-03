@@ -15,8 +15,12 @@ export const peopleInfos = {
   suttipong: {
     name: 'Suttipong Kanakakorn',
     position: 'Chief Executive Officer',
-    desc: `“Nick” is a technology wizard. He dreams about tech even in his sleep!. Before founding Blockfint, he worked with large multinational tech companies in the US leading their product development efforts for over 25years. He is a passionate fitness enthusiast competing himself and stretching his physical limits. His fitness passion has taken him across the world participating in Iron Man and Marathons. He is humble in his conquests. He is also our resident Blockchain guru and can talk technology and business with ease. His brilliance and humility has made the startup strong and successful and clients love us for our grit and determination and passion to deliver the best. He is also our part-time barista serving the best coffee to our coffee loving Blockfinters’.
-   `,
+    desc: `Nick worked with multiple early stage startups in Silicon Valley for more than twenty years. The notably successful exit companies include Nutanix (6th employee) and Andiamo (acquired by Cisco). He brings distributed system expertise and Silicon Valley work culture to Blockfint. He has comprehensive skills to architect the solution and reach milestones quickly. 
+
+    Nick wants to make BlockFint relevant and has a big presence while offering transformation toward the better and fairer financial market. He helped design the first issued bond on digital ledger technology in Thailand. He is one of the main designers of Thailand National Digital ID systems (NDID).
+    
+    He is also our resident Blockchain guru and can talk technology and business with ease. His brilliance and humility has made the startup strong and clients love us for our grit, determination and passion to deliver the best.
+    He is an endurance sport enthusiast competing himself and stretching his physical limits. It has taken him across the world participating in Ironman and Ultra Trail Running races.`,
     imgSrc: 'num2X.png',
     contact: 'Reach out to him at Nick@blockfint.com',
     quote: 'and he will be happy to have a technology infused coffee with you anytime.'
@@ -32,7 +36,7 @@ export const peopleInfos = {
   wichai: {
     name: 'Wichai Patitaporn',
     position: 'Executive Director',
-    desc: `P’Wichai is another tech nerd in the company. He is a seasoned tech evangelist. Invented the first Thai CU word writer in his early days. He has handled critical national projects for the Stock Exchange, Defense Services and large corporate clients. After his long stint with a leading Systems Integrator as Chief of R&D, he relied on his inner instincts to join with our founder and contribute with his deep technology insights. He leads our product efforts in the AgriTech venture while nudging the other product teams developing our financial and commodity market products.
+    desc: `Wichai is another tech nerd in the company. He is a seasoned tech evangelist. Invented the first Thai CU word writer in his early days. He has handled critical national projects for the Stock Exchange, Defense Services and large corporate clients. After his long stint with a leading Systems Integrator as Chief of R&D, he relied on his inner instincts to join with our founder and contribute with his deep technology insights. He leads our product efforts in the AgriTech venture while nudging the other product teams developing our financial and commodity market products.
 
     Clients and Blockfinters’ alike love him for his depth of discussion and he can handle long lectures on technology and on any general topic of interest with ease.`,
     imgSrc: 'wichai2X.png',
@@ -49,7 +53,7 @@ export const peopleInfos = {
   suwanna: {
     name: 'Suwanna Nimitsurachart',
     position: 'Senior Vice President',
-    desc: `Before P’Su joined Blockfint, she has been experiencing in Implement and Support Banking for over 37 years through all well-known banks in significant positions. With her rounded and wisdom, she will definitely guide Blockfint to solidifying go forward.`,
+    desc: `Before Su joined Blockfint, she has been experiencing in Implement and Support Banking for over 37 years through all well-known banks in significant positions. With her rounded and wisdom, she will definitely guide Blockfint to solidifying go forward.`,
     imgSrc: 'suwan2x.png'
   },
 

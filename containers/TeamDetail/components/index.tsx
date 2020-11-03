@@ -9,6 +9,7 @@ import MailIcon from 'assets/icons/atoms-icon-mail.svg'
 import { LinkButton } from 'components/Buttons'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { ContactBanner } from 'components/ContactBanner'
 
 const Background = styled.div`
   min-height: 42rem;
@@ -243,7 +244,7 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
           </ContainerContents>
         </Layout>
       </Container>
-      <JoinUsBanner />
+      <ContactBanner />
     </Background>
   )
 }
