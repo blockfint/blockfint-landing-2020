@@ -137,7 +137,7 @@ const RipleMiddle = styled(ListItemText)`
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: blue;
+    background-color: black;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
