@@ -230,9 +230,14 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
                 <div className="Info">
                   <h5 className="Name">{name}</h5>
                   <h5 className="Position">{position}</h5>
-                  <h6 className="Story" style={{ textIndent: '50px' }}>
-                    {desc}
-                  </h6>
+                  {desc.split('/n').map((text) => (
+                    <>
+                      <h6 className="Story" style={{ textIndent: '4ch' }}>
+                        {text}
+                      </h6>
+                      <br />
+                    </>
+                  ))}
                 </div>
                 <div className="Contact">
                   <h6>

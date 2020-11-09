@@ -15,10 +15,10 @@ export const peopleInfos = {
   suttipong: {
     name: 'Suttipong Kanakakorn',
     position: 'Chief Executive Officer',
-    desc: `Nick worked with multiple early stage startups in Silicon Valley for more than twenty years. The notably successful exit companies include Nutanix (6th employee) and Andiamo (acquired by Cisco). He brings distributed system expertise and Silicon Valley work culture to Blockfint. He has comprehensive skills to architect the solution and reach milestones quickly. 
+    desc: `Nick worked with multiple early stage startups in Silicon Valley for more than twenty years. The notably successful exit companies include Nutanix (6th employee) and Andiamo (acquired by Cisco). He brings distributed system expertise and Silicon Valley work culture to Blockfint. He has comprehensive skills to architect the solution and reach milestones quickly.
 
     Nick wants to make BlockFint relevant and has a big presence while offering transformation toward the better and fairer financial market. He helped design the first issued bond on digital ledger technology in Thailand. He is one of the main designers of Thailand National Digital ID systems (NDID).
-    
+
     He is also our resident Blockchain guru and can talk technology and business with ease. His brilliance and humility has made the startup strong and clients love us for our grit, determination and passion to deliver the best.
     He is an endurance sport enthusiast competing himself and stretching his physical limits. It has taken him across the world participating in Ironman and Ultra Trail Running races.`,
     imgSrc: 'num2X.png',
@@ -28,7 +28,7 @@ export const peopleInfos = {
   thomas: {
     name: 'Shimmy Thomas',
     position: 'Executive Director',
-    desc: `He is the Indian expat who loves Thailand. His early career with Technology pioneers such as Sun Microsystems and Digital Equipment brought him to the land of smiles. And he decided to make this country his home while working with a leading Systems Integrator. He had multiple senior management roles in his 25year experience in the Industry. He is a turnaround specialist and had a successful exit with a mobile software company.     
+    desc: `He is the Indian expat who loves Thailand. His early career with Technology pioneers such as Sun Microsystems and Digital Equipment brought him to the land of smiles. And he decided to make this country his home while working with a leading Systems Integrator. He had multiple senior management roles in his 25year experience in the Industry. He is a turnaround specialist and had a successful exit with a mobile software company.
    `,
     imgSrc: 'Thomas.png',
     contact: 'Reach out to him at Thomas@blockfint.com'
@@ -46,7 +46,7 @@ export const peopleInfos = {
   ponlawat: {
     name: 'Ponlawat Tantivongampai',
     position: 'Chief Operating Officer',
-    desc: `Oak has gain over 12 years of experiences in wide IT, Mobile, BSS, OSS and Mobile Application. Oak is goal-oriented person. He loves to achieve those challenges and makes everything possible with the team. Blockfint for him is the combination freshness and experience. They are likely to tackle problems with fun, creativity but serious in a way. However, this mixture of combinations share one goal together, succession.`,
+    desc: `Oak is currently the Chief Operating Officer of Blockfint where he manages projects and products for clients in various industries. Prior to his current position, he was project manager at Amdocs and AIS. He has over 12 years of experience in Mobile services, BSS, OSS and Mobile Application./nOak is a natural leader with a goal-oriented mindset. He tackles challenges with a positive attitude and strives to achieve team success. He is also a strong and passionate trail-runner. His determination and motivation applies to both his working life and personal life.`,
     imgSrc: 'oak2x.png'
   },
 
