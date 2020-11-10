@@ -82,29 +82,31 @@ export const IconWithInfoList: React.FC = () => {
           <Tasking />
         </IconWrapper>
 
-        <h5>Automate Tasking</h5>
-        <p>All routine activities e.g. report & reconciliation will be effortlessly automated </p>
+        <h5>Innovative Services & Ideas</h5>
+        <p>Offering new innovative services and ideas such as “One account” where saving and current are merged. </p>
       </Item>
       <Item>
         <IconWrapper>
           <Loan />
         </IconWrapper>
-        <h5>Loan Origination</h5>
-        <p>LOS Software bundles platform for loan processing and approval. No additional software needed</p>
+        <h5>Customers Focused</h5>
+        <p>
+          We are creating a platform where customers are fully focused and smooth transaction experiences are enhanced.
+        </p>
       </Item>
       <Item>
         <IconWrapper>
           <MicroFinance />
         </IconWrapper>
-        <h5>Microfinance</h5>
-        <p>Enhance saving/lending services to create effective microfinance from configure model</p>
+        <h5>No Physical Branch Needed.</h5>
+        <p>Mobile banking integrated with the goal of no essential physical branch ever needed.</p>
       </Item>
       <Item>
         <IconWrapper>
           <MobileBanking />
         </IconWrapper>
-        <h5>Mobile Banking</h5>
-        <p>Revolutionary banking experiences where physical branches are eliminated</p>
+        <h5>Fully Automated</h5>
+        <p>Designed to reduce opex, capex and personnel by fully automated. </p>
       </Item>
     </Container>
   )
