@@ -13,14 +13,9 @@ interface PeopleInfos {
 
 export const peopleInfos = {
   suttipong: {
-    name: 'Suttipong Kanakakorn',
+    name: 'Suttipong Kanakakorn "Nick"',
     position: 'Chief Executive Officer',
-    desc: `Nick worked with multiple early stage startups in Silicon Valley for more than twenty years. The notably successful exit companies include Nutanix (6th employee) and Andiamo (acquired by Cisco). He brings distributed system expertise and Silicon Valley work culture to Blockfint. He has comprehensive skills to architect the solution and reach milestones quickly. 
-
-    Nick wants to make BlockFint relevant and has a big presence while offering transformation toward the better and fairer financial market. He helped design the first issued bond on digital ledger technology in Thailand. He is one of the main designers of Thailand National Digital ID systems (NDID).
-    
-    He is also our resident Blockchain guru and can talk technology and business with ease. His brilliance and humility has made the startup strong and clients love us for our grit, determination and passion to deliver the best.
-    He is an endurance sport enthusiast competing himself and stretching his physical limits. It has taken him across the world participating in Ironman and Ultra Trail Running races.`,
+    desc: `Nick worked with multiple early stage startups in Silicon Valley for more than twenty years. The notably successful exit companies include Nutanix (6th employee) and Andiamo (acquired by Cisco). He brings distributed system expertise and Silicon Valley work culture to Blockfint. He has comprehensive skills to architect the solution and reach milestones quickly.\nNick wants to make BlockFint relevant and has a big presence while offering transformation toward the better and fairer financial market. He helped design the first issued bond on digital ledger technology in Thailand. He is one of the main designers of Thailand National Digital ID systems (NDID).\nHe is also our resident Blockchain guru and can talk technology and business with ease. He made clients love us for our grit, determination and passion to deliver the best.\nHe is an endurance sport enthusiast competing himself and stretching his physical limits. It has taken him across the world participating in Ironman and Ultra Trail Running races. He transfers his mental toughness and training approach to his working life as well.`,
     imgSrc: 'num2X.png',
     contact: 'Reach out to him at Nick@blockfint.com',
     quote: 'and he will be happy to have a technology infused coffee with you anytime.'
@@ -28,7 +23,7 @@ export const peopleInfos = {
   thomas: {
     name: 'Shimmy Thomas',
     position: 'Executive Director',
-    desc: `He is the Indian expat who loves Thailand. His early career with Technology pioneers such as Sun Microsystems and Digital Equipment brought him to the land of smiles. And he decided to make this country his home while working with a leading Systems Integrator. He had multiple senior management roles in his 25year experience in the Industry. He is a turnaround specialist and had a successful exit with a mobile software company.     
+    desc: `He is the Indian expat who loves Thailand. His early career with Technology pioneers such as Sun Microsystems and Digital Equipment brought him to the land of smiles. And he decided to make this country his home while working with a leading Systems Integrator. He had multiple senior management roles in his 25year experience in the Industry. He is a turnaround specialist and had a successful exit with a mobile software company.
    `,
     imgSrc: 'Thomas.png',
     contact: 'Reach out to him at Thomas@blockfint.com'
@@ -46,7 +41,7 @@ export const peopleInfos = {
   ponlawat: {
     name: 'Ponlawat Tantivongampai',
     position: 'Chief Operating Officer',
-    desc: `Oak has gain over 12 years of experiences in wide IT, Mobile, BSS, OSS and Mobile Application. Oak is goal-oriented person. He loves to achieve those challenges and makes everything possible with the team. Blockfint for him is the combination freshness and experience. They are likely to tackle problems with fun, creativity but serious in a way. However, this mixture of combinations share one goal together, succession.`,
+    desc: `Ponlawat is currently the Chief Operating Officer of Blockfint where he manages projects and products for clients in various industries. Prior to his current position, he was project manager at Amdocs and AIS. He has over 12 years of experience in Mobile services, Operations Support System, Business Support System and Mobile Application.\nPonlawat is a natural leader with a goal-oriented mindset. He tackles challenges with a positive attitude and strives to achieve team success. He is also a strong and passionate trail-runner. His determination and motivation applies to both his working life and personal life.`,
     imgSrc: 'oak2x.png'
   },
 
@@ -60,7 +55,9 @@ export const peopleInfos = {
   rattanapong: {
     name: 'Rattanapong Chairukwattana',
     position: 'Chief Technology Officer',
-    desc: `Ake has finished his bachelor degree in Computer engineering  from King Mongkut's University of Technology Thonburi. After that he decided to continue with master degree in same major, he has finished his master from Kasetsart University. Ake always believes that life should be simple and easy. So, after working as a developer for a while he decided to move to his hometown and be a farmer. Now, he decided to shift his career path again to be our solid developer. For Ake, Blockfint is like a family to him. So, he looks after the team members as his family members.`,
+    desc: `Rattanapong graduated from KMUTT with a Master degree in computer engineering. After working as a software engineer for ten years, his yearn for simple life brought him back to his hometown, Chanthaburi province. He became a farmer there. He returned to Bangkok and joined Blockfint as a lead software engineer and now to Chief Technology Officer. \n
+    Rattanapong is a strategic thinker with can-do and get the job done attitude. \n
+    Rattanapong advises junior software engineers as they pursue a broad range of technical stacks, from guiding on coding to setting standardized working approaches for our innovative products.`,
     imgSrc: 'pae2X.png'
   }
 } as PeopleInfos
