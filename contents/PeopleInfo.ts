@@ -48,7 +48,7 @@ export const peopleInfos = {
   suwanna: {
     name: 'Suwanna Nimitsurachart',
     position: 'Senior Vice President',
-    desc: `Before Su joined Blockfint, she has been experiencing in Implement and Support Banking for over 37 years through all well-known banks in significant positions. With her rounded and wisdom, she will definitely guide Blockfint to solidifying go forward.`,
+    desc: `Suwanna is a veteran of banking system information technology. She had direct implementation expertise in Treasury, Investment, Custodian and Registrar, Fund Selling Agent, Trade Finance, Cross Border Fund Transfer, SWIFT and Oversea Branches, Remittance, and DLT Scripless Bond. She had been working at Sayam Bank, Krungsri Bank, Bangkok Metro Bank, CIMB and became senior VP and manager at Krung Thai Bank. \nSuwanna is persistent and highly committed to deliver the best in each and every piece of her work. She also believes that determination and great team synergy are the key to success. She loves to share her knowledge and experiences. She brought business, technology, strategy and management wisdom to Blockfint.`,
     imgSrc: 'suwan2x.png'
   },
 
