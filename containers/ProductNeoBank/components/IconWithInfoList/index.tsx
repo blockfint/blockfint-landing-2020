@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as Loan } from 'assets/icons/loan.svg'
-import { ReactComponent as Tasking } from 'assets/icons/tasking.svg'
-import { ReactComponent as MobileBanking } from 'assets/icons/mobilebanking.svg'
-import { ReactComponent as MicroFinance } from 'assets/icons/microfinance.svg'
+// import { ReactComponent as CustomerFocus } from 'assets/icons/Customer_focus.svg'
+// import { ReactComponent as FullyAutomated } from 'assets/icons/Fully_automated.svg'
+// import { ReactComponent as NewInnovations } from 'assets/icons/new_innovations.svg'
+// import { ReactComponent as NoBranchNeeded } from 'assets/icons/No_branch_needed.svg'
 import { BREAKPOINT } from 'assets/globalStyle'
 
 const Container = styled.div`
@@ -79,32 +79,37 @@ export const IconWithInfoList: React.FC = () => {
     <Container>
       <Item>
         <IconWrapper>
-          <Tasking />
+          {/* <NewInnovations /> */}
+          <img src="/icons/new_innovations.svg" width="100" />
         </IconWrapper>
-
-        <h5>Automate Tasking</h5>
-        <p>All routine activities e.g. report & reconciliation will be effortlessly automated </p>
+        <h5>Innovative Services & Ideas</h5>
+        <p>Offering new innovative services and ideas such as “One account” where saving and current are merged. </p>
       </Item>
       <Item>
         <IconWrapper>
-          <Loan />
+          {/* <CustomerFocus /> */}
+          <img src="/icons/Customer_focus.svg" width="100" />
         </IconWrapper>
-        <h5>Loan Origination</h5>
-        <p>LOS Software bundles platform for loan processing and approval. No additional software needed</p>
+        <h5>Customers Focused</h5>
+        <p>
+          We are creating a platform where customers are fully focused and smooth transaction experiences are enhanced.
+        </p>
       </Item>
       <Item>
         <IconWrapper>
-          <MicroFinance />
+          {/* <NoBranchNeeded /> */}
+          <img src="/icons/No_branch_needed.svg" width="100" />
         </IconWrapper>
-        <h5>Microfinance</h5>
-        <p>Enhance saving/lending services to create effective microfinance from configure model</p>
+        <h5>No Physical Branch Needed.</h5>
+        <p>Mobile banking integrated with the goal of no essential physical branch ever needed.</p>
       </Item>
       <Item>
         <IconWrapper>
-          <MobileBanking />
+          {/* <FullyAutomated /> */}
+          <img src="/icons/Fully_automated.svg" width="100" />
         </IconWrapper>
-        <h5>Mobile Banking</h5>
-        <p>Revolutionary banking experiences where physical branches are eliminated</p>
+        <h5>Fully Automated</h5>
+        <p>Designed to reduce opex, capex and personnel by fully automated. </p>
       </Item>
     </Container>
   )

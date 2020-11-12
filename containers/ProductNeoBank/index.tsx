@@ -16,9 +16,9 @@ export const ProductNeoBank: React.FC = () => {
       <ProductDetail
         {...{
           name: 'Neo bank',
-          title: 'The New Era of Banking Services',
+          title: 'White label digital banking solutions',
           description:
-            "An endless opportunity maker for the new era of banking services. Forget every core banking concepts you've known earlier as Neo bank - Neo loan you the unique banking system where everything is possible. From a pure mobile banking where physical branch is no longer relevant to an effective microfinancing service and various sets of special functions.",
+            "Our solutions allow businesses to provide banking functionalities in a short time frame. With us, you can create an endless opportunity for the new era of banking services. Forget every core banking concept you' ve known earlier as Neo bank - Neo loan you the unique banking system where everything is possible. From a pure mobile banking where the physical branch is no longer relevant to an effective microfinancing service and various sets of special functions.",
 
           secondaryTitle: 'The representation of how Neo bank works.'
           // youtube: '0JO1ovT4Nvo'
@@ -31,7 +31,7 @@ export const ProductNeoBank: React.FC = () => {
       </ProductDetail>
       <ProductConclusion
         problem="Current banking software is not designed for digital bank, using very old technology, low performance and expensive."
-        solution="Neo bank is turning mobile banking application to a branch of bank. Customers only need one account for every transaction."
+        solution="Our software is designed for pure digital banks from the ground up; ready for mobile payment lifestyle; use the latest technology stack; high performance."
       />
       <ContactBanner />
     </>
