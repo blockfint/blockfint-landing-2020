@@ -13,6 +13,8 @@ const StyledMotionDiv = styled(motion.div)`
 `
 const StyledImage = styled(Image)`
   width: 100%;
+  height: 24rem;
+  object-fit: cover;
 `
 const Description = styled.h5`
   padding-top: 1.5rem;
@@ -25,7 +27,6 @@ const Description = styled.h5`
   }
 `
 const Hr = styled.hr`
-  opacity: 0;
   width: 20.5rem;
   height: 2px;
   background-color: #19213c;

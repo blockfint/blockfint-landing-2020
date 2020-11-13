@@ -27,10 +27,10 @@ const images = [
   '/images/Trained-national-coach.jpg'
 ]
 const description = [
-  // 'Blockfint Outing',
-  // 'Daily standup',
-  // 'Developer Consulting',
-  // 'Focusing Work',
-  // 'Townhall',
-  // 'Ping-Pong time'
+  'Blockfint Outing',
+  'Daily standup',
+  'Developer Consulting',
+  'Focusing Work',
+  'Townhall',
+  'Ping-Pong time'
 ]
