@@ -48,6 +48,10 @@ const MainNav = styled(List)`
   .MuiButtonBase-root {
     height: 4.25rem;
   }
+  .MuiListItem-button {
+    padding: 0;
+  }
+
   .MuiButtonBase-root:hover {
     background-color: white;
   }
@@ -61,7 +65,6 @@ const MainNav = styled(List)`
   }
   .MuiTypography-root {
     font-size: 1.625rem;
-
     font-weight: 600;
     font-stretch: normal;
     font-style: normal;
@@ -98,6 +101,7 @@ const BottomTitle = styled.div`
   position: fixed;
   bottom: 0;
   padding-bottom: 10px;
+
   .title {
     span {
       margin-left: 1.75rem;
@@ -118,7 +122,7 @@ const BottomTitle = styled.div`
         margin-right: 0.6875rem;
       }
       span {
-        margin-left: 1rem;
+        margin-left: 2.56rem;
       }
     }
   }
