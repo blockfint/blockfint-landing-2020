@@ -13,9 +13,12 @@ interface PeopleInfos {
 
 export const peopleInfos = {
   suttipong: {
-    name: 'Suttipong Kanakakorn "Nick"',
+    name: 'Suttipong "Nick" Kanakakorn ',
     position: 'Chief Executive Officer',
-    desc: `Nick worked with multiple early stage startups in Silicon Valley for more than twenty years. The notably successful exit companies include Nutanix (6th employee) and Andiamo (acquired by Cisco). He brings distributed system expertise and Silicon Valley work culture to Blockfint. He has comprehensive skills to architect the solution and reach milestones quickly.\nNick wants to make BlockFint relevant and has a big presence while offering transformation toward the better and fairer financial market. He helped design the first issued bond on digital ledger technology in Thailand. He is one of the main designers of Thailand National Digital ID systems (NDID).\nHe is also our resident Blockchain guru and can talk technology and business with ease. He made clients love us for our grit, determination and passion to deliver the best.\nHe is an endurance sport enthusiast competing himself and stretching his physical limits. It has taken him across the world participating in Ironman and Ultra Trail Running races. He transfers his mental toughness and training approach to his working life as well.`,
+    desc: `Nick had worked with multiple early-stage startups in Silicon Valley for more than twenty years until 2017. The notably successful exit companies include Nutanix (6th employee) and Andiamo (acquired by Cisco). He brings distributed system expertise and Silicon Valley work culture to Blockfint. He has comprehensive skills to architect the solution and reach milestones quickly.\n Nick wants to make BlockFint relevant and has a big presence while offering transformation toward the better and fairer financial market. He helped design the first issued bond on digital ledger technology in Thailand. He is one of the main designers of Thailand National Digital ID systems (NDID).
+\nHe is also our resident Blockchain guru and can talk technology and business with ease. He made clients love us for our grit, determination, and passion to deliver the best.
+\nHe is an endurance sports enthusiast competing himself and stretching his physical limits. It has taken him across the world participating in Ironman and Ultra Trail Running races. He transfers his mental toughness and training approach to his work life as well.
+`,
     imgSrc: 'num2X.png',
     contact: 'Reach out to him at Nick@blockfint.com',
     quote: 'and he will be happy to have a technology infused coffee with you anytime.'
