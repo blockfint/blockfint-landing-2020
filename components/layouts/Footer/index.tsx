@@ -107,7 +107,7 @@ const Hr = styled.hr`
 `
 const StyledIconButton = styled.a`
   cursor: pointer;
-  padding-right: 1rem;
+  margin-right: 1rem;
 `
 const ButtonToTop = styled.button`
   cursor: pointer;
@@ -185,14 +185,16 @@ export const Footer = () => {
           <InLine>
             <img src="/icons/call.svg" alt="mail" width="24" height="24" />
             <LinkCall href="tel:021147182">
-              <Text className="call" style={{ paddingLeft: '0.5rem' }}>
+              <Text className="call" style={{ marginLeft: '0.5rem' }}>
                 +66 (0)2 114 7182
               </Text>
             </LinkCall>
           </InLine>
           <InLine style={{ paddingTop: '0.5rem' }}>
             <img src="/icons/mail.svg" alt="mail" width="24" height="24" />
-            <Text style={{ paddingLeft: '0.5rem' }}>blockfint@gmail.com</Text>
+            <LinkCall href="mailto: info@blockfint.com">
+              <Text style={{ marginLeft: '0.5rem' }}>info@blockfint.com</Text>
+            </LinkCall>
           </InLine>
         </Call>
         <Social>

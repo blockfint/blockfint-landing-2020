@@ -13,6 +13,7 @@ const StyledMotionDiv = styled(motion.div)`
 `
 const StyledImage = styled(Image)`
   width: 100%;
+  height: 11.5rem;
   object-fit: cover;
   @media ${BREAKPOINT.tablet} {
     height: 24rem;
