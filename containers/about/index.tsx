@@ -30,4 +30,4 @@ export const About = () => {
   )
 }
 const images = ['/images/ndid.jpg', '/images/toyota.jpg', '/images/kbtg.jpg']
-const description = ['Main contributor for NDID', 'Blockchain corporate bond', 'Supply technology for KTB']
+const description = ['Main contributor for NDID', 'Thailand First Blockchain Bond', 'Supply technology for KTB']
