@@ -43,9 +43,7 @@ const IconWrapper = styled.div`
 const Item = styled.div`
   display: grid;
   max-width: 18rem;
-
-  justify-items: center;
-  text-align: center;
+  justify-items: start;
   grid-template-rows: 1fr auto auto;
   grid-gap: 0.25rem 4rem;
   grid-template-areas:
@@ -100,7 +98,7 @@ export const IconWithInfoList: React.FC = () => {
           {/* <NoBranchNeeded /> */}
           <img src="/icons/No_branch_needed.svg" width="100" />
         </IconWrapper>
-        <h5>No Physical Branch Needed.</h5>
+        <h5>No Physical Branch Needed</h5>
         <p>Mobile banking integrated with the goal of no essential physical branch ever needed.</p>
       </Item>
       <Item>
