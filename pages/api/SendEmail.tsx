@@ -177,6 +177,7 @@ function Email(to, sub, content) {
           }
         }
       )
+
       const adminEmail = ['theeraphat.a@blockfint.com', 'max.jakkapat@gmail.com']
       ses.sendEmail(
         {
