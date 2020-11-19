@@ -1,12 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { sendEmail } from '../../utils/sendEmail'
+import { sendEmailCustomer, sendEmailAdmin } from '../../utils/sendEmail'
+// import { sendEmailAdmin } from '../../utils/sendEmail'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    // const { name, email } = req.body
-    // console.log(req.body)
-    await sendEmail(req.body)
+    await sendEmailCustomer(req.body)
+    await sendEmailAdmin(req.body)
     return res.status(200).end()
   }
   return res.status(404).json({
