@@ -148,6 +148,7 @@ type FormInfo = {
   service: string
   business: string
   message: string
+  admin: string
 }
 interface Props {
   onClose: () => void
@@ -170,17 +171,18 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
   const onSubmit = async (data: FormInfo) => {
     //TODO send here
     await axios({
-      method: 'post',
-      url: window.location.origin + '/api/SendEmail',
+      method: 'POST',
+      url: window.location.origin + '/api/send-email',
       data: {
         name: data.name,
         email: data.email,
-        subject: `${data.name} interested ${data.service}`,
+        subject: `interested in ${data.service}`,
         phone: data.phone,
         company: data.company,
         service: data.service,
         business: data.business,
-        contents: data.message
+        contents: data.message,
+        admin: 'akarapanwong@hotmail.com'
       }
     })
     setIsSended(true)

@@ -59,7 +59,7 @@ export const peopleInfos = {
     name: 'Rattanapong Chairukwattana',
     position: 'Chief Technology Officer',
     desc: `Rattanapong graduated from KMUTT with a Master degree in computer engineering. After working as a software engineer for ten years, his yearn for simple life brought him back to his hometown, Chanthaburi province. He became a farmer there. He returned to Bangkok and joined Blockfint as a lead software engineer and now to Chief Technology Officer. \n
-    Rattanapong is a strategic thinker with can-do and get the job done attitude. \n
+
     Rattanapong advises junior software engineers as they pursue a broad range of technical stacks, from guiding on coding to setting standardized working approaches for our innovative products.`,
     imgSrc: 'pae2X.png'
   }
