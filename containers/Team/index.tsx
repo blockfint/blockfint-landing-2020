@@ -28,9 +28,9 @@ const images = [
 ]
 const description = [
   'Blockfint Outing',
-  'Daily standup',
-  'Developer Consulting',
-  'Focusing Work',
+  'Company Meeting',
+  'Brain Storming',
+  'Coding',
   'Townhall',
-  'Ping-Pong time'
+  'Play time'
 ]
