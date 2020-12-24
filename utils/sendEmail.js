@@ -1,8 +1,9 @@
 import fetch from 'node-fetch'
 
 const SENDGRID_API = 'https://api.sendgrid.com/v3/mail/send'
-const SENDGRID_API_KEY = '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'
-// const SENDGRID_API_KEY = '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'
+// const SENDGRID_API_KEY = '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' //myEmailBlockfint
+// const SENDGRID_API_KEY = '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'  Gideon
+const SENDGRID_API_KEY = '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' //blockfint
 
 const sendEmailCustomer = async (info) => {
   const name = info.name
@@ -28,7 +29,7 @@ const sendEmailCustomer = async (info) => {
         }
       ],
       from: {
-        email: 'theeraphat.a@blockfint.com',
+        email: 'info_blockfint@blockfint.com',
         name: 'Blockfint'
       },
       content: [
@@ -36,7 +37,7 @@ const sendEmailCustomer = async (info) => {
           type: 'text/html',
           value: `<html>
               <head>
-                  <title>Gideon Email Contact</title>
+                  <title>Blockfint Email Contact</title>
                   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
                   <style>
                       h1 {
@@ -97,7 +98,8 @@ const sendEmailCustomer = async (info) => {
                       <div class="main">
                           <div class="content">
                               <div class="Logo">
-                                  <img src="https://www.img.in.th/images/0d34ebe30dd9c7f8fb6253a28e6cfc7b.jpg" alt="images_Logos">
+                                  <img src="https://gideon.energy/images/Blockfint-Colored-White.png" alt="images_Logos">
+                                  
                               </div>
                               <div>
                                   <div class="MainLayout">
@@ -181,14 +183,14 @@ const sendEmailAdmin = async (info) => {
         {
           to: [
             {
-              email: 'theeraphat.a@blockfint.com'
+              email: 'info_blockfint@blockfint.com'
             }
           ],
           subject: 'admin'
         }
       ],
       from: {
-        email: 'theeraphat.a@blockfint.com',
+        email: 'info_blockfint@blockfint.com',
         name: 'admin success'
       },
       content: [

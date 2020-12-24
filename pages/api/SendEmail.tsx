@@ -31,7 +31,6 @@ function Email(to, sub, content) {
             Body: {
               Html: {
                 Data: `<html>
-
                 <head>
                     <title>Gideon Email Contact</title>
                     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -178,7 +177,7 @@ function Email(to, sub, content) {
         }
       )
 
-      const adminEmail = ['theeraphat.a@blockfint.com', 'max.jakkapat@gmail.com']
+      const adminEmail = ['theeraphat.a@blockfint.com']
       ses.sendEmail(
         {
           Source: from,
