@@ -30,7 +30,7 @@ export const ProductThinker: React.FC = () => {
 
       <ProductConclusion
         problem="The processing of creating new loan products takes long time. So as the approval decisions for the customer."
-        solution="The processing of creating new loan products takes long time. So as the approval decisions for the customer."
+        solution="Thinker can help changing the way company work with customer for the best efficiency and satisfaction"
       />
       <ContactBanner />
     </>
