@@ -4,8 +4,7 @@ const SENDGRID_API = 'https://api.sendgrid.com/v3/mail/send'
 
 // const SENDGRID_API_KEY = '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' //myEmailBlockfint
 // const SENDGRID_API_KEY = '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'  Gideon
-const SENDGRID_API_KEY = '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' //blockfint
-
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY //blockfint
 
 const sendEmailCustomer = async (info) => {
   const name = info.name
@@ -187,9 +186,7 @@ const sendEmailAdmin = async (info) => {
         {
           to: [
             {
-
               email: 'info_blockfint@blockfint.com'
-
             }
           ],
           subject: 'admin'
