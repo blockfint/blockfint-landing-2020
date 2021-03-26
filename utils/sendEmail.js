@@ -10,6 +10,7 @@ const sendEmailCustomer = async (info) => {
   const name = info.name
   const email = info.email
   const subject = info.subject
+  const contents = info.contents
   const admin = info.admin
 
   await fetch(SENDGRID_API, {
@@ -107,11 +108,10 @@ const sendEmailCustomer = async (info) => {
                               <div>
                                   <div class="MainLayout">
                                       <div>
-                                          <h1>Let's keep in touch!</h1>
+                                          <h1>Thank you for contacting Blockfint!</h1>
                                       </div>
                                       <div class="description">
-                                          <span>Thank you for contacting us. Our team will contact you
-                                              within 3 working days. You message as shown below
+                                          <span>We’re thrilled to hear from you. We will look over your message and get back to you within 3 working days.
                                           </span>
                                       </div>
                                       <div class="box">
@@ -146,10 +146,7 @@ const sendEmailCustomer = async (info) => {
                                                   </div>
                                               </div>
                                               <div>
-                                                  <h3> <br />Hi! blockfint team. We have a look on all your pilot site projects and
-                                                      they
-                                                      look very interesting! We are ABC Energy company and looking for EMS to work
-                                                      with. Looking forward to hearing from you! </h3>
+                                                  <h3> <br />${contents} </h3>
                                               </div>
                                           </div>
                                       </div>
