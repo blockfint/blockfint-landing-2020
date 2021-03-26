@@ -30,7 +30,7 @@ export const ProductGideon: React.FC = () => {
       </ProductDetail>
 
       <ProductConclusion
-        problem="With the lack of systematic energy transaction platform, the excess of electrical energy that already had produced will be wasted."
+        problem="With the lack of systematic energy transaction platform, the excess electrical energy that had already produced will be wasted."
         solution="Gideon is the platform where everyone can utilize excess solar energy and be a part of green society with the systematic transaction implementation."
       />
       <ContactBanner />
