@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export && touch out/.nojekyll",
-    "deploy": "NEXT_PUBLIC_BASE_PATH=/blockfint next build && next export && touch out/.nojekyll && node gh-pages.js"
+    "export": "next export && touch out/.nojekyll"
   },
   "dependencies": {
     "@hookform/error-message": "^0.0.4",
