@@ -3,8 +3,8 @@ import { AllStyleProvider } from 'assets/globalStyle'
 import React from 'react'
 import { ContactDialog } from 'components/ContactDialog'
 import { DefaultSeo } from 'next-seo'
-import { css } from 'styled-components'
 import App from 'next/app'
+import { appWithTranslation } from 'next-i18next'
 class MyApp extends App {
   componentDidMount() {
     // Remove the server-side injected CSS.
@@ -56,4 +56,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)
