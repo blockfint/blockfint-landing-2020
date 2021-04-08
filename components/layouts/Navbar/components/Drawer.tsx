@@ -13,7 +13,7 @@ import { useRouter } from 'next/dist/client/router'
 import { ReactComponent as BlockFintColor } from 'assets/logos/Blockfint-Color.svg'
 import { useContactContext } from 'components/ContactDialog'
 import { useTranslation } from 'react-i18next'
-
+import { I18nSelector } from 'components/I18nSelector'
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 
 const MoveDown = keyframes`
@@ -85,7 +85,7 @@ const MainNav = styled(List)`
     background-color: white;
   }
 `
-const DrawerPosition = styled('div')``
+
 const BottomTitle = styled.div`
   position: fixed;
   bottom: 0;
@@ -111,7 +111,7 @@ const BottomTitle = styled.div`
         margin-right: 0.6875rem;
       }
       span {
-        margin-left: 2.56rem;
+        margin-left: 2.5rem;
       }
     }
   }
@@ -158,13 +158,23 @@ const TopLogoWithHam = styled.div`
   justify-content: space-between;
   padding-right: 1.5rem;
 `
+const Divider = styled.div`
+  display: grid;
+  background: black;
+  height: 1px;
+  margin: 2rem 2.5rem 2rem 0;
+`
+const DrawerContainer = styled.div`
+  background: var(--primary-2);
+  height: 100vh;
+  width: 18.75rem;
+`
 interface PropsColor {
   status: boolean
   id: string
 }
 
 export const Drawer = ({ status, id = '' }: PropsColor) => {
-  const classes = useStyles()
   const [state, setState] = React.useState({
     right: false
   })
@@ -192,115 +202,109 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
     setState({ ...state, [anchor]: open })
     setHam(!ham)
     setAnimate(!animate)
-    // console.log(state.right)
   }
 
-  const list = (anchor: Anchor) => (
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom'
-      })}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <TopLogoWithHam>
-        <div>
-          <a href="/" style={{ cursor: 'pointer' }}>
-            <BlockFintColor
-              style={{ marginTop: '2rem', marginBottom: '2rem', marginLeft: '2.56rem', height: '2rem', width: '9rem' }}
-            />
-          </a>
-        </div>
-        <div>
-          <Hamburger status={animate} ColorHam={status} DrawerToggle={ColorToggle} />
-        </div>
-      </TopLogoWithHam>
-
-      <MainNav>
-        <Link passHref href={`/about`} as={`/about`}>
-          <ListItem
-            button
-            selected={selectedIndex === `/about`}
-            onClick={(event) => handleListItemClick(event, `/about`)}
-          >
-            <RipleMiddle primary={t('common:about')} />
-          </ListItem>
-        </Link>
-        <Link passHref href={`/works`} as={`/works`}>
-          <ListItem
-            button
-            selected={selectedIndex === `/works`}
-            onClick={(event) => handleListItemClick(event, `/works`)}
-          >
-            <RipleMiddle primary={t('common:works')} />
-          </ListItem>
-        </Link>
-        <Link passHref href={`/team`} as={`/team`}>
-          <ListItem
-            button
-            selected={selectedIndex === `/team`}
-            onClick={(event) => handleListItemClick(event, `/team`)}
-          >
-            <RipleMiddle primary={t('common:team')} />
-          </ListItem>
-        </Link>
-
-        <ListItem button selected={selectedIndex === `/contact`} onClick={handleOpen}>
-          <RipleMiddle primary={t('common:contact')} />
-        </ListItem>
-      </MainNav>
-
-      <BottomTitle>
-        <div className="title">
-          <div className="bottomIcons">
-            <span>
-              <a
-                href="https://www.facebook.com/Blockfint-498494450914265/"
-                style={{ cursor: 'pointer', color: 'white' }}
-              >
-                <img src="/icons/facebook.svg" alt="facebook" width="36" />
-              </a>
-              <a href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g" style={{ cursor: 'pointer' }}>
-                <img src="/icons/youtube.svg" alt="youtube" width="36" />
-              </a>
-              {/*{' '}
-              <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
-                <img src="/icons/twitter.svg" alt="twitter" width="36" />
-              </a>{' '}
-              */}
-              <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
-                <img src="/icons/instagram.svg" alt="instagram" width="36" />
-              </a>
-              <a href="https://th.linkedin.com/company/blockfint" style={{ cursor: 'pointer' }}>
-                <img src="/icons/linkin.svg" alt="linkin" width="36" />
-              </a>
-            </span>
-          </div>
-        </div>
-      </BottomTitle>
-    </div>
-  )
-
+  const anchor = 'right' as Anchor
   const ColorToggle = state.right
   return (
-    <DrawerPosition>
-      {(['right'] as Anchor[]).map((anchor) => (
-        <React.Fragment key={anchor}>
-          <DrawerHamburgerButton move={ham.toString()} onClick={toggleDrawer(anchor, ham)} aria-label="Hamburger">
-            <Hamburger status={animate} ColorHam={status} DrawerToggle={ColorToggle} />
-          </DrawerHamburgerButton>
-          <SwipeableDrawer
-            anchor={anchor}
-            // open={false}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
-    </DrawerPosition>
+    <>
+      <DrawerHamburgerButton move={ham.toString()} onClick={toggleDrawer(anchor, ham)} aria-label="Hamburger">
+        <Hamburger status={animate} ColorHam={status} DrawerToggle={ColorToggle} />
+      </DrawerHamburgerButton>
+      <SwipeableDrawer
+        anchor={anchor}
+        open={state[anchor]}
+        onClose={toggleDrawer(anchor, false)}
+        onOpen={toggleDrawer(anchor, true)}
+      >
+        <DrawerContainer
+          // className={clsx(classes.list, {
+          //   [classes.fullList]: anchor === 'top' || anchor === 'bottom'
+          // })}
+          role="presentation"
+          onClick={toggleDrawer(anchor, false)}
+          onKeyDown={toggleDrawer(anchor, false)}
+        >
+          <TopLogoWithHam>
+            <div>
+              <a href="/" style={{ cursor: 'pointer' }}>
+                <BlockFintColor
+                  style={{
+                    marginTop: '2rem',
+                    marginBottom: '2rem',
+                    marginLeft: '2.56rem',
+                    height: '2rem',
+                    width: '9rem'
+                  }}
+                />
+              </a>
+            </div>
+            <div>
+              <Hamburger status={animate} ColorHam={status} DrawerToggle={ColorToggle} />
+            </div>
+          </TopLogoWithHam>
+
+          <MainNav>
+            <Link passHref href={`/about`} as={`/about`}>
+              <ListItem
+                button
+                selected={selectedIndex === `/about`}
+                onClick={(event) => handleListItemClick(event, `/about`)}
+              >
+                <RipleMiddle primary={t('common:about')} />
+              </ListItem>
+            </Link>
+            <Link passHref href={`/works`} as={`/works`}>
+              <ListItem
+                button
+                selected={selectedIndex === `/works`}
+                onClick={(event) => handleListItemClick(event, `/works`)}
+              >
+                <RipleMiddle primary={t('common:works')} />
+              </ListItem>
+            </Link>
+            <Link passHref href={`/team`} as={`/team`}>
+              <ListItem
+                button
+                selected={selectedIndex === `/team`}
+                onClick={(event) => handleListItemClick(event, `/team`)}
+              >
+                <RipleMiddle primary={t('common:team')} />
+              </ListItem>
+            </Link>
+            <ListItem button selected={selectedIndex === `/contact`} onClick={handleOpen}>
+              <RipleMiddle primary={t('common:contact')} />
+            </ListItem>
+            <Divider />
+            <I18nSelector />
+          </MainNav>
+
+          <BottomTitle>
+            <div className="title">
+              <div className="bottomIcons">
+                <span>
+                  <a
+                    href="https://www.facebook.com/Blockfint-498494450914265/"
+                    style={{ cursor: 'pointer', color: 'white' }}
+                  >
+                    <img src="/icons/facebook.svg" alt="facebook" width="36" />
+                  </a>
+                  <a href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g" style={{ cursor: 'pointer' }}>
+                    <img src="/icons/youtube.svg" alt="youtube" width="36" />
+                  </a>
+
+                  <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
+                    <img src="/icons/instagram.svg" alt="instagram" width="36" />
+                  </a>
+                  <a href="https://th.linkedin.com/company/blockfint" style={{ cursor: 'pointer' }}>
+                    <img src="/icons/linkin.svg" alt="linkin" width="36" />
+                  </a>
+                </span>
+              </div>
+            </div>
+          </BottomTitle>
+        </DrawerContainer>
+      </SwipeableDrawer>
+    </>
   )
 }

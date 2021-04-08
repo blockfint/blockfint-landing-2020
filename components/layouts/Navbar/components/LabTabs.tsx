@@ -6,6 +6,7 @@ import { BREAKPOINT } from '../../../../assets/globalStyle'
 import { OrangeButton } from 'components/Buttons'
 import { useContactContext } from 'components/ContactDialog'
 import { useTranslation } from 'next-i18next'
+import { I18nSelector } from 'components/I18nSelector'
 
 const LeftnavTab = styled.div`
   display: flex;
@@ -82,6 +83,11 @@ const RoutesList = styled.div`
   grid-gap: 2.625rem;
   grid-auto-flow: column;
 `
+const Divider = styled.div`
+  width: 1px;
+  height: 100%;
+  background: black;
+`
 
 interface PropsColor {
   status: boolean
@@ -92,6 +98,7 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
   const router = useRouter()
   const { onOpen } = useContactContext()
   const { t } = useTranslation()
+
   const handleOpen = () => {
     onOpen()
   }
@@ -109,6 +116,7 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
       path: '/team'
     }
   ]
+
   return (
     <LeftnavTab>
       <RoutesList className="NavTab">
@@ -127,6 +135,8 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
         <a onClick={handleOpen}>
           <OrangeButton>{t('common:contact')}</OrangeButton>
         </a>
+        <Divider />
+        <I18nSelector />
       </RoutesList>
     </LeftnavTab>
   )
