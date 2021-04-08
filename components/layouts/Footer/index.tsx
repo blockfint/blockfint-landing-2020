@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { Container } from '@material-ui/core'
+import { useTranslation } from 'react-i18next'
 const Background = styled.div`
   position: relative;
   padding: 1.5rem 0;
@@ -145,40 +146,36 @@ const InLine = styled.div`
   flex-direction: row;
   align-items: center;
 `
-export const Footer = () => {
+export const Footer: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
       <Background>
         <Who>
-          <Title>Who we are</Title>
+          <Title>{t('common:who-we-are')}</Title>
           <Link href="/about" passHref>
             <StyledLink>
-              <Text>About</Text>
+              <Text>{t('common:about')}</Text>
             </StyledLink>
           </Link>
-          {/* <Link href="#" passHref>
-            <StyledLink>
-              <Text style={{ paddingTop: '0.25rem' }}>Career</Text>
-            </StyledLink>
-          </Link> */}
         </Who>
         <What>
-          <Title>What we do</Title>
+          <Title>{t('common:what-we-do')}</Title>
           <Link href="/works" passHref>
             <StyledLink>
-              <Text>Works</Text>
+              <Text>{t('common:works')}</Text>
             </StyledLink>
           </Link>
           <Link href="https://www.instagram.com/blockfint/" passHref>
             <StyledLink>
-              <Text style={{ paddingTop: '0.25rem' }}>Life at Blockfint</Text>
+              <Text style={{ paddingTop: '0.25rem' }}>{t('common:life-at-blockfint')}</Text>
             </StyledLink>
           </Link>
         </What>
         <Address>
-          <Title>Address</Title>
+          <Title>{t('common:address')}</Title>
           <Hr />
-          <AddressText>139 Sethiwan Tower, 4th Floor, Pan Rd, Silom, Bang Rak, Bangkok 10500</AddressText>
+          <AddressText>{t('common:address-text')}</AddressText>
         </Address>
         <Call>
           <Title />
@@ -198,16 +195,14 @@ export const Footer = () => {
           </InLine>
         </Call>
         <Social>
-          <Title>What We do daily</Title>
+          <Title>{t('common:what-we-do-daily')}</Title>
           <StyledIconButton href="https://www.facebook.com/Blockfint/">
             <img src="/icons/facebook.svg" alt="facebook" width="36" />
           </StyledIconButton>
           <StyledIconButton href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g">
             <img src="/icons/youtube.svg" alt="youtube" width="36" />
           </StyledIconButton>
-          {/* <StyledIconButton>
-            <img src="/icons/twitter.svg" alt="twitter" width="36" />
-          </StyledIconButton> */}
+
           <StyledIconButton href="https://www.instagram.com/blockfint/">
             <img src="/icons/instagram.svg" alt="instagram" width="36" />
           </StyledIconButton>
@@ -215,8 +210,8 @@ export const Footer = () => {
             <img src="/icons/linkin.svg" alt="linkin" width="36" />
           </StyledIconButton>
         </Social>
-        <Privacy>Privacy & Policy</Privacy>
-        <SmallText style={{ gridArea: 'copyright' }}>Copyright 2020. Blockfint All Rights Reserved.</SmallText>
+        <Privacy>{t('common:privacy-and-policy')}</Privacy>
+        <SmallText style={{ gridArea: 'copyright' }}>{t('common:copyright')}</SmallText>
         <ButtonToTop
           onClick={(e) => {
             let rootElement = document.documentElement

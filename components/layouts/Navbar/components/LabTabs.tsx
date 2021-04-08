@@ -4,9 +4,8 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { BREAKPOINT } from '../../../../assets/globalStyle'
 import { OrangeButton } from 'components/Buttons'
-// import { ReactComponent as BlockFintColor } from '../../../../assets/logos/Blockfint-Color.svg'
-// import { ReactComponent as BlockFintWhite } from '../../../../assets/logos/Blockfint-White.svg'
 import { useContactContext } from 'components/ContactDialog'
+import { useTranslation } from 'next-i18next'
 
 const LeftnavTab = styled.div`
   display: flex;
@@ -91,11 +90,25 @@ interface PropsColor {
 
 export const LabTabs = ({ status, id = '' }: PropsColor) => {
   const router = useRouter()
-  // const { locale } = useIntl()
   const { onOpen } = useContactContext()
+  const { t } = useTranslation()
   const handleOpen = () => {
     onOpen()
   }
+  const routes = [
+    {
+      label: t('common:about'),
+      path: '/about'
+    },
+    {
+      label: t('common:works'),
+      path: '/works'
+    },
+    {
+      label: t('common:team'),
+      path: '/team'
+    }
+  ]
   return (
     <LeftnavTab>
       <RoutesList className="NavTab">
@@ -110,27 +123,11 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
             </Link>
           )
         })}
-        {/* <Link passHref href="/contact"> */}
+
         <a onClick={handleOpen}>
-          <OrangeButton>Contact</OrangeButton>
+          <OrangeButton>{t('common:contact')}</OrangeButton>
         </a>
-        {/* </Link> */}
       </RoutesList>
     </LeftnavTab>
   )
 }
-
-const routes = [
-  {
-    label: 'About',
-    path: '/about'
-  },
-  {
-    label: 'Works',
-    path: '/works'
-  },
-  {
-    label: 'Team',
-    path: '/team'
-  }
-]

@@ -5,6 +5,7 @@ import { useContactContext } from 'components/ContactDialog'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
 const Background = styled.div`
@@ -82,6 +83,7 @@ const MailImage = styled.div`
   }
 `
 export const ContactBanner: React.FC = () => {
+  const { t } = useTranslation()
   const { onOpen } = useContactContext()
   const handleOpen = () => {
     onOpen()
@@ -91,8 +93,8 @@ export const ContactBanner: React.FC = () => {
       <Container maxWidth="lg">
         <Content>
           <LeftContent>
-            <h5>Interested to be our partner?</h5>
-            <SecondaryButton onClick={handleOpen}>Contact us</SecondaryButton>
+            <h5>{t('common:contact-banner-title')}</h5>
+            <SecondaryButton onClick={handleOpen}>{t('common:contact-us')}</SecondaryButton>
           </LeftContent>
           <MailImage>
             <Image src={'/images/mailbox.png'} width={285} height={291} alt="Mailbox" />

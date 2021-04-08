@@ -6,6 +6,7 @@ import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { NeobankImage } from './components/NeobankImage'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 const Content = styled.div`
   margin: 6.25rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -23,6 +24,7 @@ const Desc = styled.p`
 `
 
 export const NeoBankSection: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
       <Content>
@@ -30,14 +32,11 @@ export const NeoBankSection: React.FC = () => {
 
         <Title style={{ color: 'var(--primary)' }}>Neo Bank</Title>
         <Title>The New Era of Banking Services</Title>
-        <Desc>
-          Banking experience redefined! A digital banking platform simplifying access to capital and incorporating
-          innovative ways to grow your money.
-        </Desc>
+        <Desc>{t('home:neobank-desc')}</Desc>
         <Link href={'/products/neobank'} passHref>
           <a>
             <PrimaryButton logo={<NeoBankSmall />} background={'var(--gradient-neo-bank)'}>
-              Read more
+              {t('common:read-more')}
             </PrimaryButton>
           </a>
         </Link>

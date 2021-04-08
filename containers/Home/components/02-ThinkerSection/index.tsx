@@ -6,6 +6,7 @@ import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { ThinkerImage } from './components/ThinkerImage'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 const Content = styled.div`
   margin: 6.25rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -23,17 +24,18 @@ const Desc = styled.p`
 `
 
 export const ThinkerSection: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
       <Content>
         <ThinkerImage />
         <Title style={{ color: 'var(--primary)' }}>Thinker</Title>
         <Title>Make Rapid, Optimized & Data Driven Decision </Title>
-        <Desc>Leading change of processes with data-driven tool that will change the way of working forever.</Desc>
+        <Desc>{t('home:thinker-desc')}</Desc>
         <Link href={'/products/thinker'} passHref>
           <a>
             <PrimaryButton logo={<ThinkerSmall />} background={'var(--gradient-thinker)'}>
-              Read more
+              {t('common:read-more')}
             </PrimaryButton>
           </a>
         </Link>

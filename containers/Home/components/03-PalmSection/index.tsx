@@ -5,6 +5,7 @@ import { ReactComponent as PalmSmall } from 'assets/logos/palm-small.svg'
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { PlamImage } from './components/PlamImage'
+import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 const Content = styled.div`
   margin: 6.25rem 0;
@@ -23,20 +24,18 @@ const Desc = styled.p`
 `
 
 export const PalmSection: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
       <Content>
         <PlamImage />
         <Title style={{ color: 'var(--primary)' }}>Agri Trac</Title>
-        <Title>Advance Tracablity for Agricuture Products</Title>
-        <Desc>
-          World’s first blockchain based platform for agricuture products traceability. For sustainability of Thai
-          farmer, which currently apply on palm oil product.
-        </Desc>
+        <Title>Advance Traceability for Agriculture Products</Title>
+        <Desc>{t('home:argri-desc')}</Desc>
         <Link href={'/products/agri-trac'} passHref>
           <a>
             <PrimaryButton logo={<PalmSmall />} background={'var(--gradient-palm)'}>
-              Read more
+              {t('common:read-more')}
             </PrimaryButton>
           </a>
         </Link>

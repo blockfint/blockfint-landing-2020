@@ -8,6 +8,8 @@ import { ScrollAnimation } from './components/ScrollAnimation'
 import { PrimaryButton } from 'components/Buttons'
 import { ReactComponent as BlockfintSmallLogo } from 'assets/logos/blockfint-small.svg'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
+
 const Background = styled.div`
   margin-top: -5rem;
   min-height: 42rem;
@@ -78,6 +80,7 @@ const ScrollWrapper = styled.div`
 `
 
 export const Hero: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Background>
       <Container maxWidth="lg">
@@ -86,13 +89,10 @@ export const Hero: React.FC = () => {
             <Title>Make Future Innovations </Title>
             <Title style={{ color: '#19213c' }}>Happen Today</Title>
           </div>
-          <Desc>
-            We are path breakers. We love to develop technology that simplifies complexity. Our technology serves as
-            building blocks redefining financial and commodity markets.
-          </Desc>
+          <Desc>{t('home:section-1-desc')}</Desc>
           <Link href="/about" passHref>
             <a>
-              <PrimaryButton logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}>About</PrimaryButton>
+              <PrimaryButton logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}>{t('about')}</PrimaryButton>
             </a>
           </Link>
         </Content>

@@ -2,7 +2,7 @@ import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import React from 'react'
 import styled from 'styled-components'
-
+import { useTranslation } from 'next-i18next'
 const Title = styled.h3`
   margin-top: 3.75rem;
   @media ${BREAKPOINT.tablet} {
@@ -33,9 +33,10 @@ const Logo = styled.img`
   object-fit: contain;
 `
 export const OurPartners: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
-      <Title>Our Partners and Customers</Title>
+      <Title>{t('home:our-partners-and-customers')}</Title>
       <PartnerWrapper>
         <Logo src={'images/partners/AF.png'} />
         <Logo src={'images/partners/BMA.png'} />

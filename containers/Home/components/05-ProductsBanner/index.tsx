@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import { BREAKPOINT } from 'assets/globalStyle'
 import Image from 'next/image'
+import { useTranslation } from 'next-i18next'
 const Background = styled.div`
   position: relative;
   height: 27.125rem;
@@ -96,6 +97,7 @@ const ImageWrapper = styled.div`
   }
 `
 export const ProductsBanner: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Background>
       <Container maxWidth="lg">
@@ -106,10 +108,10 @@ export const ProductsBanner: React.FC = () => {
             </ExploreImg>
           </ImageWrapper>
           <RightContent>
-            <h5>Interesting in our products? </h5>
+            <h5>{t('home:interesting-in-our-products')}</h5>
             <Link passHref href="/works">
               <a>
-                <SecondaryButton>See all works</SecondaryButton>
+                <SecondaryButton>{t('home:see-all-works')}</SecondaryButton>
               </a>
             </Link>
           </RightContent>

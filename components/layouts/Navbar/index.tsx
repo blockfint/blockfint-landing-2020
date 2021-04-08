@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Container, IconButton } from '@material-ui/core'
+import { Container } from '@material-ui/core'
 import { Drawer } from './components/Drawer'
 import { BREAKPOINT } from '../../../assets/globalStyle'
 import { LabTabs } from './components/LabTabs'
@@ -13,7 +13,6 @@ const Box = styled.div<BoxShadow>`
   height: 4.5rem;
   width: 100%;
   background-color: ${(props) => (props.status ? 'transparent' : 'white')};
-  /* color: #2076a9; */
   box-sizing: border-box;
   box-shadow: ${(props) => (props.status ? '0' : '0 2px 4px 0 rgba(0, 0, 0, 0.1)')};
   display: flex;
@@ -80,19 +79,6 @@ interface PropsColor {
 const RightNavBar = ({ status, id }: PropsColor) => {
   return (
     <RightNav>
-      {/* <div className="Login">
-        <Button aria-label="Login" size="small" className="LoginAndRegis">
-          Log-in/Register
-        </Button>
-      </div>
-      <div className="LangButton">
-        <IconButton aria-label="Thai" className="ThaiButton" size="small">
-          TH
-        </IconButton>
-        <IconButton aria-label="Eng" className="EngButton" size="small">
-          EN
-        </IconButton>
-      </div> */}
       <div>
         <LabTabs status={status} id={id} />
       </div>
@@ -102,16 +88,12 @@ const RightNavBar = ({ status, id }: PropsColor) => {
     </RightNav>
   )
 }
-// interface PropsColor {
-//   status: boolean
-// }
 
 interface Props {
   transparent: boolean
   id?: string
 }
 export const Navbar: React.FC<Props> = ({ transparent, id }) => {
-  // console.log(transparent)
   return (
     <Box status={transparent}>
       <Container maxWidth="lg">

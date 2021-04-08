@@ -1,6 +1,5 @@
 import React from 'react'
 import clsx from 'clsx'
-import { BREAKPOINT } from 'assets/globalStyle'
 import { Hamburger } from 'components/Hamburger'
 import { makeStyles } from '@material-ui/core/styles'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
@@ -13,10 +12,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 import { ReactComponent as BlockFintColor } from 'assets/logos/Blockfint-Color.svg'
 import { useContactContext } from 'components/ContactDialog'
+import { useTranslation } from 'react-i18next'
 
-type MoveProps = {
-  move: boolean
-}
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 
 const MoveDown = keyframes`
@@ -55,10 +52,6 @@ const MainNav = styled(List)`
   .MuiButtonBase-root:hover {
     background-color: white;
   }
-  /* .MuiList-root {
-    height: 6.25rem;
-
-  } */
 
   &&&.MuiList-padding {
     margin-left: 2.56rem;
@@ -92,11 +85,7 @@ const MainNav = styled(List)`
     background-color: white;
   }
 `
-const DrawerPosition = styled('div')`
-  /* @media ${BREAKPOINT.tablet} {
-    padding-right: 1.5rem;
-  } */
-`
+const DrawerPosition = styled('div')``
 const BottomTitle = styled.div`
   position: fixed;
   bottom: 0;
@@ -152,7 +141,6 @@ const RipleMiddle = styled(ListItemText)`
   }
 `
 const DrawerHamburgerButton = styled(Button)<{ move: string }>`
-  /* position: absolute; */
   min-width: unset;
   padding: 0;
   z-index: 1600 !important;
@@ -160,14 +148,6 @@ const DrawerHamburgerButton = styled(Button)<{ move: string }>`
   animation-name: example;
   animation-duration: 0.2s;
   animation-fill-mode: forwards;
-  /* ${({ move }) =>
-    move === 'true'
-      ? css`
-          animation: 0.2s ${MoveDown} forwards;
-        `
-      : css`
-          animation: 0.2s ${MoveUp} forwards;
-        `}; */
 `
 
 const TopLogoWithHam = styled.div`
@@ -193,15 +173,13 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
   const router = useRouter()
   const [selectedIndex, setSelectedIndex] = React.useState(router.asPath)
   const { onOpen } = useContactContext()
+  const { t } = useTranslation()
   const handleOpen = () => {
     onOpen()
   }
   const handleListItemClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: any) => {
     setSelectedIndex(index)
-    // console.log(router.asPath)
   }
-
-  // const { locale } = useIntl()
 
   const toggleDrawer = (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
@@ -246,7 +224,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
             selected={selectedIndex === `/about`}
             onClick={(event) => handleListItemClick(event, `/about`)}
           >
-            <RipleMiddle primary="About" />
+            <RipleMiddle primary={t('common:about')} />
           </ListItem>
         </Link>
         <Link passHref href={`/works`} as={`/works`}>
@@ -255,7 +233,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
             selected={selectedIndex === `/works`}
             onClick={(event) => handleListItemClick(event, `/works`)}
           >
-            <RipleMiddle primary="Works" />
+            <RipleMiddle primary={t('common:works')} />
           </ListItem>
         </Link>
         <Link passHref href={`/team`} as={`/team`}>
@@ -264,12 +242,12 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
             selected={selectedIndex === `/team`}
             onClick={(event) => handleListItemClick(event, `/team`)}
           >
-            <RipleMiddle primary="Team" />
+            <RipleMiddle primary={t('common:team')} />
           </ListItem>
         </Link>
 
         <ListItem button selected={selectedIndex === `/contact`} onClick={handleOpen}>
-          <RipleMiddle primary="Contact" />
+          <RipleMiddle primary={t('common:contact')} />
         </ListItem>
       </MainNav>
 

@@ -6,6 +6,7 @@ import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { GideonImage } from './components/GideonImage'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 const Content = styled.div`
   margin: 6.25rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -23,20 +24,18 @@ const Desc = styled.p`
 `
 
 export const GideonSection: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
       <Content>
         <GideonImage />
         <Title style={{ color: 'var(--primary)' }}>Gideon</Title>
         <Title>Energy Trading Without Barriers</Title>
-        <Desc>
-          Next-generation electricity trading platform enabling market participants to transact directly leading to
-          better efficiencies.
-        </Desc>
+        <Desc>{t('home:gideon-desc')}</Desc>
         <Link href={'/products/gideon'} passHref>
           <a>
             <PrimaryButton logo={<GideonSmall />} background={'var(--gradient-gideon)'}>
-              Read more
+              {t('common:read-more')}
             </PrimaryButton>
           </a>
         </Link>

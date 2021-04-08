@@ -1,6 +1,7 @@
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from 'assets/globalStyle'
 import { ArrowLink } from 'components/ArrowLink'
+import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -64,22 +65,20 @@ const ImageWrapper = styled.div`
   object-fit: contain;
 `
 export const OurTeam: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Background>
       <Container maxWidth="lg">
         <Wrapper>
           <div>
-            <BlueTitle>Our Team</BlueTitle>
-            <Title>Consists of Highly Qualified</Title>
-            <Desc>
-              We are a technology company for Innovators Build great company, not good company together. Good is enough.
-              We want greatness.
-            </Desc>
+            <BlueTitle>{t('home:our-team')}</BlueTitle>
+            <Title>{t('home:consists-of-highly-qualified')}</Title>
+            <Desc>{t('home:our-team-desc')}</Desc>
             <Link href="/team" passHref>
-              <ArrowLink>Meet the team</ArrowLink>
+              <ArrowLink>{t('common:meet-the-team')}</ArrowLink>
             </Link>
           </div>
-          {/* <StyleImage src="/images/team@3x.png" /> */}
+
           <ImageWrapper>
             <Image src="/images/team@3x.png" width={2064} height={1935} quality={100} />
           </ImageWrapper>
