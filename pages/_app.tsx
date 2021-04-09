@@ -21,25 +21,6 @@ class MyApp extends App {
         <Head>
           <link rel="shortcut icon" href="/favicon/favicon.png" />
           <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-          <script
-            async
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-              __html: `
-              WebFontConfig = {
-                google: { families: [ 'Montserrat:400,500,600,700' ] }
-              };
-              (function() {
-                var wf = document.createElement('script');
-                wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-                wf.type = 'text/javascript';
-                wf.async = 'true';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(wf, s);
-              })();
-`
-            }}
-          />
         </Head>
         <DefaultSeo
           title="Blockfint"
