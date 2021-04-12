@@ -72,7 +72,9 @@ export const AnimationImage: React.FC<animationProps> = ({
       >
         <StyledImage
           src={images[(imageIndex + index[type]) % images.length]}
-          layout="fill"
+          layout="responsive"
+          width={800}
+          height={450}
         />
         <Description>
           {description[(imageIndex + index[type]) % images.length]}

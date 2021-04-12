@@ -17,12 +17,11 @@ const Card = styled(motion.div)`
     grid-template-columns: 17.5rem 1fr;
     grid-template-rows: auto;
     width: 42.875rem;
-    height: 13.375rem;
+    height: 100%;
   }
   @media ${BREAKPOINT.desktop} {
     grid-template-columns: 1fr 1fr;
     width: 37.5rem;
-    height: 12.6875rem;
   }
 `;
 

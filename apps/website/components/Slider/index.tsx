@@ -111,7 +111,7 @@ export const Slider: React.FC<Props> = ({
   } else {
     position = 340;
   }
-  let transformDesktop =
+  const transformDesktop =
     windowSize > 960 ? { y: -100, scale: 1.18 } : { y: 0, scale: 1 };
   const positionRightPic = position;
   const positionLeftPic = position * -1;
