@@ -5,6 +5,7 @@ import { ContactDialog } from '@blockfint/website/components/ContactDialog'
 import { DefaultSeo } from 'next-seo'
 import App from 'next/app'
 import { appWithTranslation } from 'next-i18next'
+import nextI18NextConfig from '../next-i18next.config.js'
 class MyApp extends App {
   componentDidMount() {
     // Remove the server-side injected CSS.
@@ -37,4 +38,4 @@ class MyApp extends App {
   }
 }
 
-export default appWithTranslation(MyApp)
+export default appWithTranslation(MyApp, nextI18NextConfig)
