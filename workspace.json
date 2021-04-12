@@ -3,7 +3,7 @@
   "cli": {
     "defaultCollection": "@nrwl/react"
   },
-  "defaultProject": "website-old",
+  "defaultProject": "website",
   "generators": {
     "@nrwl/react": {
       "application": {
@@ -75,10 +75,7 @@
         "e2e": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": [
-              "nx e2e-serve blockfint.github.io-e2e",
-              "nx e2e-run blockfint.github.io-e2e"
-            ]
+            "commands": ["nx e2e-serve blockfint.github.io-e2e", "nx e2e-run blockfint.github.io-e2e"]
           }
         },
         "lint": {

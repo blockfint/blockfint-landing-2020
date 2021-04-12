@@ -1,18 +1,17 @@
 {
-  "contact-us": "Contact us",
   "about": "About",
+  "works": "Works",
+  "team": "Team",
+  "contact": "Contact",
+  "who-we-are": "Who we are",
+  "what-we-do": "What we do",
+  "life-at-blockfint": "Life at Blockfint",
+  "what-we-do-daily": "What We do daily",
+  "copyright": "Copyright 2020. Blockfint All Rights Reserved.",
   "address": "Address",
   "address-text": "139 Sethiwan Tower, 4th Floor, Pan Rd, Silom, Bang Rak, Bangkok 10500",
-  "contact": "Contact",
+  "contact-us": "Contact us",
   "contact-banner-title": "Interested to be our partner?",
-  "copyright": "Copyright 2020. Blockfint All Rights Reserved.",
-  "life-at-blockfint": "Life at Blockfint",
   "meet-the-team": "Meet the team",
-  "privacy-and-policy": "Privacy & Policy",
-  "read-more": "Read more",
-  "team": "Team",
-  "what-we-do": "What we do",
-  "what-we-do-daily": "What We do daily",
-  "who-we-are": "Who we are",
-  "works": "Works"
+  "read-more": "Read more"
 }
