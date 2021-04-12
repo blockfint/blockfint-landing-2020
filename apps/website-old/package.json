@@ -1,0 +1,40 @@
+{
+  "name": "blockfint.github.io",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export && touch out/.nojekyll"
+  },
+  "dependencies": {
+    "@hookform/error-message": "^0.0.4",
+    "@hookform/resolvers": "^1.0.0",
+    "@material-ui/core": "^4.11.0",
+    "aws-sdk": "^2.782.0",
+    "axios": "^0.21.0",
+    "dayjs": "^1.9.3",
+    "framer-motion": "^2.9.3",
+    "next": "^10.0.0",
+    "next-images": "^1.6.0",
+    "next-seo": "^4.14.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^6.9.6",
+    "react-intersection-observer": "^8.29.1",
+    "styled-components": "^5.2.0",
+    "url-loader": "^4.1.1",
+    "yup": "^0.29.3"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.4.0",
+    "@types/node": "^14.11.11",
+    "@types/react": "^16.9.53",
+    "@types/styled-components": "^5.1.4",
+    "@types/yup": "^0.29.9",
+    "babel-plugin-styled-components": "^1.11.1",
+    "gh-pages": "^3.1.0",
+    "typescript": "^4.0.3"
+  }
+}
