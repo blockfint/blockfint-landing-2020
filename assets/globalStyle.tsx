@@ -223,8 +223,8 @@ const GlobalStyle = createGlobalStyle`
   font-display: swap;
   font-weight: 700;
   src: local(''),
-       url('/fonts/prompt-v4-thai_latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/prompt-v4-thai_latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('/fonts/prompt-v4-thai_latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('/fonts/prompt-v4-thai_latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* prompt-800 - thai_latin */
 @font-face {
