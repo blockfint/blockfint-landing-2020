@@ -17,9 +17,10 @@ export default async function (host: Tree, schema: Schema) {
   await doc.loadInfo() // loads document properties and worksheets
 
   const result = sheetConfigs.map(async ({ name, output }, index) => {
-    const sheet = doc.sheetsByIndex[index]
-    console.log('Loading sheet 📑 ', name)
+    const sheet = doc.sheetsByTitle[name]
+    console.log('Loading sheet 📑 ', sheet.title)
     const data = await sheet.getRows()
+
     const locales = ['en', 'th']
 
     const mappedData = data.reduce(
@@ -53,7 +54,7 @@ export default async function (host: Tree, schema: Schema) {
     return index
   })
   await Promise.all(result)
-  logger.info('Create All file success')
+  logger.info('🥳 Create All file success')
 
   return () => {}
 }
@@ -64,7 +65,32 @@ const sheetConfigs = [
     output: 'common'
   },
   {
-    name: '00-Mainpage',
+    name: '01-Mainpage',
     output: 'home'
+  },
+  {
+    name: '02-About',
+    output: 'about'
+  },
+  {
+    name: '03.1-Works',
+    output: 'works'
+  },
+  {
+    name: '03.2-Work-Details',
+    output: 'work-details'
+  },
+  {
+    name: '03.3-Success-stories',
+    output: 'project'
+  },
+  ,
+  {
+    name: '04.1-Team',
+    output: 'team'
+  },
+  {
+    name: '04.2-Team Details',
+    output: 'team-details'
   }
 ]

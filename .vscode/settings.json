@@ -1,6 +1,6 @@
 {
   "i18n-ally.localesPaths": [
-    "public/locales"
+    "apps/website/locales"
   ],
   "i18n-ally.sourceLanguage": "en",
   "i18n-ally.sortKeys": true,
