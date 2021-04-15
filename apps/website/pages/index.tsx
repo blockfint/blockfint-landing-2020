@@ -15,16 +15,11 @@ const Homepage: NextPage = () => {
 export default Homepage
 
 export const getStaticProps = async ({ locale }) => {
-  try {
-    const result = await serverSideTranslations(locale, ['common', 'home'], nextI18NextConfig)
+  const result = await serverSideTranslations(locale, ['common', 'home'], nextI18NextConfig)
 
-    return {
-      props: {
-        ...result
-      }
+  return {
+    props: {
+      ...result
     }
-  } catch (error) {
-    console.log(error)
-    return { props: {} }
   }
 }
