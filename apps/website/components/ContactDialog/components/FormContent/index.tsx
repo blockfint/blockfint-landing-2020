@@ -186,7 +186,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
       data: {
         name: data.name,
         email: data.email,
-        subject: `interested in ${data.service}`,
+        subject: `Interested in ${data.service}`,
         phone: data.phone,
         company: data.company,
         service: data.service,
