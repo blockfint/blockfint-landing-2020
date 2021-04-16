@@ -1,18 +1,19 @@
-import { Container } from '@material-ui/core';
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
-import React from 'react';
-import styled from 'styled-components';
+import { Container } from '@material-ui/core'
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import React from 'react'
+import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 
 const Background = styled.div`
   background-color: var(--primary-2);
-`;
+`
 const Content = styled.div`
   padding: 3.75rem 0.5rem 0;
-`;
+`
 
 const Title = styled.h3`
   margin-bottom: 3.5rem;
-`;
+`
 
 const List = styled.div`
   display: grid;
@@ -24,7 +25,7 @@ const List = styled.div`
     justify-content: flex-end;
     grid-template-columns: repeat(2, 18.75rem);
   }
-`;
+`
 
 const Item = styled.div`
   padding: 2.5rem 0;
@@ -44,35 +45,36 @@ const Item = styled.div`
   p {
     line-height: 1.88;
   }
-`;
+`
 
 const SubTitle = styled.h4`
   @media ${BREAKPOINT.tablet} {
     font-size: 1.625rem;
   }
-`;
+`
 interface Props {
-  problem: string;
-  solution: string;
+  problem: string
+  solution: string
 }
 export const ProductConclusion: React.FC<Props> = ({ problem, solution }) => {
+  const { t } = useTranslation()
   return (
     <Background>
       <Container maxWidth="lg">
         <Content>
-          <Title>Conclusion</Title>
+          <Title>{t('work-details:conclusion')}</Title>
           <List>
             <Item>
-              <SubTitle>Problem</SubTitle>
+              <SubTitle>{t('work-details:problem')}</SubTitle>
               <p>{problem}</p>
             </Item>
             <Item>
-              <SubTitle>Solution</SubTitle>
+              <SubTitle>{t('work-details:solution')}</SubTitle>
               <p>{solution}</p>
             </Item>
           </List>
         </Content>
       </Container>
     </Background>
-  );
-};
+  )
+}

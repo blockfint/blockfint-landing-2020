@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
-import { Container } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { Container } from '@material-ui/core'
+import { useTranslation } from 'next-i18next'
 const Background = styled.div`
   position: relative;
   padding: 1.5rem 0;
@@ -36,30 +36,30 @@ const Background = styled.div`
       'privacy copyright .';
     grid-gap: 0.75rem 7.9rem;
   }
-`;
+`
 const Who = styled.div`
   grid-area: who;
   @media ${BREAKPOINT.desktop} {
     margin-right: 4rem;
   }
-`;
+`
 const What = styled.div`
   grid-area: what;
-`;
+`
 const Address = styled.div`
   grid-area: address;
   position: relative;
-`;
+`
 const Call = styled.div`
   grid-area: call;
-`;
+`
 const Social = styled.div`
   grid-area: social;
   padding-bottom: 1.75rem;
   @media ${BREAKPOINT.desktop} {
     padding-bottom: 0.25rem;
   }
-`;
+`
 const Title = styled.h5`
   line-height: 1.88;
   padding-bottom: 0.5rem;
@@ -68,13 +68,13 @@ const Title = styled.h5`
     font-size: 1rem;
     padding-top: 0;
   }
-`;
+`
 const Text = styled.p`
   line-height: 1.57;
   @media ${BREAKPOINT.tablet} {
     font-size: 0.875rem;
   }
-`;
+`
 const SmallText = styled.p`
   font-size: 0.75rem;
   line-height: 1.83;
@@ -82,16 +82,16 @@ const SmallText = styled.p`
   @media ${BREAKPOINT.tablet} {
     text-align: start;
   }
-`;
+`
 const Privacy = styled(SmallText)`
   grid-area: privacy;
-`;
+`
 const AddressText = styled(Text)`
   width: 16.125rem;
   @media ${BREAKPOINT.tablet} {
     width: 14.5rem;
   }
-`;
+`
 const Hr = styled.hr`
   width: 1px;
   height: 46px;
@@ -105,11 +105,11 @@ const Hr = styled.hr`
     display: block;
     left: -1.5rem;
   }
-`;
+`
 const StyledIconButton = styled.a`
   cursor: pointer;
   margin-right: 1rem;
-`;
+`
 const ButtonToTop = styled.button`
   cursor: pointer;
   position: absolute;
@@ -128,26 +128,26 @@ const ButtonToTop = styled.button`
     right: 1rem;
     top: 2.5rem;
   }
-`;
+`
 const StyledLink = styled.a`
   cursor: pointer;
   text-decoration: none;
   color: var(--gray-1);
   display: block;
   width: max-content;
-`;
+`
 const LinkCall = styled(StyledLink)`
   :hover {
     text-decoration: underline;
   }
-`;
+`
 const InLine = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`;
+`
 export const Footer: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
       <Background>
@@ -168,9 +168,7 @@ export const Footer: React.FC = () => {
           </Link>
           <Link href="https://www.instagram.com/blockfint/" passHref>
             <StyledLink>
-              <Text style={{ paddingTop: '0.25rem' }}>
-                {t('common:life-at-blockfint')}
-              </Text>
+              <Text style={{ paddingTop: '0.25rem' }}>{t('common:life-at-blockfint')}</Text>
             </StyledLink>
           </Link>
         </What>
@@ -213,18 +211,16 @@ export const Footer: React.FC = () => {
           </StyledIconButton>
         </Social>
         <Privacy>{t('common:privacy-and-policy')}</Privacy>
-        <SmallText style={{ gridArea: 'copyright' }}>
-          {t('common:copyright')}
-        </SmallText>
+        <SmallText style={{ gridArea: 'copyright' }}>{t('common:copyright')}</SmallText>
         <ButtonToTop
           onClick={() => {
-            const rootElement = document.documentElement;
-            rootElement.scrollTo({ top: 0, behavior: 'smooth' });
+            const rootElement = document.documentElement
+            rootElement.scrollTo({ top: 0, behavior: 'smooth' })
           }}
         >
           <img src="/icons/arrow-to-top.svg" alt="linkin" width="36" />
         </ButtonToTop>
       </Background>
     </Container>
-  );
-};
+  )
+}

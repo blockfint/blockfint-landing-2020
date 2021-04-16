@@ -1,10 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 // import { ReactComponent as CustomerFocus } from '@blockfint/website/assets/icons/Customer_focus.svg'
 // import { ReactComponent as FullyAutomated } from '@blockfint/website/assets/icons/Fully_automated.svg'
 // import { ReactComponent as NewInnovations } from '@blockfint/website/assets/icons/new_innovations.svg'
 // import { ReactComponent as NoBranchNeeded } from '@blockfint/website/assets/icons/No_branch_needed.svg'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { useTranslation } from 'next-i18next'
 
 const Container = styled.div`
   display: grid;
@@ -24,7 +25,7 @@ const Container = styled.div`
     justify-content: flex-start;
     grid-template-columns: repeat(2, max-content);
   }
-`;
+`
 
 const IconWrapper = styled.div`
   grid-area: icon;
@@ -38,7 +39,7 @@ const IconWrapper = styled.div`
     border-radius: unset;
     padding: 0;
   }
-`;
+`
 
 const Item = styled.div`
   display: grid;
@@ -71,8 +72,9 @@ const Item = styled.div`
     grid-area: desc;
     line-height: 1.88;
   }
-`;
+`
 export const IconWithInfoList: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Container>
       <Item>
@@ -80,42 +82,33 @@ export const IconWithInfoList: React.FC = () => {
           {/* <NewInnovations /> */}
           <img src="/icons/new_innovations.svg" width="100" />
         </IconWrapper>
-        <h5>Innovative Services & Ideas</h5>
-        <p>
-          Offering new innovative services and ideas such as “One account” where
-          saving and current are merged.{' '}
-        </p>
+        <h5>{t('work-details:neobank-icon-1-title')}</h5>
+        <p>{t('work-details:neobank-icon-1-desc')}</p>
       </Item>
       <Item>
         <IconWrapper>
           {/* <CustomerFocus /> */}
           <img src="/icons/Customer_focus.svg" width="100" />
         </IconWrapper>
-        <h5>Customers Focused</h5>
-        <p>
-          We are creating a platform where customers are fully focused and
-          smooth transaction experiences are enhanced.
-        </p>
+        <h5>{t('work-details:neobank-icon-2-title')}</h5>
+        <p>{t('work-details:neobank-icon-2-desc')}</p>
       </Item>
       <Item>
         <IconWrapper>
           {/* <NoBranchNeeded /> */}
           <img src="/icons/No_branch_needed.svg" width="100" />
         </IconWrapper>
-        <h5>No Physical Branch Needed</h5>
-        <p>
-          Mobile banking integrated with the goal of no essential physical
-          branch ever needed.
-        </p>
+        <h5>{t('work-details:neobank-icon-3-title')}</h5>
+        <p>{t('work-details:neobank-icon-3-desc')}</p>
       </Item>
       <Item>
         <IconWrapper>
           {/* <FullyAutomated /> */}
           <img src="/icons/Fully_automated.svg" width="100" />
         </IconWrapper>
-        <h5>Fully Automated</h5>
-        <p>Designed to reduce opex, capex and personnel by fully automated. </p>
+        <h5>{t('work-details:neobank-icon-4-title')}</h5>
+        <p>{t('work-details:neobank-icon-4-desc')}</p>
       </Item>
     </Container>
-  );
-};
+  )
+}
