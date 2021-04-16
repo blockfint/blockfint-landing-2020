@@ -13,6 +13,7 @@ import { ReactComponent as CloseSvg } from '@blockfint/website/assets/icons/clos
 import { Container, IconButton } from '@material-ui/core'
 import axios from 'axios'
 import { useTranslation } from 'next-i18next'
+
 const StyleHeroTop = styled(HeroBottom)`
   position: absolute;
   top: -10%;
