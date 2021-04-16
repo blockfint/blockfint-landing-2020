@@ -1,9 +1,10 @@
-import { Container } from '@material-ui/core';
-import React from 'react';
-import styled from 'styled-components';
-import Vector from '@blockfint/website/assets/icons/atoms-icon-link.svg';
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
-import Link from 'next/link';
+import { Container } from '@material-ui/core'
+import React from 'react'
+import styled from 'styled-components'
+import { ReactComponent as Vector } from '@blockfint/website/assets/icons/atoms-icon-link.svg'
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
 const Background = styled.div`
   min-height: 42rem;
   overflow: hidden;
@@ -24,7 +25,7 @@ const Background = styled.div`
     left: 0;
     background: #fafafa;
   }
-`;
+`
 
 const Content = styled.div`
   padding-top: 3.75rem;
@@ -141,7 +142,7 @@ const Content = styled.div`
     }
   }
   text-align: center;
-`;
+`
 const Title = styled.h1`
   line-height: 1.15;
   color: var(--primary);
@@ -152,89 +153,91 @@ const Title = styled.h1`
       font-size: 54px;
     }
   }
-`;
+`
 
 const Name_Positions = [
   {
-    name: 'Suttipong Kanakakorn',
+    name: 'suttipong-kanakakorn',
     path: 'suttipong',
-    position: 'CEO',
+    position: 'suttipong-position',
     picture: 'num2X.png',
-    key: 1,
+    key: 1
   },
   {
-    name: 'Shimmy Thomas',
+    name: 'shimmy-thomas',
     path: 'thomas',
-    position: 'Executive Director',
+    position: 'shimmy-position',
     picture: 'Thomas.png',
-    key: 2,
+    key: 2
   },
   {
-    name: 'Wichai Patipaporn',
+    name: 'wichai-patipaporn',
     path: 'wichai',
-    position: 'Executive Director',
+    position: 'wichai-position',
     picture: 'wichai2X.png',
-    key: 3,
+    key: 3
   },
   {
-    name: 'Ponlawat Tantivongampa',
+    name: 'ponlawat-tantivongampa',
     path: 'ponlawat',
-    position: 'COO',
+    position: 'ponlawat-position',
     picture: 'oak2x.png',
-    key: 4,
+    key: 4
   },
   {
-    name: 'Suwanna Nimitsurachart',
+    name: 'suwanna-nimitsurachart',
     path: 'suwanna',
-    position: 'Senior Vice President',
+    position: 'suwanna-position',
     picture: 'suwan2x.png',
-    key: 5,
+    key: 5
   },
   {
-    name: 'Rattanapong Chairukwattana',
+    name: 'rattanapong-chairukwattana',
     path: 'rattanapong',
-    position: 'CTO',
+    position: 'rattanapong-position',
     picture: 'pae2X.png',
-    key: 6,
-  },
-];
+    key: 6
+  }
+]
 
 const ImageOverlays: React.FC<{ picture: string }> = ({ picture }) => {
+  const { t } = useTranslation()
   return (
     <div className="PictureOverlay">
       <img src={`/images/${picture}`} alt="Avatar" />
       <div className="overlay">
         <div className="text">
-          Read Bio <img src={Vector} className="Vector" />
+          {t('team:read-bio')} <Vector className="Vector" />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 export const TeamLead: React.FC = () => {
+  const { t } = useTranslation()
   const FullDetail = Name_Positions.map((FullDetailItems) => {
     return (
       <div key={FullDetailItems.path}>
         <Link passHref href={`/team/${FullDetailItems.path}`}>
           <a>
             <ImageOverlays picture={FullDetailItems.picture} />
-            <h5>{FullDetailItems.name}</h5>
-            <h5 className="Position">{FullDetailItems.position}</h5>
+            <h5>{t(`team:${FullDetailItems.name}`)}</h5>
+            <h5 className="Position">{t(`team:${FullDetailItems.position}`)}</h5>
           </a>
         </Link>
       </div>
-    );
-  });
+    )
+  })
   return (
     <Background>
       <Container maxWidth="lg">
         <Content>
           <div>
-            <Title style={{ color: '#19213c' }}>Our Leaders</Title>
+            <Title style={{ color: '#19213c' }}>{t('team:our-leaders')}</Title>
           </div>
           <div className="TeamLeadPic">{FullDetail}</div>
         </Content>
       </Container>
     </Background>
-  );
-};
+  )
+}
