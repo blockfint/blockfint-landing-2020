@@ -12,7 +12,6 @@ import { ReactComponent as HeroBottom } from '@blockfint/website/assets/bg/hero-
 import { ReactComponent as CloseSvg } from '@blockfint/website/assets/icons/close.svg';
 import { Container, IconButton } from '@material-ui/core';
 import axios from 'axios';
-import { useTranslation } from 'next-i18next';
 const StyleHeroTop = styled(HeroBottom)`
   position: absolute;
   top: -10%;
@@ -187,7 +186,6 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
   });
   const { field: service } = useController({ name: 'service', control });
   const { field: business } = useController({ name: 'business', control });
-  const { t } = useTranslation();
   const onSubmit = async (data: FormInfo) => {
     await axios({
       method: 'POST',
