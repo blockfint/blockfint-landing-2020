@@ -1,168 +1,149 @@
 export interface Benefit {
-  iconSrc: string;
-  title: string;
-  description: string;
+  iconSrc: string
+  title: string
+  description: string
 }
 
 export interface ProjectInfo {
-  logoSrc: string;
-  tags: string[];
-  title: string;
-  description: string;
-  linkHref: string;
-  benefits: Benefit[];
+  logoSrc: string
+  tags: string[]
+  title: string
+  description: string
+  linkHref: string
+  benefits: Benefit[]
 
-  imgSrc?: string;
-  youtube?: string;
+  imgSrc?: string
+  youtube?: string
 }
 interface ProjectInfos {
-  [projectName: string]: ProjectInfo;
+  [projectName: string]: ProjectInfo
 }
 
 export const projectInfos = {
   ndid: {
     logoSrc: 'Ndid.png',
-    tags: ['National Platform'],
-    title: 'Digital Identity for all',
-    description:
-      'Provides a flexible and advanced method of authenticating a citizen’s identity online. The Platform embraces innovative technologies including distributed ledger, federated proxy, multi-level assurance and application of various authentication tools.',
+    tags: ['national-platform'],
+    title: 'ndid-title',
+    description: 'ndid-desc',
     linkHref: 'https://www.ndid.co.th/',
     benefits: [
       {
         iconSrc: 'NDID/identify.svg',
-        title: 'Identify and Verification',
-        description:
-          'To be an important digital infrastructure system designed under the decentralized concept that will help make electronic transactions more effective, reliable and achieve international standards.',
+        title: 'ndid-icon1-label',
+        description: 'ndid-icon1-desc'
       },
       {
         iconSrc: 'NDID/Promote-online-self-service.svg',
-        title: 'Promote Online Self Service',
-        description:
-          'To provide services in real time through online channels; elevate their service to customers through various channels; makes their service more efficient; and reduces management costs.',
+        title: 'ndid-icon2-label',
+        description: 'ndid-icon2-desc'
       },
       {
         iconSrc: 'NDID/data-sharing.svg',
-        title: 'Data Sharing',
-        description:
-          'To support data exchange between organizations that systematically connects all parties without the repetition of complex authentication, as owners of the information, consent must provided before any further action.',
-      },
-    ],
+        title: 'ndid-icon3-label',
+        description: 'ndid-icon3-desc'
+      }
+    ]
   },
 
   thila: {
     logoSrc: 'KTB.png',
-    tags: ['Financial', 'Digital Bond'],
-    title: 'PDMO readies 2nd batch of 1-baht savings bonds',
-    description: `The Public Debt Management Office (PDMO) is set to allocate the second batch of the one-baht face value savings bonds after the first lot sold out.
-
-    The imminent tranche will be offered to general investors through Krungthai Bank's e-wallet, the same as the previous lot, said Patricia Mongkhonvanit, director-general of PDMO.
-
-    With the e-wallet, people, particularly the younger generation and the elderly, can more easily access the distribution channel.`,
+    tags: ['financial', 'digital-bond'],
+    title: 'thila-title',
+    description: 'thila-desc',
     linkHref:
       'https://www.posttoday.com/finance-stock/news/626168?fbclid=IwAR3Ji9Aibjlnj2cW2DGx5UnkDtZimMarxam1vGJ7x62FviiuT4POfIVAEpY',
     benefits: [
       {
         iconSrc: 'KTB/Efficient.svg',
-        title: 'Efficient',
-        description:
-          'the users’ financial transaction, storage and analysis data system.',
+        title: 'thila-icon1-label',
+        description: 'thila-icon1-desc'
       },
       {
         iconSrc: 'KTB/Enhance.svg',
-        title: 'Enhance',
-        description: 'the efficiency of each department under the corporate.',
+        title: 'thila-icon2-label',
+        description: 'thila-icon2-desc'
       },
       {
         iconSrc: 'KTB/Promote.svg',
-        title: ' Plant the structure',
-        description: 'of digital business into the society.',
-      },
-    ],
+        title: 'thila-icon3-label',
+        description: 'thila-icon3-desc'
+      }
+    ]
   },
 
   fiderser: {
     logoSrc: 'Fiderser.png',
-    tags: ['Traceability', 'Agriculture'],
-    title:
-      'Blockfint Launches South-East Asia’s First Blockchain Platform For Palm Oil Traceability',
-    description:
-      'World’s first blockchain based platform for crude palm oil traceability. This pioneering solution helps PCM manufacturers to “connect the dots” across the supply-chain and trace the raw material from farm to factory, ensuring transparency and safety.',
+    tags: ['traceability', 'agriculture'],
+    title: 'fiderser-title',
+    description: 'fiderser-desc',
     linkHref:
       'http://www.efinancethai.com/LastestNews/app.index.aspx?id=K1pTQ3Frd2luSVE9&year=2020&month=1&lang=T&v=2018&security=EA',
     benefits: [
       {
         iconSrc: 'Fideser/prevent.svg',
-        title: 'Prevent',
-        description: 'the entering of illegal palm from abroad.',
+        title: 'fiderser-icon1-label',
+        description: 'fiderser-icon1-desc'
       },
       {
         iconSrc: 'Fideser/manage.svg',
-        title: 'Manage',
-        description:
-          'palm trading systematically and collect the information for the future market development.',
+        title: 'fiderser-icon2-label',
+        description: 'fiderser-icon2-desc'
       },
       {
         iconSrc: 'Fideser/transparent.svg',
-        title: 'Transparent',
-        description: 'and verify the market of palm trading.',
-      },
-    ],
+        title: 'fiderser-icon3-label',
+        description: 'fiderser-icon3-desc'
+      }
+    ]
   },
 
   cu: {
     logoSrc: 'Cu.png',
-    tags: ['Energy Trading', 'National Platform'],
-    title:
-      'Blockfint’s Gideon Platform To Power ‘smart-City’ P2p Electricity Trading And Intelligent Building Pilot Initiative',
-    description:
-      'Memorandum of Understanding signed with project partners Chulalongkorn University, Energy Absolute and Metropolitan Electricity Authority on 17 December 2019.',
+    tags: ['energy-trading', 'national-platform'],
+    title: 'cu-title',
+    description: 'cu-desc',
     benefits: [
       {
         iconSrc: 'CU-MEA-EA/Contract.svg',
-        title: 'Pioneer design of processing',
-        description: 'marketing, and effect of P2P electricity trading.',
+        title: 'cu-icon1-label',
+        description: 'cu-icon1-desc'
       },
       {
         iconSrc: 'CU-MEA-EA/Marketing.svg',
-        title: 'Smart contracts and trading',
-        description: 'Master the smart contracts and trading agent system.',
+        title: 'cu-icon2-label',
+        description: 'cu-icon2-desc'
       },
       {
         iconSrc: 'CU-MEA-EA/P2P.svg',
-        title: 'P2P electricity',
-        description:
-          'Preparation for P2P electricity trading including MDMS, Billing and Wheeling charge.',
-      },
+        title: 'cu-icon3-label',
+        description: 'cu-icon3-desc'
+      }
     ],
-    linkHref: 'https://gideon.energy/en/news/5f193869523e6a00018b836a',
+    linkHref: 'https://gideon.energy/en/news/5f193869523e6a00018b836a'
   },
   tbma: {
-    tags: ['Financial', 'Digital Bond'],
+    tags: ['financial', 'digital-bond'],
     logoSrc: 'BMA.png',
-    title: 'First Thai Digital Bond Market Platform',
-    description:
-      'A decentralized system for storing debt securities. The system leverages blockchain technology. Launched first phase of the project covering bond booking, smart bonds, ePassbook with bond holder details and a management system.',
-    linkHref:
-      'https://www.efinancethai.com/LastestNews/LatestNewsMain.aspx?release=y&ref=M&id=MDU4V0owV3FqeHM9',
+    title: 'tbma-title',
+    description: 'tbma-desc',
+    linkHref: 'https://www.efinancethai.com/LastestNews/LatestNewsMain.aspx?release=y&ref=M&id=MDU4V0owV3FqeHM9',
     youtube: 'MFx0YepF7QE',
     benefits: [
       {
-        title: 'shorten the time',
-        description:
-          'for newly issued debt securities to trade in the secondary market.',
-        iconSrc: 'TBMA/shorten.svg',
+        title: 'tbma-icon1-label',
+        description: 'tbma-icon1-desc',
+        iconSrc: 'TBMA/shorten.svg'
       },
       {
-        title: 'DLT technology',
-        description: 'that support the issuance and approval process.',
-        iconSrc: 'TBMA/DLT.svg',
+        title: 'tbma-icon2-label',
+        description: 'tbma-icon2-desc',
+        iconSrc: 'TBMA/DLT.svg'
       },
       {
-        title: 'helps with efficiency',
-        description:
-          'in checking debt securities information and reducing redundancy and the time needed for the book closing date.',
-        iconSrc: 'TBMA/Efficiency.svg',
-      },
-    ],
-  },
-} as ProjectInfos;
+        title: 'tbma-icon3-label',
+        description: 'tbma-icon3-desc',
+        iconSrc: 'TBMA/Efficiency.svg'
+      }
+    ]
+  }
+} as ProjectInfos

@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import Chip from '@material-ui/core/Chip';
+import React from 'react'
+import styled from 'styled-components'
+import Chip from '@material-ui/core/Chip'
+import { useTranslation } from 'react-i18next'
 const StyledChip = styled(Chip)<{ colour: string }>`
   .MuiChip-label {
     color: #ffffff;
@@ -13,25 +14,20 @@ const StyledChip = styled(Chip)<{ colour: string }>`
     border-radius: 1.125rem;
     background-color: ${({ colour }) => colour};
   }
-`;
+`
 interface Props {
-  label:
-    | 'Traceability'
-    | 'National Platform'
-    | 'Agriculture'
-    | 'Financial'
-    | 'Digital Bond'
-    | 'Energy Trading';
-  style?: React.CSSProperties;
+  label: 'traceability' | 'national-platform' | 'agriculture' | 'financial' | 'digital-bond' | 'energy-trading'
+  style?: React.CSSProperties
 }
 export const ChipTag: React.FC<Props> = ({ label, style }) => {
+  const { t } = useTranslation()
   const colorDict = {
-    Traceability: '#f4d482',
-    'National Platform': '#8dd3dd',
-    Agriculture: '#87b8b6',
-    Financial: '#a5b3ff',
-    'Digital Bond': '#f6b9b8',
-    'Energy Trading': '#ffb17d',
-  };
-  return <StyledChip label={label} colour={colorDict[label]} style={style} />;
-};
+    traceability: '#f4d482',
+    'national-platform': '#8dd3dd',
+    agriculture: '#87b8b6',
+    financial: '#a5b3ff',
+    'digital-bond': '#f6b9b8',
+    'energy-trading': '#ffb17d'
+  }
+  return <StyledChip label={t(`project:${label}`)} colour={colorDict[label]} style={style} />
+}

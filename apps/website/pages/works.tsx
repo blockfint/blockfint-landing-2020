@@ -15,7 +15,7 @@ const work: NextPage = () => {
 export default work
 
 export const getStaticProps = async ({ locale }) => {
-  const result = await serverSideTranslations(locale, ['common', 'home'], nextI18NextConfig)
+  const result = await serverSideTranslations(locale, ['common', 'works', 'project'], nextI18NextConfig)
 
   return {
     props: {
