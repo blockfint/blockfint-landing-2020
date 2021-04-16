@@ -11,9 +11,9 @@ const A = styled.a`
   font-weight: 600;
 `
 export const ArrowLink: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = React.forwardRef(
-  ({ children, ...props }, ref) => {
+  ({ children, ...props }, ref: React.Ref<HTMLAnchorElement>) => {
     return (
-      <A {...props} ref={ref}>
+      <A ref={ref} {...props}>
         <span>{children}</span>
         <Arrow />
       </A>

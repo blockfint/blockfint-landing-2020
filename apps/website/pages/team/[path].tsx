@@ -1,39 +1,39 @@
-import { TeamDetailpage } from '@blockfint/website/containers/TeamDetail/components/index';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import React from 'react';
-import {
-  peopleInfos,
-  PeopleInfo,
-} from '@blockfint/website/contents/PeopleInfo';
-import { Layout } from '@blockfint/website/components/layouts';
-
+import { TeamDetailpage } from '@blockfint/website/containers/TeamDetail/components/index'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import React from 'react'
+import { peopleInfos, PeopleInfo } from '@blockfint/website/contents/PeopleInfo'
+import { Layout } from '@blockfint/website/components/layouts'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import nextI18NextConfig from '../../next-i18next.config'
 const TeamDetailPage: NextPage<PeopleInfo> = (props) => {
   return (
     <Layout>
       <TeamDetailpage {...props} />
     </Layout>
-  );
-};
+  )
+}
 
-export default TeamDetailPage;
+export default TeamDetailPage
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = Object.keys(peopleInfos).map((path) => ({
     params: {
-      path,
-    },
-  }));
+      path
+    }
+  }))
   return {
     paths,
-    fallback: false,
-  };
-};
+    fallback: false
+  }
+}
 type Params = {
+  locale: string
   params: {
-    path: string;
-  };
-};
+    path: string
+  }
+}
 export const getStaticProps: GetStaticProps = async (ctx: Params) => {
-  const props = peopleInfos[ctx.params?.path];
-  return { props };
-};
+  const result = await serverSideTranslations(ctx.locale, ['common', 'team'], nextI18NextConfig)
+  const props = { ...peopleInfos[ctx.params?.path], ...result }
+  return { props }
+}
