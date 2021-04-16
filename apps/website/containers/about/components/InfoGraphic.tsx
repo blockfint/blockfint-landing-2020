@@ -1,7 +1,8 @@
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
-import { Counter } from '@blockfint/website/components/Counter';
-import React from 'react';
-import styled from 'styled-components';
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { Counter } from '@blockfint/website/components/Counter'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import styled from 'styled-components'
 const Group = styled.div`
   display: grid;
   grid-template-areas: 'image .' 'image .';
@@ -15,14 +16,14 @@ const Group = styled.div`
   @media ${BREAKPOINT.desktop} {
     grid-column-gap: 1.25rem;
   }
-`;
+`
 const Image = styled.img`
   grid-area: image;
   width: 6.25rem;
   @media ${BREAKPOINT.tablet} {
     width: 5rem;
   }
-`;
+`
 const Text = styled.h5`
   color: var(--primary);
   line-height: 1.88;
@@ -34,7 +35,7 @@ const Text = styled.h5`
   @media ${BREAKPOINT.desktop} {
     margin-bottom: 0;
   }
-`;
+`
 const StyledNumber = styled.h1`
   align-self: end;
   font-size: 34px;
@@ -42,7 +43,7 @@ const StyledNumber = styled.h1`
   @media ${BREAKPOINT.tablet} {
     font-weight: bold;
   }
-`;
+`
 const Background = styled.div`
   padding: 3.75rem 4.25rem;
   display: grid;
@@ -56,8 +57,9 @@ const Background = styled.div`
   @media ${BREAKPOINT.desktop} {
     grid-column-gap: 5rem;
   }
-`;
-export const InfoGraphic = () => {
+`
+export const InfoGraphic: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Background>
       <Group>
@@ -65,22 +67,22 @@ export const InfoGraphic = () => {
         <StyledNumber>
           <Counter from={0} to={60} />+
         </StyledNumber>
-        <Text>Employees</Text>
+        <Text>{t('about:employees')}</Text>
       </Group>
       <Group>
         <Image src="/product.png" alt="product" />
         <StyledNumber>
           <Counter from={0} to={4} />
         </StyledNumber>
-        <Text>Products</Text>
+        <Text>{t('about:products')}</Text>
       </Group>
       <Group>
         <Image src="/partner.png" alt="partner" />
         <StyledNumber>
           <Counter from={0} to={10} />+
         </StyledNumber>
-        <Text>Projects</Text>
+        <Text>{t('about:projects')}</Text>
       </Group>
     </Background>
-  );
-};
+  )
+}

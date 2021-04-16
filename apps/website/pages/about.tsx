@@ -11,7 +11,7 @@ export default function AboutPage() {
   )
 }
 export const getStaticProps = async ({ locale }) => {
-  const result = await serverSideTranslations(locale, ['common', 'home'], nextI18NextConfig)
+  const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
 
   return {
     props: {
