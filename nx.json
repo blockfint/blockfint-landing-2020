@@ -1,14 +1,9 @@
 {
   "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     ".eslintrc.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "npmScope": "temp-workspace",
   "tasksRunnerOptions": {
     "default": {
@@ -22,19 +17,7 @@
     }
   },
   "projects": {
-    "website-old": {
-      "tags": []
-    },
-    "website-old-e2e": {
-      "tags": [],
-      "implicitDependencies": ["website-old"]
-    },
-    "website": {
-      "tags": []
-    },
-    "website-e2e": {
-      "tags": [],
-      "implicitDependencies": ["website"]
-    }
+    "website": { "tags": [] },
+    "website-e2e": { "tags": [], "implicitDependencies": ["website"] }
   }
 }

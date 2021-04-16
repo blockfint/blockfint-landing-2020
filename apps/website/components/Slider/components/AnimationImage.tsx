@@ -11,14 +11,14 @@ const StyledMotionDiv = styled(motion.div)`
     max-width: 42.875rem;
   }
 `;
-const StyledImage = styled(Image)`
-  width: 100%;
-  height: 11.5rem;
-  object-fit: cover;
-  @media ${BREAKPOINT.tablet} {
-    height: 24rem;
-  }
-`;
+// const StyledImage = styled(Image)`
+//   width: 100%;
+//   height: 11.5rem;
+//   object-fit: cover;
+//   @media ${BREAKPOINT.tablet} {
+//     height: 24rem;
+//   }
+// `;
 const Description = styled.h5`
   padding-top: 1.5rem;
   line-height: 1.88;
@@ -70,12 +70,13 @@ export const AnimationImage: React.FC<animationProps> = ({
           opacity: { duration: 0.2 },
         }}
       >
-        <StyledImage
+        <Image
           src={images[(imageIndex + index[type]) % images.length]}
           layout="responsive"
           width={800}
           height={450}
         />
+
         <Description>
           {description[(imageIndex + index[type]) % images.length]}
         </Description>

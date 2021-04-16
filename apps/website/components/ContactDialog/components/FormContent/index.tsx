@@ -1,6 +1,6 @@
 import { Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useController, useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { ErrorMessage } from '@hookform/error-message';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,6 +12,7 @@ import { ReactComponent as HeroBottom } from '@blockfint/website/assets/bg/hero-
 import { ReactComponent as CloseSvg } from '@blockfint/website/assets/icons/close.svg';
 import { Container, IconButton } from '@material-ui/core';
 import axios from 'axios';
+import { useTranslation } from 'next-i18next';
 const StyleHeroTop = styled(HeroBottom)`
   position: absolute;
   top: -10%;
@@ -132,7 +133,7 @@ const SendButton = styled(Button).attrs((props) => ({
   }
 `;
 const emailRegExp = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
-const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+const phoneRegExp = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
 const schema = yup.object().shape({
   name: yup.string().trim().required('This field is required'),
   email: yup
@@ -166,7 +167,13 @@ interface Props {
 
 export const FormContent: React.FC<Props> = ({ onClose }) => {
   const [isSended, setIsSended] = useState(false);
-  const { handleSubmit, errors, control, register } = useForm<FormInfo>({
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    control,
+    register,
+  } = useForm<FormInfo>({
     defaultValues: {
       name: ``,
       email: ``,
@@ -178,15 +185,17 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
     },
     resolver: yupResolver(schema),
   });
+  const { field: service } = useController({ name: 'service', control });
+  const { field: business } = useController({ name: 'business', control });
+  const { t } = useTranslation();
   const onSubmit = async (data: FormInfo) => {
-    //TODO send here
     await axios({
       method: 'POST',
       url: window.location.origin + '/api/send-email',
       data: {
         name: data.name,
         email: data.email,
-        subject: `Interested in ${data.service}`,
+        subject: `interested in ${data.service}`,
         phone: data.phone,
         company: data.company,
         service: data.service,
@@ -199,167 +208,148 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
   };
 
   return (
-    <>
-      <Background
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <StyleHeroTop />
-        <StyleHeroBottom />
+    <Background
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <StyleHeroTop />
+      <StyleHeroBottom />
 
-        <CloseButtonWrapper>
-          <IconButton onClick={onClose}>
-            <CloseSvg />
-          </IconButton>
-        </CloseButtonWrapper>
+      <CloseButtonWrapper>
+        <IconButton onClick={onClose}>
+          <CloseSvg />
+        </IconButton>
+      </CloseButtonWrapper>
 
-        <Container maxWidth="lg">
-          <AnimatePresence>
-            {!isSended && (
-              <motion.div
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, translateX: -100 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Content>
-                  <Title>Contact Us</Title>
-                  <Form onSubmit={handleSubmit(onSubmit)}>
-                    <TwoColumn>
-                      <OutlineTextField
-                        label="Name"
-                        name="name"
-                        inputRef={register}
-                        error={Boolean(errors?.name)}
-                        helperText={
-                          <ErrorMessage errors={errors} name="name" />
-                        }
-                      />
-                      <OutlineTextField
-                        label="Email"
-                        name="email"
-                        inputRef={register}
-                        error={Boolean(errors?.email)}
-                        helperText={
-                          <ErrorMessage errors={errors} name="email" />
-                        }
-                      />
-                      <OutlineTextField
-                        label="Phone number"
-                        name="phone"
-                        type="tel"
-                        inputRef={register}
-                        error={Boolean(errors?.phone)}
-                        helperText={
-                          <ErrorMessage errors={errors} name="phone" />
-                        }
-                      />
-                      <OutlineTextField
-                        label="Your company"
-                        name="company"
-                        inputRef={register}
-                        error={Boolean(errors?.company)}
-                        helperText={
-                          <ErrorMessage errors={errors} name="company" />
-                        }
-                      />
+      <Container maxWidth="lg">
+        <AnimatePresence>
+          {!isSended && (
+            <motion.div
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, translateX: -100 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Content>
+                <Title>Contact Us</Title>
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                  <TwoColumn>
+                    <OutlineTextField
+                      label="Name"
+                      name="name"
+                      inputProps={register('name')}
+                      error={Boolean(errors?.name)}
+                      helperText={<ErrorMessage errors={errors} name="name" />}
+                    />
+                    <OutlineTextField
+                      label="Email"
+                      name="email"
+                      inputProps={register('email')}
+                      error={Boolean(errors?.email)}
+                      helperText={<ErrorMessage errors={errors} name="email" />}
+                    />
+                    <OutlineTextField
+                      label="Phone number"
+                      name="phone"
+                      type="tel"
+                      inputProps={register('phone')}
+                      error={Boolean(errors?.phone)}
+                      helperText={<ErrorMessage errors={errors} name="phone" />}
+                    />
+                    <OutlineTextField
+                      label="Your company"
+                      name="company"
+                      inputProps={register('company')}
+                      error={Boolean(errors?.company)}
+                      helperText={
+                        <ErrorMessage errors={errors} name="company" />
+                      }
+                    />
+                    <OutlineTextField
+                      select
+                      error={Boolean(errors?.service)}
+                      helperText={
+                        <ErrorMessage errors={errors} name="service" />
+                      }
+                      label="Select your interested product"
+                      SelectProps={{
+                        native: true,
+                      }}
+                      inputProps={service}
+                    >
+                      <option value="" disabled></option>
+                      {['Agri Trac', 'Gideon', 'Neo Bank', 'Thinker'].map(
+                        (value) => (
+                          <option value={value} key={value}>
+                            {value}
+                          </option>
+                        )
+                      )}
 
-                      <Controller
-                        name="service"
-                        as={
-                          <OutlineTextField
-                            select
-                            error={Boolean(errors?.service)}
-                            helperText={
-                              <ErrorMessage errors={errors} name="service" />
-                            }
-                            label="Select your interested product"
-                            SelectProps={{
-                              native: true,
-                            }}
-                          >
-                            <option value="" disabled></option>
-                            {['Agri Trac', 'Gideon', 'Neo Bank', 'Thinker'].map(
-                              (value) => (
-                                <option value={value} key={value}>
-                                  {value}
-                                </option>
-                              )
-                            )}
+                      <option value="Others">Others</option>
+                    </OutlineTextField>
+                    <OutlineTextField
+                      select
+                      error={Boolean(errors?.business)}
+                      helperText={
+                        <ErrorMessage errors={errors} name="business" />
+                      }
+                      label={'Industry'}
+                      inputProps={business}
+                      SelectProps={{
+                        native: true,
+                      }}
+                    >
+                      <option value="" disabled></option>
+                      {[
+                        'Agency',
+                        'Business Consultant',
+                        'Design',
+                        'Entertainment',
+                        'Finance & Banking',
+                        'Food & Beverage',
+                        'Health Care',
+                        'Innovation & Technology',
+                        'Insurance',
+                        'News',
+                        'Real Estate',
+                      ].map((value) => (
+                        <option value={value} key={value}>
+                          {value}
+                        </option>
+                      ))}
+                      <option value="Others">Others</option>
+                    </OutlineTextField>
 
-                            <option value="Others">Others</option>
-                          </OutlineTextField>
-                        }
-                        control={control}
-                      />
-
-                      <Controller
-                        name="business"
-                        as={
-                          <OutlineTextField
-                            select
-                            error={Boolean(errors?.business)}
-                            helperText={
-                              <ErrorMessage errors={errors} name="business" />
-                            }
-                            label="Industry"
-                            SelectProps={{
-                              native: true,
-                            }}
-                          >
-                            <option value="" disabled></option>
-                            {[
-                              'Agency',
-                              'Business Consultant',
-                              'Design',
-                              'Entertainment',
-                              'Finance & Banking',
-                              'Food & Beverage',
-                              'Health Care',
-                              'Innovation & Technology',
-                              'Insurance',
-                              'News',
-                              'Real Estate',
-                            ].map((value) => (
-                              <option value={value} key={value}>
-                                {value}
-                              </option>
-                            ))}
-                            <option value="Others">Others</option>
-                          </OutlineTextField>
-                        }
-                        control={control}
-                      />
-                      <OutlinedTextarea
-                        multiline
-                        fullWidth
-                        rows={4}
-                        inputRef={register}
-                        name="message"
-                        label="Send us your message"
-                      />
-                      <SendButton type="submit">Send</SendButton>
-                    </TwoColumn>
-                  </Form>
-                </Content>
-              </motion.div>
-            )}
-          </AnimatePresence>
-          <AnimatePresence>
-            {isSended && (
-              <motion.div
-                initial={{ opacity: 0, translateX: 100 }}
-                animate={{ opacity: 1, translateX: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                <Success />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </Container>
-      </Background>
-    </>
+                    <OutlinedTextarea
+                      multiline
+                      fullWidth
+                      rows={4}
+                      inputProps={register('message')}
+                      name="message"
+                      label="Send us your message"
+                    />
+                    <SendButton type="submit">Send</SendButton>
+                  </TwoColumn>
+                </Form>
+              </Content>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {isSended && (
+            <motion.div
+              initial={{ opacity: 0, translateX: 100 }}
+              animate={{ opacity: 1, translateX: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <Success />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </Container>
+    </Background>
   );
 };
 

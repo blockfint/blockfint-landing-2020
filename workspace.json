@@ -1,109 +1,17 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "defaultProject": "website-old",
+  "cli": { "defaultCollection": "@nrwl/react" },
   "generators": {
     "@nrwl/react": {
-      "application": {
-        "style": "css",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
-      }
+      "application": { "style": "css", "linter": "eslint", "babel": true },
+      "component": { "style": "css" },
+      "library": { "style": "css", "linter": "eslint" }
     },
     "@nrwl/next": {
-      "application": {
-        "style": "styled-components",
-        "linter": "eslint"
-      }
+      "application": { "style": "styled-components", "linter": "eslint" }
     }
   },
   "projects": {
-    "website-old": {
-      "root": "apps/website-old",
-      "sourceRoot": "apps/website-old/src",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/workspace:run-commands",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "command": "node ../../node_modules/.bin/react-app-rewired build",
-            "cwd": "apps/website-old",
-            "outputPath": "dist/apps/website-old"
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/workspace:run-commands",
-          "outputs": [],
-          "options": {
-            "command": "node ../../node_modules/.bin/react-app-rewired start",
-            "cwd": "apps/website-old"
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/workspace:run-commands",
-          "outputs": [],
-          "options": {
-            "command": "node ../../node_modules/.bin/eslint src/**/*.tsx src/**/*.ts",
-            "cwd": "apps/website-old"
-          }
-        },
-        "test": {
-          "executor": "@nrwl/workspace:run-commands",
-          "outputs": [],
-          "options": {
-            "command": "node ../../node_modules/.bin/react-app-rewired test --watchAll=false",
-            "cwd": "apps/website-old"
-          }
-        }
-      }
-    },
-    "website-old-e2e": {
-      "root": "apps/website-old-e2e",
-      "sourceRoot": "apps/website-old-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              "nx e2e-serve blockfint.github.io-e2e",
-              "nx e2e-run blockfint.github.io-e2e"
-            ]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/website-old-e2e/**/*.{js,ts}"]
-          }
-        },
-        "e2e-run": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/website-old-e2e/cypress.json",
-            "tsConfig": "apps/website-old-e2e/tsconfig.e2e.json",
-            "baseUrl": "http://localhost:3000"
-          }
-        },
-        "e2e-serve": {
-          "executor": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": ["nx serve blockfint.github.io"],
-            "readyWhen": "can now view"
-          }
-        }
-      }
-    },
     "website": {
       "root": "apps/website",
       "sourceRoot": "apps/website",
@@ -116,16 +24,11 @@
             "root": "apps/website",
             "outputPath": "dist/apps/website"
           },
-          "configurations": {
-            "production": {}
-          }
+          "configurations": { "production": {} }
         },
         "serve": {
           "executor": "@nrwl/next:server",
-          "options": {
-            "buildTarget": "website:build",
-            "dev": true
-          },
+          "options": { "buildTarget": "website:build", "dev": true },
           "configurations": {
             "production": {
               "buildTarget": "website:build:production",
@@ -135,9 +38,7 @@
         },
         "export": {
           "executor": "@nrwl/next:export",
-          "options": {
-            "buildTarget": "website:build:production"
-          }
+          "options": { "buildTarget": "website:build:production" }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -168,18 +69,15 @@
             "devServerTarget": "website:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "website:serve:production"
-            }
+            "production": { "devServerTarget": "website:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/website-e2e/**/*.{js,ts}"]
-          }
+          "options": { "lintFilePatterns": ["apps/website-e2e/**/*.{js,ts}"] }
         }
       }
     }
-  }
+  },
+  "defaultProject": "website"
 }
