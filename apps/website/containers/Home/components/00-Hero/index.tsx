@@ -92,7 +92,9 @@ export const Hero: React.FC = () => {
           <Desc>{t('home:section-1-desc')}</Desc>
           <Link href="/about" passHref>
             <a>
-              <PrimaryButton logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}>{t('about')}</PrimaryButton>
+              <PrimaryButton logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}>
+                {t('common:about')}
+              </PrimaryButton>
             </a>
           </Link>
         </Content>

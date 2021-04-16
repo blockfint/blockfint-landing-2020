@@ -18,9 +18,10 @@ export default async function (host: Tree, schema: Schema) {
 
   const result = sheetConfigs.map(async ({ name, output }, index) => {
     const sheet = doc.sheetsByTitle[name]
+
     console.log('Loading sheet 📑 ', sheet.title)
     const data = await sheet.getRows()
-
+    console.log('load sheet successfully 📑 ', sheet.title)
     const locales = ['en', 'th']
 
     const mappedData = data.reduce(
@@ -77,7 +78,7 @@ const sheetConfigs = [
     output: 'works'
   },
   {
-    name: '03.2-Work-Details',
+    name: '03.2-Works-Details',
     output: 'work-details'
   },
   {

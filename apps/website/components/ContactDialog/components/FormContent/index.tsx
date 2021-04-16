@@ -12,6 +12,7 @@ import { ReactComponent as HeroBottom } from '@blockfint/website/assets/bg/hero-
 import { ReactComponent as CloseSvg } from '@blockfint/website/assets/icons/close.svg'
 import { Container, IconButton } from '@material-ui/core'
 import axios from 'axios'
+import { useTranslation } from 'next-i18next'
 const StyleHeroTop = styled(HeroBottom)`
   position: absolute;
   top: -10%;
@@ -182,6 +183,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
   })
   const { field: service } = useController({ name: 'service', control })
   const { field: business } = useController({ name: 'business', control })
+  const { t } = useTranslation()
   const onSubmit = async (data: FormInfo) => {
     await axios({
       method: 'POST',
@@ -226,21 +228,21 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <TwoColumn>
                     <OutlineTextField
-                      label="Name"
+                      label={t('common:name')}
                       name="name"
                       inputProps={register('name')}
                       error={Boolean(errors?.name)}
                       helperText={<ErrorMessage errors={errors} name="name" />}
                     />
                     <OutlineTextField
-                      label="Email"
+                      label={t('common:email')}
                       name="email"
                       inputProps={register('email')}
                       error={Boolean(errors?.email)}
                       helperText={<ErrorMessage errors={errors} name="email" />}
                     />
                     <OutlineTextField
-                      label="Phone number"
+                      label={t('common:phone-number')}
                       name="phone"
                       type="tel"
                       inputProps={register('phone')}
@@ -248,7 +250,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                       helperText={<ErrorMessage errors={errors} name="phone" />}
                     />
                     <OutlineTextField
-                      label="Your company"
+                      label={t('common:your-company')}
                       name="company"
                       inputProps={register('company')}
                       error={Boolean(errors?.company)}
@@ -258,7 +260,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                       select
                       error={Boolean(errors?.service)}
                       helperText={<ErrorMessage errors={errors} name="service" />}
-                      label="Select your interested product"
+                      label={t('common:select-your-interested-product')}
                       SelectProps={{
                         native: true
                       }}
@@ -271,13 +273,13 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                         </option>
                       ))}
 
-                      <option value="Others">Others</option>
+                      <option value="Others">{t('common:others')}</option>
                     </OutlineTextField>
                     <OutlineTextField
                       select
                       error={Boolean(errors?.business)}
                       helperText={<ErrorMessage errors={errors} name="business" />}
-                      label="Industry"
+                      label={t('common:industry')}
                       inputProps={business}
                       SelectProps={{
                         native: true
@@ -285,17 +287,17 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                     >
                       <option value="" disabled></option>
                       {[
-                        'Agency',
-                        'Business Consultant',
-                        'Design',
-                        'Entertainment',
-                        'Finance & Banking',
-                        'Food & Beverage',
-                        'Health Care',
-                        'Innovation & Technology',
-                        'Insurance',
-                        'News',
-                        'Real Estate'
+                        t('common:agency'),
+                        t('common:business-consultant'),
+                        t('common:design'),
+                        t('common:entertainment'),
+                        t('common:finance-and-banking'),
+                        t('common:food and beverage'),
+                        t('common:health-care'),
+                        t('common:innovation-and-technology'),
+                        t('common:insurance'),
+                        t('common:news'),
+                        t('common:real-estate')
                       ].map((value) => (
                         <option value={value} key={value}>
                           {value}
@@ -310,9 +312,9 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                       rows={4}
                       inputProps={register('message')}
                       name="message"
-                      label="Send us your message"
+                      label={t('common:send-us-your-message')}
                     />
-                    <SendButton type="submit">Send</SendButton>
+                    <SendButton type="submit">{t('common:send')}</SendButton>
                   </TwoColumn>
                 </Form>
               </Content>
