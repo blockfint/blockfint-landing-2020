@@ -67,21 +67,21 @@ export const InfoGraphic: React.FC = () => {
         <StyledNumber>
           <Counter from={0} to={60} />+
         </StyledNumber>
-        <Text>{t('about:employees')}</Text>
+        <Text>{t('about.employees')}</Text>
       </Group>
       <Group>
         <Image src="/product.png" alt="product" />
         <StyledNumber>
           <Counter from={0} to={4} />
         </StyledNumber>
-        <Text>{t('about:products')}</Text>
+        <Text>{t('about.products')}</Text>
       </Group>
       <Group>
         <Image src="/partner.png" alt="partner" />
         <StyledNumber>
           <Counter from={0} to={10} />+
         </StyledNumber>
-        <Text>{t('about:projects')}</Text>
+        <Text>{t('about.projects')}</Text>
       </Group>
     </Background>
   )

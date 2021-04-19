@@ -229,21 +229,21 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <TwoColumn>
                     <OutlineTextField
-                      label={t('common:name')}
+                      label={t('common.name')}
                       name="name"
                       inputProps={register('name')}
                       error={Boolean(errors?.name)}
                       helperText={<ErrorMessage errors={errors} name="name" />}
                     />
                     <OutlineTextField
-                      label={t('common:email')}
+                      label={t('common.email')}
                       name="email"
                       inputProps={register('email')}
                       error={Boolean(errors?.email)}
                       helperText={<ErrorMessage errors={errors} name="email" />}
                     />
                     <OutlineTextField
-                      label={t('common:phone-number')}
+                      label={t('common.phone-number')}
                       name="phone"
                       type="tel"
                       inputProps={register('phone')}
@@ -251,7 +251,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                       helperText={<ErrorMessage errors={errors} name="phone" />}
                     />
                     <OutlineTextField
-                      label={t('common:your-company')}
+                      label={t('common.your-company')}
                       name="company"
                       inputProps={register('company')}
                       error={Boolean(errors?.company)}
@@ -261,7 +261,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                       select
                       error={Boolean(errors?.service)}
                       helperText={<ErrorMessage errors={errors} name="service" />}
-                      label={t('common:select-your-interested-product')}
+                      label={t('common.select-your-interested-product')}
                       SelectProps={{
                         native: true
                       }}
@@ -274,13 +274,13 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                         </option>
                       ))}
 
-                      <option value="Others">{t('common:others')}</option>
+                      <option value="Others">{t('common.others')}</option>
                     </OutlineTextField>
                     <OutlineTextField
                       select
                       error={Boolean(errors?.business)}
                       helperText={<ErrorMessage errors={errors} name="business" />}
-                      label={t('common:industry')}
+                      label={t('common.industry')}
                       inputProps={business}
                       SelectProps={{
                         native: true
@@ -288,17 +288,17 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                     >
                       <option value="" disabled></option>
                       {[
-                        t('common:agency'),
-                        t('common:business-consultant'),
-                        t('common:design'),
-                        t('common:entertainment'),
-                        t('common:finance-and-banking'),
-                        t('common:food and beverage'),
-                        t('common:health-care'),
-                        t('common:innovation-and-technology'),
-                        t('common:insurance'),
-                        t('common:news'),
-                        t('common:real-estate')
+                        t('common.agency'),
+                        t('common.business-consultant'),
+                        t('common.design'),
+                        t('common.entertainment'),
+                        t('common.finance-and-banking'),
+                        t('common.food and beverage'),
+                        t('common.health-care'),
+                        t('common.innovation-and-technology'),
+                        t('common.insurance'),
+                        t('common.news'),
+                        t('common.real-estate')
                       ].map((value) => (
                         <option value={value} key={value}>
                           {value}
@@ -313,9 +313,9 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                       rows={4}
                       inputProps={register('message')}
                       name="message"
-                      label={t('common:send-us-your-message')}
+                      label={t('common.send-us-your-message')}
                     />
-                    <SendButton type="submit">{t('common:send')}</SendButton>
+                    <SendButton type="submit">{t('common.send')}</SendButton>
                   </TwoColumn>
                 </Form>
               </Content>

@@ -108,10 +108,10 @@ export const ProductsBanner: React.FC = () => {
             </ExploreImg>
           </ImageWrapper>
           <RightContent>
-            <h5>{t('home:interesting-in-our-products')}</h5>
+            <h5>{t('home.interesting-in-our-products')}</h5>
             <Link passHref href="/works">
               <a>
-                <SecondaryButton>{t('home:see-all-works')}</SecondaryButton>
+                <SecondaryButton>{t('home.see-all-works')}</SecondaryButton>
               </a>
             </Link>
           </RightContent>

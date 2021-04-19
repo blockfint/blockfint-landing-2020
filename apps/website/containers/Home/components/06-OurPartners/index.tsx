@@ -36,7 +36,7 @@ export const OurPartners: React.FC = () => {
   const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
-      <Title>{t('home:our-partners-and-customers')}</Title>
+      <Title>{t('home.our-partners-and-customers')}</Title>
       <PartnerWrapper>
         <Logo src={'images/partners/AF.png'} />
         <Logo src={'images/partners/BMA.png'} />

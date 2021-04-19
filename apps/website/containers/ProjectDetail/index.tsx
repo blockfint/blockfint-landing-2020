@@ -45,9 +45,9 @@ export const ProjectDetail: React.FC<ProjectInfo> = ({
         <Content>
           <Logo src={`/images/partners/${logoSrc}`} />
           <TagsWrapper></TagsWrapper>
-          <Title>{t(`project:${title}`)}</Title>
-          <Desc>{t(`project:${description}`)}</Desc>
-          <ArrowLink href={linkHref}>{t('project:partner-updates')}</ArrowLink>
+          <Title>{t(`project.${title}`)}</Title>
+          <Desc>{t(`project.${description}`)}</Desc>
+          <ArrowLink href={linkHref}>{t('project.partner-updates')}</ArrowLink>
           <Benefits benefits={benefits} />
           {imgSrc && <img src={imgSrc} alt={title} />}
           {youtube && (

@@ -31,11 +31,11 @@ export const GideonSection: React.FC = () => {
         <GideonImage />
         <Title style={{ color: 'var(--primary)' }}>Gideon</Title>
         <Title>Energy Trading Without Barriers</Title>
-        <Desc>{t('home:gideon-desc')}</Desc>
+        <Desc>{t('home.gideon-desc')}</Desc>
         <Link href={'/products/gideon'} passHref>
           <a>
             <PrimaryButton logo={<GideonSmall />} background={'var(--gradient-gideon)'}>
-              {t('common:read-more')}
+              {t('common.read-more')}
             </PrimaryButton>
           </a>
         </Link>

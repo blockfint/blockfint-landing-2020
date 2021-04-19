@@ -62,14 +62,14 @@ export const ProductConclusion: React.FC<Props> = ({ problem, solution }) => {
     <Background>
       <Container maxWidth="lg">
         <Content>
-          <Title>{t('work-details:conclusion')}</Title>
+          <Title>{t('work-details.conclusion')}</Title>
           <List>
             <Item>
-              <SubTitle>{t('work-details:problem')}</SubTitle>
+              <SubTitle>{t('work-details.problem')}</SubTitle>
               <p>{problem}</p>
             </Item>
             <Item>
-              <SubTitle>{t('work-details:solution')}</SubTitle>
+              <SubTitle>{t('work-details.solution')}</SubTitle>
               <p>{solution}</p>
             </Item>
           </List>

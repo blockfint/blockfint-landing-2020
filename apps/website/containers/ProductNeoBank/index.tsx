@@ -14,16 +14,16 @@ export const ProductNeoBank: React.FC = () => {
         {...{
           name: 'Neo bank',
           title: 'White label digital banking solutions',
-          description: t('work-details:neobank-desc'),
+          description: t('work-details.neobank-desc'),
 
-          secondaryTitle: t('work-details:neobank-secondary-title')
+          secondaryTitle: t('work-details.neobank-secondary-title')
         }}
       >
         <IconWithInfoList />
       </ProductDetail>
       <ProductConclusion
-        problem={t('work-details:neobank-problem-desc')}
-        solution={t('work-details:neobank-solution-desc')}
+        problem={t('work-details.neobank-problem-desc')}
+        solution={t('work-details.neobank-solution-desc')}
       />
       <ContactBanner />
     </>

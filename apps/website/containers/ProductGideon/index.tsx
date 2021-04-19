@@ -18,9 +18,9 @@ export const ProductGideon: React.FC = () => {
         {...{
           name: 'Gideon',
           title: 'Energy Trading Without Barriers',
-          description: t('work-details:gideon-desc'),
+          description: t('work-details.gideon-desc'),
           linkHref: 'https://gideon.energy',
-          secondaryTitle: t('work-details:gideon-secondary-title'),
+          secondaryTitle: t('work-details.gideon-secondary-title'),
           youtube: '0JO1ovT4Nvo'
         }}
       >
@@ -30,8 +30,8 @@ export const ProductGideon: React.FC = () => {
       </ProductDetail>
 
       <ProductConclusion
-        problem={t('work-details:gideon-problem-desc')}
-        solution={t('work-details:gideon-solution-desc')}
+        problem={t('work-details.gideon-problem-desc')}
+        solution={t('work-details.gideon-solution-desc')}
       />
       <ContactBanner />
     </>

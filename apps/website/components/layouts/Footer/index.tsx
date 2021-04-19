@@ -152,30 +152,30 @@ export const Footer: React.FC = () => {
     <Container maxWidth="lg">
       <Background>
         <Who>
-          <Title>{t('common:who-we-are')}</Title>
+          <Title>{t('common.who-we-are')}</Title>
           <Link href="/about" passHref>
             <StyledLink>
-              <Text>{t('common:about')}</Text>
+              <Text>{t('common.about')}</Text>
             </StyledLink>
           </Link>
         </Who>
         <What>
-          <Title>{t('common:what-we-do')}</Title>
+          <Title>{t('common.what-we-do')}</Title>
           <Link href="/works" passHref>
             <StyledLink>
-              <Text>{t('common:works')}</Text>
+              <Text>{t('common.works')}</Text>
             </StyledLink>
           </Link>
           <Link href="https://www.instagram.com/blockfint/" passHref>
             <StyledLink>
-              <Text style={{ paddingTop: '0.25rem' }}>{t('common:life-at-blockfint')}</Text>
+              <Text style={{ paddingTop: '0.25rem' }}>{t('common.life-at-blockfint')}</Text>
             </StyledLink>
           </Link>
         </What>
         <Address>
-          <Title>{t('common:address')}</Title>
+          <Title>{t('common.address')}</Title>
           <Hr />
-          <AddressText>{t('common:address-text')}</AddressText>
+          <AddressText>{t('common.address-text')}</AddressText>
         </Address>
         <Call>
           <Title />
@@ -195,7 +195,7 @@ export const Footer: React.FC = () => {
           </InLine>
         </Call>
         <Social>
-          <Title>{t('common:what-we-do-daily')}</Title>
+          <Title>{t('common.what-we-do-daily')}</Title>
           <StyledIconButton href="https://www.facebook.com/Blockfint/">
             <img src="/icons/facebook.svg" alt="facebook" width="36" />
           </StyledIconButton>
@@ -210,8 +210,8 @@ export const Footer: React.FC = () => {
             <img src="/icons/linkin.svg" alt="linkin" width="36" />
           </StyledIconButton>
         </Social>
-        <Privacy>{t('common:privacy-and-policy')}</Privacy>
-        <SmallText style={{ gridArea: 'copyright' }}>{t('common:copyright')}</SmallText>
+        <Privacy>{t('common.privacy-and-policy')}</Privacy>
+        <SmallText style={{ gridArea: 'copyright' }}>{t('common.copyright')}</SmallText>
         <ButtonToTop
           onClick={() => {
             const rootElement = document.documentElement

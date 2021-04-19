@@ -92,8 +92,8 @@ export const ContactBanner: React.FC = () => {
       <Container maxWidth="lg">
         <Content>
           <LeftContent>
-            <h5>{t('common:contact-banner-title')}</h5>
-            <SecondaryButton onClick={handleOpen}>{t('common:contact-us')}</SecondaryButton>
+            <h5>{t('common.contact-banner-title')}</h5>
+            <SecondaryButton onClick={handleOpen}>{t('common.contact-us')}</SecondaryButton>
           </LeftContent>
           <MailImage>
             <Image src={'/images/mailbox.png'} width={285} height={291} alt="Mailbox" />

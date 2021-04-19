@@ -89,11 +89,11 @@ export const Hero: React.FC = () => {
             <Title>Make Future Innovations </Title>
             <Title style={{ color: '#19213c' }}>Happen Today</Title>
           </div>
-          <Desc>{t('home:section-1-desc')}</Desc>
+          <Desc>{t('home.section-1-desc')}</Desc>
           <Link href="/about" passHref>
             <a>
               <PrimaryButton logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}>
-                {t('common:about')}
+                {t('common.about')}
               </PrimaryButton>
             </a>
           </Link>

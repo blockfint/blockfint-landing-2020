@@ -49,8 +49,8 @@ export const Benefits: React.FC<{ benefits: Benefit[] }> = ({ benefits }) => {
           <OvalWrapper>
             <OvalIcon src={`/images/partners/iconBenefits/${iconSrc}`} />
           </OvalWrapper>
-          <Title>{t(`project:${title}`)}</Title>
-          <Desc>{t(`project:${description}`)}</Desc>
+          <Title>{t(`project.${title}`)}</Title>
+          <Desc>{t(`project.${description}`)}</Desc>
         </div>
       ))}
     </Container>

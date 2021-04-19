@@ -18,9 +18,9 @@ export const ProductAgriTrac: React.FC = () => {
         {...{
           name: 'Agri Trac',
           title: 'Advance Tracablity For Agricuture',
-          description: t('work-details:agri-trac-desc'),
+          description: t('work-details.agri-trac-desc'),
 
-          secondaryTitle: t('work-details:agri-trac-secondary-title')
+          secondaryTitle: t('work-details.agri-trac-secondary-title')
         }}
       >
         <Wrapper>
@@ -29,8 +29,8 @@ export const ProductAgriTrac: React.FC = () => {
       </ProductDetail>
 
       <ProductConclusion
-        problem={t('work-details:agri-trac-problem-desc')}
-        solution={t('work-details:agri-trac-solution-desc')}
+        problem={t('work-details.agri-trac-problem-desc')}
+        solution={t('work-details.agri-trac-solution-desc')}
       />
       <ContactBanner />
     </>

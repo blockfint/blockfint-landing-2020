@@ -31,11 +31,11 @@ export const ThinkerSection: React.FC = () => {
         <ThinkerImage />
         <Title style={{ color: 'var(--primary)' }}>Thinker</Title>
         <Title>Make Rapid, Optimized & Data Driven Decision </Title>
-        <Desc>{t('home:thinker-desc')}</Desc>
+        <Desc>{t('home.thinker-desc')}</Desc>
         <Link href={'/products/thinker'} passHref>
           <a>
             <PrimaryButton logo={<ThinkerSmall />} background={'var(--gradient-thinker)'}>
-              {t('common:read-more')}
+              {t('common.read-more')}
             </PrimaryButton>
           </a>
         </Link>

@@ -104,15 +104,15 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
   }
   const routes = [
     {
-      label: t('common:about'),
+      label: t('common.about'),
       path: '/about'
     },
     {
-      label: t('common:works'),
+      label: t('common.works'),
       path: '/works'
     },
     {
-      label: t('common:team'),
+      label: t('common.team'),
       path: '/team'
     }
   ]
@@ -133,7 +133,7 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
         })}
 
         <a onClick={handleOpen}>
-          <OrangeButton>{t('common:contact')}</OrangeButton>
+          <OrangeButton>{t('common.contact')}</OrangeButton>
         </a>
         <Divider />
         <I18nSelector />

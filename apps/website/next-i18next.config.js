@@ -5,5 +5,7 @@ module.exports = {
     defaultLocale: 'en',
     locales: ['en', 'th']
   },
-  localePath: path.resolve('./apps/website/locales')
+  localePath: path.resolve('./apps/website/locales'),
+  nsSeparator: '.',
+  keySeparator: ':'
 }

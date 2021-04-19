@@ -29,5 +29,5 @@ export const ChipTag: React.FC<Props> = ({ label, style }) => {
     'digital-bond': '#f6b9b8',
     'energy-trading': '#ffb17d'
   }
-  return <StyledChip label={t(`project:${label}`)} colour={colorDict[label]} style={style} />
+  return <StyledChip label={t(`project.${label}`)} colour={colorDict[label]} style={style} />
 }

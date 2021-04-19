@@ -18,9 +18,9 @@ export const ProductThinker: React.FC = () => {
         {...{
           name: 'Thinker',
           title: 'Make rapid, optimized & data driven decision',
-          description: t('work-details:thinker-desc'),
+          description: t('work-details.thinker-desc'),
 
-          secondaryTitle: t('work-details:thinker-secondary-title')
+          secondaryTitle: t('work-details.thinker-secondary-title')
         }}
       >
         <Wrapper>
@@ -29,8 +29,8 @@ export const ProductThinker: React.FC = () => {
       </ProductDetail>
 
       <ProductConclusion
-        problem={t('work-details:thinker-problem-desc')}
-        solution={t('work-details:thinker-solution-desc')}
+        problem={t('work-details.thinker-problem-desc')}
+        solution={t('work-details.thinker-solution-desc')}
       />
       <ContactBanner />
     </>

@@ -250,7 +250,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
                 selected={selectedIndex === `/about`}
                 onClick={(event) => handleListItemClick(event, `/about`)}
               >
-                <RipleMiddle primary={t('common:about')} />
+                <RipleMiddle primary={t('common.about')} />
               </ListItem>
             </Link>
             <Link passHref href={`/works`} as={`/works`}>
@@ -259,7 +259,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
                 selected={selectedIndex === `/works`}
                 onClick={(event) => handleListItemClick(event, `/works`)}
               >
-                <RipleMiddle primary={t('common:works')} />
+                <RipleMiddle primary={t('common.works')} />
               </ListItem>
             </Link>
             <Link passHref href={`/team`} as={`/team`}>
@@ -268,11 +268,11 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
                 selected={selectedIndex === `/team`}
                 onClick={(event) => handleListItemClick(event, `/team`)}
               >
-                <RipleMiddle primary={t('common:team')} />
+                <RipleMiddle primary={t('common.team')} />
               </ListItem>
             </Link>
             <ListItem button selected={selectedIndex === `/contact`} onClick={handleOpen}>
-              <RipleMiddle primary={t('common:contact')} />
+              <RipleMiddle primary={t('common.contact')} />
             </ListItem>
             <Divider />
             <I18nSelector />

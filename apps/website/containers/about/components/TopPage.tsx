@@ -21,8 +21,8 @@ export const TopPage: React.FC = () => {
   const { t } = useTranslation()
   return (
     <Background>
-      <StyledText style={{ color: 'var(--primary)' }}>{t('about:section-1-title-1')}</StyledText>
-      <StyledText>{t('about:section-1-title-2')}</StyledText>
+      <StyledText style={{ color: 'var(--primary)' }}>{t('about.section-1-title-1')}</StyledText>
+      <StyledText>{t('about.section-1-title-2')}</StyledText>
     </Background>
   )
 }

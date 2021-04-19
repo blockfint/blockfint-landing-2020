@@ -39,13 +39,13 @@ const StyledButton = styled.button`
   }
 `
 interface Props {
-  project: {
+  project. {
     tags: string[]
     title: string
     link: string
   }
 }
-export const ProjectCard: React.FC<Props> = ({ project: { tags, title, link } }) => {
+export const ProjectCard: React.FC<Props> = ({ project. { tags, title, link } }) => {
   const { t } = useTranslation()
   return (
     <Box>
@@ -61,9 +61,9 @@ export const ProjectCard: React.FC<Props> = ({ project: { tags, title, link } })
       </TagGroup>
       <Link href={link} passHref>
         <a style={{ textDecoration: 'none', color: 'initial' }}>
-          <Title>{t(`project:${title}`)}</Title>
+          <Title>{t(`project.${title}`)}</Title>
           <StyledButton>
-            <ArrowLink>{t('works:see-the-project')}</ArrowLink>
+            <ArrowLink>{t('works.see-the-project')}</ArrowLink>
           </StyledButton>
         </a>
       </Link>

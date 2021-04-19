@@ -12,12 +12,12 @@ export const Team: React.FC = () => {
   const { t } = useTranslation()
   const description = useMemo(
     () => [
-      t('team:blockfint-outing'),
-      t('team:company-meeting'),
-      t('team:brain-storming'),
-      t('team:coding'),
-      t('team:townhall'),
-      t('team:play-time')
+      t('team.blockfint-outing'),
+      t('team.company-meeting'),
+      t('team.brain-storming'),
+      t('team.coding'),
+      t('team.townhall'),
+      t('team.play-time')
     ],
     [t]
   )
@@ -25,7 +25,7 @@ export const Team: React.FC = () => {
     <>
       <TeamLead />
       <Footer>
-        <Slider sectionName={t('team:our-team')} images={images} description={description} />
+        <Slider sectionName={t('team.our-team')} images={images} description={description} />
       </Footer>
       <ContactBanner />
     </>

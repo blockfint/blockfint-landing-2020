@@ -31,11 +31,11 @@ export const PalmSection: React.FC = () => {
         <PlamImage />
         <Title style={{ color: 'var(--primary)' }}>Agri Trac</Title>
         <Title>Advance Traceability for Agriculture Products</Title>
-        <Desc>{t('home:argri-desc')}</Desc>
+        <Desc>{t('home.argri-desc')}</Desc>
         <Link href={'/products/agri-trac'} passHref>
           <a>
             <PrimaryButton logo={<PalmSmall />} background={'var(--gradient-palm)'}>
-              {t('common:read-more')}
+              {t('common.read-more')}
             </PrimaryButton>
           </a>
         </Link>

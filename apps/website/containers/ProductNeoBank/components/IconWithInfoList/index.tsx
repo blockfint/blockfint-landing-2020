@@ -82,32 +82,32 @@ export const IconWithInfoList: React.FC = () => {
           {/* <NewInnovations /> */}
           <img src="/icons/new_innovations.svg" width="100" />
         </IconWrapper>
-        <h5>{t('work-details:neobank-icon-1-title')}</h5>
-        <p>{t('work-details:neobank-icon-1-desc')}</p>
+        <h5>{t('work-details.neobank-icon-1-title')}</h5>
+        <p>{t('work-details.neobank-icon-1-desc')}</p>
       </Item>
       <Item>
         <IconWrapper>
           {/* <CustomerFocus /> */}
           <img src="/icons/Customer_focus.svg" width="100" />
         </IconWrapper>
-        <h5>{t('work-details:neobank-icon-2-title')}</h5>
-        <p>{t('work-details:neobank-icon-2-desc')}</p>
+        <h5>{t('work-details.neobank-icon-2-title')}</h5>
+        <p>{t('work-details.neobank-icon-2-desc')}</p>
       </Item>
       <Item>
         <IconWrapper>
           {/* <NoBranchNeeded /> */}
           <img src="/icons/No_branch_needed.svg" width="100" />
         </IconWrapper>
-        <h5>{t('work-details:neobank-icon-3-title')}</h5>
-        <p>{t('work-details:neobank-icon-3-desc')}</p>
+        <h5>{t('work-details.neobank-icon-3-title')}</h5>
+        <p>{t('work-details.neobank-icon-3-desc')}</p>
       </Item>
       <Item>
         <IconWrapper>
           {/* <FullyAutomated /> */}
           <img src="/icons/Fully_automated.svg" width="100" />
         </IconWrapper>
-        <h5>{t('work-details:neobank-icon-4-title')}</h5>
-        <p>{t('work-details:neobank-icon-4-desc')}</p>
+        <h5>{t('work-details.neobank-icon-4-title')}</h5>
+        <p>{t('work-details.neobank-icon-4-desc')}</p>
       </Item>
     </Container>
   )

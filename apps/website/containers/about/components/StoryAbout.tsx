@@ -51,20 +51,20 @@ export const StoryAbout: React.FC = () => {
   return (
     <Background>
       <div>
-        <Topic>{t('about:section-2-title-1')}</Topic>
-        <Topic style={{ color: 'var(--primary)', paddingTop: '0.25rem' }}>{t('about:section-2-title-2')}</Topic>
+        <Topic>{t('about.section-2-title-1')}</Topic>
+        <Topic style={{ color: 'var(--primary)', paddingTop: '0.25rem' }}>{t('about.section-2-title-2')}</Topic>
       </div>
       <Div>
-        <h6 style={{ fontSize: '1rem', fontWeight: 600, lineHeight: 1.88 }}>{t('about:founded-in-2017')}</h6>
+        <h6 style={{ fontSize: '1rem', fontWeight: 600, lineHeight: 1.88 }}>{t('about.founded-in-2017')}</h6>
         <StyledHr />
         <StyledH6>
-          {t('about:2017-desc-1')}
+          {t('about.2017-desc-1')}
           <br />
           <br />
-          {t('about:2017-desc-2')}
+          {t('about.2017-desc-2')}
           <br />
           <br />
-          {t('about:2017-desc-3')}
+          {t('about.2017-desc-3')}
         </StyledH6>
       </Div>
     </Background>

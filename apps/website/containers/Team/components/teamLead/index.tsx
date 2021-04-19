@@ -207,7 +207,7 @@ const ImageOverlays: React.FC<{ picture: string }> = ({ picture }) => {
       <img src={`/images/${picture}`} alt="Avatar" />
       <div className="overlay">
         <div className="text">
-          {t('team:read-bio')} <Vector className="Vector" />
+          {t('team.read-bio')} <Vector className="Vector" />
         </div>
       </div>
     </div>
@@ -221,8 +221,8 @@ export const TeamLead: React.FC = () => {
         <Link passHref href={`/team/${FullDetailItems.path}`}>
           <a>
             <ImageOverlays picture={FullDetailItems.picture} />
-            <h5>{t(`team:${FullDetailItems.name}`)}</h5>
-            <h5 className="Position">{t(`team:${FullDetailItems.position}`)}</h5>
+            <h5>{t(`team.${FullDetailItems.name}`)}</h5>
+            <h5 className="Position">{t(`team.${FullDetailItems.position}`)}</h5>
           </a>
         </Link>
       </div>
@@ -233,7 +233,7 @@ export const TeamLead: React.FC = () => {
       <Container maxWidth="lg">
         <Content>
           <div>
-            <Title style={{ color: '#19213c' }}>{t('team:our-leaders')}</Title>
+            <Title style={{ color: '#19213c' }}>{t('team.our-leaders')}</Title>
           </div>
           <div className="TeamLeadPic">{FullDetail}</div>
         </Content>

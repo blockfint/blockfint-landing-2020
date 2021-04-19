@@ -14,9 +14,9 @@ export const About: React.FC = () => {
   const { t } = useTranslation()
   const description = useMemo(
     () => [
-      t('about:main-contributor-for-ndid'),
-      t('about:thailand-first-blockchain-bond'),
-      t('about:supply-technology-for-ktb')
+      t('about.main-contributor-for-ndid'),
+      t('about.thailand-first-blockchain-bond'),
+      t('about.supply-technology-for-ktb')
     ],
     [t]
   )

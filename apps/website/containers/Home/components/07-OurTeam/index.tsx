@@ -71,11 +71,11 @@ export const OurTeam: React.FC = () => {
       <Container maxWidth="lg">
         <Wrapper>
           <div>
-            <BlueTitle>{t('home:our-team')}</BlueTitle>
-            <Title>{t('home:consists-of-highly-qualified')}</Title>
-            <Desc>{t('home:our-team-desc')}</Desc>
+            <BlueTitle>{t('home.our-team')}</BlueTitle>
+            <Title>{t('home.consists-of-highly-qualified')}</Title>
+            <Desc>{t('home.our-team-desc')}</Desc>
             <Link href="/team" passHref>
-              <ArrowLink>{t('common:meet-the-team')}</ArrowLink>
+              <ArrowLink>{t('common.meet-the-team')}</ArrowLink>
             </Link>
           </div>
 
