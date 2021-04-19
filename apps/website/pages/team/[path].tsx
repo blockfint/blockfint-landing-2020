@@ -15,12 +15,15 @@ const TeamDetailPage: NextPage<PeopleInfo> = (props) => {
 
 export default TeamDetailPage
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = Object.keys(peopleInfos).map((path) => ({
-    params: {
-      path
-    }
-  }))
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const paths = locales.flatMap((locale) =>
+    Object.keys(peopleInfos).map((path) => ({
+      params: {
+        path
+      },
+      locale
+    }))
+  )
   return {
     paths,
     fallback: false
