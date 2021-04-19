@@ -1,17 +1,19 @@
-import { Button, TextField } from '@material-ui/core';
-import React, { useState } from 'react';
-import { Controller, useController, useForm } from 'react-hook-form';
-import styled from 'styled-components';
-import { ErrorMessage } from '@hookform/error-message';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
-import { Success } from './components/Success';
-import { AnimatePresence, motion } from 'framer-motion';
-import { ReactComponent as HeroBottom } from '@blockfint/website/assets/bg/hero-bottom.svg';
-import { ReactComponent as CloseSvg } from '@blockfint/website/assets/icons/close.svg';
-import { Container, IconButton } from '@material-ui/core';
-import axios from 'axios';
+import { Button, TextField } from '@material-ui/core'
+import React, { useState } from 'react'
+import { Controller, useController, useForm } from 'react-hook-form'
+import styled from 'styled-components'
+import { ErrorMessage } from '@hookform/error-message'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { Success } from './components/Success'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ReactComponent as HeroBottom } from '@blockfint/website/assets/bg/hero-bottom.svg'
+import { ReactComponent as CloseSvg } from '@blockfint/website/assets/icons/close.svg'
+import { Container, IconButton } from '@material-ui/core'
+import axios from 'axios'
+import { useTranslation } from 'next-i18next'
+
 const StyleHeroTop = styled(HeroBottom)`
   position: absolute;
   top: -10%;
@@ -20,7 +22,7 @@ const StyleHeroTop = styled(HeroBottom)`
   transform: scale(-1, -1);
   color: #ffffff;
   font-size: clamp(8rem, 20vw, 17rem);
-`;
+`
 
 const StyleHeroBottom = styled(HeroBottom)`
   position: absolute;
@@ -29,7 +31,7 @@ const StyleHeroBottom = styled(HeroBottom)`
   z-index: -1;
   color: var(--white);
   font-size: clamp(8rem, 20vw, 17rem);
-`;
+`
 
 const Background = styled(motion.div)`
   padding: 8rem 0;
@@ -40,7 +42,7 @@ const Background = styled(motion.div)`
   bottom: 0;
   z-index: 1000;
   background-color: #eef6f7;
-`;
+`
 
 const CloseButtonWrapper = styled.div`
   position: absolute;
@@ -50,13 +52,13 @@ const CloseButtonWrapper = styled.div`
     top: 3.75rem;
     right: 3.75rem;
   }
-`;
+`
 const Content = styled.div`
   max-width: 41.25rem;
   margin: 0 auto;
   max-height: 75vh;
   overflow-y: auto;
-`;
+`
 const Title = styled.h2`
   text-align: center;
   line-height: 1.06;
@@ -64,11 +66,11 @@ const Title = styled.h2`
   @media ${BREAKPOINT.tablet} {
     font-size: 2.125rem;
   }
-`;
+`
 
 const Form = styled.form`
   margin: 2.5rem 0;
-`;
+`
 const TwoColumn = styled.div`
   display: grid;
   grid-gap: 1.75rem 1.5rem;
@@ -77,10 +79,10 @@ const TwoColumn = styled.div`
     grid-auto-rows: 3.25rem;
     grid-template-columns: 1fr 1fr;
   }
-`;
+`
 export const OutlineTextField = styled(TextField).attrs((props) => ({
   ...props,
-  variant: 'outlined',
+  variant: 'outlined'
 }))`
   &.MuiFormControl-root {
     display: flex;
@@ -109,7 +111,7 @@ export const OutlineTextField = styled(TextField).attrs((props) => ({
   .MuiSelect-select:focus {
     background: transparent;
   }
-`;
+`
 const OutlinedTextarea = styled(OutlineTextField)`
   @media ${BREAKPOINT.tablet} {
     grid-column-end: 3;
@@ -117,10 +119,10 @@ const OutlinedTextarea = styled(OutlineTextField)`
     grid-row-start: 4;
     grid-row-end: 6;
   }
-`;
+`
 const SendButton = styled(Button).attrs((props) => ({
   ...props,
-  variant: 'contained',
+  variant: 'contained'
 }))`
   &&& {
     color: var(--white);
@@ -130,9 +132,9 @@ const SendButton = styled(Button).attrs((props) => ({
       grid-column-end: 3;
     }
   }
-`;
-const emailRegExp = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
-const phoneRegExp = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+`
+const emailRegExp = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
+const phoneRegExp = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/
 const schema = yup.object().shape({
   name: yup.string().trim().required('This field is required'),
   email: yup
@@ -140,38 +142,34 @@ const schema = yup.object().shape({
     .trim()
     .required('This field is required')
     .matches(emailRegExp, 'Please enter valid email address'),
-  phone: yup
-    .string()
-    .trim()
-    .required('This field is required')
-    .matches(phoneRegExp, 'Please enter valid phone number'),
+  phone: yup.string().trim().required('This field is required').matches(phoneRegExp, 'Please enter valid phone number'),
   company: yup.string().trim().required('This field is required'),
   service: yup.string().notOneOf([''], 'Please select service'),
-  business: yup.string().notOneOf([''], 'Please select business'),
-});
+  business: yup.string().notOneOf([''], 'Please select business')
+})
 
 type FormInfo = {
-  name: string;
-  email: string;
-  phone: string;
-  company: string;
-  service: string;
-  business: string;
-  message: string;
-  admin: string;
-};
+  name: string
+  email: string
+  phone: string
+  company: string
+  service: string
+  business: string
+  message: string
+  admin: string
+}
 interface Props {
-  onClose: () => void;
+  onClose: () => void
 }
 
 export const FormContent: React.FC<Props> = ({ onClose }) => {
-  const [isSended, setIsSended] = useState(false);
+  const [isSended, setIsSended] = useState(false)
 
   const {
     handleSubmit,
     formState: { errors },
     control,
-    register,
+    register
   } = useForm<FormInfo>({
     defaultValues: {
       name: ``,
@@ -180,12 +178,13 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
       company: '',
       service: '',
       business: '',
-      message: '',
+      message: ''
     },
-    resolver: yupResolver(schema),
-  });
-  const { field: service } = useController({ name: 'service', control });
-  const { field: business } = useController({ name: 'business', control });
+    resolver: yupResolver(schema)
+  })
+  const { field: service } = useController({ name: 'service', control })
+  const { field: business } = useController({ name: 'business', control })
+  const { t } = useTranslation()
   const onSubmit = async (data: FormInfo) => {
     await axios({
       method: 'POST',
@@ -199,18 +198,14 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
         service: data.service,
         business: data.business,
         contents: data.message,
-        admin: 'akarapanwong@hotmail.com',
-      },
-    });
-    setIsSended(true);
-  };
+        admin: 'akarapanwong@hotmail.com'
+      }
+    })
+    setIsSended(true)
+  }
 
   return (
-    <Background
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <Background initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <StyleHeroTop />
       <StyleHeroBottom />
 
@@ -234,21 +229,21 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <TwoColumn>
                     <OutlineTextField
-                      label="Name"
+                      label={t('common.name')}
                       name="name"
                       inputProps={register('name')}
                       error={Boolean(errors?.name)}
                       helperText={<ErrorMessage errors={errors} name="name" />}
                     />
                     <OutlineTextField
-                      label="Email"
+                      label={t('common.email')}
                       name="email"
                       inputProps={register('email')}
                       error={Boolean(errors?.email)}
                       helperText={<ErrorMessage errors={errors} name="email" />}
                     />
                     <OutlineTextField
-                      label="Phone number"
+                      label={t('common.phone-number')}
                       name="phone"
                       type="tel"
                       inputProps={register('phone')}
@@ -256,62 +251,54 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                       helperText={<ErrorMessage errors={errors} name="phone" />}
                     />
                     <OutlineTextField
-                      label="Your company"
+                      label={t('common.your-company')}
                       name="company"
                       inputProps={register('company')}
                       error={Boolean(errors?.company)}
-                      helperText={
-                        <ErrorMessage errors={errors} name="company" />
-                      }
+                      helperText={<ErrorMessage errors={errors} name="company" />}
                     />
                     <OutlineTextField
                       select
                       error={Boolean(errors?.service)}
-                      helperText={
-                        <ErrorMessage errors={errors} name="service" />
-                      }
-                      label="Select your interested product"
+                      helperText={<ErrorMessage errors={errors} name="service" />}
+                      label={t('common.select-your-interested-product')}
                       SelectProps={{
-                        native: true,
+                        native: true
                       }}
                       inputProps={service}
                     >
                       <option value="" disabled></option>
-                      {['Agri Trac', 'Gideon', 'Neo Bank', 'Thinker'].map(
-                        (value) => (
-                          <option value={value} key={value}>
-                            {value}
-                          </option>
-                        )
-                      )}
+                      {['Agri Trac', 'Gideon', 'Neo Bank', 'Thinker'].map((value) => (
+                        <option value={value} key={value}>
+                          {value}
+                        </option>
+                      ))}
 
-                      <option value="Others">Others</option>
+                      <option value="Others">{t('common.others')}</option>
                     </OutlineTextField>
                     <OutlineTextField
                       select
                       error={Boolean(errors?.business)}
-                      helperText={
-                        <ErrorMessage errors={errors} name="business" />
-                      }
-                      label={'Industry'}
+                      helperText={<ErrorMessage errors={errors} name="business" />}
+                      label={t('common.industry')}
                       inputProps={business}
                       SelectProps={{
-                        native: true,
+                        native: true
                       }}
                     >
                       <option value="" disabled></option>
                       {[
-                        'Agency',
-                        'Business Consultant',
-                        'Design',
-                        'Entertainment',
-                        'Finance & Banking',
-                        'Food & Beverage',
-                        'Health Care',
-                        'Innovation & Technology',
-                        'Insurance',
-                        'News',
-                        'Real Estate',
+                        t('common.agency'),
+                        t('common.business-consultant'),
+                        t('common.design'),
+                        t('common.entertainment'),
+                        t('common.finance-and-banking'),
+                        t('common.food and beverage'),
+                        t('common.health-care'),
+                        t('common.innovation-and-technology'),
+                        t('common.insurance'),
+                        t('common.news'),
+                        t('common.real-estate')
                       ].map((value) => (
                         <option value={value} key={value}>
                           {value}
@@ -326,9 +313,9 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                       rows={4}
                       inputProps={register('message')}
                       name="message"
-                      label="Send us your message"
+                      label={t('common.send-us-your-message')}
                     />
-                    <SendButton type="submit">Send</SendButton>
+                    <SendButton type="submit">{t('common.send')}</SendButton>
                   </TwoColumn>
                 </Form>
               </Content>
@@ -348,7 +335,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
         </AnimatePresence>
       </Container>
     </Background>
-  );
-};
+  )
+}
 
-export default FormContent;
+export default FormContent
