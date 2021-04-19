@@ -1,17 +1,17 @@
-import React from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles';
-import theme from './themes';
+import React from 'react'
+import { createGlobalStyle } from 'styled-components'
+import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles'
+import theme from './themes'
 export const SIZE = {
   tablet: '600px',
   desktop: '960px',
-  desktopHd: '1280px',
-};
+  desktopHd: '1280px'
+}
 export const BREAKPOINT = {
   tablet: `only screen and (min-width: ${SIZE.tablet})`,
   desktop: `only screen and (min-width: ${SIZE.desktop})`,
-  desktopHd: `only screen and (min-width: ${SIZE.desktopHd})`,
-};
+  desktopHd: `only screen and (min-width: ${SIZE.desktopHd})`
+}
 
 const GlobalStyle = createGlobalStyle`
 :root{
@@ -126,129 +126,10 @@ const GlobalStyle = createGlobalStyle`
       font-size:0.875rem;
     }
 
-      /* montserrat-regular - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/montserrat-v15-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* montserrat-500 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 500;
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/montserrat-v15-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* montserrat-600 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 600;
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/montserrat-v15-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* montserrat-700 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 700;
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/montserrat-v15-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* montserrat-800 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 800;
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/montserrat-v15-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* montserrat-900 - latin */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 900;
-  src: local(''),
-       url('/fonts/montserrat-v15-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/montserrat-v15-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* prompt-regular - thai_latin */
-@font-face {
-  font-family: 'Prompt';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-  src: local(''),
-       url('/fonts/prompt-v4-thai_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/prompt-v4-thai_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* prompt-500 - thai_latin */
-@font-face {
-  font-family: 'Prompt';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 500;
-  src: local(''),
-       url('/fonts/prompt-v4-thai_latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/prompt-v4-thai_latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* prompt-600 - thai_latin */
-@font-face {
-  font-family: 'Prompt';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 600;
-  src: local(''),
-       url('/fonts/prompt-v4-thai_latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/prompt-v4-thai_latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* prompt-700 - thai_latin */
-@font-face {
-  font-family: 'Prompt';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 700;
-  src: local(''),
-       url('/fonts/prompt-v4-thai_latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/prompt-v4-thai_latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* prompt-800 - thai_latin */
-@font-face {
-  font-family: 'Prompt';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 800;
-  src: local(''),
-       url('/fonts/prompt-v4-thai_latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/prompt-v4-thai_latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* prompt-900 - thai_latin */
-@font-face {
-  font-family: 'Prompt';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 900;
-  src: local(''),
-       url('/fonts/prompt-v4-thai_latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/fonts/prompt-v4-thai_latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
+
   }
 
-`;
+`
 
 export const AllStyleProvider: React.FC = ({ children }) => (
   <>
@@ -257,4 +138,4 @@ export const AllStyleProvider: React.FC = ({ children }) => (
       <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
     </StylesProvider>
   </>
-);
+)
