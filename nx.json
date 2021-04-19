@@ -1,0 +1,23 @@
+{
+  "implicitDependencies": {
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    ".eslintrc.json": "*"
+  },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "temp-workspace",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "MTQzNDg3NzEtM2U5NS00NDYzLTljNjYtNGU5ZDExYWY3MWMxfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "website": { "tags": [] },
+    "website-e2e": { "tags": [], "implicitDependencies": ["website"] }
+  }
+}
