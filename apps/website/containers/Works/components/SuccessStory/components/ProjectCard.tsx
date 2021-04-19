@@ -39,13 +39,13 @@ const StyledButton = styled.button`
   }
 `
 interface Props {
-  project. {
+  project: {
     tags: string[]
     title: string
     link: string
   }
 }
-export const ProjectCard: React.FC<Props> = ({ project. { tags, title, link } }) => {
+export const ProjectCard: React.FC<Props> = ({ project: { tags, title, link } }) => {
   const { t } = useTranslation()
   return (
     <Box>
