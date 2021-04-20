@@ -117,6 +117,7 @@ const BottomTitle = styled.div`
 `
 const RipleMiddle = styled(ListItemText)`
   span {
+    font-family: 'Montserrat', 'Prompt', sans-serif;
     position: relative;
     &.MuiTypography-displayBlock {
       width: fit-content;
