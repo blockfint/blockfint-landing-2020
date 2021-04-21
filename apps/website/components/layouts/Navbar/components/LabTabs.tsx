@@ -30,8 +30,9 @@ type ColorProps = {
 }
 
 const AWithRipple = styled.a<ColorProps>`
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 1rem;
+
+  font-weight: 500;
   display: flex;
   align-items: center;
   height: 1.5rem;
