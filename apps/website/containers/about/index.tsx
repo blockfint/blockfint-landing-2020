@@ -29,7 +29,7 @@ export const About: React.FC = () => {
       <InfoGraphic />
       <StoryAbout />
       <Footer>
-        <Slider sectionName="Achievement" images={images} description={description} />
+        <Slider sectionName={t('about.achievement')} images={images} description={description} />
       </Footer>
       <ContactBanner />
     </div>
