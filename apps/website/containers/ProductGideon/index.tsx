@@ -21,7 +21,7 @@ export const ProductGideon: React.FC = () => {
           linkHref: 'https://gideon.energy',
           secondaryTitle:
             'The multi-dimensional energy trading platform where everyone can easily buy and sell electrical energy.',
-          youtube: '0JO1ovT4Nvo',
+          youtube: '4SbU9j5G8kk',
         }}
       >
         <Wrapper>
