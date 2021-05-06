@@ -3,7 +3,7 @@ import { SecondaryButton } from '@blockfint/website/components/Buttons'
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import Image from 'next/image'
 import { useTranslation } from 'next-i18next'
 const Background = styled.div`

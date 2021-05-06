@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { AnimatePresence, motion, Variants } from 'framer-motion'
 import { wrap } from 'popmotion'
 import Image from 'next/image'

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { AllStyleProvider } from '@blockfint/website/assets/globalStyle'
+import { AllStyleProvider } from '@blockfint/website/styles/globalStyle'
 import React from 'react'
 import { ContactDialog } from '@blockfint/website/components/ContactDialog'
 import { DefaultSeo } from 'next-seo'

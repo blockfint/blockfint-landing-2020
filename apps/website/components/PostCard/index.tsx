@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowLink } from '@blockfint/website/components/ArrowLink';
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
+import React from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ArrowLink } from '@blockfint/website/components/ArrowLink'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 const Card = styled(motion.div)`
   cursor: pointer;
   border-radius: 1rem;
@@ -23,12 +23,12 @@ const Card = styled(motion.div)`
     grid-template-columns: 1fr 1fr;
     width: 37.5rem;
   }
-`;
+`
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
-`;
+`
 
 const Content = styled.div`
   display: grid;
@@ -41,39 +41,30 @@ const Content = styled.div`
   @media ${BREAKPOINT.desktop} {
     margin: 1.5rem;
   }
-`;
+`
 const Title = styled.h6`
   line-height: 1.8;
   font-weight: bold;
   letter-spacing: -0.4px;
   color: var(--primary);
   font-size: 1.25rem;
-`;
+`
 const Desc = styled.p`
   font-weight: 600;
   line-height: 1.88;
   padding-bottom: 0.8rem;
-`;
+`
 
 interface Props {
-  title?: string;
-  desc?: string;
-  link?: string;
-  imgSrc?: string;
+  title?: string
+  desc?: string
+  link?: string
+  imgSrc?: string
 }
-export const PostCard: React.FC<Props> = ({
-  title,
-  desc,
-  link = '/',
-  imgSrc,
-}) => {
+export const PostCard: React.FC<Props> = ({ title, desc, link = '/', imgSrc }) => {
   return (
     <Link href={link} passHref>
-      <Card
-        initial={{ scale: 1 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ backgroundColor: '#f3f3f3' }}
-      >
+      <Card initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} whileTap={{ backgroundColor: '#f3f3f3' }}>
         <Image src={imgSrc} />
         <Content>
           <Title>{title}</Title>
@@ -82,5 +73,5 @@ export const PostCard: React.FC<Props> = ({
         </Content>
       </Card>
     </Link>
-  );
-};
+  )
+}

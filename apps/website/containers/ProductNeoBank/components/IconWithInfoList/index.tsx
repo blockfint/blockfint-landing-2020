@@ -4,7 +4,7 @@ import styled from 'styled-components'
 // import { ReactComponent as FullyAutomated } from '@blockfint/website/assets/icons/Fully_automated.svg'
 // import { ReactComponent as NewInnovations } from '@blockfint/website/assets/icons/new_innovations.svg'
 // import { ReactComponent as NoBranchNeeded } from '@blockfint/website/assets/icons/No_branch_needed.svg'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { useTranslation } from 'next-i18next'
 
 const Container = styled.div`

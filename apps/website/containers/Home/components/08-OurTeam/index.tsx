@@ -1,5 +1,5 @@
 import { Container } from '@material-ui/core'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { ArrowLink } from '@blockfint/website/components/ArrowLink'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
