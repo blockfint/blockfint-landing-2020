@@ -4,7 +4,7 @@ import { PrimaryButton } from '../components/Buttons'
 
 const POC: NextPage = () => {
   const isSupportShare = useMemo(() => {
-    if (navigator.share) {
+    if (navigator && navigator.share) {
       return true
     }
     return false
