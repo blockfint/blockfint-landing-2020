@@ -21,7 +21,7 @@ export const ProductGideon: React.FC = () => {
           description: t('work-details.gideon-desc'),
           linkHref: 'https://gideon.energy',
           secondaryTitle: t('work-details.gideon-secondary-title'),
-          youtube: '0JO1ovT4Nvo'
+          youtube: '4SbU9j5G8kk'
         }}
       >
         <Wrapper>
