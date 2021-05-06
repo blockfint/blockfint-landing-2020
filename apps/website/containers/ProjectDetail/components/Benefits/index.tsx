@@ -1,4 +1,4 @@
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { Benefit } from '@blockfint/website/contents/projects'
 import React from 'react'
 import { useTranslation } from 'react-i18next'

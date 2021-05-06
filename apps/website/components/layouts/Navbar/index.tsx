@@ -1,32 +1,31 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Container } from '@material-ui/core';
-import { Drawer } from './components/Drawer';
-import { BREAKPOINT } from '../../../assets/globalStyle';
-import { LabTabs } from './components/LabTabs';
-import { Logo } from './components/Logo';
+import React from 'react'
+import styled from 'styled-components'
+import { Container } from '@material-ui/core'
+import { Drawer } from './components/Drawer'
+import { BREAKPOINT } from '../../../styles/globalStyle'
+import { LabTabs } from './components/LabTabs'
+import { Logo } from './components/Logo'
 
 type BoxShadow = {
-  status: boolean;
-};
+  status: boolean
+}
 const Box = styled.div<BoxShadow>`
   height: 4.5rem;
   width: 100%;
   background-color: ${(props) => (props.status ? 'transparent' : 'white')};
   box-sizing: border-box;
-  box-shadow: ${(props) =>
-    props.status ? '0' : '0 2px 4px 0 rgba(0, 0, 0, 0.1)'};
+  box-shadow: ${(props) => (props.status ? '0' : '0 2px 4px 0 rgba(0, 0, 0, 0.1)')};
   display: flex;
   align-items: center;
   position: relative;
   z-index: 1;
-`;
+`
 const MenuMainLayout = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
-`;
+`
 
 const RightNav = styled.div`
   display: flex;
@@ -70,11 +69,11 @@ const RightNav = styled.div`
       display: none;
     }
   }
-`;
+`
 
 interface PropsColor {
-  status: boolean;
-  id?: string;
+  status: boolean
+  id?: string
 }
 
 const RightNavBar = ({ status, id }: PropsColor) => {
@@ -87,12 +86,12 @@ const RightNavBar = ({ status, id }: PropsColor) => {
         <Drawer status={status} id={id} />
       </div>
     </RightNav>
-  );
-};
+  )
+}
 
 interface Props {
-  transparent: boolean;
-  id?: string;
+  transparent: boolean
+  id?: string
 }
 export const Navbar: React.FC<Props> = ({ transparent, id }) => {
   return (
@@ -106,6 +105,6 @@ export const Navbar: React.FC<Props> = ({ transparent, id }) => {
         </MenuMainLayout>
       </Container>
     </Box>
-  );
-};
-export default Navbar;
+  )
+}
+export default Navbar
