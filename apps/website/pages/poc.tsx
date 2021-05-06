@@ -1,8 +1,14 @@
 import { NextPage } from 'next'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { PrimaryButton } from '../components/Buttons'
 
 const POC: NextPage = () => {
+  const isSupportShare = useMemo(() => {
+    if (navigator.share) {
+      return true
+    }
+    return false
+  }, [])
   const handleShare = async () => {
     console.log('hello')
     if (navigator.share) {
@@ -21,7 +27,7 @@ const POC: NextPage = () => {
   }
   return (
     <div>
-      <PrimaryButton onClick={handleShare}>Share</PrimaryButton>
+      {isSupportShare ? <PrimaryButton onClick={handleShare}>Share</PrimaryButton> : <h1>Not Support Share API</h1>}
     </div>
   )
 }
