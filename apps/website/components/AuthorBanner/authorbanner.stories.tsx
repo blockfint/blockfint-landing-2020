@@ -1,8 +1,14 @@
-const Test = () => <h1>Test</h1>
+import { Container } from '@material-ui/core'
+import React from 'react'
+import { AuthorBanner } from '.'
 
 export default {
-  component: Test,
-  title: 'Test'
+  component: AuthorBanner,
+  title: 'Components/AuthorBanner'
 }
 
-export const Basic = () => <Test />
+export const Basic = () => (
+  <Container maxWidth="sm">
+    <AuthorBanner />
+  </Container>
+)
