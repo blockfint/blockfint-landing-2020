@@ -7,8 +7,21 @@ export default {
   title: 'Components/AuthorBanner'
 }
 
-export const Basic = () => (
+const Template = (args) => (
   <Container maxWidth="sm">
     <AuthorBanner />
   </Container>
 )
+export const Mobile = Template.bind({})
+Mobile.parameters = {
+  viewport: {
+    defaultViewport: 'mobile'
+  }
+}
+export const Tablet = Template.bind({})
+Tablet.parameters = {
+  viewport: {
+    defaultViewport: 'tablet'
+  }
+}
+export const Desktop = Template.bind({})

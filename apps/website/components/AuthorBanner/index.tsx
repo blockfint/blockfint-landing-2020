@@ -38,7 +38,7 @@ const Description = styled.p`
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   max-height: 120px;
-  overflow-y: hidden;
+  overflow: hidden;
   @media ${BREAKPOINT.tablet} {
     padding-right: 1rem;
     -webkit-line-clamp: 3;
