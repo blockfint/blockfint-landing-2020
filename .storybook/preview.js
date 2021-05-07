@@ -1,9 +1,12 @@
 import { configure, addDecorator } from '@storybook/react'
 import React from 'react'
-import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles'
 import { withPerformance } from 'storybook-addon-performance'
 import { withNextRouter } from 'storybook-addon-next-router'
 import * as nextImage from 'next/image'
+import { AllStyleProvider } from '@blockfint/website/styles/globalStyle'
+import { typography } from '@blockfint/website/styles/typography'
+import { createGlobalStyle } from 'styled-components'
+
 addDecorator(
   withNextRouter({
     path: '/', // defaults to `/`
@@ -124,21 +127,31 @@ Object.defineProperty(nextImage, 'default', {
     )
   }
 })
-
+const Global = createGlobalStyle`
+body{
+  ${typography}
+}
+`
 // Global decorator to apply the styles to all stories
 export const decorators = [
   (Story) => (
-    <StylesProvider injectFirst>
-      <MuiThemeProvider>
-        <Story />
-      </MuiThemeProvider>
-    </StylesProvider>
+    <AllStyleProvider>
+      <Global />
+      <Story />
+    </AllStyleProvider>
   )
 ]
 
 export const parameters = {
   layout: 'center',
   actions: { argTypesRegex: '^on[A-Z].*' },
+  // Storybook a11y addon configuration
+  a11y: {
+    // the target DOM element
+    element: '#root',
+    // sets the execution mode for the addon
+    manual: false
+  },
   viewport: {
     viewports: {
       mobile: {
