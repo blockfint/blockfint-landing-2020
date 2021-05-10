@@ -41,6 +41,7 @@
           "options": {
             "uiFramework": "@storybook/react",
             "port": 4403,
+            "staticDir": ["apps/website/public"],
             "config": { "configFolder": "apps/website/.storybook" }
           },
           "configurations": { "ci": { "quiet": true } }
