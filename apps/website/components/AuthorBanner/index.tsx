@@ -50,19 +50,24 @@ const Description = styled.p`
     max-height: 60px;
   }
 `
-export const AuthorBanner = () => {
+interface AuthorBannerProps {
+  imgSrc?: string
+  authorName: string
+  description: string
+}
+export const AuthorBanner: React.FC<AuthorBannerProps> = ({
+  imgSrc,
+  authorName = 'Name',
+  description = 'Description'
+}) => {
   return (
     <Container>
       <ImageBorder>
-        <Image src={'/images/mailbox.png'} width={285} height={291} alt="Mailbox" />
+        <Image src={imgSrc} width={285} height={291} alt="Author" />
       </ImageBorder>
       <TextSection>
-        <h5>Nick Suttipong</h5>
-        <Description>
-          Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu
-          velit tempus erat.Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Duis eu velit tempus erat.
-        </Description>
+        <h5>{authorName}</h5>
+        <Description>{description}</Description>
       </TextSection>
     </Container>
   )
