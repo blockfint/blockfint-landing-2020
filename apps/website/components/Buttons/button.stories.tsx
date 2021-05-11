@@ -1,3 +1,4 @@
+import { BlogButton } from './BlogButton'
 import { LinkButton } from './LinkButton'
 import { OrangeButton } from './OrangeButton'
 import { PrimaryButton } from './PrimaryButton'
@@ -14,3 +15,5 @@ export const Orange = () => <OrangeButton />
 export const Primary = () => <PrimaryButton />
 
 export const Secondary = () => <SecondaryButton />
+
+export const Blog = () => <BlogButton>See More</BlogButton>
