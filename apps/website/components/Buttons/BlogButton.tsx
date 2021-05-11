@@ -1,7 +1,7 @@
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import React from 'react'
 import styled from 'styled-components'
-const Button = styled.button`
+export const BlogButton = styled.button`
   width: 188px;
   height: 50px;
   border-radius: 32px;
@@ -20,6 +20,3 @@ const Button = styled.button`
     width: 261px;
   }
 `
-export const BlogButton: React.FC = ({ children }) => {
-  return <Button>{children}</Button>
-}
