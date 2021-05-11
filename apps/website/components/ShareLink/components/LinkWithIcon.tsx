@@ -10,12 +10,14 @@ interface Props {
   link: string
   src: string
   alt: string
+  style?: React.CSSProperties
+  disableLink?: boolean
 }
-export const LinkWithIcon: React.FC<Props> = ({ link, src, alt }) => {
+export const LinkWithIcon: React.FC<Props> = ({ link, src, alt, style, disableLink = false }) => {
   return (
-    <a href={link}>
+    <a href={link} style={{ pointerEvents: disableLink ? 'none' : 'auto' }}>
       <IconLink>
-        <img src={src} alt={alt} />
+        <img src={src} alt={alt} style={style} />
       </IconLink>
     </a>
   )
