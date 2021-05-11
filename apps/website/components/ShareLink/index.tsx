@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { LinkWithIcon } from './components/LinkWithIcon'
+import { linkShareList } from './constants/linkShareList'
 const Wrapper = styled.div`
   height: 44px;
   width: 277px;
@@ -10,28 +12,20 @@ const Wrapper = styled.div`
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.08);
   border: solid 1px #eaeaea;
   background-color: var(--white);
-`
-const IconLink = styled.button`
-  background-color: var(--white);
-  height: 100%;
-  width: 100%;
-  border: 0;
-`
-const TagLink = styled.a`
-  :not(:first-child) {
-    border-left: solid 1px #eaeaea;
+  a {
+    :not(:first-child) {
+      border-left: solid 1px #eaeaea;
+    }
   }
 `
-interface Props {
-  facebookLink: string
-  twiiterLink: string
-  lineLink: string
-  clipboardLink: string
-}
-export const ShareLink: React.FC<Props> = ({ facebookLink, twiiterLink, lineLink, clipboardLink }) => {
+
+export const ShareLink: React.FC = () => {
   return (
     <Wrapper>
-      <TagLink href={facebookLink}>
+      {linkShareList.map(({ name, link, src }) => (
+        <LinkWithIcon link={link} alt={name} src={src} />
+      ))}
+      {/* <TagLink href={facebookLink}>
         <IconLink>
           <img src="/icons/facebook-colored.svg" alt="facebook share link" />
         </IconLink>
@@ -50,7 +44,7 @@ export const ShareLink: React.FC<Props> = ({ facebookLink, twiiterLink, lineLink
         <IconLink>
           <img src="/icons/clipboard.svg" alt="copy to clipboard" />
         </IconLink>
-      </TagLink>
+      </TagLink> */}
     </Wrapper>
   )
 }
