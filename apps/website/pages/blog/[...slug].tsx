@@ -40,8 +40,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export async function getStaticProps({ locale, params }) {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
   const [category, slug] = params.slug
-  console.log(slug)
-  //tot
   const post = await getSinglePost(slug)
 
   if (!post) {
