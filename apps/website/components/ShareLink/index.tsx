@@ -25,26 +25,6 @@ export const ShareLink: React.FC = () => {
       {linkShareList.map(({ name, link, src }) => (
         <LinkWithIcon link={link} alt={name} src={src} />
       ))}
-      {/* <TagLink href={facebookLink}>
-        <IconLink>
-          <img src="/icons/facebook-colored.svg" alt="facebook share link" />
-        </IconLink>
-      </TagLink>
-      <TagLink href={twiiterLink}>
-        <IconLink>
-          <img src="/icons/twitter-colored.svg" alt="twitter share link" />
-        </IconLink>
-      </TagLink>
-      <TagLink href={lineLink}>
-        <IconLink>
-          <img src="/icons/line-colored.svg" alt="line share link" />
-        </IconLink>
-      </TagLink>
-      <TagLink href={clipboardLink}>
-        <IconLink>
-          <img src="/icons/clipboard.svg" alt="copy to clipboard" />
-        </IconLink>
-      </TagLink> */}
     </Wrapper>
   )
 }
