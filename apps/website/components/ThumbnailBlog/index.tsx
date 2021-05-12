@@ -141,7 +141,7 @@ const Description = styled.p`
   }
 `
 interface Props {
-  imgSrc?: string
+  image?: string
   tag?: string
   title?: string
   publishDate?: Date
@@ -149,7 +149,7 @@ interface Props {
   description?: string
 }
 export const ThumbnailBlog: React.FC<Props> = ({
-  imgSrc,
+  image,
   tag = 'TECHNOLOGY',
   title = 'No Title',
   publishDate,
@@ -158,7 +158,7 @@ export const ThumbnailBlog: React.FC<Props> = ({
 }) => {
   return (
     <Wrapper size={size}>
-      <ImageWrapper imgSrc={imgSrc} size={size} />
+      <ImageWrapper imgSrc={image} size={size} />
       <TextSection size={size}>
         <Tag>
           <h6>{tag}</h6>
