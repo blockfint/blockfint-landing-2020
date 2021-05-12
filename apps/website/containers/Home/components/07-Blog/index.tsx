@@ -46,10 +46,18 @@ export const Blog: React.FC = () => {
           <ThumbnailBlog
             image="/images/kbtg.jpg"
             title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
+            description=""
+            publishDate={new Date()}
+            tagLink=""
+            blogLink=""
           />
           <ThumbnailBlog
             image="/images/kbtg.jpg"
             title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor "
+            description=""
+            publishDate={new Date()}
+            tagLink=""
+            blogLink=""
           />
         </BlogWrapper>
       </CustomContainer>
