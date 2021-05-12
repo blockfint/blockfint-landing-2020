@@ -1,9 +1,9 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import dayjs from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { LinkWrapper } from './components/LinkWrapper'
-const Wrapper = styled.div<{ size: 'M' | 'L' }>`
+const Wrapper = styled.div<{ size: sizeType }>`
   display: grid;
   grid-gap: 1rem;
   ${({ size }) => {
@@ -25,7 +25,7 @@ const Wrapper = styled.div<{ size: 'M' | 'L' }>`
     }
   }};
 `
-const ImageWrapper = styled.div<{ imgSrc: string; size: 'M' | 'L' }>`
+const ImageWrapper = styled.div<{ imgSrc: string; size: sizeType }>`
   height: 172px;
   border-radius: 8px;
   background-color: #c4c4c4;
@@ -70,7 +70,7 @@ const DateTime = styled.div`
 const Date = styled.h6`
   color: #bdbdbd;
 `
-const TextSection = styled.div<{ size: 'M' | 'L' }>`
+const TextSection = styled.div<{ size: sizeType }>`
   display: grid;
   grid-row-gap: 0.5rem;
   align-items: center;
@@ -147,22 +147,23 @@ const Tag = styled.div`
   grid-area: tag;
   color: #4f4f4f;
 `
+type sizeType = 'S' | 'M' | 'L'
 interface Props {
   image?: string
-  title?: string
-  publishDate?: Date
-  size?: 'M' | 'L'
-  description?: string
+  title: string
+  description: string
+  publishDate: Date | Dayjs | string
+  size?: sizeType
   tag?: string
   tagLink: string
-  blogLink?: string
+  blogLink: string
 }
 export const ThumbnailBlog: React.FC<Props> = ({
-  image,
-  title = 'No Title',
-  publishDate,
-  size,
+  image = '/images/thumbnail.png',
+  title,
   description,
+  publishDate,
+  size = 'S',
   tag = 'TECHNOLOGY',
   tagLink,
   blogLink
