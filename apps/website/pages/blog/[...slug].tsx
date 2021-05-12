@@ -7,18 +7,18 @@ import { BlogDetail } from '@blockfint/website/containers/BlogDetail'
 import { Layout } from '@blockfint/website/components/layouts'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
-import { Container } from '@material-ui/core'
+import { PostOrPage } from '@tryghost/content-api'
 const Global = createGlobalStyle`
 body{
   ${typography}
 }
 `
-const BlogDetailPage: NextPage<{ post: any }> = ({ post }) => {
+const BlogDetailPage: NextPage<{ post: PostOrPage }> = ({ post }) => {
   return (
     <>
       <Global />
       <Layout>
-        <Container maxWidth="lg">{post.html && <BlogDetail html={post.html} />}</Container>
+        <BlogDetail post={post} />
       </Layout>
     </>
   )

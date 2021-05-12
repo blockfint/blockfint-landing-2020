@@ -1,8 +1,17 @@
+import { ContactBanner } from '@blockfint/website/components/ContactBanner'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
+import { Container } from '@material-ui/core'
+import { PostOrPage } from '@tryghost/content-api'
+import Image from 'next/image'
 import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
+import { Breadcrumb } from './components/Breadcrumb'
 
+export const Wrapper = styled.div`
+  margin-top: 2.625rem;
+`
 export const GhostContent = styled.div`
+  margin-bottom: 2.5rem;
   h2 {
     //h2 of Ghost are h5 of us (mobile)
     font-weight: 700;
@@ -110,11 +119,31 @@ export const GhostContent = styled.div`
     }
   }
 `
+const TopImage = styled.div`
+  width: 100vw;
+`
+const Title = styled.h2`
+  text-align: center;
+  margin-bottom: 3.75rem;
+`
 
-export const BlogDetail: React.FC<{ html: string }> = ({ html }) => {
+export const BlogDetail: React.FC<{ post: PostOrPage }> = ({ post }) => {
+  console.log(post)
   return (
-    <GhostContent>
-      <div dangerouslySetInnerHTML={{ __html: html }} className="gh-content gh-canvas" />
-    </GhostContent>
+    <Wrapper>
+      <Container maxWidth="lg">
+        <Breadcrumb />
+        <Title>{post?.title}</Title>
+      </Container>
+      <TopImage>
+        <Image src={post?.feature_image} width={2000} height={1215} layout="responsive" />
+      </TopImage>
+      <Container maxWidth="lg">
+        <GhostContent>
+          <div dangerouslySetInnerHTML={{ __html: post?.html }} className="gh-content gh-canvas" />
+        </GhostContent>
+      </Container>
+      <ContactBanner />
+    </Wrapper>
   )
 }
