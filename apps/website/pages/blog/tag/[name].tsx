@@ -23,7 +23,7 @@ export default BlogByTagPage
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     //TODO get all tag
-    paths: [{ params: { name: 'DEFI' } }],
+    paths: [{ params: { name: 'defi' } }],
     fallback: false
   }
 }

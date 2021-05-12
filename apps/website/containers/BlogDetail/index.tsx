@@ -3,6 +3,7 @@ import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { Container } from '@material-ui/core'
 import { PostOrPage } from '@tryghost/content-api'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 import { Breadcrumb } from './components/Breadcrumb'
@@ -127,8 +128,21 @@ const Title = styled.h2`
   margin-bottom: 3.75rem;
 `
 
-export const BlogDetail: React.FC<{ post: PostOrPage }> = ({ post }) => {
-  console.log(post)
+const TagA = styled.a`
+  color: inherit;
+  text-decoration: inherit;
+  &:after {
+    content: ', ';
+  }
+  :last-child {
+    &:after {
+      content: '';
+    }
+  }
+`
+
+type Props = { post: PostOrPage; tags: any[] }
+export const BlogDetail: React.FC<Props> = ({ post, tags = ['defi', 'crypto', 'blockchain'] }) => {
   return (
     <Wrapper>
       <Container maxWidth="lg">
@@ -142,6 +156,14 @@ export const BlogDetail: React.FC<{ post: PostOrPage }> = ({ post }) => {
         <GhostContent>
           <div dangerouslySetInnerHTML={{ __html: post?.html }} className="gh-content gh-canvas" />
         </GhostContent>
+        <h6>
+          Tags:{' '}
+          {tags.map((tag) => (
+            <Link key={tag} href={`/blog/tag/${tag}`} passHref>
+              <TagA>{tag}</TagA>
+            </Link>
+          ))}
+        </h6>
       </Container>
       <ContactBanner />
     </Wrapper>
