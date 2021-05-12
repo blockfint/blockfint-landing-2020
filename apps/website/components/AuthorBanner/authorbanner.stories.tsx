@@ -1,8 +1,31 @@
-const Test = () => <h1>Test</h1>
+import { Container } from '@material-ui/core'
+import React from 'react'
+import { AuthorBanner } from '.'
 
 export default {
-  component: Test,
-  title: 'Test'
+  component: AuthorBanner,
+  title: 'Components/AuthorBanner'
 }
 
-export const Basic = () => <Test />
+const Template = (args) => (
+  <Container maxWidth="sm">
+    <AuthorBanner
+      imgSrc="/images/mailbox.png"
+      authorName="Nick Suttipong"
+      description="Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat."
+    />
+  </Container>
+)
+export const Mobile = Template.bind({})
+Mobile.parameters = {
+  viewport: {
+    defaultViewport: 'mobile'
+  }
+}
+export const Tablet = Template.bind({})
+Tablet.parameters = {
+  viewport: {
+    defaultViewport: 'tablet'
+  }
+}
+export const Desktop = Template.bind({})
