@@ -1,7 +1,10 @@
+import { AuthorBanner } from '@blockfint/website/components/AuthorBanner'
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
+import { ShareButton } from '@blockfint/website/components/ShareButton'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { Container } from '@material-ui/core'
 import { PostOrPage } from '@tryghost/content-api'
+import dayjs from 'dayjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -12,7 +15,9 @@ export const Wrapper = styled.div`
   margin-top: 2.625rem;
 `
 export const GhostContent = styled.div`
-  margin-bottom: 2.5rem;
+  // container
+  max-width: 32.5rem;
+  margin: 2.5rem auto 2.5rem;
   h2 {
     //h2 of Ghost are h5 of us (mobile)
     font-weight: 700;
@@ -93,22 +98,15 @@ export const GhostContent = styled.div`
       font-size: 20px;
       line-height: 38px;
     }
-    // container
-    .gh-content {
-      max-width: 32.5rem;
-      margin: 0 auto;
-    }
   }
   @media ${BREAKPOINT.desktop} {
+    // container
+    max-width: 50rem;
+    margin: 2.5rem auto 2.5rem;
     h2 {
       //h2 of Ghost are h5 of us
       font-size: 24px;
       line-height: 38px;
-    }
-    // container
-    .gh-content {
-      max-width: 50rem;
-      margin: 0 auto;
     }
 
     .kg-width-wide {
@@ -140,32 +138,72 @@ const TagA = styled.a`
     }
   }
 `
+const AuthorWrapper = styled.div`
+  margin: 80px 0;
+`
+const LeftRight = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
 
+const DateTime = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  align-items: center;
+  grid-column-gap: 0.5rem;
+  grid-area: datetime;
+`
+const Date = styled.h6`
+  color: #bdbdbd;
+`
+const Icon = styled.img`
+  width: 16px;
+  height: 16px;
+`
 type Props = { post: PostOrPage; tags: any[] }
 export const BlogDetail: React.FC<Props> = ({ post, tags = ['defi', 'crypto', 'blockchain'] }) => {
   return (
-    <Wrapper>
-      <Container maxWidth="lg">
-        <Breadcrumb />
-        <Title>{post?.title}</Title>
-      </Container>
-      <TopImage>
-        <Image src={post?.feature_image} width={2000} height={1215} layout="responsive" />
-      </TopImage>
-      <Container maxWidth="lg">
-        <GhostContent>
-          <div dangerouslySetInnerHTML={{ __html: post?.html }} className="gh-content gh-canvas" />
-        </GhostContent>
-        <h6>
-          Tags:{' '}
-          {tags.map((tag) => (
-            <Link key={tag} href={`/blog/tag/${tag}`} passHref>
-              <TagA>{tag}</TagA>
-            </Link>
-          ))}
-        </h6>
-      </Container>
+    <>
+      <Wrapper>
+        <Container maxWidth="lg">
+          <Breadcrumb />
+          <Title>{post?.title}</Title>
+        </Container>
+        <TopImage>
+          <Image src={post?.feature_image} width={2000} height={1215} layout="responsive" />
+        </TopImage>
+        <Container maxWidth="lg">
+          <GhostContent>
+            <LeftRight>
+              <DateTime>
+                <Icon src="/icons/clock.svg" alt="clock" />
+                <Date>{dayjs(post.published_at).format('DD MMMM YYYY')}</Date>
+              </DateTime>
+              <ShareButton />
+            </LeftRight>
+            <div dangerouslySetInnerHTML={{ __html: post?.html }} className="gh-content gh-canvas" />
+          </GhostContent>
+          <h6>
+            Tags:{' '}
+            {tags.map((tag) => (
+              <Link key={tag} href={`/blog/tag/${tag}`} passHref>
+                <TagA>{tag}</TagA>
+              </Link>
+            ))}
+          </h6>
+          <hr />
+          <AuthorWrapper>
+            <AuthorBanner
+              authorName="Johnny"
+              description={
+                'Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat.'
+              }
+              imgSrc="/images/suwan2x.png"
+            />
+          </AuthorWrapper>
+        </Container>
+      </Wrapper>
       <ContactBanner />
-    </Wrapper>
+    </>
   )
 }
