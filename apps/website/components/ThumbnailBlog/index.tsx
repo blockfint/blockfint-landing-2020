@@ -158,7 +158,7 @@ export const ThumbnailBlog: React.FC<Props> = ({
 }) => {
   return (
     <Wrapper size={size}>
-      <ImageWrapper imgSrc={image} size={size} />
+      <ImageWrapper className="imageWrapper" imgSrc={image} size={size} />
       <TextSection size={size}>
         <Tag>
           <h6>{tag}</h6>
