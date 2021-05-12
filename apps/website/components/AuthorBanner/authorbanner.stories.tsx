@@ -10,7 +10,7 @@ export default {
 const Template = (args) => (
   <Container maxWidth="sm">
     <AuthorBanner
-      imgSrc="/images/mailbox.png"
+      image="/images/mailbox.png"
       authorName="Nick Suttipong"
       description="Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat."
     />
