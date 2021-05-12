@@ -5,6 +5,7 @@ import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 const Wrapper = styled.div<{ size: 'M' | 'L' }>`
   display: grid;
   grid-gap: 1rem;
+  grid-auto-rows: max-content;
   ${({ size }) => {
     if (size === 'M') {
       return css`

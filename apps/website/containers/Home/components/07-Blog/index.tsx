@@ -49,7 +49,7 @@ export const Blog: React.FC = () => {
           />
           <ThumbnailBlog
             image="/images/kbtg.jpg"
-            title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
+            title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor "
           />
         </BlogWrapper>
       </CustomContainer>
