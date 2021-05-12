@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import dayjs from 'dayjs'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
+import { LinkWrapper } from './components/LinkWrapper'
 const Wrapper = styled.div<{ size: 'M' | 'L' }>`
   display: grid;
   grid-gap: 1rem;
@@ -58,14 +59,7 @@ const ImageWrapper = styled.div<{ imgSrc: string; size: 'M' | 'L' }>`
     }
   }}
 `
-const Tag = styled.div`
-  width: 134px;
-  height: 30px;
-  background-color: #e0e0e0;
-  text-align: center;
-  color: #4f4f4f;
-  grid-area: tag;
-`
+
 const DateTime = styled.div`
   display: grid;
   grid-template-columns: repeat(2, max-content);
@@ -82,17 +76,21 @@ const TextSection = styled.div<{ size: 'M' | 'L' }>`
   align-items: center;
   grid-template-areas:
     'tag'
-    'titletext'
+    'grouptext'
     'datetime';
   ${({ size }) => {
     if (size === 'M') {
       return css`
         @media ${BREAKPOINT.desktop} {
           grid-template-areas:
-            'titletext titletext .'
-            'description description .'
-            'tag datetime datetime';
+            'grouptext grouptext grouptext'
+            'tag datetime .';
           grid-column-gap: 0.5rem;
+          h5 {
+            font-size: 32px;
+            line-height: 1.44;
+            max-height: 138px;
+          }
         }
       `
     } else if (size === 'L') {
@@ -115,6 +113,9 @@ const TextSection = styled.div<{ size: 'M' | 'L' }>`
     }
   }};
 `
+const GroupText = styled.div`
+  grid-area: grouptext;
+`
 const Icon = styled.img`
   width: 16px;
   height: 16px;
@@ -125,7 +126,6 @@ const TitleText = styled.h5`
   -webkit-box-orient: vertical;
   max-height: 114px;
   overflow: hidden;
-  grid-area: titletext;
 `
 const Description = styled.p`
   display: -webkit-box;
@@ -133,38 +133,57 @@ const Description = styled.p`
   -webkit-box-orient: vertical;
   max-height: 60px;
   overflow: hidden;
-  grid-area: description;
   display: none;
   @media ${BREAKPOINT.desktop} {
     display: block;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem 0;
   }
+`
+const Tag = styled.div`
+  width: 134px;
+  height: 30px;
+  background-color: #e0e0e0;
+  text-align: center;
+  grid-area: tag;
+  color: #4f4f4f;
 `
 interface Props {
   image?: string
-  tag?: string
   title?: string
   publishDate?: Date
   size?: 'M' | 'L'
   description?: string
+  tag?: string
+  tagLink: string
+  blogLink?: string
 }
 export const ThumbnailBlog: React.FC<Props> = ({
   image,
-  tag = 'TECHNOLOGY',
   title = 'No Title',
   publishDate,
   size,
-  description
+  description,
+  tag = 'TECHNOLOGY',
+  tagLink,
+  blogLink
 }) => {
   return (
     <Wrapper size={size}>
-      <ImageWrapper imgSrc={image} size={size} />
+      <LinkWrapper href={blogLink}>
+        <ImageWrapper imgSrc={image} size={size} />
+      </LinkWrapper>
       <TextSection size={size}>
         <Tag>
-          <h6>{tag}</h6>
+          <LinkWrapper href={tagLink}>
+            <h6>{tag}</h6>
+          </LinkWrapper>
         </Tag>
-        <TitleText>{title}</TitleText>
-        {size === 'M' && <Description>{description}</Description>}
+        <GroupText>
+          <LinkWrapper href={blogLink}>
+            <TitleText>{title}</TitleText>
+            {size === 'M' && <Description>{description}</Description>}
+          </LinkWrapper>
+        </GroupText>
         <DateTime>
           <Icon src="/icons/clock.svg" alt="clock" />
           <Date>{dayjs(publishDate).format('DD MMMM YYYY')}</Date>
