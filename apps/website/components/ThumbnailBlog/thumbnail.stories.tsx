@@ -10,6 +10,8 @@ const Template = (args) => (
     <ThumbnailBlog
       image="/images/kbtg.jpg"
       title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor consectetur adipiscing elit,"
+      tagLink=""
+      blogLink=""
       {...args}
     />
     <hr style={{ margin: '50px' }} />
@@ -20,6 +22,8 @@ const Template = (args) => (
       title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor consectetur adipiscing elit,sed do eiusmod tempor consectetur adipiscing elit,"
       size="M"
       description="Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla"
+      tagLink=""
+      blogLink=""
       {...args}
     />
     <hr style={{ margin: '50px' }} />
@@ -29,6 +33,8 @@ const Template = (args) => (
       image="/images/kbtg.jpg"
       title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor consectetur adipiscing elit,"
       size="L"
+      tagLink=""
+      blogLink=""
       {...args}
     />
   </>

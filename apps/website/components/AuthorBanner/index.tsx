@@ -69,21 +69,22 @@ const Description = styled.p`
   }
 `
 interface AuthorBannerProps {
-  imgSrc?: string
   imgSize?: 'small' | 'large'
+  image?: string
   authorName: string
   description: string
 }
 export const AuthorBanner: React.FC<AuthorBannerProps> = ({
-  imgSrc,
+  image = '/images/thumbnail.png',
   imgSize = 'large',
-  authorName = 'Name',
-  description = 'Description'
+  authorName,
+
+  description
 }) => {
   return (
     <Container>
       <ImageBorder className={imgSize}>
-        <Image src={imgSrc} width={180} height={180} alt="Author" />
+        <Image src={image} width={180} height={180} alt="Author" />
       </ImageBorder>
       <TextSection>
         <h5>{authorName}</h5>
