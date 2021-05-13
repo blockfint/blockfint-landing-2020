@@ -17,7 +17,10 @@ export const Wrapper = styled.div`
 export const GhostContent = styled.div`
   // container
   max-width: 32.5rem;
-  margin: 2.5rem auto 2.5rem;
+  margin: 0 auto;
+  .gh-content {
+    margin: 2.5rem auto 2.5rem;
+  }
   h2 {
     //h2 of Ghost are h5 of us (mobile)
     font-weight: 700;
@@ -93,6 +96,9 @@ export const GhostContent = styled.div`
   }
 
   @media ${BREAKPOINT.tablet} {
+    .gh-content {
+      margin: 3.75rem auto 3.75rem;
+    }
     h2 {
       //h2 of Ghost are h5 of us
       font-size: 20px;
@@ -101,8 +107,9 @@ export const GhostContent = styled.div`
   }
   @media ${BREAKPOINT.desktop} {
     // container
+
     max-width: 50rem;
-    margin: 2.5rem auto 2.5rem;
+
     h2 {
       //h2 of Ghost are h5 of us
       font-size: 24px;
@@ -120,6 +127,7 @@ export const GhostContent = styled.div`
 `
 const TopImage = styled.div`
   width: 100vw;
+  padding-bottom: 1.5rem;
 `
 const Title = styled.h2`
   text-align: center;
@@ -160,6 +168,11 @@ const Icon = styled.img`
   width: 16px;
   height: 16px;
 `
+
+const Tag = styled.h6`
+  text-align: center;
+  margin-bottom: 1.5rem;
+`
 type Props = { post: PostOrPage; tags: any[] }
 export const BlogDetail: React.FC<Props> = ({ post, tags = ['defi', 'crypto', 'blockchain'] }) => {
   return (
@@ -183,20 +196,20 @@ export const BlogDetail: React.FC<Props> = ({ post, tags = ['defi', 'crypto', 'b
             </LeftRight>
             <div dangerouslySetInnerHTML={{ __html: post?.html }} className="gh-content gh-canvas" />
           </GhostContent>
-          <h6>
+          <Tag>
             Tags:{' '}
             {tags.map((tag) => (
               <Link key={tag} href={`/blog/tag/${tag}`} passHref>
                 <TagA>{tag}</TagA>
               </Link>
             ))}
-          </h6>
+          </Tag>
           <hr />
           <AuthorWrapper>
             <AuthorBanner
               authorName="Johnny"
               description={
-                'Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat.'
+                'Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit '
               }
               imgSrc="/images/suwan2x.png"
             />
