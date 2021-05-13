@@ -211,7 +211,7 @@ export const BlogDetail: React.FC<Props> = ({ post, tags = ['defi', 'crypto', 'b
               description={
                 'Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit '
               }
-              imgSrc="/images/suwan2x.png"
+              image="/images/suwan2x.png"
             />
           </AuthorWrapper>
         </Container>
