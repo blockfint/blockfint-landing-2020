@@ -31,21 +31,7 @@ const ShareButtonCSR: React.FC = () => {
     }
     return false
   }, [])
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'Title share API POC',
-          text: 'Text share API POC',
-          url: 'https://blockfint.com'
-        })
-      } catch (error) {
-        console.log(error)
-      }
-    } else {
-      alert('Not Support')
-    }
-  }
+
   return (
     <>
       {isSupportShare && <ShareWithModal />}

@@ -50,18 +50,18 @@ const CopyButton = styled.button`
   border: 0;
   cursor: pointer;
 `
-const textlink = 'http://www.blockfint.com'
 
 export const ShareWithModal: React.FC = () => {
+  const textLink = window.location.href
   const [open, setOpen] = React.useState(false)
   const [showAlert, setShowAlert] = React.useState({ open: false, massage: 'Copy to Clipboard!' })
   const handleOpen = async () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Title share API POC',
-          text: 'Text share API POC',
-          url: textlink
+          // title: 'Title share API POC',
+          // text: 'Text share API POC',
+          url: textLink
         })
       } catch (error) {
         console.log(error)
@@ -74,7 +74,7 @@ export const ShareWithModal: React.FC = () => {
     setOpen(false)
   }
   const handleClickCopy = () => {
-    navigator.clipboard.writeText(textlink).then(
+    navigator.clipboard.writeText(textLink).then(
       function () {
         setShowAlert((prev) => {
           return { ...prev, open: true }
@@ -103,7 +103,7 @@ export const ShareWithModal: React.FC = () => {
               <LinkWithIcon key={name} alt={name} src={src} link={link} style={{ width: '40px' }} />
             ))}
           </LinkWrapper>
-          <TextFieldLink value={textlink} onChange={() => null} />
+          <TextFieldLink value={textLink} onChange={() => null} />
           <ClipboardWrapper>
             <LinkWithIcon
               key={linkShareList[3].name}
