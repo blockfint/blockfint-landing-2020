@@ -173,8 +173,9 @@ const Tag = styled.h6`
   text-align: center;
   margin-bottom: 1.5rem;
 `
-type Props = { post: PostOrPage; tags: any[] }
-export const BlogDetail: React.FC<Props> = ({ post, tags = ['defi', 'crypto', 'blockchain'] }) => {
+type Props = { post: PostOrPage }
+export const BlogDetail: React.FC<Props> = ({ post }) => {
+  const tags = ['defi', 'crypto', 'blockchain']
   return (
     <>
       <Wrapper>
