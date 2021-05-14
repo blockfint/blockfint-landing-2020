@@ -61,14 +61,14 @@ const projects = [
   },
   {
     id: 'neo_bank',
-    name: 'Neo Bank',
+    name: 'Thinker Bank',
     image: '/images/neobank-card.png',
     description: 'The New era of Banking Services.',
     link: '/products/neobank'
   },
   {
     id: 'thinker',
-    name: 'Thinker',
+    name: 'Thinker Wise',
     image: '/images/thinker-card.png',
     description: 'Make Rapid, Optimized & Data Driven Decision.',
     link: '/products/thinker'

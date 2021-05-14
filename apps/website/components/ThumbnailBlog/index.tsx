@@ -6,6 +6,7 @@ import { LinkWrapper } from './components/LinkWrapper'
 const Wrapper = styled.div<{ size: sizeType }>`
   display: grid;
   grid-gap: 1rem;
+  grid-auto-rows: max-content;
   ${({ size }) => {
     if (size === 'M') {
       return css`
@@ -171,7 +172,7 @@ export const ThumbnailBlog: React.FC<Props> = ({
   return (
     <Wrapper size={size}>
       <LinkWrapper href={blogLink}>
-        <ImageWrapper imgSrc={image} size={size} />
+        <ImageWrapper className="imageWrapper" imgSrc={image} size={size} />
       </LinkWrapper>
       <TextSection size={size}>
         <Tag>

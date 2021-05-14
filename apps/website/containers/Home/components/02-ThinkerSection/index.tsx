@@ -29,8 +29,8 @@ export const ThinkerSection: React.FC = () => {
     <Container maxWidth="lg">
       <Content>
         <ThinkerImage />
-        <Title style={{ color: 'var(--primary)' }}>Thinker</Title>
-        <Title>Make Rapid, Optimized & Data Driven Decision </Title>
+        <Title style={{ color: 'var(--primary)' }}>Thinker Wise</Title>
+        <Title>{t('home.thinker-sub-title')}</Title>
         <Desc>{t('home.thinker-desc')}</Desc>
         <Link href={'/products/thinker'} passHref>
           <a>
