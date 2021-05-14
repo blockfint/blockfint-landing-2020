@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import React from 'react'
 import { typography } from '@blockfint/website/styles/typography'
 import { createGlobalStyle } from 'styled-components'
-import { getAllPosts } from '../api/ghostCMS/index'
+import { getAllPosts } from '../../api/ghostCMS/index'
 import { TestContents } from '../../containers/blog'
 import { typeOf } from 'react-is'
 
