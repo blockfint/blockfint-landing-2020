@@ -268,7 +268,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
                       inputProps={service}
                     >
                       <option value="" disabled></option>
-                      {['Agri Trac', 'Gideon', 'Neo Bank', 'Thinker'].map((value) => (
+                      {['Agri Trac', 'Gideon', 'Thinker Bank', 'Thinker Wise'].map((value) => (
                         <option value={value} key={value}>
                           {value}
                         </option>
