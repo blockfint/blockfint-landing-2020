@@ -1,5 +1,5 @@
 import React from 'react'
-import { getSinglePost } from '../../pages/blog/ghostCMS/index'
+import { getSinglePost } from '../../pages/api/ghostCMS/index'
 
 export const TestContents = ({ data }) => {
   const ShowSinglePost = async (id) => {
