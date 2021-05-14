@@ -21,7 +21,6 @@ export const getStaticProps = async ({ params }) => {
 }
 
 const BlogPage: React.FC = (props) => {
-  console.log(props)
   return (
     <>
       <Global />

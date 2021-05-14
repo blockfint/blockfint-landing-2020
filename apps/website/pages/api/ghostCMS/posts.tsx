@@ -69,17 +69,17 @@ export async function getTags(): Promise<GhostTags> {
   return await ghostApi.tags.browse(tagAndAuthorFetchOptions)
 }
 export async function getSingleTag(props?: { limit: number }): Promise<GhostPostOrPage> {
-  return await ghostApi.tags.read({ slug: 'Ghost' }, { include: 'count.posts' })
+  return await ghostApi.tags.read({ slug: `${props}` }, { include: 'count.posts' })
 }
 
 export async function getAuthors() {
   return await ghostApi.authors.browse(tagAndAuthorFetchOptions)
 }
 export async function getSingleAuthor(props?: { limit: number }): Promise<GhostPostOrPage> {
-  return await ghostApi.authors.read({ slug: 'blockfint' }, { include: 'count.posts' }) // include can be array for any of these
+  return await ghostApi.authors.read({ slug: `${props}` }, { include: 'count.posts' }) // include can be array for any of these
 }
 export async function getPostsByAuthor(props?: { limit: number }): Promise<GhostPostOrPage> {
-  const post = await ghostApi.posts.browse({ filter: 'primary_author:blockfint' })
+  const post = await ghostApi.posts.browse({ filter: `primary_author:${props}` })
   return post
 }
 

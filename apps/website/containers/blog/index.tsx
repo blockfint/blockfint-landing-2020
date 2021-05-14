@@ -4,7 +4,6 @@ import { getSinglePost } from '../../pages/api/ghostCMS/index'
 export const TestContents = ({ data }) => {
   const ShowSinglePost = async (id) => {
     const post = await getSinglePost(id)
-    console.log(post)
   }
   const idPost = data.AllBlogs.map((post) => post.id)
   return (
