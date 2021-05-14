@@ -12,7 +12,7 @@ export const ProductNeoBank: React.FC = () => {
     <>
       <ProductDetail
         {...{
-          name: 'Neo bank',
+          name: 'Thinker Bank',
           title: 'White label digital banking solutions',
           description: t('work-details.neobank-desc'),
 
