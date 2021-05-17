@@ -17,7 +17,7 @@ export const ProductAgriTrac: React.FC = () => {
       <ProductDetail
         {...{
           name: 'Agri Trac',
-          title: 'Advance Tracablity For Agricuture',
+          title: t('common.agri-quote'),
           description: t('work-details.agri-trac-desc'),
 
           secondaryTitle: t('work-details.agri-trac-secondary-title')

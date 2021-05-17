@@ -41,28 +41,28 @@ export const Works = () => {
         id: 'gideon',
         name: 'Gideon',
         image: '/images/gideon-card.png',
-        description: t('works.gideon-desc'),
+        description: t('common.gideon-quote'),
         link: '/products/gideon'
       },
       {
         id: 'neo_bank',
         name: 'Thinker Bank',
         image: '/images/neobank-card.png',
-        description: t('works.neobank-desc'),
+        description: t('common.neobank-quote'),
         link: '/products/neobank'
       },
       {
         id: 'thinker',
         name: 'Thinker Wise',
         image: '/images/thinker-card.png',
-        description: t('works.thinker-desc'),
+        description: t('common.thinker-quote'),
         link: '/products/thinker'
       },
       {
         id: 'agritrac',
         name: 'Agri Trac',
         image: '/images/agritrac-card.png',
-        description: t('works.agri-desc'),
+        description: t('common.agri-quote'),
         link: '/products/agri-trac'
       }
     ],

@@ -30,7 +30,7 @@ export const PalmSection: React.FC = () => {
       <Content>
         <PlamImage />
         <Title style={{ color: 'var(--primary)' }}>Agri Trac</Title>
-        <Title>{t('home.argri-sub-title')}</Title>
+        <Title>{t('common.agri-quote')}</Title>
         <Desc>{t('home.argri-desc')}</Desc>
         <Link href={'/products/agri-trac'} passHref>
           <a>

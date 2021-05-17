@@ -31,7 +31,7 @@ export const NeoBankSection: React.FC = () => {
         <NeobankImage />
 
         <Title style={{ color: 'var(--primary)' }}>Thinker Bank</Title>
-        <Title>{t('home.neobank-sub-title')}</Title>
+        <Title>{t('common.neobank-quote')}</Title>
         <Desc>{t('home.neobank-desc')}</Desc>
         <Link href={'/products/neobank'} passHref>
           <a>
