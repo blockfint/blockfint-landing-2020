@@ -225,7 +225,7 @@ export const FormContent: React.FC<Props> = ({ onClose }) => {
               transition={{ duration: 0.5 }}
             >
               <Content>
-                <Title>Contact Us</Title>
+                <Title>{t('common.contact-us')}</Title>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <TwoColumn>
                     <OutlineTextField
