@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { Container } from '@material-ui/core'
 import { PostCard } from '@blockfint/website/components/PostCard'
 import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
 import { SuccessStory } from './components/SuccessStory'
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
+import { useTranslation } from 'react-i18next'
 const TopText = styled.h2`
   text-align: center;
   font-size: 2.125rem;
@@ -32,12 +33,47 @@ const CardContainer = styled.div`
   }
 `
 export const Works = () => {
+  const { t } = useTranslation()
+
+  const projects = useMemo(
+    () => [
+      {
+        id: 'gideon',
+        name: 'Gideon',
+        image: '/images/gideon-card.png',
+        description: t('works.gideon-desc'),
+        link: '/products/gideon'
+      },
+      {
+        id: 'neo_bank',
+        name: 'Thinker Bank',
+        image: '/images/neobank-card.png',
+        description: t('works.neobank-desc'),
+        link: '/products/neobank'
+      },
+      {
+        id: 'thinker',
+        name: 'Thinker Wise',
+        image: '/images/thinker-card.png',
+        description: t('works.thinker-desc'),
+        link: '/products/thinker'
+      },
+      {
+        id: 'agritrac',
+        name: 'Agri Trac',
+        image: '/images/agritrac-card.png',
+        description: t('works.agri-desc'),
+        link: '/products/agri-trac'
+      }
+    ],
+    [t]
+  )
   return (
     <>
       <Container>
         <TopPage>
-          <TopText style={{ color: 'var(--primary)' }}>Our works</TopText>
-          <TopText>The Products That Challenge The World</TopText>
+          <TopText style={{ color: 'var(--primary)' }}>{t('works.section-1-title-1')}</TopText>
+          <TopText>{t('works.section-1-title-2')}</TopText>
         </TopPage>
         <CardContainer>
           {projects?.map(({ id, name, image, description, link }) => {
@@ -50,34 +86,3 @@ export const Works = () => {
     </>
   )
 }
-
-const projects = [
-  {
-    id: 'gideon',
-    name: 'Gideon',
-    image: '/images/gideon-card.png',
-    description: 'Energy Trading Without Barriers.',
-    link: '/products/gideon'
-  },
-  {
-    id: 'neo_bank',
-    name: 'Thinker Bank',
-    image: '/images/neobank-card.png',
-    description: 'The New era of Banking Services.',
-    link: '/products/neobank'
-  },
-  {
-    id: 'thinker',
-    name: 'Thinker Wise',
-    image: '/images/thinker-card.png',
-    description: 'Make Rapid, Optimized & Data Driven Decision.',
-    link: '/products/thinker'
-  },
-  {
-    id: 'agritrac',
-    name: 'Agri Trac',
-    image: '/images/agritrac-card.png',
-    description: 'Advance Traceability for Agriculture Products.',
-    link: '/products/agri-trac'
-  }
-]
