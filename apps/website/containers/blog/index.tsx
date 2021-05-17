@@ -60,12 +60,13 @@ export const Blog: React.FC = () => {
         <HeadingText>Blog</HeadingText>
         <CategoryWrapper>
           {categoryList.map((cat) => (
-            <Category text={cat} selected={cat.toLowerCase() === category} />
+            <Category key={cat} text={cat} selected={cat.toLowerCase() === category} />
           ))}
         </CategoryWrapper>
         <BlogWrapper>
           {posts.map((post) => (
             <ThumbnailBlog
+              key={post.title}
               tagLink={post.tagLink}
               blogLink={post.blogLink}
               title={post.title}
