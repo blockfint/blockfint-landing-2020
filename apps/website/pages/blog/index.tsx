@@ -3,7 +3,7 @@ import React from 'react'
 import { typography } from '@blockfint/website/styles/typography'
 import { createGlobalStyle } from 'styled-components'
 import { getAllPosts } from '../../api/ghostCMS/index'
-import { TestContents } from '../../containers/blog'
+import { TestContents } from '../../containers/Blog'
 import { typeOf } from 'react-is'
 
 const Global = createGlobalStyle`
