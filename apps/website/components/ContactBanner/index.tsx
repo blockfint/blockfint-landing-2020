@@ -69,7 +69,7 @@ const MailImage = styled.div`
   /* left: 50%;
   transform: translateX(-50%); */
   @media ${BREAKPOINT.tablet} {
-    width: unset;
+    width: 285px;
     left: unset;
     top: unset;
     transform: unset;
@@ -96,7 +96,7 @@ export const ContactBanner: React.FC = () => {
             <SecondaryButton onClick={handleOpen}>{t('common.contact-us')}</SecondaryButton>
           </LeftContent>
           <MailImage>
-            <Image src={'/images/mailbox.png'} width={285} height={291} alt="Mailbox" />
+            <Image src={'/images/mailbox.png'} width={285} height={291} alt="Mailbox" layout="responsive" />
           </MailImage>
         </Content>
       </Container>
