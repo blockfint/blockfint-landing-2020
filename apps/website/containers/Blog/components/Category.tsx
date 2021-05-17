@@ -5,11 +5,13 @@ const A = styled.a`
   cursor: pointer;
   border-radius: 32px;
   border: solid 1px #bdbdbd;
-  text-decoration: none;
-  color: inherit;
-  overflow: hidden;
   transition: 0.2s ease;
-  width: min-content;
+  height: fit-content;
+  margin: 0 0.5rem;
+  margin-bottom: 1rem;
+  /* :not(:nth-last-child(1)) {
+    margin-right: 1rem;
+  } */
   :hover,
   :focus,
   &.selected {

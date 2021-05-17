@@ -1,6 +1,7 @@
 import { BlogButton } from '@blockfint/website/components/Buttons/BlogButton'
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
 import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { Container } from '@material-ui/core'
 import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
@@ -10,27 +11,41 @@ import { Category } from './components/Category'
 const HeadingText = styled.h2`
   text-align: center;
   padding: 1rem 0 2.5rem;
+  @media ${BREAKPOINT.tablet} {
+    padding: 2.5rem 0;
+  }
+  @media ${BREAKPOINT.desktop} {
+    padding: 3.75rem 0 5rem;
+  }
 `
 const CategoryWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 0 1.375rem;
+  padding: 0 0.75rem;
   justify-content: center;
-  a {
-    :nth-child(odd) {
-      margin-right: 1rem;
-    }
-    :not(:nth-last-child(-n + 2)) {
-      margin-bottom: 1rem;
-    }
+  @media ${BREAKPOINT.tablet} {
+    padding: 0 2rem;
   }
 `
 const BlogWrapper = styled.div`
-  padding: 40px 0;
+  padding: 1.5rem 0 2.5rem;
+  @media ${BREAKPOINT.tablet} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2.5rem 1.5rem;
+  }
+  @media ${BREAKPOINT.desktop} {
+    padding: 2.75rem 0 3.75rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3.75rem 3rem;
+  }
 `
 const ButtonWrapper = styled.div`
   text-align: center;
   margin-bottom: 80px;
+  @media ${BREAKPOINT.desktop} {
+    margin-bottom: 100px;
+  }
 `
 export const Blog: React.FC = () => {
   const router = useRouter()
@@ -69,6 +84,8 @@ export const Blog: React.FC = () => {
 }
 const categoryList = ['All', 'Technology', 'Business', 'Education', 'Agriculture', 'Inspiration']
 const posts = [
+  { tagLink: '', blogLink: '', title: 'Test', description: 'test', publishDate: dayjs() },
+  { tagLink: '', blogLink: '', title: 'Test', description: 'test', publishDate: dayjs() },
   { tagLink: '', blogLink: '', title: 'Test', description: 'test', publishDate: dayjs() },
   { tagLink: '', blogLink: '', title: 'Test', description: 'test', publishDate: dayjs() }
 ]
