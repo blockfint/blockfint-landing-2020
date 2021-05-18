@@ -46,12 +46,12 @@ const postAndPageFetchOptions: Params = {
   order: ['featured DESC', 'published_at DESC']
 }
 
-export const getAllPosts = async (props?: { limit: number }): Promise<GhostPostOrPage[]> => {
-  return await ghostApi.posts.browse({ include: ['tags', 'authors'] })
+export const getAllPosts = async (props?: Params): Promise<GhostPostOrPage[]> => {
+  return await ghostApi.posts.browse({ include: ['tags', 'authors'], ...props })
 }
 
-export const getSinglePost = async (props?: { slug: string }): Promise<GhostPostOrPage> => {
-  return await ghostApi.posts.read({ slug: `${props.slug}` })
+export const getSinglePost = async (props?: { slug: string } | { id: string }): Promise<GhostPostOrPage> => {
+  return await ghostApi.posts.read(props, { include: ['tags', 'authors'] })
 }
 
 // export const getPostsNoCurrent = async (props?: { limit }) => {}

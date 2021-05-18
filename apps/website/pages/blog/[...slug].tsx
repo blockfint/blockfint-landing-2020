@@ -13,12 +13,12 @@ body{
   ${typography}
 }
 `
-const BlogDetailPage: NextPage<{ post: PostOrPage }> = ({ post }) => {
+const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = ({ post, nextPosts }) => {
   return (
     <>
       <Global />
       <Layout>
-        <BlogDetail post={post} />
+        <BlogDetail post={post} nextPosts={nextPosts} />
       </Layout>
     </>
   )
@@ -46,8 +46,8 @@ export async function getStaticProps({ locale, params }) {
 
   const [_, slug] = params.slug
   const post = await getSinglePost({ slug })
-
+  const nextPosts = await getAllPosts({ filter: [`posts.slug:-${post.slug}`], limit: 6 })
   return {
-    props: { ...i18nContext, post }
+    props: { ...i18nContext, post, nextPosts }
   }
 }

@@ -10,6 +10,7 @@ import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 import { Breadcrumb } from './components/Breadcrumb'
+import { WhatNext } from './components/WhatNext'
 
 export const Wrapper = styled.div`
   margin-top: 2.625rem;
@@ -173,8 +174,11 @@ const Tag = styled.h6`
   text-align: center;
   margin-bottom: 1.5rem;
 `
-type Props = { post: PostOrPage }
-export const BlogDetail: React.FC<Props> = ({ post }) => {
+type Props = {
+  post: PostOrPage
+  nextPosts: PostOrPage[]
+}
+export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
   const tags = ['defi', 'crypto', 'blockchain']
   return (
     <>
@@ -208,14 +212,13 @@ export const BlogDetail: React.FC<Props> = ({ post }) => {
           <hr />
           <AuthorWrapper>
             <AuthorBanner
-              authorName="Johnny"
-              description={
-                'Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit '
-              }
-              image="/images/suwan2x.png"
+              authorName={post.authors[0]?.name}
+              description={post.authors[0]?.bio}
+              image={post.authors[0]?.profile_image}
             />
           </AuthorWrapper>
         </Container>
+        <WhatNext nextPosts={nextPosts} />
       </Wrapper>
       <ContactBanner />
     </>

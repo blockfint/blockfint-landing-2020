@@ -1,7 +1,7 @@
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
-import React from 'react'
 import styled from 'styled-components'
 export const BlogButton = styled.button`
+  cursor: pointer;
   width: 188px;
   height: 50px;
   border-radius: 32px;

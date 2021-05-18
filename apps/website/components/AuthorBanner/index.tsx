@@ -84,7 +84,15 @@ export const AuthorBanner: React.FC<AuthorBannerProps> = ({
   return (
     <Container>
       <ImageBorder className={imgSize}>
-        <Image src={image} width={180} height={180} alt="Author" />
+        <Image
+          src={image ?? '/images/thumbnail.png'}
+          width={180}
+          height={180}
+          alt="Author"
+          layout="responsive"
+          objectPosition="top center"
+          objectFit="cover"
+        />
       </ImageBorder>
       <TextSection>
         <h5>{authorName}</h5>
