@@ -42,12 +42,13 @@ const ButtonWrapper = styled.div`
 export const Tag = () => {
   const router = useRouter()
   const tagName = router.asPath.split('tag/')[1]
+  const output = tagName.charAt(0).toUpperCase() + tagName.slice(1)
   return (
     <>
       <Container maxWidth="lg">
         <Heading>
           <h6>Tag</h6>
-          <TagText>#{tagName}</TagText>
+          <TagText>{output}</TagText>
         </Heading>
 
         <BlogWrapper>
