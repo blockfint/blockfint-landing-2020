@@ -7,7 +7,7 @@ import { PostOrPage } from '@tryghost/content-api'
 import dayjs from 'dayjs'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { Breadcrumb } from './components/Breadcrumb'
 import { WhatNext } from './components/WhatNext'
@@ -179,7 +179,7 @@ type Props = {
   nextPosts: PostOrPage[]
 }
 export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
-  const tags = ['defi', 'crypto', 'blockchain']
+  const tags = useMemo(() => post.tags.map(({ name }) => name.replace('#', '')), [post.tags])
   return (
     <>
       <Wrapper>
@@ -205,7 +205,7 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
             Tags:{' '}
             {tags.map((tag) => (
               <Link key={tag} href={`/blog/tag/${tag}`} passHref>
-                <TagA>{tag}</TagA>
+                <TagA>{`${tag} `}</TagA>
               </Link>
             ))}
           </Tag>
