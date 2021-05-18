@@ -9,9 +9,6 @@ const A = styled.a`
   height: fit-content;
   margin: 0 0.5rem;
   margin-bottom: 1rem;
-  /* :not(:nth-last-child(1)) {
-    margin-right: 1rem;
-  } */
   :hover,
   :focus,
   &.selected {
@@ -32,7 +29,11 @@ export const Category = React.forwardRef<HTMLAnchorElement, Props>(({ text, href
   const router = useRouter()
   return (
     <A className={selected && 'selected'} href={href} ref={ref}>
-      <Text onClick={() => router.push(`#${text.toLowerCase()}`, null, { shallow: true })}>{text}</Text>
+      <Text
+        onClick={() => router.push({ pathname: '/blog', query: { cat: text.toLowerCase() } }, null, { shallow: true })}
+      >
+        {text}
+      </Text>
     </A>
   )
 })

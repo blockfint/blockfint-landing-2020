@@ -49,11 +49,7 @@ const ButtonWrapper = styled.div`
 `
 export const Blog: React.FC = () => {
   const router = useRouter()
-  const [category, setCategory] = useState('all')
-  useEffect(() => {
-    const cat = router.asPath.split('#')[1]
-    if (cat !== undefined) setCategory(cat)
-  }, [router.asPath])
+  const category = router.query?.cat ?? 'all'
   return (
     <>
       <Container maxWidth="lg">
