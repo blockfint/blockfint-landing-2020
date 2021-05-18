@@ -16,6 +16,7 @@ const Container = styled.div`
     text-align: start;
   }
   @media ${BREAKPOINT.tablet} {
+    justify-items: baseline;
     grid-template-rows: auto;
     max-width: 50rem;
     grid-template-columns: max-content 1fr;
