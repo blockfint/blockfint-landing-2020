@@ -1,9 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowLink } from '@blockfint/website/components/ArrowLink';
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
+import React from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ArrowLink } from '@blockfint/website/components/ArrowLink'
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import Image from 'next/image'
 const Card = styled(motion.div)`
   cursor: pointer;
   border-radius: 1rem;
@@ -17,18 +18,19 @@ const Card = styled(motion.div)`
     grid-template-columns: 17.5rem 1fr;
     grid-template-rows: auto;
     width: 42.875rem;
-    height: 100%;
+
+    height: 14rem;
   }
   @media ${BREAKPOINT.desktop} {
     grid-template-columns: 1fr 1fr;
+    height: 14rem;
     width: 37.5rem;
   }
-`;
+`
 
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-`;
+const ImageWrapper = styled.div`
+  position: relative;
+`
 
 const Content = styled.div`
   display: grid;
@@ -41,40 +43,33 @@ const Content = styled.div`
   @media ${BREAKPOINT.desktop} {
     margin: 1.5rem;
   }
-`;
+`
 const Title = styled.h6`
   line-height: 1.8;
   font-weight: bold;
   letter-spacing: -0.4px;
   color: var(--primary);
   font-size: 1.25rem;
-`;
+`
 const Desc = styled.p`
   font-weight: 600;
   line-height: 1.88;
   padding-bottom: 0.8rem;
-`;
+`
 
 interface Props {
-  title?: string;
-  desc?: string;
-  link?: string;
-  imgSrc?: string;
+  title?: string
+  desc?: string
+  link?: string
+  imgSrc?: string
 }
-export const PostCard: React.FC<Props> = ({
-  title,
-  desc,
-  link = '/',
-  imgSrc,
-}) => {
+export const PostCard: React.FC<Props> = ({ title, desc, link = '/', imgSrc }) => {
   return (
     <Link href={link} passHref>
-      <Card
-        initial={{ scale: 1 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ backgroundColor: '#f3f3f3' }}
-      >
-        <Image src={imgSrc} />
+      <Card initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} whileTap={{ backgroundColor: '#f3f3f3' }}>
+        <ImageWrapper>
+          <Image src={imgSrc} layout="responsive" objectFit="cover" width={1080} height={812} />
+        </ImageWrapper>
         <Content>
           <Title>{title}</Title>
           <Desc>{desc}</Desc>
@@ -82,5 +77,5 @@ export const PostCard: React.FC<Props> = ({
         </Content>
       </Card>
     </Link>
-  );
-};
+  )
+}
