@@ -30,9 +30,8 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const paths = locales.flatMap((locale) =>
     results
       .filter((tag) => tag.visibility === 'internal')
-      .map(({ name }) => {
-        const pathName = name.replace('#', '')
-        return { params: { name: pathName }, locale }
+      .map(({ slug }) => {
+        return { params: { name: slug }, locale }
       })
   )
   return {
