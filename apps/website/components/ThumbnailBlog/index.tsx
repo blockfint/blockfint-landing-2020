@@ -160,12 +160,12 @@ interface Props {
   blogLink: string
 }
 export const ThumbnailBlog: React.FC<Props> = ({
-  image = '/images/thumbnail.png',
+  image,
   title,
   description,
   publishDate,
   size = 'S',
-  tag = 'TECHNOLOGY',
+  tag,
   tagLink,
   blogLink
 }) => {

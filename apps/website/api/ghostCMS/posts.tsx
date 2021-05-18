@@ -46,8 +46,80 @@ const postAndPageFetchOptions: Params = {
   order: ['featured DESC', 'published_at DESC']
 }
 
+export interface PostResult {
+  id: string
+  uuid: string
+  title: string
+  slug: string
+  html: string
+  comment_id: string
+  feature_image: string
+  featured: boolean
+  visibility: string
+  send_email_when_published: boolean
+  created_at: Date
+  updated_at: Date
+  published_at: Date
+  custom_excerpt: string
+  codeinjection_head?: any
+  codeinjection_foot?: any
+  custom_template?: any
+  canonical_url?: any
+  url: string
+  excerpt: string
+  reading_time: number
+  og_image?: any
+  og_title?: any
+  og_description?: any
+  twitter_image?: any
+  twitter_title?: any
+  twitter_description?: any
+  meta_title?: any
+  meta_description?: any
+  email_subject?: any
+  tags?: tagsProps[]
+  authors?: authorProps[]
+}
+
+export interface authorProps {
+  bio?: string
+  cover_image?: string
+  facebook?: string
+  id?: string
+  meta_description?: string
+  meta_title?: string
+  name?: string
+  profile_image?: string
+  slug?: string
+  twitter?: string
+  url?: string
+}
+
+export interface tagsProps {
+  accent_color?: string
+  canonical_url?: string
+  codeinjection_foot?: string
+  codeinjection_head?: string
+  description?: string
+  feature_image?: string
+  id?: string
+  meta_description?: string
+  meta_title?: string
+  name?: string
+  og_description?: string
+  og_image?: string
+  og_title?: string
+  slug?: string
+  twitter_description?: string
+  twitter_image?: string
+  twitter_title?: string
+  url?: string
+  visibility?: string
+}
+
 export const getAllPosts = async (props?: { limit: number }): Promise<GhostPostOrPage> => {
-  return await ghostApi.posts.browse({ include: 'tags,authors' })
+  return await ghostApi.posts.browse({ include: 'tags,authors', order: 'published_at DESC' })
+  // return await ghostApi.posts.browse({ include: 'tags,authors', order: 'updated_at DESC' })
 }
 
 export const getSinglePost = async (props?: { id: string }): Promise<GhostPostOrPage> => {
