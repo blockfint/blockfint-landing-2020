@@ -46,16 +46,16 @@ const postAndPageFetchOptions: Params = {
   order: ['featured DESC', 'published_at DESC']
 }
 
-export const getAllPosts = async (props?: { limit: number }): Promise<GhostPostOrPage> => {
-  return await ghostApi.posts.browse({ include: 'tags,authors' })
+export const getAllPosts = async (props?: { limit: number }): Promise<GhostPostOrPage[]> => {
+  return await ghostApi.posts.browse({ include: ['tags', 'authors'] })
 }
 
-export const getSinglePost = async (props?: { id: string }): Promise<GhostPostOrPage> => {
-  return await ghostApi.posts.read({ id: `${props}` })
+export const getSinglePost = async (props?: { slug: string }): Promise<GhostPostOrPage> => {
+  return await ghostApi.posts.read({ slug: `${props.slug}` })
 }
 
 // export const getPostsNoCurrent = async (props?: { limit }) => {}
-export async function getPostsByTag(slug: string, limit?: number, excludeId?: string): Promise<GhostPostOrPage> {
+export async function getPostsByTag(slug: string, limit?: number, excludeId?: string): Promise<GhostPostOrPage[]> {
   const exclude = (excludeId && `+id:-${excludeId}`) || ``
   const posts = await ghostApi.posts.browse({
     ...postAndPageFetchOptions,
@@ -78,7 +78,7 @@ export async function getAuthors() {
 export async function getSingleAuthor(props?: { limit: number }): Promise<GhostPostOrPage> {
   return await ghostApi.authors.read({ slug: `${props}` }, { include: 'count.posts' }) // include can be array for any of these
 }
-export async function getPostsByAuthor(props?: { limit: number }): Promise<GhostPostOrPage> {
+export async function getPostsByAuthor(props?: { limit: number }): Promise<GhostPostOrPage[]> {
   const post = await ghostApi.posts.browse({ filter: `primary_author:${props}` })
   return post
 }
