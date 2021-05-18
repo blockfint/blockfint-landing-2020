@@ -26,16 +26,18 @@ const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = 
 
 export default BlogDetailPage
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const results = await getAllPosts()
-  const paths = results
-    .map(({ tags, slug }) => {
-      const mainTag = tags.find(({ visibility }) => visibility === 'public') // find categories
-      if (!mainTag) return null
-      const { slug: slugTag } = mainTag
-      return { params: { slug: [slugTag, slug] } }
-    })
-    .filter((i) => i !== null)
+  const paths = locales.flatMap((locale) =>
+    results
+      .map(({ tags, slug }) => {
+        const mainTag = tags.find(({ visibility }) => visibility === 'public') // find categories
+        if (!mainTag) return null
+        const { slug: slugTag } = mainTag
+        return { params: { slug: [slugTag, slug] }, locale }
+      })
+      .filter((i) => i !== null)
+  )
   return {
     paths,
     fallback: false
