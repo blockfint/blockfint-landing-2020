@@ -28,7 +28,6 @@ const Wrapper = styled.div<{ size: sizeType }>`
 `
 const ImageWrapper = styled.div<{ imgSrc: string; size: sizeType }>`
   height: 172px;
-  border-radius: 8px;
   background-color: #c4c4c4;
   background-image: url(${({ imgSrc }) => imgSrc});
   background-position: center;
@@ -41,7 +40,6 @@ const ImageWrapper = styled.div<{ imgSrc: string; size: sizeType }>`
       return css`
         @media ${BREAKPOINT.tablet} {
           height: 190px;
-          border-radius: 0;
         }
         @media ${BREAKPOINT.desktop} {
           height: 254px;
@@ -66,7 +64,7 @@ const DateTime = styled.div`
   grid-template-columns: repeat(2, max-content);
   align-items: center;
   grid-column-gap: 0.5rem;
-  grid-area: datetime;
+  /* grid-area: datetime; */
 `
 const Date = styled.h6`
   color: #bdbdbd;
@@ -75,17 +73,11 @@ const TextSection = styled.div<{ size: sizeType }>`
   display: grid;
   grid-row-gap: 0.5rem;
   align-items: center;
-  grid-template-areas:
-    'tag'
-    'grouptext'
-    'datetime';
+
   ${({ size }) => {
     if (size === 'M') {
       return css`
         @media ${BREAKPOINT.desktop} {
-          grid-template-areas:
-            'grouptext grouptext grouptext'
-            'tag datetime .';
           grid-column-gap: 0.5rem;
           h5 {
             font-size: 32px;
@@ -114,9 +106,6 @@ const TextSection = styled.div<{ size: sizeType }>`
     }
   }};
 `
-const GroupText = styled.div`
-  grid-area: grouptext;
-`
 const Icon = styled.img`
   width: 16px;
   height: 16px;
@@ -137,7 +126,7 @@ const Description = styled.p`
   display: none;
   @media ${BREAKPOINT.desktop} {
     display: block;
-    margin: 0.5rem 0;
+    margin-top: 0.5rem;
   }
 `
 const Tag = styled.div`
@@ -145,8 +134,10 @@ const Tag = styled.div`
   height: 30px;
   background-color: #e0e0e0;
   text-align: center;
-  grid-area: tag;
   color: #4f4f4f;
+  @media ${BREAKPOINT.desktop} {
+    margin-bottom: 0.5rem;
+  }
 `
 type sizeType = 'S' | 'M' | 'L'
 interface Props {
@@ -180,12 +171,10 @@ export const ThumbnailBlog: React.FC<Props> = ({
             <h6>{tag}</h6>
           </LinkWrapper>
         </Tag>
-        <GroupText>
-          <LinkWrapper href={blogLink}>
-            <TitleText>{title}</TitleText>
-            {size === 'M' && <Description>{description}</Description>}
-          </LinkWrapper>
-        </GroupText>
+        <LinkWrapper href={blogLink}>
+          <TitleText>{title}</TitleText>
+          {size === 'M' && <Description>{description}</Description>}
+        </LinkWrapper>
         <DateTime>
           <Icon src="/icons/clock.svg" alt="clock" />
           <Date>{dayjs(publishDate).format('DD MMMM YYYY')}</Date>
