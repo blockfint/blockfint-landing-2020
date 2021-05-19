@@ -35,6 +35,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
       .map(({ slug }) => {
         return { params: { category: slug }, locale }
       })
+      .filter((i) => i !== null)
   )
   return {
     paths,
