@@ -8,25 +8,44 @@ const Container = styled.div`
   grid-gap: 1rem 1.5rem;
   justify-items: center;
   text-align: center;
+  justify-content: center;
+  margin: 0 auto;
   @media ${BREAKPOINT.tablet} {
     grid-template-rows: auto;
     grid-template-columns: max-content 400px;
     text-align: start;
   }
+  @media ${BREAKPOINT.tablet} {
+    justify-items: baseline;
+    grid-template-rows: auto;
+    max-width: 50rem;
+    grid-template-columns: max-content 1fr;
+    text-align: start;
+  }
 `
 const ImageBorder = styled.div`
   border-radius: 50%;
-  width: 156px;
-  height: 156px;
+  &.large {
+    width: 156px;
+    height: 156px;
+  }
   background-color: skyblue;
   overflow: hidden;
   @media ${BREAKPOINT.tablet} {
-    width: 136px;
-    height: 136px;
+    &.large {
+      width: 136px;
+      height: 136px;
+    }
   }
   @media ${BREAKPOINT.desktop} {
-    width: 165px;
-    height: 165px;
+    &.large {
+      width: 164px;
+      height: 164px;
+    }
+    &.large {
+      width: 90px;
+      height: 90px;
+    }
   }
 `
 const TextSection = styled.div`
@@ -51,19 +70,30 @@ const Description = styled.p`
   }
 `
 interface AuthorBannerProps {
+  imgSize?: 'small' | 'large'
   image?: string
   authorName: string
   description: string
 }
 export const AuthorBanner: React.FC<AuthorBannerProps> = ({
   image = '/images/thumbnail.png',
+  imgSize = 'large',
   authorName,
+
   description
 }) => {
   return (
     <Container>
-      <ImageBorder>
-        <Image src={image} width={285} height={291} alt="Author" />
+      <ImageBorder className={imgSize}>
+        <Image
+          src={image ?? '/images/thumbnail.png'}
+          width={180}
+          height={180}
+          alt="Author"
+          layout="responsive"
+          objectPosition="top center"
+          objectFit="cover"
+        />
       </ImageBorder>
       <TextSection>
         <h5>{authorName}</h5>

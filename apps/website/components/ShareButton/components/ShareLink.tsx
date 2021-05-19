@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { LinkWithIcon } from './components/LinkWithIcon'
-import { linkShareList } from './constants/linkShareList'
+import { LinkWithIcon } from './LinkWithIcon'
+import { linkShareList } from '../constants/linkShareList'
+
 const Wrapper = styled.div`
   height: 44px;
   width: 277px;
@@ -23,7 +24,7 @@ export const ShareLink: React.FC = () => {
   return (
     <Wrapper>
       {linkShareList.map(({ name, link, src }) => (
-        <LinkWithIcon link={link} alt={name} src={src} />
+        <LinkWithIcon link={`${link}${window.location.href}`} alt={name} src={src} />
       ))}
     </Wrapper>
   )

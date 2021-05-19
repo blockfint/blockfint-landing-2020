@@ -5,10 +5,10 @@ import { getAllPosts } from '../api/ghostCMS'
 import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '../next-i18next.config.js'
-import { PostResult } from '../api/ghostCMS/posts'
+import { PostOrPage } from '@tryghost/content-api'
 
 interface Props {
-  AllBlogs: PostResult[]
+  AllBlogs: PostOrPage[]
 }
 const Homepage: NextPage<Props> = (props) => {
   const AllBlogs = props.AllBlogs

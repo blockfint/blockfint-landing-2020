@@ -1,4 +1,4 @@
-import { ShareLink } from '.'
+import { ShareLink } from './ShareLink'
 import { ShareWithModal } from './ShareWithModal'
 
 export default {
