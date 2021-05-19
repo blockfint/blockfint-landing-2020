@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowLink } from '@blockfint/website/components/ArrowLink'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
+import Image from 'next/image'
 const Card = styled(motion.div)`
   cursor: pointer;
   border-radius: 1rem;
@@ -17,17 +18,18 @@ const Card = styled(motion.div)`
     grid-template-columns: 17.5rem 1fr;
     grid-template-rows: auto;
     width: 42.875rem;
-    height: 100%;
+
+    height: 14rem;
   }
   @media ${BREAKPOINT.desktop} {
     grid-template-columns: 1fr 1fr;
+    height: 14rem;
     width: 37.5rem;
   }
 `
 
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
+const ImageWrapper = styled.div`
+  position: relative;
 `
 
 const Content = styled.div`
@@ -65,7 +67,9 @@ export const PostCard: React.FC<Props> = ({ title, desc, link = '/', imgSrc }) =
   return (
     <Link href={link} passHref>
       <Card initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} whileTap={{ backgroundColor: '#f3f3f3' }}>
-        <Image src={imgSrc} />
+        <ImageWrapper>
+          <Image src={imgSrc} layout="responsive" objectFit="cover" width={1080} height={812} />
+        </ImageWrapper>
         <Content>
           <Title>{title}</Title>
           <Desc>{desc}</Desc>

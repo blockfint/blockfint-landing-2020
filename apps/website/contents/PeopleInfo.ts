@@ -6,6 +6,7 @@ export interface PeopleInfo {
   contact?: string
   quote?: string
   path?: string
+  nickname?: string
 }
 interface PeopleInfos {
   [name: string]: PeopleInfo
@@ -17,42 +18,51 @@ export const peopleInfos = {
     position: 'suttipong-position',
     desc: `suttipong-desc`,
     imgSrc: 'num2X.png',
-    contact: 'suttipong-contact',
-    quote: 'and he will be happy to have a technology infused coffee with you anytime.'
+    nickname: 'suttipong-nickname',
+    quote: 'and he will be happy to have a technology infused coffee with you anytime.',
+    contact: 'suttipong-contact'
   },
   thomas: {
     name: 'shimmy-name',
     position: 'shimmy-position',
     desc: `shimmy-desc`,
     imgSrc: 'Thomas.png',
+    nickname: 'shimmy-nickname',
     contact: 'shimmy-contact'
   },
   wichai: {
     name: 'wichai-name',
     position: 'wichai-position',
-    desc: `ponlawat-desc`,
+    desc: `wichai-desc`,
+    nickname: 'wichai-nickname',
     imgSrc: 'wichai2X.png',
-    contact: 'ponlawat-contact'
+    contact: 'wichai-contact'
   },
 
   ponlawat: {
-    name: 'suwanna-name',
-    position: 'suwanna-position',
-    desc: `suwanna-desc`,
-    imgSrc: 'oak2x.png'
+    name: 'ponlawat-name',
+    position: 'ponlawat-position',
+    nickname: 'ponlawat-nickname',
+    desc: `ponlawat-desc`,
+    imgSrc: 'oak2x.png',
+    contact: null
   },
 
   suwanna: {
     name: 'suwanna-name',
     position: 'suwanna-position',
     desc: `suwanna-desc`,
-    imgSrc: 'suwan2x.png'
+    imgSrc: 'suwan2x.png',
+    nickname: 'suwanna-nickname',
+    contact: null
   },
 
   rattanapong: {
     name: 'rattanapong-name',
     position: 'rattanapong-position',
     desc: `rattanapong-desc`,
-    imgSrc: 'pae2X.png'
+    imgSrc: 'pae2X.png',
+    nickname: 'rattanapong-nickname',
+    contact: null
   }
 } as PeopleInfos

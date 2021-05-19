@@ -17,7 +17,7 @@ export const ProductGideon: React.FC = () => {
       <ProductDetail
         {...{
           name: 'Gideon',
-          title: 'Energy Trading Without Barriers',
+          title: t('common.gideon-quote'),
           description: t('work-details.gideon-desc'),
           linkHref: 'https://gideon.energy',
           secondaryTitle: t('work-details.gideon-secondary-title'),

@@ -31,6 +31,7 @@ const Item = styled.div`
   padding: 2.5rem 0;
   display: grid;
   grid-gap: 1rem;
+  grid-auto-rows: max-content;
   position: relative;
   ::before {
     content: ' ';

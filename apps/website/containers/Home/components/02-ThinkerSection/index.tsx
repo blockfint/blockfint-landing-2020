@@ -30,7 +30,7 @@ export const ThinkerSection: React.FC = () => {
       <Content>
         <ThinkerImage />
         <Title style={{ color: 'var(--primary)' }}>Thinker Wise</Title>
-        <Title>{t('home.thinker-sub-title')}</Title>
+        <Title>{t('common.thinker-quote')}</Title>
         <Desc>{t('home.thinker-desc')}</Desc>
         <Link href={'/products/thinker'} passHref>
           <a>
