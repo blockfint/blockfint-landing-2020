@@ -47,9 +47,10 @@ const ButtonWrapper = styled.div`
     margin-bottom: 100px;
   }
 `
-export const Blog: React.FC = () => {
-  const router = useRouter()
-  const category = router.query?.cat ?? 'all'
+interface BlogProps {
+  category?: string
+}
+export const Blog: React.FC<BlogProps> = ({ category = 'all' }) => {
   return (
     <>
       <Container maxWidth="lg">

@@ -3,9 +3,9 @@ import { typography } from '@blockfint/website/styles/typography'
 import { createGlobalStyle } from 'styled-components'
 import { Layout } from '@blockfint/website/components/layouts'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import nextI18NextConfig from '../../next-i18next.config.js'
+import nextI18NextConfig from '@blockfint/website/next-i18next.config.js'
 import { NextPage } from 'next'
-import { Blog } from '../../containers/Blog'
+import { Blog } from '@blockfint/website/containers/Blog'
 const Global = createGlobalStyle`
 body{
   ${typography}
