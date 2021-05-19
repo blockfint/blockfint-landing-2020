@@ -16,8 +16,16 @@ const BlogWrapper = styled.div`
   }
   @media ${BREAKPOINT.desktop} {
     padding: 2.75rem 0 3.75rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 3.75rem 3rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    .item {
+      min-width: 23rem;
+      flex: 0 1;
+    }
+    gap: 3.75rem 3rem;
   }
 `
 const Content = styled.div`
@@ -43,11 +51,12 @@ export const WhatNext: React.FC<Props> = ({ nextPosts }) => {
               const mainTag = tags.find(({ visibility }) => visibility === 'public') // find categories
               return (
                 <ThumbnailBlog
+                  className="item"
                   image={feature_image}
                   key={title}
-                  tag={mainTag.name}
-                  tagLink={`/blog/${mainTag.slug}`}
-                  blogLink={`/blog/${mainTag.slug}/${slug}`}
+                  tag={mainTag?.name}
+                  tagLink={`/blog/${mainTag?.slug}`}
+                  blogLink={`/blog/${mainTag?.slug}/${slug}`}
                   title={title}
                   description={excerpt}
                   publishDate={published_at}
@@ -55,11 +64,11 @@ export const WhatNext: React.FC<Props> = ({ nextPosts }) => {
               )
             })}
           </BlogWrapper>
-          <Link passHref href="/blog">
+          {/* <Link passHref href="/blog"> //phase 3
             <a>
               <BlogButton>SEE MORE</BlogButton>
             </a>
-          </Link>
+          </Link> */}
         </Content>
       </Container>
     </>
