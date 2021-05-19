@@ -11,6 +11,7 @@ interface Props {
   AllBlogs: PostResult[]
 }
 const Homepage: NextPage<Props> = (props) => {
+  console.log(props)
   const AllBlogs = props.AllBlogs
   return (
     <Layout transparent>

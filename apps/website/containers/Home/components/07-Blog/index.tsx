@@ -2,6 +2,7 @@ import { PostResult } from '@blockfint/website/api/ghostCMS/posts'
 import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { typography } from '@blockfint/website/styles/typography'
+import { useRouter } from 'next/router'
 import Container from '@material-ui/core/Container'
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
@@ -42,6 +43,7 @@ type Props = {
 }
 
 export const Blog: React.FC<Props> = ({ data }) => {
+  const router = useRouter()
   const allImages = data.map((post) => post.feature_image)
   const allTitle = data.map((post) => post.title)
   const allDescription = data.map((post) => post.og_description)
@@ -49,7 +51,7 @@ export const Blog: React.FC<Props> = ({ data }) => {
   const tags = data.map((post) => post.tags[0].slug)
   // console.log(tags)
   // console.log(AllImages[0])
-  console.log(data)
+  console.log(data, router.asPath)
   return (
     <>
       <Global />
