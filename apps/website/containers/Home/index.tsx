@@ -1,4 +1,5 @@
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
+import { PostOrPage } from '@tryghost/content-api'
 import React from 'react'
 import { Hero } from './components/00-Hero'
 import { GideonSection } from './components/01-GideonSection'
@@ -10,7 +11,10 @@ import { OurPartners } from './components/06-OurPartners'
 import { Blog } from './components/07-Blog'
 import { OurTeam } from './components/08-OurTeam'
 
-export const Home: React.FC = () => {
+type Props = {
+  blogsData: PostOrPage[]
+}
+export const Home: React.FC<Props> = ({ blogsData }) => {
   return (
     <>
       <Hero />
@@ -21,7 +25,7 @@ export const Home: React.FC = () => {
       <ProductsBanner />
       <OurPartners />
       <OurTeam />
-      <Blog />
+      <Blog data={blogsData} />
       <ContactBanner />
     </>
   )

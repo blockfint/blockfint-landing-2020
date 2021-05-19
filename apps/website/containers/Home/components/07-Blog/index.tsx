@@ -2,6 +2,7 @@ import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { typography } from '@blockfint/website/styles/typography'
 import Container from '@material-ui/core/Container'
+import { PostOrPage } from '@tryghost/content-api'
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 const Heading = styled.h2`
@@ -36,7 +37,19 @@ body{
   ${typography}
 }
 `
-export const Blog: React.FC = () => {
+type Props = {
+  data: PostOrPage[]
+}
+
+export const Blog: React.FC<Props> = ({ data }) => {
+  const allImages = data.map((post) => post.feature_image)
+  const allTitle = data.map((post) => post.title)
+  const allDescription = data.map((post) => post.og_description)
+  const publishDate = data.map((post) => post.published_at)
+  const tags = data.map((post) => post.tags[0].slug)
+  // console.log(tags)
+  // console.log(AllImages[0])
+  console.log(data)
   return (
     <>
       <Global />
@@ -44,19 +57,21 @@ export const Blog: React.FC = () => {
         <Heading>Blog</Heading>
         <BlogWrapper>
           <ThumbnailBlog
-            image="/images/kbtg.jpg"
-            title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
-            description=""
-            publishDate={new Date()}
-            tagLink=""
+            image={allImages[0]}
+            title={allTitle[0]}
+            description={allDescription[0]}
+            publishDate={new Date(publishDate[0])}
+            tag={tags[0]}
+            tagLink={tags[0]}
             blogLink=""
           />
           <ThumbnailBlog
-            image="/images/kbtg.jpg"
-            title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor, sed do eiusmod tempor "
-            description=""
-            publishDate={new Date()}
-            tagLink=""
+            image={allImages[2]}
+            title={allTitle[2]}
+            description={allDescription[2]}
+            publishDate={new Date(publishDate[2])}
+            tag={tags[2]}
+            tagLink={tags[2]}
             blogLink=""
           />
         </BlogWrapper>
