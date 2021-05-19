@@ -26,22 +26,20 @@ interface Props {
   text: string
   selected?: boolean
 }
-export const Category = React.forwardRef<HTMLAnchorElement, Props>(({ text, href = '', selected = false }, ref) => {
+export const Category = React.forwardRef<HTMLAnchorElement, Props>(({ text, href = null, selected = false }, ref) => {
   const router = useRouter()
   const path = text === 'All' ? '/blog' : `/blog/${text.toLowerCase()}`
   return (
-    <Link href={path} passHref locale="en">
-      <A className={selected && 'selected'} href={href} ref={ref}>
-        <Text
-        // onClick={() =>
-        //   router.push(path, null, {
-        //     shallow: true
-        //   })
-        // }
-        >
-          {text}
-        </Text>
-      </A>
-    </Link>
+    <A className={selected && 'selected'} href={href} ref={ref}>
+      <Text
+        onClick={() =>
+          router.push(path, null, {
+            shallow: true
+          })
+        }
+      >
+        {text}
+      </Text>
+    </A>
   )
 })
