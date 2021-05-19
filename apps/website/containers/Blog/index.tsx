@@ -63,7 +63,7 @@ export const Blog: React.FC = () => {
           {posts.map((post) => (
             <ThumbnailBlog
               key={post.title}
-              tagLink={post.tagLink}
+              category={post.tagLink}
               blogLink={post.blogLink}
               title={post.title}
               description={post.description}
