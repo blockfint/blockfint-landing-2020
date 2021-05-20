@@ -28,6 +28,7 @@ export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       ...result
-    }
+    },
+    revalidate: 60
   }
 }

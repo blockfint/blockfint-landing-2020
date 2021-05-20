@@ -1,9 +1,10 @@
-import { PostResult } from '@blockfint/website/api/ghostCMS/posts'
 import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { typography } from '@blockfint/website/styles/typography'
 import { useRouter } from 'next/router'
 import Container from '@material-ui/core/Container'
+import { PostOrPage } from '@tryghost/content-api'
+import dayjs from 'dayjs'
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 const Heading = styled.h2`
@@ -39,7 +40,7 @@ body{
 }
 `
 type Props = {
-  data: PostResult[]
+  data: PostOrPage[]
 }
 
 export const Blog: React.FC<Props> = ({ data }) => {
@@ -58,24 +59,21 @@ export const Blog: React.FC<Props> = ({ data }) => {
       <CustomContainer maxWidth="lg">
         <Heading>Blog</Heading>
         <BlogWrapper>
-          <ThumbnailBlog
-            image={allImages[0]}
-            title={allTitle[0]}
-            description={allDescription[0]}
-            publishDate={new Date(publishDate[0])}
-            tag={tags[0]}
-            tagLink={tags[0]}
-            blogLink=""
-          />
-          <ThumbnailBlog
-            image={allImages[2]}
-            title={allTitle[2]}
-            description={allDescription[2]}
-            publishDate={new Date(publishDate[2])}
-            tag={tags[2]}
-            tagLink={tags[2]}
-            blogLink=""
-          />
+          {data.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
+            const category = tags.find(({ visibility }) => visibility === 'public') // find categories
+            return (
+              <ThumbnailBlog
+                image={feature_image}
+                title={title}
+                description={og_description}
+                publishDate={dayjs(published_at)}
+                tag={category.name}
+                // tagLink={`/blog/${category.slug}`} // phase 3
+                tagLink={`/blog/${category.slug}/${slug}`} // phase 2
+                blogLink={`/blog/${category.slug}/${slug}`}
+              />
+            )
+          })}
         </BlogWrapper>
       </CustomContainer>
     </>

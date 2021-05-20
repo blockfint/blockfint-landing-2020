@@ -1,14 +1,14 @@
 import { Layout } from '@blockfint/website/components/layouts'
 import { Home } from '@blockfint/website/containers/Home'
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import { getAllPosts } from '../api/ghostCMS'
 import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '../next-i18next.config.js'
-import { PostResult } from '../api/ghostCMS/posts'
+import { PostOrPage } from '@tryghost/content-api'
 
 interface Props {
-  AllBlogs: PostResult[]
+  AllBlogs: PostOrPage[]
 }
 const Homepage: NextPage<Props> = (props) => {
   console.log(props)
@@ -22,14 +22,15 @@ const Homepage: NextPage<Props> = (props) => {
 
 export default Homepage
 
-export const getStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const result = await serverSideTranslations(locale, ['common', 'home'], nextI18NextConfig)
-  const AllBlogs = await getAllPosts()
+  const AllBlogs = await getAllPosts({ limit: 2 })
 
   return {
     props: {
       ...result,
       AllBlogs
-    }
+    },
+    revalidate: 60
   }
 }

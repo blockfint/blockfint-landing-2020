@@ -1,5 +1,5 @@
-import { PostResult } from '@blockfint/website/api/ghostCMS/posts'
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
+import { PostOrPage } from '@tryghost/content-api'
 import React from 'react'
 import { Hero } from './components/00-Hero'
 import { GideonSection } from './components/01-GideonSection'
@@ -12,7 +12,7 @@ import { Blog } from './components/07-Blog'
 import { OurTeam } from './components/08-OurTeam'
 
 type Props = {
-  blogsData: PostResult[]
+  blogsData: PostOrPage[]
 }
 export const Home: React.FC<Props> = ({ blogsData }) => {
   return (
