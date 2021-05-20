@@ -215,6 +215,7 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
               authorName={post.authors[0]?.name}
               description={post.authors[0]?.bio}
               image={post.authors[0]?.profile_image}
+              imgSize="small"
             />
           </AuthorWrapper>
         </Container>
