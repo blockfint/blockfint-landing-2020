@@ -170,7 +170,7 @@ export const ThumbnailBlog: React.FC<Props> = ({
       <TextSection size={size}>
         <Tag>
           <LinkWrapper href={categoryLink}>
-            <h6>{category}</h6>
+            <h6>{category.toUpperCase()}</h6>
           </LinkWrapper>
         </Tag>
         <LinkWrapper href={blogLink}>
