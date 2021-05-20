@@ -4,7 +4,7 @@ import { GetStaticProps, NextPage } from 'next'
 import { getAllPosts } from '../api/ghostCMS'
 import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import nextI18NextConfig from '../next-i18next.config.js'
+import nextI18NextConfig from '@blockfint/website/next-i18next.config.js'
 import { PostOrPage } from '@tryghost/content-api'
 
 interface Props {
