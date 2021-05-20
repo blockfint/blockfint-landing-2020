@@ -11,23 +11,36 @@ const AuthorWrapper = styled.div`
   @media ${BREAKPOINT.tablet} {
     padding: 2.5rem 5rem 3.75rem;
   }
+  @media ${BREAKPOINT.desktop} {
+    padding: 5rem 5rem;
+  }
 `
 const Background = styled.div`
   background-color: #f0f5f5;
   padding: 3.75rem 0;
+  @media ${BREAKPOINT.desktop} {
+    padding: 5rem;
+  }
 `
 const BlogWrapper = styled.div`
   padding: 3.75rem 0 2.5rem;
   display: grid;
   grid-row-gap: 2.5rem;
   @media ${BREAKPOINT.tablet} {
-    grid-row-gap: 1.5rem;
     padding: 2.5rem 0;
+    grid-row-gap: 1.5rem;
+  }
+  @media ${BREAKPOINT.desktop} {
+    padding: 6.25rem 0;
+    grid-row-gap: 3.75rem;
   }
 `
 const ButtonWrapper = styled.div`
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 5rem;
+  @media ${BREAKPOINT.desktop} {
+    margin-bottom: 6.25rem;
+  }
 `
 export const Author = () => {
   return (
@@ -62,8 +75,9 @@ export const Author = () => {
               tagLink=""
               tag="TECHNOLOGY"
               publishDate="2020"
-              title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do "
-              description=""
+              title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              ut aliquip ex ea commodo consequat. "
+              description="Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla"
             />
           ))}
         </BlogWrapper>

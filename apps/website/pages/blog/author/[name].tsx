@@ -16,7 +16,7 @@ const BlogByAuthorNamePage: NextPage<{ name: string }> = ({ name }) => {
   return (
     <>
       <Global />
-      <Layout>
+      <Layout transparent>
         <Author />
       </Layout>
     </>
