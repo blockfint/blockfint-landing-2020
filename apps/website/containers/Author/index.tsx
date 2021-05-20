@@ -8,6 +8,9 @@ import { BlogButton } from '@blockfint/website/components/Buttons'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 const AuthorWrapper = styled.div`
   padding: 2.5rem 0 3.75rem;
+  @media ${BREAKPOINT.tablet} {
+    padding: 2.5rem 5rem 3.75rem;
+  }
 `
 const Background = styled.div`
   background-color: #f0f5f5;
@@ -17,6 +20,10 @@ const BlogWrapper = styled.div`
   padding: 3.75rem 0 2.5rem;
   display: grid;
   grid-row-gap: 2.5rem;
+  @media ${BREAKPOINT.tablet} {
+    grid-row-gap: 1.5rem;
+    padding: 2.5rem 0;
+  }
 `
 const ButtonWrapper = styled.div`
   text-align: center;
@@ -49,7 +56,15 @@ export const Author = () => {
       <Container maxWidth="lg">
         <BlogWrapper>
           {[...new Array(4)].map(() => (
-            <ThumbnailBlog size="M" blogLink="" tagLink="" tag="" publishDate="2020" title="" description="" />
+            <ThumbnailBlog
+              size="M"
+              blogLink=""
+              tagLink=""
+              tag="TECHNOLOGY"
+              publishDate="2020"
+              title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do "
+              description=""
+            />
           ))}
         </BlogWrapper>
         <ButtonWrapper>
