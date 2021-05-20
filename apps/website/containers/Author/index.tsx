@@ -68,8 +68,9 @@ export const Author = () => {
       </Background>
       <Container maxWidth="lg">
         <BlogWrapper>
-          {[...new Array(4)].map(() => (
+          {[0, 1, 2, 3].map((index) => (
             <ThumbnailBlog
+              key={index}
               size="M"
               blogLink=""
               tagLink=""
