@@ -4,6 +4,8 @@ import { typography } from '@blockfint/website/styles/typography'
 import { createGlobalStyle } from 'styled-components'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
+import { Layout } from '@blockfint/website/components/layouts'
+import { Author } from '@blockfint/website/containers/Author'
 
 const Global = createGlobalStyle`
 body{
@@ -14,7 +16,9 @@ const BlogByAuthorNamePage: NextPage<{ name: string }> = ({ name }) => {
   return (
     <>
       <Global />
-      <div>BlogByAuthorNamePage {name}</div>
+      <Layout>
+        <Author />
+      </Layout>
     </>
   )
 }
