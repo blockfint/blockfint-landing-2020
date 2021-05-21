@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '../next-i18next.config.js'
 import { typography } from '@blockfint/website/styles/typography'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 
 const Global = createGlobalStyle`
 body{
@@ -11,14 +12,33 @@ body{
 `
 
 const Container = styled.div`
-  margin-left: 19.875rem;
-  margin-right: 19.875rem;
-  margin-bottom: 2.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.4375rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+
+  @media ${BREAKPOINT.tablet} {
+    margin-left: 6.5625rem;
+    margin-right: 6.5625rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  @media ${BREAKPOINT.desktop} {
+    margin-left: 19.875rem;
+    margin-right: 19.875rem;
+    margin-top: 3.75rem;
+    margin-bottom: 2.5rem;
+  }
 `
 
 const TextBlock = styled.div`
-  margin-top: 3.75rem;
-  margin-bottom: 3.75rem;
+  margin-bottom: 2.5rem;
+  @media ${BREAKPOINT.tablet} {
+    margin-bottom: 2.5rem;
+  }
+  @media ${BREAKPOINT.desktop} {
+    margin-bottom: 3.75rem;
+  }
 `
 
 const List = styled.li`
@@ -33,6 +53,9 @@ const PolicyPage = () => {
       <Global />
       <Layout>
         <Container>
+          <TextBlock>
+            <p>Effective Date: May 18,2021</p>
+          </TextBlock>
           <TextBlock>
             <h3>Privacy Policy for Blockfint</h3>
 
