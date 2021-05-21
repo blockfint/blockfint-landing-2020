@@ -5,28 +5,65 @@ import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 const Container = styled.div`
   display: grid;
   grid-template-rows: repeat(2, max-content);
-  grid-gap: 1rem 1.5rem;
   justify-items: center;
   text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  &.large {
+    grid-gap: 1rem 1.5rem;
+  }
+  &.small {
+    grid-gap: 1.5rem 1rem;
+  }
   @media ${BREAKPOINT.tablet} {
+    justify-items: baseline;
     grid-template-rows: auto;
-    grid-template-columns: max-content 400px;
+    grid-template-columns: max-content auto;
     text-align: start;
+    &.large {
+      max-width: 34.375rem;
+    }
+    &.small {
+      max-width: 31.875rem;
+    }
+  }
+  @media ${BREAKPOINT.tablet} {
+    &.large {
+      max-width: 50rem;
+    }
+    &.small {
+      max-width: 36.875rem;
+    }
   }
 `
 const ImageBorder = styled.div`
   border-radius: 50%;
-  width: 156px;
-  height: 156px;
+  align-self: center;
+  &.large {
+    width: 156px;
+    height: 156px;
+  }
+  &.small {
+    width: 100px;
+    height: 100px;
+  }
   background-color: skyblue;
   overflow: hidden;
   @media ${BREAKPOINT.tablet} {
-    width: 136px;
-    height: 136px;
+    &.large {
+      width: 136px;
+      height: 136px;
+    }
+    &.small {
+      width: 90px;
+      height: 90px;
+    }
   }
   @media ${BREAKPOINT.desktop} {
-    width: 165px;
-    height: 165px;
+    &.large {
+      width: 164px;
+      height: 164px;
+    }
   }
 `
 const TextSection = styled.div`
@@ -51,22 +88,32 @@ const Description = styled.p`
   }
 `
 interface AuthorBannerProps {
+  imgSize?: 'small' | 'large'
   image?: string
   authorName: string
   description: string
 }
 export const AuthorBanner: React.FC<AuthorBannerProps> = ({
   image = '/images/thumbnail.png',
+  imgSize = 'large',
   authorName,
   description
 }) => {
   return (
-    <Container>
-      <ImageBorder>
-        <Image src={image} width={285} height={291} alt="Author" />
+    <Container className={imgSize}>
+      <ImageBorder className={imgSize}>
+        <Image
+          src={image ?? '/images/thumbnail.png'}
+          width={180}
+          height={180}
+          alt="Author"
+          layout="responsive"
+          objectPosition="top center"
+          objectFit="cover"
+        />
       </ImageBorder>
       <TextSection>
-        <h5>{authorName}</h5>
+        {imgSize === 'large' ? <h5>{authorName}</h5> : <h6>{`Writer: ${authorName}`}</h6>}
         <Description>{description}</Description>
       </TextSection>
     </Container>

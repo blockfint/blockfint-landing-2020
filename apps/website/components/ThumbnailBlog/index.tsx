@@ -141,14 +141,15 @@ const Tag = styled.div`
 `
 type sizeType = 'S' | 'M' | 'L'
 interface Props {
-  image?: string
   title: string
   description: string
   publishDate: Date | Dayjs | string
-  size?: sizeType
-  tag?: string
   tagLink: string
   blogLink: string
+  image?: string
+  size?: sizeType
+  tag?: string
+  className?: string
 }
 export const ThumbnailBlog: React.FC<Props> = ({
   image,
@@ -158,10 +159,11 @@ export const ThumbnailBlog: React.FC<Props> = ({
   size = 'S',
   tag,
   tagLink,
-  blogLink
+  blogLink,
+  className
 }) => {
   return (
-    <Wrapper size={size}>
+    <Wrapper size={size} className={className}>
       <LinkWrapper href={blogLink}>
         <ImageWrapper className="imageWrapper" imgSrc={image} size={size} />
       </LinkWrapper>

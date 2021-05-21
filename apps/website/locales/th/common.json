@@ -6,7 +6,7 @@
   "who-we-are": "Blockfint คือใคร?",
   "privacy-and-policy": "นโยบายความเป็นส่วนตัวของ Blockfint",
   "what-we-do": "สิ่งที่ Blockfint ทำ",
-  "life-at-blockfint": "Life at Blockfint",
+  "life-at-blockfint": "ชีวิตที่ blockfint",
   "what-we-do-daily": "ติดตาม Blockfint ",
   "copyright": "Copyright 2020. Blockfint All Rights Reserved.",
   "address": "ที่อยู่",
@@ -36,5 +36,10 @@
   "send": "ส่ง",
   "contact-banner-title": "สนใจร่วมธุรกิจกับเรา?",
   "meet-the-team": "ทีมงาน Blockfint",
-  "read-more": "อ่านต่อ"
+  "read-more": "อ่านต่อ",
+  "see-more": "ดูเพิ่มเติม",
+  "gideon-quote": "การซื้อขายพลังงานอย่างไร้ข้อจำกัด",
+  "neobank-quote": "ระบบธนาคารดิจิทัลแบบไวท์เลเบล",
+  "thinker-quote": "ตัดสินใจอย่างรวดเร็วและมีประสิทธิภาพด้วยข้อมูล",
+  "agri-quote": "ระบบติดตามและตรวจสอบผลผลิตทางการเกษตร"
 }

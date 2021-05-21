@@ -8,11 +8,17 @@ export default {
 }
 
 const Template = (args) => (
-  <Container maxWidth="sm">
+  <Container {...args}>
     <AuthorBanner
       image="/images/mailbox.png"
       authorName="Nick Suttipong"
       description="Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat."
+    />
+    <AuthorBanner
+      imgSize="small"
+      image="/images/mailbox.png"
+      authorName="Nick Suttipong"
+      description="Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit "
     />
   </Container>
 )
@@ -23,9 +29,15 @@ Mobile.parameters = {
   }
 }
 export const Tablet = Template.bind({})
+Tablet.args = {
+  maxWidth: 'sm'
+}
 Tablet.parameters = {
   viewport: {
     defaultViewport: 'tablet'
   }
 }
 export const Desktop = Template.bind({})
+Desktop.args = {
+  maxWidth: 'lg'
+}

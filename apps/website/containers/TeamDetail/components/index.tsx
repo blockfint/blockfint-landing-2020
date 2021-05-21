@@ -7,7 +7,7 @@ import { ReactComponent as MailIcon } from '@blockfint/website/assets/icons/atom
 import { LinkButton } from '@blockfint/website/components/Buttons'
 import { useRouter } from 'next/router'
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
-import { useTranslation } from 'react-i18next'
+import { useTranslation, Trans } from 'react-i18next'
 
 const Background = styled.div`
   min-height: 42rem;
@@ -189,14 +189,19 @@ const ContainerContents = styled.div`
 const ImageOverlay: React.FC<{ imgSrc: string }> = ({ imgSrc }) => {
   return <Person src={`/images/${imgSrc}`} alt="Credit by Poster" />
 }
-const ContactDetail: React.FC<{ contact: string }> = ({ contact }) => {
+const ContactDetail: React.FC<{ contact: string; prefix: string }> = ({ prefix, contact }) => {
   if (contact !== 'undefined') {
     return (
       <div style={{ display: 'flex', alignItems: 'start' }}>
         <div style={{ paddingTop: '0.3rem', paddingRight: '0.5rem' }}>
           <MailIcon />
         </div>
-        <p>{contact}</p>
+        <p style={{ alignSelf: 'center' }}>
+          {prefix}{' '}
+          <a style={{ color: 'inherit', textDecoration: 'inherit' }} href={`mailto:${contact}`}>
+            {contact}
+          </a>
+        </p>
       </div>
     )
   } else {
@@ -204,7 +209,7 @@ const ContactDetail: React.FC<{ contact: string }> = ({ contact }) => {
   }
 }
 
-export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, imgSrc, contact }) => {
+export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, imgSrc, contact, nickname }) => {
   const router = useRouter()
   const { t } = useTranslation()
   return (
@@ -229,7 +234,14 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
                   <p className="Story">{t(`team-details.${desc}`)}</p>
                 </div>
                 <div className="Contact">
-                  <ContactDetail contact={t(`team-details.${contact}`)} />
+                  {contact && (
+                    <ContactDetail
+                      prefix={t(`team-details.email-prefix`, {
+                        name: t(`team-details.${nickname}`)
+                      })}
+                      contact={`${t(`team-details.${contact}`)}`}
+                    />
+                  )}
                 </div>
               </div>
             </Content>

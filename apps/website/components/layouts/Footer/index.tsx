@@ -166,11 +166,9 @@ export const Footer: React.FC = () => {
               <Text>{t('common.works')}</Text>
             </StyledLink>
           </Link>
-          <Link href="https://www.instagram.com/blockfint/" passHref>
-            <StyledLink>
-              <Text style={{ paddingTop: '0.25rem' }}>{t('common.life-at-blockfint')}</Text>
-            </StyledLink>
-          </Link>
+          <StyledLink target="__blank" rel="noreferrer noopener" href="https://www.instagram.com/blockfint/">
+            <Text style={{ paddingTop: '0.25rem' }}>{t('common.life-at-blockfint')}</Text>
+          </StyledLink>
         </What>
         <Address>
           <Title>{t('common.address')}</Title>
@@ -196,17 +194,21 @@ export const Footer: React.FC = () => {
         </Call>
         <Social>
           <Title>{t('common.what-we-do-daily')}</Title>
-          <StyledIconButton href="https://www.facebook.com/Blockfint/">
+          <StyledIconButton href="https://www.facebook.com/Blockfint/" target="__blank" rel="noreferrer noopener">
             <img src="/icons/facebook.svg" alt="facebook" width="36" />
           </StyledIconButton>
-          <StyledIconButton href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g">
+          <StyledIconButton
+            href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g"
+            target="__blank"
+            rel="noreferrer noopener"
+          >
             <img src="/icons/youtube.svg" alt="youtube" width="36" />
           </StyledIconButton>
 
-          <StyledIconButton href="https://www.instagram.com/blockfint/">
+          <StyledIconButton href="https://www.instagram.com/blockfint/" target="__blank" rel="noreferrer noopener">
             <img src="/icons/instagram.svg" alt="instagram" width="36" />
           </StyledIconButton>
-          <StyledIconButton href="https://th.linkedin.com/company/blockfint">
+          <StyledIconButton href="https://th.linkedin.com/company/blockfint" target="__blank" rel="noreferrer noopener">
             <img src="/icons/linkin.svg" alt="linkin" width="36" />
           </StyledIconButton>
         </Social>
