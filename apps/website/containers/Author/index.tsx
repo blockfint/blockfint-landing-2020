@@ -6,6 +6,8 @@ import Container from '@material-ui/core/Container/Container'
 import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BlogButton } from '@blockfint/website/components/Buttons'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
+import { AuthorPageProps } from '@blockfint/website/pages/blog/author/[name]'
+import { getCategory } from '@blockfint/website/utils/getCategory'
 const AuthorWrapper = styled.div`
   padding: 2.5rem 0 3.75rem;
   @media ${BREAKPOINT.tablet} {
@@ -42,45 +44,49 @@ const ButtonWrapper = styled.div`
     margin-bottom: 6.25rem;
   }
 `
-export const Author = () => {
+export const Author: React.FC<AuthorPageProps> = ({ profile, posts }) => {
+  const latestPost = posts?.[0]
+  const postCategory = getCategory(latestPost?.tags)
+  const otherPosts = posts?.slice(1)
   return (
     <>
       <Container maxWidth="lg">
         <AuthorWrapper>
-          <AuthorBanner
-            authorName="John"
-            description="Chief Executive Officer. Nick had worked with lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat."
-          />
+          <AuthorBanner image={profile?.profile_image} authorName={profile?.name} description={profile?.bio} />
         </AuthorWrapper>
       </Container>
       <Background>
         <Container maxWidth="lg">
           <ThumbnailBlog
             size="L"
-            blogLink=""
-            tagLink=""
-            tag="Technology"
-            publishDate="2020"
-            title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Quis autem vel eum iure reprehenderit qui "
-            description=""
+            blogLink={`/blog/${postCategory?.slug}/${latestPost?.slug}`}
+            tagLink={`/blog/${postCategory?.slug}`}
+            tag={postCategory.name}
+            publishDate={latestPost?.published_at}
+            title={latestPost?.title}
+            description={latestPost?.og_description}
+            image={latestPost?.feature_image}
           />
         </Container>
       </Background>
       <Container maxWidth="lg">
         <BlogWrapper>
-          {[0, 1, 2, 3].map((index) => (
-            <ThumbnailBlog
-              key={index}
-              size="M"
-              blogLink=""
-              tagLink=""
-              tag="TECHNOLOGY"
-              publishDate="2020"
-              title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              ut aliquip ex ea commodo consequat. "
-              description="Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla"
-            />
-          ))}
+          {otherPosts?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
+            const category = getCategory(tags)
+            return (
+              <ThumbnailBlog
+                key={slug}
+                size="M"
+                blogLink={`/blog/${category.slug}/${slug}`}
+                tagLink={`/blog/${category.slug}`}
+                tag={category.name}
+                publishDate={published_at}
+                title={title}
+                description={og_description}
+                image={feature_image}
+              />
+            )
+          })}
         </BlogWrapper>
         <ButtonWrapper>
           <BlogButton>See more</BlogButton>

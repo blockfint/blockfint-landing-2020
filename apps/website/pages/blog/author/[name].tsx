@@ -6,19 +6,24 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
 import { Layout } from '@blockfint/website/components/layouts'
 import { Author } from '@blockfint/website/containers/Author'
-import { getAuthors } from '@blockfint/website/api/ghostCMS'
+import { getAllPosts, getAuthors, getPostsByAuthor, getSingleAuthor } from '@blockfint/website/api/ghostCMS'
 
 const Global = createGlobalStyle`
 body{
   ${typography}
 }
 `
-const BlogByAuthorNamePage: NextPage<{ name: string }> = ({ name }) => {
+
+export interface AuthorPageProps {
+  profile: any
+  posts: any
+}
+const BlogByAuthorNamePage: NextPage<AuthorPageProps> = ({ profile, posts }) => {
   return (
     <>
       <Global />
       <Layout transparent>
-        <Author />
+        <Author profile={profile} posts={posts} />
       </Layout>
     </>
   )
@@ -43,7 +48,9 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 export async function getStaticProps({ locale, params }) {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
   const name = params.name
+  const profile = await getSingleAuthor(name)
+  const posts = await getAllPosts({ filter: `primary_author:${name}` })
   return {
-    props: { ...result, name }
+    props: { ...result, profile, posts }
   }
 }
