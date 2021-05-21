@@ -30,7 +30,7 @@ export const GideonSection: React.FC = () => {
       <Content>
         <GideonImage />
         <Title style={{ color: 'var(--primary)' }}>Gideon</Title>
-        <Title>{t('home.gideon-sub-title')}</Title>
+        <Title>{t('common.gideon-quote')}</Title>
         <Desc>{t('home.gideon-desc')}</Desc>
         <Link href={'/products/gideon'} passHref>
           <a>

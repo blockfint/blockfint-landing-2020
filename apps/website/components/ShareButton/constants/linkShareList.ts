@@ -1,17 +1,17 @@
 export const linkShareList = [
   {
     name: 'facebook',
-    link: '',
+    link: 'https://www.facebook.com/sharer?u=',
     src: '/icons/facebook-colored.svg'
   },
   {
     name: 'twitter',
-    link: '',
+    link: 'https://twitter.com/intent/tweet?url=',
     src: '/icons/twitter-colored.svg'
   },
   {
     name: 'line',
-    link: '',
+    link: 'https://social-plugins.line.me/lineit/share?url=',
     src: '/icons/line-colored.svg'
   },
   {

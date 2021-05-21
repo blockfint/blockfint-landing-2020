@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Dialog from '@material-ui/core/Dialog'
-import { linkShareList } from './constants/linkShareList'
-import { LinkWithIcon } from './components/LinkWithIcon'
+import { linkShareList } from '../constants/linkShareList'
+import { LinkWithIcon } from './LinkWithIcon'
 import Snackbar from '@material-ui/core/Snackbar'
 const Button = styled.button`
   width: 70px;
@@ -50,18 +50,31 @@ const CopyButton = styled.button`
   border: 0;
   cursor: pointer;
 `
+
 export const ShareWithModal: React.FC = () => {
+  const textLink = window.location.href
   const [open, setOpen] = React.useState(false)
   const [showAlert, setShowAlert] = React.useState({ open: false, massage: 'Copy to Clipboard!' })
-  const handleOpen = () => {
-    setOpen(true)
+  const handleOpen = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          // title: 'Title share API POC',
+          // text: 'Text share API POC',
+          url: textLink
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    } else {
+      setOpen(true)
+    }
   }
   const handleClose = () => {
     setOpen(false)
   }
-  const textlink = 'http://www.blockfint.com'
   const handleClickCopy = () => {
-    navigator.clipboard.writeText(textlink).then(
+    navigator.clipboard.writeText(textLink).then(
       function () {
         setShowAlert((prev) => {
           return { ...prev, open: true }
@@ -90,7 +103,7 @@ export const ShareWithModal: React.FC = () => {
               <LinkWithIcon key={name} alt={name} src={src} link={link} style={{ width: '40px' }} />
             ))}
           </LinkWrapper>
-          <TextFieldLink value={textlink} onChange={() => null} />
+          <TextFieldLink value={textLink} onChange={() => null} />
           <ClipboardWrapper>
             <LinkWithIcon
               key={linkShareList[3].name}

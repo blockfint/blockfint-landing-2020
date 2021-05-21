@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { ProjectCard } from './components/ProjectCard'
 import { projectInfos } from '@blockfint/website/contents/projects'
+import { useTranslation } from 'react-i18next'
 
 const StoryContainer = styled.div`
   padding: 3.5625rem 0;
@@ -63,11 +64,12 @@ const Div = styled.div`
 `
 export const SuccessStory = () => {
   const projectData = projectInfos
+  const { t } = useTranslation()
   return (
     <StoryContainer>
-      <Topic>Success Stories</Topic>
+      <Topic>{t('works.success-stories')}</Topic>
       <Div>
-        <H5>Blockfint project includes:</H5>
+        <H5>{t('works.blockfint-project-includes')}</H5>
         <Hr />
         <ProjectContainer>
           {projectPath?.map(({ projectId, link }) => {

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import React from 'react'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { Container } from '@material-ui/core'
+import { useTranslation } from 'react-i18next'
 
 const Content = styled.div`
   padding: 0 0.5rem;
@@ -69,6 +70,7 @@ export const ProductDetail: React.FC<Props> = ({
   youtube,
   children
 }) => {
+  const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
       <Content>
@@ -77,7 +79,7 @@ export const ProductDetail: React.FC<Props> = ({
         <Desc>{description}</Desc>
         {linkHref && (
           <ArrowLink href={linkHref} hrefLang="en">
-            Go to website
+            {t('work-details.go-to-website')}
           </ArrowLink>
         )}
         <YoutubeWrapper>

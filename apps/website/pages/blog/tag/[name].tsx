@@ -12,7 +12,7 @@ body{
   ${typography}
 }
 `
-const BlogByTagPage: NextPage = () => {
+const BlogByTagPage: NextPage<{ name: string }> = ({ name }) => {
   return (
     <>
       <Global />
