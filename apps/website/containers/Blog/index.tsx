@@ -64,14 +64,14 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, post
         </CategoryWrapper>
         <BlogWrapper>
           {posts?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
-            const category = tags.map((tag) => tag.visibility === 'public' && tag.slug)
+            const category = tags.find(({ visibility }) => visibility === 'public')
             return (
               <ThumbnailBlog
                 key={title}
                 image={feature_image}
-                tag={category}
-                tagLink={`/blog/${category}`}
-                blogLink={`/blog/${slug}`}
+                tag={category.name}
+                tagLink={`/blog/${category.slug}`}
+                blogLink={`/blog/${category.slug}/${slug}`}
                 title={title}
                 description={og_description}
                 publishDate={published_at}
