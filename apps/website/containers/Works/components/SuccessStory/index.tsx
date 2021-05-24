@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { ProjectCard } from './components/ProjectCard'
 import { projectInfos } from '@blockfint/website/contents/projects'
 import { useTranslation } from 'react-i18next'

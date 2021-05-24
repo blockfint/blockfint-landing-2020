@@ -2,7 +2,7 @@ import { Container } from '@material-ui/core'
 import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as Vector } from '@blockfint/website/assets/icons/atoms-icon-link.svg'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 const Background = styled.div`

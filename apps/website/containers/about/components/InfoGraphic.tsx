@@ -1,4 +1,4 @@
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { Counter } from '@blockfint/website/components/Counter'
 import React from 'react'
 import { useTranslation } from 'react-i18next'

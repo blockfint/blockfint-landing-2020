@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowLink } from '@blockfint/website/components/ArrowLink'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import Image from 'next/image'
 const Card = styled(motion.div)`
   cursor: pointer;

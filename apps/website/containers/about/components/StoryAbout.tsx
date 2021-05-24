@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { useTranslation } from 'react-i18next'
 const Topic = styled.h2`
   font-size: 2.125rem;

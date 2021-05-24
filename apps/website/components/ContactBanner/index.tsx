@@ -1,5 +1,5 @@
 import { Container } from '@material-ui/core'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { SecondaryButton } from '@blockfint/website/components/Buttons'
 import { useContactContext } from '@blockfint/website/components/ContactDialog'
 import Image from 'next/image'

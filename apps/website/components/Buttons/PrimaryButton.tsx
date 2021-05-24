@@ -1,6 +1,6 @@
-import { ReactNode, useState } from 'react';
-import styled from 'styled-components';
-import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion';
+import { ReactNode, useState } from 'react'
+import styled from 'styled-components'
+import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion'
 
 const ButtonContainer = styled(motion.button)<any>`
   cursor: pointer;
@@ -29,7 +29,7 @@ const ButtonContainer = styled(motion.button)<any>`
     z-index: -2;
     background-image: ${({ bg }) => bg};
   }
-`;
+`
 
 const Ripple = styled(motion.span)`
   pointer-events: none;
@@ -40,7 +40,7 @@ const Ripple = styled(motion.span)`
   border-radius: 50%;
   width: 1em;
   height: 1em;
-`;
+`
 
 const LogoWrapper = styled.div`
   background-color: #ffffff;
@@ -54,44 +54,44 @@ const LogoWrapper = styled.div`
   display: flex;
   place-items: center;
   place-content: center;
-`;
+`
 export interface ButtonProps extends HTMLMotionProps<'button'> {
-  duration?: number;
-  children?: string;
-  logo?: ReactNode;
-  background?: string;
+  duration?: number
+  children?: string
+  logo?: ReactNode
+  background?: string
 }
 
 const variants = {
   Hover: { fontSize: '7.5rem', opacity: 1 },
   Active: { fontSize: '50rem', opacity: 1 },
-  Inactive: { fontSize: '0rem', opacity: 0 },
-};
+  Inactive: { fontSize: '0rem', opacity: 0 }
+}
 
 export const PrimaryButton: React.FC<ButtonProps> = ({
   children,
-  onClick = () => null,
+
   duration = 0.35,
   logo,
   background = 'radial-gradient(circle at 0 100%, #00b0ff, #00b8de)',
   ...props
 }) => {
-  const [ripple, setRipple] = useState({ x: 0, y: 0, mode: 'Inactive' });
+  const [ripple, setRipple] = useState({ x: 0, y: 0, mode: 'Inactive' })
 
   const handleHover = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const rom = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rom.left;
-    const y = e.clientY - rom.top;
-    setRipple(() => ({ x, y, mode: 'Hover' }));
-  };
+    const rom = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rom.left
+    const y = e.clientY - rom.top
+    setRipple(() => ({ x, y, mode: 'Hover' }))
+  }
 
   const terminateRipple = () => {
-    setRipple((prev) => ({ ...prev, mode: 'Inactive' }));
-  };
+    setRipple((prev) => ({ ...prev, mode: 'Inactive' }))
+  }
 
   const handleActive = () => {
-    setRipple((prev) => ({ ...prev, mode: 'Active' }));
-  };
+    setRipple((prev) => ({ ...prev, mode: 'Active' }))
+  }
 
   return (
     <ButtonContainer
@@ -116,5 +116,5 @@ export const PrimaryButton: React.FC<ButtonProps> = ({
         />
       </AnimatePresence>
     </ButtonContainer>
-  );
-};
+  )
+}

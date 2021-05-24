@@ -1,7 +1,7 @@
 import { ArrowLink } from '@blockfint/website/components/ArrowLink'
 import styled from 'styled-components'
 import React from 'react'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { Container } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 

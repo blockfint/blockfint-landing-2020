@@ -1,5 +1,5 @@
 import { Container } from '@material-ui/core'
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'next-i18next'
