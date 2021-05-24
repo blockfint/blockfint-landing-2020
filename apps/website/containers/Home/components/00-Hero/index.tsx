@@ -57,6 +57,11 @@ const Content = styled.div`
 const Title = styled.h1`
   line-height: 1.15;
   color: var(--primary);
+  font-size: 2.625rem;
+  font-weight: 600;
+  @media ${BREAKPOINT.tablet} {
+    font-size: 4.25rem;
+  }
 `
 
 const Desc = styled.p`
