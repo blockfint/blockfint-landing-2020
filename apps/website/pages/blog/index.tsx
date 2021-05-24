@@ -6,18 +6,21 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config.js'
 import { NextPage } from 'next'
 import { Blog } from '@blockfint/website/containers/Blog'
+import { getTags } from '@blockfint/website/api/ghostCMS'
 const Global = createGlobalStyle`
 body{
   ${typography}
 }
 `
-
-const BlogPage: NextPage = () => {
+interface Props {
+  categoryList: string[]
+}
+const BlogPage: NextPage<Props> = ({ categoryList }) => {
   return (
     <>
       <Global />
       <Layout>
-        <Blog />
+        <Blog categoryList={categoryList} />
       </Layout>
     </>
   )
@@ -25,9 +28,20 @@ const BlogPage: NextPage = () => {
 export default BlogPage
 export const getStaticProps = async ({ locale }) => {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
+  const ghostCat = await getTags()
+  const listCat = ['technology', 'business', 'education', 'agriculture', 'inspiration']
+  const categoryList = [
+    ...listCat,
+    ...ghostCat
+      .filter((tag) => tag.visibility === 'public' && !listCat.includes(tag.slug))
+      .map(({ slug }) => {
+        return slug
+      })
+  ]
   return {
     props: {
-      ...result
+      ...result,
+      categoryList
     },
     revalidate: 60
   }

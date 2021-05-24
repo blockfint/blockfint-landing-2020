@@ -14,28 +14,39 @@ body{
 `
 interface Props {
   category: string
+  categoryList: string[]
 }
-const BlogByCategoryPage: NextPage<Props> = ({ category }) => {
+const BlogByCategoryPage: NextPage<Props> = ({ category, categoryList }) => {
   return (
     <>
       <Global />
       <Layout>
-        <Blog category={category} />
+        <Blog category={category} categoryList={categoryList} />
       </Layout>
     </>
   )
 }
 
 export default BlogByCategoryPage
+const createCatList = (ghostCat) => {
+  const listCat = ['technology', 'business', 'education', 'agriculture', 'inspiration']
+  const categoryList = [
+    ...listCat,
+    ...ghostCat
+      .filter((tag) => tag.visibility === 'public' && !listCat.includes(tag.slug))
+      .map(({ slug }) => {
+        return slug
+      })
+  ]
+  return categoryList
+}
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const results = await getTags()
+  const allCat = createCatList(results)
   const paths = locales.flatMap((locale) =>
-    results
-      .filter((tag) => tag.visibility === 'public')
-      .map(({ slug }) => {
-        return { params: { category: slug }, locale }
-      })
-      .filter((i) => i !== null)
+    allCat.map((category) => {
+      return { params: { category }, locale }
+    })
   )
   return {
     paths,
@@ -45,7 +56,9 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 export async function getStaticProps({ locale, params }) {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
   const { category } = params
+  const ghostCat = await getTags()
+  const categoryList = createCatList(ghostCat)
   return {
-    props: { ...result, category }
+    props: { ...result, category, categoryList }
   }
 }

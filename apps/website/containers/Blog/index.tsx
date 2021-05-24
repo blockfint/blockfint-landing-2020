@@ -1,12 +1,11 @@
+import React from 'react'
+import styled from 'styled-components'
+import dayjs from 'dayjs'
 import { BlogButton } from '@blockfint/website/components/Buttons/BlogButton'
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
 import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { Container } from '@material-ui/core'
-import dayjs from 'dayjs'
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { Category } from './components/Category'
 const HeadingText = styled.h2`
   text-align: center;
@@ -49,14 +48,16 @@ const ButtonWrapper = styled.div`
 `
 interface BlogProps {
   category?: string
+  categoryList?: string[]
 }
-export const Blog: React.FC<BlogProps> = ({ category = 'all' }) => {
+export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList }) => {
+  const allCategory = ['All', ...categoryList.map((cat) => cat.charAt(0).toUpperCase() + cat.slice(1))]
   return (
     <>
       <Container maxWidth="lg">
         <HeadingText>Blog</HeadingText>
         <CategoryWrapper>
-          {categoryList.map((cat) => (
+          {allCategory.map((cat) => (
             <Category key={cat} text={cat} selected={cat.toLowerCase() === category} />
           ))}
         </CategoryWrapper>
@@ -80,7 +81,6 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all' }) => {
     </>
   )
 }
-const categoryList = ['All', 'Technology', 'Business', 'Education', 'Agriculture', 'Inspiration']
 const posts = [
   { tagLink: '', blogLink: '', title: 'A', description: 'test', publishDate: dayjs() },
   { tagLink: '', blogLink: '', title: 'B', description: 'test', publishDate: dayjs() },
