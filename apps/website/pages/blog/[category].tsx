@@ -20,7 +20,7 @@ const BlogByCategoryPage: NextPage<Props> = ({ category, categoryList }) => {
   return (
     <>
       <Global />
-      <Layout>
+      <Layout transparent>
         <Blog category={category} categoryList={categoryList} />
       </Layout>
     </>

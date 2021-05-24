@@ -19,7 +19,7 @@ const BlogPage: NextPage<Props> = ({ categoryList }) => {
   return (
     <>
       <Global />
-      <Layout>
+      <Layout transparent>
         <Blog categoryList={categoryList} />
       </Layout>
     </>
