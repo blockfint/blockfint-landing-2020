@@ -1,11 +1,10 @@
+import React from 'react'
+import styled from 'styled-components'
 import { BlogButton } from '@blockfint/website/components/Buttons'
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
 import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import Container from '@material-ui/core/Container'
-import { useRouter } from 'next/router'
-import React from 'react'
-import styled from 'styled-components'
 const Heading = styled.div`
   text-align: center;
   margin-top: 1rem;
@@ -39,10 +38,12 @@ const ButtonWrapper = styled.div`
     margin-bottom: 6.25rem;
   }
 `
-export const Tag = () => {
-  const router = useRouter()
-  const tagName = router.asPath.split('tag/')[1]
-  const output = tagName.charAt(0).toUpperCase() + tagName.slice(1)
+interface Props {
+  tag: string
+  posts: any
+}
+export const Tag: React.FC<Props> = ({ tag, posts }) => {
+  const output = tag?.charAt(0).toUpperCase() + tag?.slice(1)
   return (
     <>
       <Container maxWidth="lg">
@@ -52,10 +53,21 @@ export const Tag = () => {
         </Heading>
 
         <BlogWrapper>
-          <ThumbnailBlog blogLink="#t" tagLink="" title="A" description="B" publishDate="2020" />
-          <ThumbnailBlog blogLink="" tagLink="" title="A" description="B" publishDate="2020" />
-          <ThumbnailBlog blogLink="" tagLink="" title="A" description="B" publishDate="2020" />
-          <ThumbnailBlog blogLink="" tagLink="" title="A" description="B" publishDate="2020" />
+          {posts?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
+            const category = tags?.find(({ visibility }) => visibility === 'public')
+            return (
+              <ThumbnailBlog
+                key={title}
+                image={feature_image}
+                title={title}
+                description={og_description}
+                tag={category.name}
+                tagLink={`/blog/${category.slug}`}
+                blogLink={`/blog/${category.slug}/${slug}`}
+                publishDate={published_at}
+              />
+            )
+          })}
         </BlogWrapper>
         <ButtonWrapper>
           <BlogButton>See more</BlogButton>

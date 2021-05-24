@@ -1,5 +1,5 @@
-import { GetStaticPaths, NextPage } from 'next'
 import React from 'react'
+import { GetStaticPaths, NextPage } from 'next'
 import { typography } from '@blockfint/website/styles/typography'
 import { createGlobalStyle } from 'styled-components'
 import { Tag } from '@blockfint/website/containers/Tag'
@@ -12,12 +12,16 @@ body{
   ${typography}
 }
 `
-const BlogByTagPage: NextPage<{ name: string }> = ({ name }) => {
+interface Props {
+  name: string
+  posts: any
+}
+const BlogByTagPage: NextPage<Props> = ({ name, posts }) => {
   return (
     <>
       <Global />
       <Layout transparent>
-        <Tag />
+        <Tag tag={name} posts={posts} />
       </Layout>
     </>
   )
