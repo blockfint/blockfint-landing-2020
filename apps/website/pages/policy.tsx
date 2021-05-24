@@ -73,8 +73,7 @@ const PolicyPage = () => {
             <p>
               This Privacy Policy applies only to our online activities and is valid for visitors to our website with
               regards to the information that they shared and/or collect in Blockfint. This policy is not applicable to
-              any information collected offline or via channels other than this website. Our Privacy Policy was created
-              with the help of the <a href="https://www.generateprivacypolicy.com/">Privacy Policy Generator</a>.
+              any information collected offline or via channels other than this website.
             </p>
           </TextBlock>
           <TextBlock>
@@ -144,11 +143,6 @@ const PolicyPage = () => {
               type and/or other information.
             </p>
             <br />
-            <p>
-              For more general information on cookies, please read{' '}
-              <a href="https://www.privacypolicyonline.com/what-are-cookies/">"What Are Cookies" from Cookie Consent</a>
-              .
-            </p>
           </TextBlock>
           <TextBlock>
             <h3>Advertising Partners Privacy Policies</h3>
