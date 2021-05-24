@@ -6,7 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config.js'
 import { NextPage } from 'next'
 import { Blog } from '@blockfint/website/containers/Blog'
-import { getTags } from '@blockfint/website/api/ghostCMS'
+import { getAllPosts, getTags } from '@blockfint/website/api/ghostCMS'
 const Global = createGlobalStyle`
 body{
   ${typography}
@@ -14,13 +14,14 @@ body{
 `
 interface Props {
   categoryList: string[]
+  posts: any
 }
-const BlogPage: NextPage<Props> = ({ categoryList }) => {
+const BlogPage: NextPage<Props> = ({ categoryList, posts }) => {
   return (
     <>
       <Global />
       <Layout transparent>
-        <Blog categoryList={categoryList} />
+        <Blog categoryList={categoryList} posts={posts} />
       </Layout>
     </>
   )
@@ -38,10 +39,12 @@ export const getStaticProps = async ({ locale }) => {
         return slug
       })
   ]
+  const posts = await getAllPosts()
   return {
     props: {
       ...result,
-      categoryList
+      categoryList,
+      posts
     },
     revalidate: 60
   }

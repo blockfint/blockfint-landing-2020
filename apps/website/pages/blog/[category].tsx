@@ -2,7 +2,7 @@ import { GetStaticPaths, NextPage } from 'next'
 import React from 'react'
 import { typography } from '@blockfint/website/styles/typography'
 import { createGlobalStyle } from 'styled-components'
-import { getTags } from '@blockfint/website/api/ghostCMS'
+import { getPostsByTag, getTags } from '@blockfint/website/api/ghostCMS'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
 import { Blog } from '@blockfint/website/containers/Blog'
@@ -15,13 +15,14 @@ body{
 interface Props {
   category: string
   categoryList: string[]
+  posts: any
 }
-const BlogByCategoryPage: NextPage<Props> = ({ category, categoryList }) => {
+const BlogByCategoryPage: NextPage<Props> = ({ category, categoryList, posts }) => {
   return (
     <>
       <Global />
       <Layout transparent>
-        <Blog category={category} categoryList={categoryList} />
+        <Blog category={category} categoryList={categoryList} posts={posts} />
       </Layout>
     </>
   )
@@ -55,10 +56,11 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 }
 export async function getStaticProps({ locale, params }) {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
-  const { category } = params
   const ghostCat = await getTags()
   const categoryList = createCatList(ghostCat)
+  const { category } = params
+  const posts = await getPostsByTag(category)
   return {
-    props: { ...result, category, categoryList }
+    props: { ...result, category, categoryList, posts }
   }
 }

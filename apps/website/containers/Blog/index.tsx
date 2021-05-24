@@ -49,8 +49,9 @@ const ButtonWrapper = styled.div`
 interface BlogProps {
   category?: string
   categoryList?: string[]
+  posts: any
 }
-export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList }) => {
+export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, posts }) => {
   const allCategory = ['All', ...categoryList.map((cat) => cat.charAt(0).toUpperCase() + cat.slice(1))]
   return (
     <>
@@ -62,16 +63,21 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList }) =>
           ))}
         </CategoryWrapper>
         <BlogWrapper>
-          {posts.map((post) => (
-            <ThumbnailBlog
-              key={post.title}
-              tagLink={post.tagLink}
-              blogLink={post.blogLink}
-              title={post.title}
-              description={post.description}
-              publishDate={post.publishDate}
-            />
-          ))}
+          {posts?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
+            const category = tags.map((tag) => tag.visibility === 'public' && tag.slug)
+            return (
+              <ThumbnailBlog
+                key={title}
+                image={feature_image}
+                tag={category}
+                tagLink={`/blog/${category}`}
+                blogLink={`/blog/${slug}`}
+                title={title}
+                description={og_description}
+                publishDate={published_at}
+              />
+            )
+          })}
         </BlogWrapper>
         <ButtonWrapper>
           <BlogButton>See More</BlogButton>
@@ -81,9 +87,3 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList }) =>
     </>
   )
 }
-const posts = [
-  { tagLink: '', blogLink: '', title: 'A', description: 'test', publishDate: dayjs() },
-  { tagLink: '', blogLink: '', title: 'B', description: 'test', publishDate: dayjs() },
-  { tagLink: '', blogLink: '', title: 'C', description: 'test', publishDate: dayjs() },
-  { tagLink: '', blogLink: '', title: 'D', description: 'test', publishDate: dayjs() }
-]
