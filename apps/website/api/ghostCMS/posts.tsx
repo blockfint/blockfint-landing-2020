@@ -69,7 +69,7 @@ export async function getPostsByTag(slug: string, limit?: number, excludeId?: st
   return await posts
 }
 
-export async function getTags(): Promise<GhostTags> {
+export async function getTags() {
   return await ghostApi.tags.browse(tagAndAuthorFetchOptions)
 }
 export async function getSingleTag(props?: { limit: number }): Promise<GhostPostOrPage> {
