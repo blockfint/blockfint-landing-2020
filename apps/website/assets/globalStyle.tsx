@@ -1,17 +1,17 @@
-import React from 'react'
-import { createGlobalStyle } from 'styled-components'
-import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles'
-import theme from './themes'
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles';
+import theme from './themes';
 export const SIZE = {
   tablet: '600px',
   desktop: '960px',
-  desktopHd: '1280px'
-}
+  desktopHd: '1280px',
+};
 export const BREAKPOINT = {
   tablet: `only screen and (min-width: ${SIZE.tablet})`,
   desktop: `only screen and (min-width: ${SIZE.desktop})`,
-  desktopHd: `only screen and (min-width: ${SIZE.desktopHd})`
-}
+  desktopHd: `only screen and (min-width: ${SIZE.desktopHd})`,
+};
 
 const GlobalStyle = createGlobalStyle`
 :root{
@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
 *,
 *::before,
 *::after {
-  font-family: 'Montserrat','Prompt', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -51,7 +51,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
 
-      font-family: 'Montserrat','Prompt', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin:0;
       font-size:1rem;
       color:#333333;
@@ -106,7 +106,6 @@ const GlobalStyle = createGlobalStyle`
         letter-spacing:-1px;
         font-size: 1.625rem;
       }
-
     }
 
     h6{
@@ -119,17 +118,14 @@ const GlobalStyle = createGlobalStyle`
     }
 
     p{
-      font-family: 'Montserrat','Sarabun', sans-serif;
       @media ${BREAKPOINT.tablet}{
         font-size: 1rem;
       }
       font-size:0.875rem;
     }
-
-
   }
 
-`
+`;
 
 export const AllStyleProvider: React.FC = ({ children }) => (
   <>
@@ -138,4 +134,4 @@ export const AllStyleProvider: React.FC = ({ children }) => (
       <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
     </StylesProvider>
   </>
-)
+);

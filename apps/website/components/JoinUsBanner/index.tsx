@@ -1,10 +1,10 @@
-import { Container } from '@material-ui/core'
-import { SecondaryButton } from '@blockfint/website/components/Buttons'
-import React from 'react'
-import styled from 'styled-components'
-import MailSvg from '@blockfint/website/assets/icons/mail.svg'
-import Link from 'next/link'
-import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
+import { Container } from '@material-ui/core';
+import { SecondaryButton } from '@blockfint/website/components/Buttons';
+import React from 'react';
+import styled from 'styled-components';
+import MailSvg from '@blockfint/website/assets/icons/mail.svg';
+import Link from 'next/link';
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
 const Background = styled.div`
   background-color: #19213c;
 
@@ -15,7 +15,7 @@ const Background = styled.div`
     padding: 5rem 0;
     height: unset;
   }
-`
+`;
 const Content = styled.div`
   max-width: 60.625rem;
   margin: 0 -1rem;
@@ -36,7 +36,7 @@ const Content = styled.div`
   @media ${BREAKPOINT.desktop} {
     padding: 0 6.25rem;
   }
-`
+`;
 const LeftContent = styled.div`
   margin: 8rem 1.5rem 0;
   color: var(--white);
@@ -57,7 +57,7 @@ const LeftContent = styled.div`
   @media ${BREAKPOINT.desktop} {
     width: 29.375rem;
   }
-`
+`;
 
 const MailImage = styled.img`
   position: absolute;
@@ -74,7 +74,7 @@ const MailImage = styled.img`
     right: 6.25rem;
     bottom: 3.5rem;
   }
-`
+`;
 export const JoinUsBanner: React.FC = () => {
   return (
     <Background>
@@ -92,5 +92,5 @@ export const JoinUsBanner: React.FC = () => {
         </Content>
       </Container>
     </Background>
-  )
-}
+  );
+};

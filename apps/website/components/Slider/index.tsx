@@ -1,13 +1,13 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import { useState } from 'react'
-import { wrap } from 'popmotion'
+import * as React from 'react';
+import styled from 'styled-components';
+import { useState } from 'react';
+import { wrap } from 'popmotion';
 // import { Button } from '@material-ui/core'
-import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
-import { useWindow } from '@blockfint/website/hooks/useWindow'
-import { AnimationImage } from './components/AnimationImage'
-import { variantsRight, variants, variantsLeft } from './components/variants'
-import { AnimateSharedLayout } from 'framer-motion'
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
+import { useWindow } from '@blockfint/website/hooks/useWindow';
+import { AnimationImage } from './components/AnimationImage';
+import { variantsRight, variants, variantsLeft } from './components/variants';
+import { AnimateSharedLayout } from 'framer-motion';
 const Background = styled.div`
   background-color: #eff6f7;
   padding-bottom: 6.25rem;
@@ -15,14 +15,14 @@ const Background = styled.div`
     padding-bottom: 0;
     margin-bottom: -5rem;
   }
-`
+`;
 const SectionName = styled.h2`
   font-size: 2.125rem;
   text-align: center;
   padding: 3.75rem 4.25rem;
   @media ${BREAKPOINT.desktop} {
   }
-`
+`;
 const Container = styled.div`
   position: relative;
   display: flex;
@@ -39,7 +39,7 @@ const Container = styled.div`
     width: 35vw;
     height: 47rem;
   }
-`
+`;
 const StyledButton = styled.div`
   button {
     height: 60px;
@@ -72,7 +72,7 @@ const StyledButton = styled.div`
       left: -22rem;
     }
   }
-`
+`;
 const ArrowButton = styled.div`
   cursor: pointer;
   display: flex;
@@ -85,51 +85,56 @@ const ArrowButton = styled.div`
     width: 3.75rem;
     height: 3.75rem;
   }
-`
+`;
 interface Props {
-  sectionName: string
-  images: string[]
-  description: string[]
+  sectionName: string;
+  images: string[];
+  description: string[];
 }
-export const Slider: React.FC<Props> = ({ sectionName, images, description }) => {
-  const [[page, direction], setPage] = useState([0, 0])
+export const Slider: React.FC<Props> = ({
+  sectionName,
+  images,
+  description,
+}) => {
+  const [[page, direction], setPage] = useState([0, 0]);
   const paginate = (newDirection: number) => {
-    setPage([page - newDirection, newDirection])
-  }
-  const windowSize = useWindow()
-  let position: number
+    setPage([page - newDirection, newDirection]);
+  };
+  const windowSize = useWindow();
+  let position: number;
   if (windowSize > 600) {
     if (windowSize < 960) {
-      position = 710
+      position = 710;
     } else {
-      position = 820
+      position = 820;
     }
   } else {
-    position = 340
+    position = 340;
   }
-  const transformDesktop = windowSize > 960 ? { y: -100, scale: 1.18 } : { y: 0, scale: 1 }
-  const positionRightPic = position
-  const positionLeftPic = position * -1
+  const transformDesktop =
+    windowSize > 960 ? { y: -100, scale: 1.18 } : { y: 0, scale: 1 };
+  const positionRightPic = position;
+  const positionLeftPic = position * -1;
   const listItemProps = [
     {
       variants: variantsLeft,
       type: 'left',
       custom: { positionLeftPic, transformDesktop },
-      page: page
+      page: page,
     },
     {
       variants: variants,
       type: 'center',
       custom: { transformDesktop },
-      page: page
+      page: page,
     },
     {
       variants: variantsRight,
       type: 'right',
       custom: { positionRightPic, transformDesktop },
-      page: page
-    }
-  ]
+      page: page,
+    },
+  ];
   return (
     <Background>
       <SectionName>{sectionName}</SectionName>
@@ -146,7 +151,7 @@ export const Slider: React.FC<Props> = ({ sectionName, images, description }) =>
                 custom={{ direction, ...Item.custom }}
                 page={Item.page}
               />
-            )
+            );
           })}
         </AnimateSharedLayout>
         <StyledButton className="next" onClick={() => paginate(1)}>
@@ -161,5 +166,5 @@ export const Slider: React.FC<Props> = ({ sectionName, images, description }) =>
         </StyledButton>
       </Container>
     </Background>
-  )
-}
+  );
+};
