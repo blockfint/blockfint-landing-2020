@@ -1,22 +1,22 @@
-import { Container } from '@material-ui/core';
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
-import React from 'react';
-import styled from 'styled-components';
-
+import { Container } from '@material-ui/core'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
+import React from 'react'
+import styled from 'styled-components'
+import { useTranslation } from 'next-i18next'
 const Title = styled.h3`
   margin-top: 3.75rem;
   @media ${BREAKPOINT.tablet} {
     margin-top: 1.625rem;
   }
   text-align: center;
-`;
+`
 const PartnerWrapper = styled.div`
   margin: 1.875rem 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-`;
+`
 const Logo = styled.img`
   filter: grayscale(1);
   flex: 0 1 150px;
@@ -31,11 +31,12 @@ const Logo = styled.img`
   }
 
   object-fit: contain;
-`;
+`
 export const OurPartners: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
-      <Title>Our Partners and Customers</Title>
+      <Title>{t('home.our-partners-and-customers')}</Title>
       <PartnerWrapper>
         <Logo src={'images/partners/AF.png'} />
         <Logo src={'images/partners/BMA.png'} />
@@ -50,5 +51,5 @@ export const OurPartners: React.FC = () => {
         <Logo src={'images/partners/OS.png'} />
       </PartnerWrapper>
     </Container>
-  );
-};
+  )
+}

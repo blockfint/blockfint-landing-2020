@@ -1,12 +1,12 @@
-import React from 'react';
-import { useRouter } from 'next/dist/client/router';
-import Link from 'next/link';
-import styled from 'styled-components';
-import { BREAKPOINT } from '../../../../assets/globalStyle';
-import { OrangeButton } from '@blockfint/website/components/Buttons';
-// import { ReactComponent as BlockFintColor } from '../../../../assets/logos/Blockfint-Color.svg'
-// import { ReactComponent as BlockFintWhite } from '../../../../assets/logos/Blockfint-White.svg'
-import { useContactContext } from '@blockfint/website/components/ContactDialog';
+import React from 'react'
+import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
+import styled from 'styled-components'
+import { BREAKPOINT } from '../../../../styles/globalStyle'
+import { OrangeButton } from '@blockfint/website/components/Buttons'
+import { useContactContext } from '@blockfint/website/components/ContactDialog'
+import { useTranslation } from 'next-i18next'
+import { I18nSelector } from '@blockfint/website/components/I18nSelector'
 
 const LeftnavTab = styled.div`
   display: flex;
@@ -24,14 +24,15 @@ const LeftnavTab = styled.div`
       background-color: transparent;
     }
   }
-`;
+`
 type ColorProps = {
-  status: boolean;
-};
+  status: boolean
+}
 
 const AWithRipple = styled.a<ColorProps>`
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 1rem;
+
+  font-weight: 500;
   display: flex;
   align-items: center;
   height: 1.5rem;
@@ -47,8 +48,7 @@ const AWithRipple = styled.a<ColorProps>`
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: ${(props) =>
-      props.status ? 'var(--black)' : 'var(--black)'};
+    background-color: ${(props) => (props.status ? 'var(--black)' : 'var(--black)')};
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
@@ -69,74 +69,76 @@ const AWithRipple = styled.a<ColorProps>`
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: ${(props) =>
-        props.status ? 'var(--black)' : 'var(--black)'};
+      background-color: ${(props) => (props.status ? 'var(--black)' : 'var(--black)')};
       visibility: visible;
       transform: scaleX(1);
       visibility: visible;
       transform: scaleX(1);
     }
   }
-`;
+`
 
 const RoutesList = styled.div`
   margin-left: 2.625rem;
   display: grid;
   grid-gap: 2.625rem;
   grid-auto-flow: column;
-`;
+`
+const Divider = styled.div`
+  width: 1px;
+  height: 100%;
+  background: black;
+`
 
 interface PropsColor {
-  status: boolean;
-  id?: string;
+  status: boolean
+  id?: string
 }
 
 export const LabTabs = ({ status, id = '' }: PropsColor) => {
-  const router = useRouter();
-  // const { locale } = useIntl()
-  const { onOpen } = useContactContext();
+  const router = useRouter()
+  const { onOpen } = useContactContext()
+  const { t } = useTranslation()
+
   const handleOpen = () => {
-    onOpen();
-  };
+    onOpen()
+  }
+  const routes = [
+    {
+      label: t('common.about'),
+      path: '/about'
+    },
+    {
+      label: t('common.works'),
+      path: '/works'
+    },
+    {
+      label: t('common.team'),
+      path: '/team'
+    }
+  ]
+
   return (
     <LeftnavTab>
       <RoutesList className="NavTab">
         {routes.map(({ label, path }) => {
-          const isActive = router.asPath.includes(path);
+          const isActive = router.asPath.includes(path)
 
           return (
             <Link href={`${path}`} as={`${path}`} passHref key={label}>
-              <AWithRipple
-                status={status}
-                id={id}
-                className={isActive && 'active'}
-              >
+              <AWithRipple status={status} id={id} className={isActive && 'active'}>
                 {label}
               </AWithRipple>
             </Link>
-          );
+          )
         })}
-        {/* <Link passHref href="/contact"> */}
+
         <a onClick={handleOpen}>
-          <OrangeButton>Contact</OrangeButton>
+          <OrangeButton>{t('common.contact')}</OrangeButton>
         </a>
-        {/* </Link> */}
+        <Divider />
+        <I18nSelector />
       </RoutesList>
     </LeftnavTab>
-  );
-};
-
-const routes = [
-  {
-    label: 'About',
-    path: '/about',
-  },
-  {
-    label: 'Works',
-    path: '/works',
-  },
-  {
-    label: 'Team',
-    path: '/team',
-  },
-];
+  )
+}
