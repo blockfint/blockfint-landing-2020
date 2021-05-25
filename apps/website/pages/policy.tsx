@@ -135,7 +135,6 @@ const PolicyPage = () => {
           </TextBlock>
           <TextBlock>
             <h3>Cookies and Web Beacons</h3>
-            <br />
             <p>
               Like any other website, Blockfint uses 'cookies'. These cookies are used to store information including
               visitors' preferences, and the pages on the website that the visitor accessed or visited. The information
