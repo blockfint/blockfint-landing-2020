@@ -1,11 +1,10 @@
-import { Container } from '@material-ui/core'
-import { SecondaryButton } from '@blockfint/website/components/Buttons'
-import React from 'react'
-import styled from 'styled-components'
-import Link from 'next/link'
-import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
-import Image from 'next/image'
-import { useTranslation } from 'next-i18next'
+import { Container } from '@material-ui/core';
+import { SecondaryButton } from '@blockfint/website/components/Buttons';
+import React from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
+import Image from 'next/image';
 const Background = styled.div`
   position: relative;
   height: 27.125rem;
@@ -14,7 +13,7 @@ const Background = styled.div`
     padding: 5rem 0;
     height: unset;
   }
-`
+`;
 const Content = styled.div`
   max-width: 60.625rem;
   margin: 0 -1rem;
@@ -36,7 +35,7 @@ const Content = styled.div`
   @media ${BREAKPOINT.desktop} {
     padding: 0 6.25rem;
   }
-`
+`;
 const RightContent = styled.div`
   margin: 8rem 1.5rem 0;
   text-align: center;
@@ -58,7 +57,7 @@ const RightContent = styled.div`
   @media ${BREAKPOINT.desktop} {
     width: 29.375rem;
   }
-`
+`;
 
 const ExploreImg = styled.div`
   position: absolute;
@@ -75,7 +74,7 @@ const ExploreImg = styled.div`
     left: 0;
     bottom: 0.5rem;
   }
-`
+`;
 
 const ImageWrapper = styled.div`
   position: static;
@@ -95,28 +94,32 @@ const ImageWrapper = styled.div`
     height: unset;
     margin: 0;
   }
-`
+`;
 export const ProductsBanner: React.FC = () => {
-  const { t } = useTranslation()
   return (
     <Background>
       <Container maxWidth="lg">
         <Content>
           <ImageWrapper>
             <ExploreImg>
-              <Image src={'/images/explore.png'} width={430} height={233} alt="explore hand" />
+              <Image
+                src={'/images/explore.png'}
+                width={430}
+                height={233}
+                alt="explore hand"
+              />
             </ExploreImg>
           </ImageWrapper>
           <RightContent>
-            <h5>{t('home.interesting-in-our-products')}</h5>
+            <h5>Interesting in our products? </h5>
             <Link passHref href="/works">
               <a>
-                <SecondaryButton>{t('home.see-all-works')}</SecondaryButton>
+                <SecondaryButton>See all works</SecondaryButton>
               </a>
             </Link>
           </RightContent>
         </Content>
       </Container>
     </Background>
-  )
-}
+  );
+};

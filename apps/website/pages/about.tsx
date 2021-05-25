@@ -1,21 +1,10 @@
-import { Layout } from '@blockfint/website/components/layouts'
-import React from 'react'
-import { About } from '@blockfint/website/containers/about'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import nextI18NextConfig from '../next-i18next.config.js'
+import { Layout } from '@blockfint/website/components/layouts';
+import React from 'react';
+import { About } from '@blockfint/website/containers/about';
 export default function AboutPage() {
   return (
     <Layout>
       <About />
     </Layout>
-  )
-}
-export const getStaticProps = async ({ locale }) => {
-  const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
-
-  return {
-    props: {
-      ...result
-    }
-  }
+  );
 }

@@ -1,1 +1,0 @@
-[{ "from": "^/(?!content/images)(.*)", "to": "https://blockfint.com/$1", "permanent": true }]
