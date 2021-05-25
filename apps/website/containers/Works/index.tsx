@@ -1,11 +1,10 @@
-import React, { useMemo } from 'react'
-import styled from 'styled-components'
-import { Container } from '@material-ui/core'
-import { PostCard } from '@blockfint/website/components/PostCard'
-import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
-import { SuccessStory } from './components/SuccessStory'
-import { ContactBanner } from '@blockfint/website/components/ContactBanner'
-import { useTranslation } from 'react-i18next'
+import React from 'react';
+import styled from 'styled-components';
+import { Container } from '@material-ui/core';
+import { PostCard } from '@blockfint/website/components/PostCard';
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
+import { SuccessStory } from './components/SuccessStory';
+import { ContactBanner } from '@blockfint/website/components/ContactBanner';
 const TopText = styled.h2`
   text-align: center;
   font-size: 2.125rem;
@@ -13,7 +12,7 @@ const TopText = styled.h2`
     font-size: 3.375rem;
     line-height: 1.22;
   }
-`
+`;
 const TopPage = styled.div`
   padding: 2.5rem 0;
   @media ${BREAKPOINT.tablet} {
@@ -22,7 +21,7 @@ const TopPage = styled.div`
   @media ${BREAKPOINT.desktop} {
     padding: 6.25rem 0;
   }
-`
+`;
 const CardContainer = styled.div`
   display: grid;
   grid-row-gap: 1.5rem;
@@ -31,58 +30,62 @@ const CardContainer = styled.div`
     grid-template-columns: repeat(2, max-content);
     grid-gap: 1.875rem;
   }
-`
+`;
 export const Works = () => {
-  const { t } = useTranslation()
-
-  const projects = useMemo(
-    () => [
-      {
-        id: 'gideon',
-        name: 'Gideon',
-        image: '/images/gideon-card.png',
-        description: t('common.gideon-quote'),
-        link: '/products/gideon'
-      },
-      {
-        id: 'neo_bank',
-        name: 'Thinker Bank',
-        image: '/images/neobank-card.png',
-        description: t('common.neobank-quote'),
-        link: '/products/neobank'
-      },
-      {
-        id: 'thinker',
-        name: 'Thinker Wise',
-        image: '/images/thinker-card.png',
-        description: t('common.thinker-quote'),
-        link: '/products/thinker'
-      },
-      {
-        id: 'agritrac',
-        name: 'Agri Trac',
-        image: '/images/agritrac-card.png',
-        description: t('common.agri-quote'),
-        link: '/products/agri-trac'
-      }
-    ],
-    [t]
-  )
   return (
     <>
       <Container>
         <TopPage>
-          <TopText style={{ color: 'var(--primary)' }}>{t('works.section-1-title-1')}</TopText>
-          <TopText>{t('works.section-1-title-2')}</TopText>
+          <TopText style={{ color: 'var(--primary)' }}>Our works</TopText>
+          <TopText>The Products That Challenge The World</TopText>
         </TopPage>
         <CardContainer>
           {projects?.map(({ id, name, image, description, link }) => {
-            return <PostCard key={id} title={name} imgSrc={image} desc={description} link={link} />
+            return (
+              <PostCard
+                key={id}
+                title={name}
+                imgSrc={image}
+                desc={description}
+                link={link}
+              />
+            );
           })}
         </CardContainer>
         <SuccessStory />
       </Container>
       <ContactBanner />
     </>
-  )
-}
+  );
+};
+
+const projects = [
+  {
+    id: 'gideon',
+    name: 'Gideon',
+    image: '/images/gideon-card.png',
+    description: 'Energy Trading Without Barriers.',
+    link: '/products/gideon',
+  },
+  {
+    id: 'neo_bank',
+    name: 'Neo Bank',
+    image: '/images/neobank-card.png',
+    description: 'The New era of Banking Services.',
+    link: '/products/neobank',
+  },
+  {
+    id: 'thinker',
+    name: 'Thinker',
+    image: '/images/thinker-card.png',
+    description: 'Make Rapid, Optimized & Data Driven Decision.',
+    link: '/products/thinker',
+  },
+  {
+    id: 'agritrac',
+    name: 'Agri Trac',
+    image: '/images/agritrac-card.png',
+    description: 'Advance Traceability for Agriculture Products.',
+    link: '/products/agri-trac',
+  },
+];

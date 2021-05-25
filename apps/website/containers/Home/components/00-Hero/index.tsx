@@ -1,15 +1,13 @@
-import { Container } from '@material-ui/core'
-import React from 'react'
-import styled from 'styled-components'
-import { ReactComponent as HeroTop } from '@blockfint/website/assets/bg/hero-top.svg'
-import { ReactComponent as HeroBottom } from '@blockfint/website/assets/bg/hero-bottom.svg'
-import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
-import { ScrollAnimation } from './components/ScrollAnimation'
-import { PrimaryButton } from '@blockfint/website/components/Buttons'
-import { ReactComponent as BlockfintSmallLogo } from '@blockfint/website/assets/logos/blockfint-small.svg'
-import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
-
+import { Container } from '@material-ui/core';
+import React from 'react';
+import styled from 'styled-components';
+import { ReactComponent as HeroTop } from '@blockfint/website/assets/bg/hero-top.svg';
+import { ReactComponent as HeroBottom } from '@blockfint/website/assets/bg/hero-bottom.svg';
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
+import { ScrollAnimation } from './components/ScrollAnimation';
+import { PrimaryButton } from '@blockfint/website/components/Buttons';
+import { ReactComponent as BlockfintSmallLogo } from '@blockfint/website/assets/logos/blockfint-small.svg';
+import Link from 'next/link';
 const Background = styled.div`
   margin-top: -5rem;
   min-height: 42rem;
@@ -31,14 +29,14 @@ const Background = styled.div`
     left: 0;
     background: #fafafa;
   }
-`
+`;
 const StyleHeroTop = styled(HeroTop)`
   position: absolute;
   top: -0.25em;
   z-index: -1;
   font-size: clamp(11rem, 20vw, 17rem);
   color: #f4f4f4;
-`
+`;
 const StyleHeroBottom = styled(HeroBottom)`
   color: #f4f4f4;
   position: absolute;
@@ -46,18 +44,18 @@ const StyleHeroBottom = styled(HeroBottom)`
   right: 0;
   z-index: -1;
   font-size: clamp(11rem, 20vw, 17rem);
-`
+`;
 const Content = styled.div`
   padding: 8.25rem 0;
   @media ${BREAKPOINT.tablet} {
     padding: 12rem 0;
   }
   text-align: center;
-`
+`;
 const Title = styled.h1`
   line-height: 1.15;
   color: var(--primary);
-`
+`;
 
 const Desc = styled.p`
   line-height: 1.88;
@@ -70,17 +68,16 @@ const Desc = styled.p`
   @media ${BREAKPOINT.desktop} {
     max-width: 46rem;
   }
-`
+`;
 const ScrollWrapper = styled.div`
   z-index: 1;
   position: absolute;
   bottom: 7.5rem;
   left: 50%;
   transform: translateX(-50%);
-`
+`;
 
 export const Hero: React.FC = () => {
-  const { t } = useTranslation()
   return (
     <Background>
       <Container maxWidth="lg">
@@ -89,11 +86,17 @@ export const Hero: React.FC = () => {
             <Title>Make Future Innovations </Title>
             <Title style={{ color: '#19213c' }}>Happen Today</Title>
           </div>
-          <Desc>{t('home.section-1-desc')}</Desc>
+          <Desc>
+            We are path breakers. We love to develop technology that simplifies
+            complexity. Our technology serves as building blocks redefining
+            financial and commodity markets.
+          </Desc>
           <Link href="/about" passHref>
             <a>
-              <PrimaryButton logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}>
-                {t('common.about')}
+              <PrimaryButton
+                logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}
+              >
+                About
               </PrimaryButton>
             </a>
           </Link>
@@ -105,5 +108,5 @@ export const Hero: React.FC = () => {
       <StyleHeroTop />
       <StyleHeroBottom />
     </Background>
-  )
-}
+  );
+};

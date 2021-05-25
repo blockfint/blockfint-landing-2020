@@ -1,37 +1,42 @@
-import React from 'react'
-import styled from 'styled-components'
-import Thunder from './components/Thunder'
-import Oval from './components/Oval'
-import Triangle from './components/Triangle'
-import { motion } from 'framer-motion'
-import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
-import { useInView } from 'react-intersection-observer'
-import Image from 'next/image'
+import React from 'react';
+import styled from 'styled-components';
+import Thunder from './components/Thunder';
+import Oval from './components/Oval';
+import Triangle from './components/Triangle';
+import { motion } from 'framer-motion';
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
+import { useInView } from 'react-intersection-observer';
+import Image from 'next/image';
 const StyleImage = styled.div`
   max-width: 95vw;
   width: 100%;
-`
+`;
 const Container = styled.div`
   position: relative;
   width: 100%;
   max-width: 48rem;
   margin: 0 auto;
   font-size: clamp(0.5rem, 2vw, 1rem);
-`
+`;
 const Floating = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-`
+`;
 
 export const GideonImage: React.FC = () => {
-  const { ref, inView } = useInView()
+  const { ref, inView } = useInView();
   return (
     <Container ref={ref}>
       <StyleImage>
-        <Image src="/images/gideon-preview.png" width={2304} height={1050} alt="phone & tablet" />
+        <Image
+          src="/images/gideon-preview.png"
+          width={2304}
+          height={1050}
+          alt="phone & tablet"
+        />
       </StyleImage>
 
       {inView && (
@@ -41,11 +46,11 @@ export const GideonImage: React.FC = () => {
               opacity: 0,
               position: 'relative',
               translateY: -20,
-              height: '100%'
+              height: '100%',
             }}
             animate={{ opacity: 1, translateY: 0 }}
             transition={{
-              delay: 0.5
+              delay: 0.5,
             }}
           >
             <IconWrapper bottom={0} left="50%">
@@ -70,21 +75,25 @@ export const GideonImage: React.FC = () => {
         </Floating>
       )}
     </Container>
-  )
-}
+  );
+};
 
 const Wrapper = styled(motion.div)`
   position: absolute;
-`
+`;
 
 type Position = {
-  left?: number | string
-  right?: number | string
-  bottom?: number | string
-  top?: number | string
-  size?: string
-}
-const IconWrapper: React.FC<Position> = ({ children, size = '4em', ...position }) => (
+  left?: number | string;
+  right?: number | string;
+  bottom?: number | string;
+  top?: number | string;
+  size?: string;
+};
+const IconWrapper: React.FC<Position> = ({
+  children,
+  size = '4em',
+  ...position
+}) => (
   <Wrapper
     initial={{ ...position, fontSize: size }}
     animate={{ rotate: [0, -30, 30, 0] }}
@@ -92,9 +101,9 @@ const IconWrapper: React.FC<Position> = ({ children, size = '4em', ...position }
       type: 'spring',
       duration: 1,
       stiffness: 2000,
-      delay: 1
+      delay: 1,
     }}
   >
     {children}
   </Wrapper>
-)
+);
