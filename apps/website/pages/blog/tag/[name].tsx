@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   )
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 export async function getStaticProps({ locale, params }) {
@@ -48,6 +48,7 @@ export async function getStaticProps({ locale, params }) {
   const { name } = params
   const posts = await getPostsByTag(name)
   return {
+    revalidate: 5,
     props: { ...result, name, posts }
   }
 }
