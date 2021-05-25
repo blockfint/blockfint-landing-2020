@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 const A = styled.a`
   cursor: pointer;
   border-radius: 32px;
@@ -9,6 +9,8 @@ const A = styled.a`
   height: fit-content;
   margin: 0 0.5rem;
   margin-bottom: 1rem;
+  text-decoration: none;
+  color: inherit;
   :hover,
   :focus,
   &.selected {
@@ -25,15 +27,13 @@ interface Props {
   text: string
   selected?: boolean
 }
-export const Category = React.forwardRef<HTMLAnchorElement, Props>(({ text, href, selected }, ref) => {
-  const router = useRouter()
+export const Category = React.forwardRef<HTMLAnchorElement, Props>(({ text, href = null, selected = false }, ref) => {
+  const path = text === 'All' ? '/blog' : `/blog/${text.toLowerCase()}`
   return (
-    <A className={selected && 'selected'} href={href} ref={ref}>
-      <Text
-        onClick={() => router.push({ pathname: '/blog', query: { cat: text.toLowerCase() } }, null, { shallow: true })}
-      >
-        {text}
-      </Text>
-    </A>
+    <Link href={path} passHref>
+      <A className={selected && 'selected'} href={href}>
+        <Text>{text}</Text>
+      </A>
+    </Link>
   )
 })
