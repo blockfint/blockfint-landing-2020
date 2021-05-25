@@ -8,16 +8,29 @@ import { Layout } from '@blockfint/website/components/layouts'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
 import { PostOrPage } from '@tryghost/content-api'
+import { NextSeo, NextSeoProps } from 'next-seo'
 const Global = createGlobalStyle`
 body{
   ${typography}
 }
 `
 const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = ({ post, nextPosts }) => {
+  const { canonical_url, excerpt, title, og_image, og_title, og_description } = post
+  const SEO = {
+    title: title,
+    canonical: canonical_url,
+    description: excerpt,
+    openGraph: {
+      title: og_title,
+      description: og_description,
+      images: [{ url: og_image, height: 630, width: 1200 }]
+    }
+  } as NextSeoProps
   return (
     <>
       <Global />
       <Layout>
+        <NextSeo {...SEO} />
         <BlogDetail post={post} nextPosts={nextPosts} />
       </Layout>
     </>
