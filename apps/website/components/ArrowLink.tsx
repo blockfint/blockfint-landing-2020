@@ -1,6 +1,6 @@
-import React from 'react';
-import { ReactComponent as Arrow } from '@blockfint/website/assets/icons/arrow.svg';
-import styled from 'styled-components';
+import React from 'react'
+import { ReactComponent as Arrow } from '@blockfint/website/assets/icons/arrow.svg'
+import styled from 'styled-components'
 const A = styled.a`
   display: grid;
   grid-gap: 0.5rem;
@@ -9,14 +9,14 @@ const A = styled.a`
   text-decoration: none;
   color: var(--primary);
   font-weight: 600;
-`;
-export const ArrowLink: React.FC<
-  React.AnchorHTMLAttributes<HTMLAnchorElement>
-> = ({ children, ...props }) => {
-  return (
-    <A {...props}>
-      <span>{children}</span>
-      <Arrow />
-    </A>
-  );
-};
+`
+export const ArrowLink: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = React.forwardRef(
+  ({ children, ...props }, ref: React.Ref<HTMLAnchorElement>) => {
+    return (
+      <A ref={ref} {...props}>
+        <span>{children}</span>
+        <Arrow />
+      </A>
+    )
+  }
+)
