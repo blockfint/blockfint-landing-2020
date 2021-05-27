@@ -8,17 +8,31 @@ import { Layout } from '@blockfint/website/components/layouts'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
 import { PostOrPage } from '@tryghost/content-api'
+// import { useRouter } from 'next/router'
 const Global = createGlobalStyle`
 body{
   ${typography}
 }
 `
 const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = ({ post, nextPosts }) => {
+  // const {} = useRouter()
+
+  if (post) {
+    return (
+      <>
+        <Global />
+        <Layout>
+          <BlogDetail post={post} nextPosts={nextPosts} />
+        </Layout>
+      </>
+    )
+  }
+
   return (
     <>
       <Global />
       <Layout>
-        <BlogDetail post={post} nextPosts={nextPosts} />
+        <p>Loading</p>
       </Layout>
     </>
   )
@@ -28,28 +42,29 @@ export default BlogDetailPage
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const results = await getAllPosts()
-  try {
-    const paths = locales.flatMap((locale) =>
-      results
-        .map((post) => {
+
+  const paths = locales.flatMap((locale) =>
+    results
+      .map((post) => {
+        console.log(post)
+        try {
           const tags = post?.tags ?? []
           const slug = post?.slug ?? ''
+
           const mainTag = tags?.find(({ visibility }) => visibility === 'public') // find categories
           if (!mainTag) return null
           const { slug: slugTag } = mainTag
           return { params: { slug: [slugTag, slug] }, locale }
-        })
-        .filter((i) => i !== null)
-    )
-    return {
-      paths,
-      fallback: true
-    }
-  } catch {
-    return {
-      paths: [],
-      fallback: true
-    }
+        } catch (error) {
+          console.log(error)
+          return null
+        }
+      })
+      .filter((i) => i !== null)
+  )
+  return {
+    paths,
+    fallback: true
   }
 }
 export async function getStaticProps({ locale, params }) {
