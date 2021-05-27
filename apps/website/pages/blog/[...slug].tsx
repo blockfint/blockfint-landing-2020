@@ -46,11 +46,9 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const paths = locales.flatMap((locale) =>
     results
       .map((post) => {
-        console.log(post)
         try {
           const tags = post?.tags ?? []
           const slug = post?.slug ?? ''
-
           const mainTag = tags?.find(({ visibility }) => visibility === 'public') // find categories
           if (!mainTag) return null
           const { slug: slugTag } = mainTag
