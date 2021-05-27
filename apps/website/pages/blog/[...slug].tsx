@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   )
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 export async function getStaticProps({ locale, params }) {
@@ -50,6 +50,7 @@ export async function getStaticProps({ locale, params }) {
   const post = await getSinglePost({ slug })
   const nextPosts = await getAllPosts({ filter: [`posts.slug:-${post.slug}`], limit: 6 })
   return {
-    props: { ...i18nContext, post, nextPosts }
+    props: { ...i18nContext, post, nextPosts },
+    revalidate: 5
   }
 }
