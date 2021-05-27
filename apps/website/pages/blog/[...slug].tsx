@@ -28,20 +28,24 @@ export default BlogDetailPage
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const results = await getAllPosts()
-  const paths = locales.flatMap((locale) =>
-    results
-      .map(({ tags, slug }) => {
-        const mainTag = tags.find(({ visibility }) => visibility === 'public') // find categories
-        if (!mainTag) return null
-        const { slug: slugTag } = mainTag
-        return { params: { slug: [slugTag, slug] }, locale }
-      })
-      .filter((i) => i !== null)
-  )
-  return {
-    paths,
-    fallback: true
-  }
+  try {
+    const paths = locales.flatMap((locale) =>
+      results
+        .map((post) => {
+          const tags = post?.tags ?? []
+          const slug = post?.slug ?? ''
+          const mainTag = tags?.find(({ visibility }) => visibility === 'public') // find categories
+          if (!mainTag) return null
+          const { slug: slugTag } = mainTag
+          return { params: { slug: [slugTag, slug] }, locale }
+        })
+        .filter((i) => i !== null)
+    )
+    return {
+      paths,
+      fallback: true
+    }
+  } catch {}
 }
 export async function getStaticProps({ locale, params }) {
   const i18nContext = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
