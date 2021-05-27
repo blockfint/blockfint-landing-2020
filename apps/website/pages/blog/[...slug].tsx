@@ -45,7 +45,12 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
       paths,
       fallback: true
     }
-  } catch {}
+  } catch {
+    return {
+      paths: [],
+      fallback: true
+    }
+  }
 }
 export async function getStaticProps({ locale, params }) {
   const i18nContext = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
