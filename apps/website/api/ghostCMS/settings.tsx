@@ -25,14 +25,6 @@ export interface Meta {
   twitter_description?: any
   url: string
 }
-export const getMetaProps: GetStaticProps = async (): Promise<GetStaticPropsResult<{ meta: Meta }>> => {
-  const meta = await ghostApi.settings.browse()
-  return {
-    props: {
-      meta
-    }
-  }
-}
 export const getMeta = async () => {
   try {
     return (await ghostApi.settings.browse()) as Meta
