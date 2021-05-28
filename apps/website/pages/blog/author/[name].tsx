@@ -5,7 +5,7 @@ import { createGlobalStyle } from 'styled-components'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
 import { Layout } from '@blockfint/website/components/layouts'
-import { Author } from '@blockfint/website/containers/Author'
+import { AuthorBlog } from '@blockfint/website/containers/AuthorBlog'
 import { getAllPosts, getAuthors, getPostsByAuthor, getSingleAuthor } from '@blockfint/website/api/ghostCMS'
 
 const Global = createGlobalStyle`
@@ -23,7 +23,7 @@ const BlogByAuthorNamePage: NextPage<AuthorPageProps> = ({ profile, posts }) => 
     <>
       <Global />
       <Layout transparent>
-        <Author profile={profile} posts={posts} />
+        <AuthorBlog profile={profile} posts={posts} />
       </Layout>
     </>
   )
