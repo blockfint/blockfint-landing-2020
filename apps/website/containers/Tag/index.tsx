@@ -62,7 +62,7 @@ export const Tag: React.FC<Props> = ({ tag, posts }) => {
                 title={title}
                 description={og_description}
                 category={category.name}
-                categoryLink={`/blog/${category.slug}`}
+                categoryLink={`/blog/cat/${category.slug}`}
                 blogLink={`/blog/${category.slug}/${slug}`}
                 publishDate={published_at}
               />

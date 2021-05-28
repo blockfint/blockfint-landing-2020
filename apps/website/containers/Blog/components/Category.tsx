@@ -28,7 +28,7 @@ interface Props {
   selected?: boolean
 }
 export const Category = React.forwardRef<HTMLAnchorElement, Props>(({ text, href = null, selected = false }, ref) => {
-  const path = text === 'All' ? '/blog' : `/blog/${text.toLowerCase()}`
+  const path = text === 'All' ? '/blog' : `/blog/cat/${text.toLowerCase()}`
   return (
     <Link href={path} passHref>
       <A className={selected && 'selected'} href={href}>

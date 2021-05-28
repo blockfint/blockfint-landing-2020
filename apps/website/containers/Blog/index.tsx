@@ -70,7 +70,7 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, post
                 key={title}
                 image={feature_image}
                 category={category.name}
-                categoryLink={`/blog/${category.slug}`}
+                categoryLink={`/blog/cat/${category.slug}`}
                 blogLink={`/blog/${category.slug}/${slug}`}
                 title={title}
                 description={og_description}

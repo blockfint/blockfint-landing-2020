@@ -13,11 +13,21 @@ body{
 }
 `
 interface Props {
-  category: string
-  categoryList: string[]
-  posts: any
+  category?: string
+  categoryList?: string[]
+  posts?: any
 }
 const BlogByCategoryPage: NextPage<Props> = ({ category, categoryList, posts }) => {
+  if (!category || !categoryList || !posts) {
+    return (
+      <>
+        <Global />
+        <Layout transparent>
+          <p>Loading</p>
+        </Layout>
+      </>
+    )
+  }
   return (
     <>
       <Global />
@@ -51,16 +61,18 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   )
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 export async function getStaticProps({ locale, params }) {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
+
   const ghostCat = await getTags()
   const categoryList = createCatList(ghostCat)
   const { category } = params
   const posts = await getPostsByTag(category)
   return {
-    props: { ...result, category, categoryList, posts }
+    props: { ...result, category, categoryList, posts },
+    revalidate: 5
   }
 }
