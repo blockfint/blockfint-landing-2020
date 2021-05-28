@@ -57,7 +57,7 @@ export const getAllPosts = async (props?: Params): Promise<GhostPostOrPage[]> =>
 }
 
 export const getDraftPosts = async (): Promise<GhostPostOrPage[]> => {
-  return await adminApi.posts.browse()
+  return await adminApi.posts.browse({ include: ['tags', 'authors'], formats: 'html' })
 }
 
 export const getSinglePost = async (props?: { slug: string } | { id: string }): Promise<GhostPostOrPage> => {
