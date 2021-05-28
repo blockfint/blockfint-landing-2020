@@ -8,13 +8,13 @@ import nextI18NextConfig from '../next-i18next.config.js'
 import { PostOrPage } from '@tryghost/content-api'
 
 interface Props {
-  AllBlogs: PostOrPage[]
+  AllBlogs?: PostOrPage[]
 }
 const Homepage: NextPage<Props> = (props) => {
   const AllBlogs = props.AllBlogs
   return (
     <Layout transparent>
-      <Home blogsData={AllBlogs} />
+      <Home />
     </Layout>
   )
 }
@@ -23,12 +23,11 @@ export default Homepage
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const result = await serverSideTranslations(locale, ['common', 'home'], nextI18NextConfig)
-  const AllBlogs = await getAllPosts({ limit: 2 })
+  // const AllBlogs = await getAllPosts({ limit: 2 })
 
   return {
     props: {
-      ...result,
-      AllBlogs
+      ...result
     },
     revalidate: 60
   }
