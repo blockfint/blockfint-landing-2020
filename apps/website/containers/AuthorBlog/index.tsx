@@ -44,7 +44,7 @@ const ButtonWrapper = styled.div`
     margin-bottom: 6.25rem;
   }
 `
-export const Author: React.FC<AuthorPageProps> = ({ profile, posts }) => {
+export const AuthorBlog: React.FC<AuthorPageProps> = ({ profile, posts }) => {
   const latestPost = posts?.[0]
   const postCategory = getCategory(latestPost?.tags)
   const otherPosts = posts?.slice(1)
