@@ -5,13 +5,13 @@ import { getAllPosts } from '../api/ghostCMS'
 import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '../next-i18next.config.js'
-import { PostOrPage } from '@tryghost/content-api'
-import { getMeta, Meta } from '../api/ghostCMS/settings'
+import { PostOrPage, SettingsResponse } from '@tryghost/content-api'
+import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 import { NextSeo, NextSeoProps } from 'next-seo'
 
 interface Props {
   AllBlogs: PostOrPage[]
-  meta: Meta
+  meta: SettingsResponse
 }
 const Homepage: NextPage<Props> = ({ AllBlogs, meta }) => {
   const { title, description, og_image, og_title, og_description } = meta

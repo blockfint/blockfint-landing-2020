@@ -1,3 +1,5 @@
+import { SettingsResponse } from '@tryghost/content-api'
+
 export interface Benefit {
   iconSrc: string
   title: string
@@ -11,7 +13,7 @@ export interface ProjectInfo {
   description: string
   linkHref: string
   benefits: Benefit[]
-
+  meta?: SettingsResponse
   imgSrc?: string
   youtube?: string
 }
