@@ -18,19 +18,18 @@ body{
 `
 
 export interface AuthorPageProps {
-  meta: SettingsResponse
-  profile: Author
-  posts: PostsOrPages
+  meta?: SettingsResponse
+  profile?: Author
+  posts?: PostsOrPages
 }
 const BlogByAuthorNamePage: NextPage<AuthorPageProps> = ({ meta, profile, posts }) => {
-  const { title, description, og_image, og_title, og_description } = meta
   const SEO = {
-    title,
-    description,
+    title: meta?.title,
+    description: meta?.description,
     openGraph: {
-      title: og_title,
-      description: og_description,
-      images: [{ url: og_image, alt: og_title }]
+      title: meta?.og_title,
+      description: meta?.og_description,
+      images: [{ url: meta?.og_image, alt: meta?.og_title }]
     }
   } as NextSeoProps
   return (
@@ -63,7 +62,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 export async function getStaticProps({ locale, params }) {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
   const meta = await getMeta()
-  const name = params.name
+  const name = params?.name
   const profile = await getSingleAuthor(name)
   const posts = await getAllPosts({ filter: `primary_author:${name}` })
   return {

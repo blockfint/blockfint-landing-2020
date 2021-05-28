@@ -5,6 +5,7 @@ import { ContactBanner } from '@blockfint/website/components/ContactBanner'
 import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import Container from '@material-ui/core/Container'
+import { PostsOrPages } from '@tryghost/content-api'
 const Heading = styled.div`
   text-align: center;
   margin-top: 1rem;
@@ -40,16 +41,16 @@ const ButtonWrapper = styled.div`
 `
 interface Props {
   tag: string
-  posts: any
+  posts: PostsOrPages
 }
 export const Tag: React.FC<Props> = ({ tag, posts }) => {
-  const output = tag?.charAt(0).toUpperCase() + tag?.slice(1)
+  const output = tag?.charAt(0)?.toUpperCase() + tag?.slice(1)
   return (
     <>
       <Container maxWidth="lg">
         <Heading>
           <h6>Tag</h6>
-          <TagText>{output}</TagText>
+          <TagText>{output ? output : ''}</TagText>
         </Heading>
 
         <BlogWrapper>
@@ -61,8 +62,8 @@ export const Tag: React.FC<Props> = ({ tag, posts }) => {
                 image={feature_image}
                 title={title}
                 description={og_description}
-                category={category.name}
-                categoryLink={`/blog/cat/${category.slug}`}
+                category={category?.name}
+                categoryLink={`/blog/cat/${category?.slug}`}
                 blogLink={`/blog/${slug}`}
                 publishDate={published_at}
               />

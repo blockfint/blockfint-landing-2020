@@ -171,7 +171,7 @@ export const ThumbnailBlog: React.FC<Props> = ({
       <TextSection size={size}>
         <Tag>
           <LinkWrapper href={categoryLink}>
-            <h6>{category.toUpperCase()}</h6>
+            <h6>{category?.toUpperCase()}</h6>
           </LinkWrapper>
         </Tag>
         <LinkWrapper href={blogLink}>
@@ -180,7 +180,7 @@ export const ThumbnailBlog: React.FC<Props> = ({
         </LinkWrapper>
         <DateTime>
           <Icon src="/icons/clock.svg" alt="clock" />
-          <Date>{dayjs(publishDate).format('DD MMMM YYYY')}</Date>
+          <Date>{dayjs(publishDate)?.format('DD MMMM YYYY')}</Date>
         </DateTime>
       </TextSection>
     </Wrapper>

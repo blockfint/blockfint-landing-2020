@@ -179,8 +179,8 @@ type Props = {
   nextPosts: PostOrPage[]
 }
 export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
-  const tags = useMemo(() => post.tags.map(({ name, ...rest }) => ({ name: name.replace('#', ''), ...rest })), [
-    post.tags
+  const tags = useMemo(() => post?.tags?.map(({ name, ...rest }) => ({ name: name.replace('#', ''), ...rest })), [
+    post?.tags
   ])
   return (
     <>
@@ -200,7 +200,7 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
             <LeftRight>
               <DateTime>
                 <Icon src="/icons/clock.svg" alt="clock" />
-                <Date>{dayjs(post.published_at).format('DD MMMM YYYY')}</Date>
+                <Date>{dayjs(post?.published_at).format('DD MMMM YYYY')}</Date>
               </DateTime>
               <ShareButton />
             </LeftRight>
@@ -208,7 +208,7 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
           </GhostContent>
           <Tag>
             Tags:{' '}
-            {tags.map(({ name, slug }) => (
+            {tags?.map(({ name, slug }) => (
               <Link key={name} href={`/blog/tag/${slug}`} passHref>
                 <TagA>{`${name} `}</TagA>
               </Link>
@@ -217,9 +217,9 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
           <hr />
           <AuthorWrapper>
             <AuthorBanner
-              authorName={post.authors[0]?.name}
-              description={post.authors[0]?.bio}
-              image={post.authors[0]?.profile_image}
+              authorName={post?.authors[0]?.name}
+              description={post?.authors[0]?.bio}
+              image={post?.authors[0]?.profile_image}
               imgSize="small"
             />
           </AuthorWrapper>

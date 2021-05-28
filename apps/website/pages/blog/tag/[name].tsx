@@ -16,19 +16,18 @@ body{
 }
 `
 interface Props {
-  meta: SettingsResponse
-  name: string
-  posts: PostsOrPages
+  meta?: SettingsResponse
+  name?: string
+  posts?: PostsOrPages
 }
 const BlogByTagPage: NextPage<Props> = ({ meta, name, posts }) => {
-  const { title, description, og_image, og_title, og_description } = meta
   const SEO = {
-    title,
-    description,
+    title: meta?.title,
+    description: meta?.description,
     openGraph: {
-      title: og_title,
-      description: og_description,
-      images: [{ url: og_image, alt: og_title }]
+      title: meta?.og_title,
+      description: meta?.og_description,
+      images: [{ url: meta?.og_image, alt: meta?.og_title }]
     }
   } as NextSeoProps
   return (
@@ -61,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 export async function getStaticProps({ locale, params }) {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
   const meta = await getMeta()
-  const { name } = params
+  const name = params?.name
   const posts = await getPostsByTag(name)
   return {
     revalidate: 5,
