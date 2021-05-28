@@ -56,7 +56,7 @@ export const WhatNext: React.FC<Props> = ({ nextPosts }) => {
                   key={title}
                   category={mainTag?.name}
                   categoryLink={`/blog/cat/${mainTag?.slug}`}
-                  blogLink={`/blog/${mainTag?.slug}/${slug}`}
+                  blogLink={`/blog/${slug}`}
                   title={title}
                   description={excerpt}
                   publishDate={published_at}

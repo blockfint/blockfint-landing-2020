@@ -60,7 +60,7 @@ export const Blog: React.FC<Props> = ({ data }) => {
                 publishDate={dayjs(published_at)}
                 category={category.name}
                 categoryLink={`/blog/cat/${category.slug}`} // phase 3
-                blogLink={`/blog/${category.slug}/${slug}`}
+                blogLink={`/blog/${slug}`}
               />
             )
           })}

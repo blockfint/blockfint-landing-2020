@@ -61,7 +61,7 @@ export const AuthorBlog: React.FC<AuthorPageProps> = ({ profile, posts }) => {
             size="L"
             category={postCategory.name}
             categoryLink={`/blog/cat/${postCategory.slug}`}
-            blogLink={`/blog/${postCategory?.slug}/${latestPost?.slug}`}
+            blogLink={`/blog/${latestPost?.slug}`}
             publishDate={latestPost?.published_at}
             title={latestPost?.title}
             description={latestPost?.og_description}
@@ -79,7 +79,7 @@ export const AuthorBlog: React.FC<AuthorPageProps> = ({ profile, posts }) => {
                 size="M"
                 category={category.name}
                 categoryLink={`/blog/cat/${category.slug}`}
-                blogLink={`/blog/${category.slug}/${slug}`}
+                blogLink={`/blog/${slug}`}
                 publishDate={published_at}
                 title={title}
                 description={og_description}

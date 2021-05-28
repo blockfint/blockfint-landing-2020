@@ -71,7 +71,7 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, post
                 image={feature_image}
                 category={category.name}
                 categoryLink={`/blog/cat/${category.slug}`}
-                blogLink={`/blog/${category.slug}/${slug}`}
+                blogLink={`/blog/${slug}`}
                 title={title}
                 description={og_description}
                 publishDate={published_at}
