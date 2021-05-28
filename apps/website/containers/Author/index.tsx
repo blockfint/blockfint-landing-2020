@@ -59,9 +59,9 @@ export const Author: React.FC<AuthorPageProps> = ({ profile, posts }) => {
         <Container maxWidth="lg">
           <ThumbnailBlog
             size="L"
+            category={postCategory.name}
+            categoryLink={`/blog/${postCategory?.slug}`}
             blogLink={`/blog/${postCategory?.slug}/${latestPost?.slug}`}
-            tagLink={`/blog/${postCategory?.slug}`}
-            tag={postCategory.name}
             publishDate={latestPost?.published_at}
             title={latestPost?.title}
             description={latestPost?.og_description}
@@ -77,9 +77,9 @@ export const Author: React.FC<AuthorPageProps> = ({ profile, posts }) => {
               <ThumbnailBlog
                 key={slug}
                 size="M"
+                category={category.name}
+                categoryLink={`/blog/${category.slug}`}
                 blogLink={`/blog/${category.slug}/${slug}`}
-                tagLink={`/blog/${category.slug}`}
-                tag={category.name}
                 publishDate={published_at}
                 title={title}
                 description={og_description}

@@ -61,8 +61,8 @@ export const Tag: React.FC<Props> = ({ tag, posts }) => {
                 image={feature_image}
                 title={title}
                 description={og_description}
-                tag={category.name}
-                tagLink={`/blog/${category.slug}`}
+                category={category.name}
+                categoryLink={`/blog/${category.slug}`}
                 blogLink={`/blog/${category.slug}/${slug}`}
                 publishDate={published_at}
               />
