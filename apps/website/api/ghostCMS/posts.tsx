@@ -6,7 +6,9 @@ import GhostContentAPI, {
   Pagination,
   PostsOrPages,
   Tag,
-  Author
+  Author,
+  Tags,
+  Authors
 } from '@tryghost/content-api'
 interface Dimensions {
   width: number
@@ -69,14 +71,14 @@ export async function getPostsByTag(slug: string, limit?: number, excludeId?: st
   return await posts
 }
 
-export async function getTags() {
+export async function getTags(): Promise<Tags> {
   return await ghostApi.tags.browse(tagAndAuthorFetchOptions)
 }
 export async function getSingleTag(props?: { limit: number }): Promise<GhostPostOrPage> {
   return await ghostApi.tags.read({ slug: `${props}` }, { include: 'count.posts' })
 }
 
-export async function getAuthors() {
+export async function getAuthors(): Promise<Authors> {
   return await ghostApi.authors.browse(tagAndAuthorFetchOptions)
 }
 export async function getSingleAuthor(props?: { limit: number }): Promise<GhostPostOrPage> {
