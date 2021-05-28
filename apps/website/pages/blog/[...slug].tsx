@@ -15,15 +15,14 @@ body{
 }
 `
 const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = ({ post, nextPosts }) => {
-  const { canonical_url, excerpt, title, og_image, og_title, og_description } = post
   const SEO = {
-    title: title,
-    canonical: canonical_url,
-    description: excerpt,
+    title: post?.title,
+    canonical: post?.canonical_url,
+    description: post?.excerpt,
     openGraph: {
-      title: og_title,
-      description: og_description,
-      images: [{ url: og_image, height: 630, width: 1200 }]
+      title: post?.og_title,
+      description: post?.og_description,
+      images: [{ url: post?.og_image, height: 630, width: 1200 }]
     }
   } as NextSeoProps
   if (post) {

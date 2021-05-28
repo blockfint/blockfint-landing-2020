@@ -22,14 +22,13 @@ interface Props {
   posts: PostsOrPages
 }
 const BlogByCategoryPage: NextPage<Props> = ({ meta, category, categoryList, posts }) => {
-  const { title, description, og_image, og_title, og_description } = meta
   const SEO = {
-    title,
-    description,
+    title: meta?.title,
+    description: meta?.description,
     openGraph: {
-      title: og_title,
-      description: og_description,
-      images: [{ url: og_image, alt: og_title }]
+      title: meta?.og_title,
+      description: meta?.og_description,
+      images: [{ url: meta?.og_image, alt: meta?.og_title }]
     }
   } as NextSeoProps
   return (
