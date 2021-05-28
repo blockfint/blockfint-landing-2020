@@ -17,7 +17,7 @@ const A = styled.a`
 `
 export const Breadcrumb: React.FC = () => {
   const router = useRouter()
-  const [category] = router.query.slug
+  // const [category] = router.query.slug
   return (
     <Container>
       <Link href="/" passHref>
@@ -27,10 +27,10 @@ export const Breadcrumb: React.FC = () => {
       <Link href="/blog" passHref>
         <A>Blog</A>
       </Link>{' '}
-      /{' '}
+      {/* /{' '}
       <Link href={{ pathname: `/blog`, query: { category } }} as={`/blog/${category}`} passHref>
         <A>{category}</A>
-      </Link>
+      </Link> */}
     </Container>
   )
 }

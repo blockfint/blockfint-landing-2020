@@ -59,9 +59,8 @@ export const Blog: React.FC<Props> = ({ data }) => {
                 description={og_description}
                 publishDate={dayjs(published_at)}
                 category={category.name}
-                // categoryLink={`/blog/${category.slug}`} // phase 3
-                categoryLink={`/blog/${category.slug}/${slug}`} // phase 2
-                blogLink={`/blog/${category.slug}/${slug}`}
+                categoryLink={`/blog/cat/${category.slug}`} // phase 3
+                blogLink={`/blog/${slug}`}
               />
             )
           })}

@@ -1,4 +1,4 @@
-import { GetStaticPaths, NextPage } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { typography } from '@blockfint/website/styles/typography'
 import { createGlobalStyle } from 'styled-components'
@@ -59,8 +59,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
           const slug = post?.slug ?? ''
           const mainTag = tags?.find(({ visibility }) => visibility === 'public') // find categories
           if (!mainTag) return null
-          const { slug: slugTag } = mainTag
-          return { params: { slug: [slugTag, slug] }, locale }
+          return { params: { slug: slug }, locale }
         } catch (error) {
           console.log(error)
           return null
@@ -73,14 +72,23 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
     fallback: true
   }
 }
-export async function getStaticProps({ locale, params }) {
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const { locale, params } = ctx
   const i18nContext = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
 
-  const [_, slug] = params.slug
+  const slug = params.slug as string
+
   const post = await getSinglePost({ slug })
-  const nextPosts = await getAllPosts({ filter: [`posts.slug:-${post.slug}`], limit: 6 })
+  if (post) {
+    const nextPosts = await getAllPosts({ filter: [`posts.slug:-${post.slug}`], limit: 6 })
+    return {
+      props: { ...i18nContext, post, nextPosts },
+      revalidate: 5
+    }
+  }
+
   return {
-    props: { ...i18nContext, post, nextPosts },
+    props: { ...i18nContext },
     revalidate: 5
   }
 }

@@ -189,9 +189,12 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
           <Breadcrumb />
           <Title>{post?.title}</Title>
         </Container>
-        <TopImage>
-          <Image src={post?.feature_image} width={2000} height={1215} layout="responsive" />
-        </TopImage>
+        {post?.feature_image && (
+          <TopImage>
+            <Image src={post?.feature_image} width={2000} height={1215} layout="responsive" />
+          </TopImage>
+        )}
+
         <Container maxWidth="lg">
           <GhostContent>
             <LeftRight>

@@ -16,10 +16,10 @@ body{
 }
 `
 interface Props {
-  meta: SettingsResponse
-  category: string
-  categoryList: string[]
-  posts: PostsOrPages
+  meta?: SettingsResponse
+  category?: string
+  categoryList?: string[]
+  posts?: PostsOrPages
 }
 const BlogByCategoryPage: NextPage<Props> = ({ meta, category, categoryList, posts }) => {
   const SEO = {
@@ -31,6 +31,16 @@ const BlogByCategoryPage: NextPage<Props> = ({ meta, category, categoryList, pos
       images: [{ url: meta?.og_image, alt: meta?.og_title }]
     }
   } as NextSeoProps
+  if (!category || !categoryList || !posts) {
+    return (
+      <>
+        <Global />
+        <Layout transparent>
+          <p>Loading</p>
+        </Layout>
+      </>
+    )
+  }
   return (
     <>
       <Global />
@@ -65,7 +75,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   )
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 export async function getStaticProps({ locale, params }) {
@@ -76,6 +86,7 @@ export async function getStaticProps({ locale, params }) {
   const { category } = params
   const posts = await getPostsByTag(category)
   return {
-    props: { ...result, meta, category, categoryList, posts }
+    props: { ...result, meta, category, categoryList, posts },
+    revalidate: 5
   }
 }

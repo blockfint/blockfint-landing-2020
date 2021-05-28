@@ -64,8 +64,8 @@ export const AuthorBlog: React.FC<AuthorBlogProps> = ({ profile, posts }) => {
           <ThumbnailBlog
             size="L"
             category={postCategory.name}
-            categoryLink={`/blog/${postCategory?.slug}`}
-            blogLink={`/blog/${postCategory?.slug}/${latestPost?.slug}`}
+            categoryLink={`/blog/cat/${postCategory.slug}`}
+            blogLink={`/blog/${latestPost?.slug}`}
             publishDate={latestPost?.published_at}
             title={latestPost?.title}
             description={latestPost?.og_description}
@@ -82,8 +82,8 @@ export const AuthorBlog: React.FC<AuthorBlogProps> = ({ profile, posts }) => {
                 key={slug}
                 size="M"
                 category={category.name}
-                categoryLink={`/blog/${category.slug}`}
-                blogLink={`/blog/${category.slug}/${slug}`}
+                categoryLink={`/blog/cat/${category.slug}`}
+                blogLink={`/blog/${slug}`}
                 publishDate={published_at}
                 title={title}
                 description={og_description}
