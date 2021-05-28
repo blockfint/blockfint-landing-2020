@@ -54,8 +54,8 @@ export const WhatNext: React.FC<Props> = ({ nextPosts }) => {
                   className="item"
                   image={feature_image}
                   key={title}
-                  tag={mainTag?.name}
-                  tagLink={`/blog/${mainTag?.slug}`}
+                  category={mainTag?.name}
+                  categoryLink={`/blog/${mainTag?.slug}`}
                   blogLink={`/blog/${mainTag?.slug}/${slug}`}
                   title={title}
                   description={excerpt}
