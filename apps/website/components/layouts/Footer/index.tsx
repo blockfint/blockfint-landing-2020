@@ -85,6 +85,9 @@ const SmallText = styled.p`
 `
 const Privacy = styled(SmallText)`
   grid-area: privacy;
+  color: inherit;
+  text-decoration: unset;
+  cursor: pointer;
 `
 const AddressText = styled(Text)`
   width: 16.125rem;
@@ -212,7 +215,9 @@ export const Footer: React.FC = () => {
             <img src="/icons/linkin.svg" alt="linkin" width="36" />
           </StyledIconButton>
         </Social>
-        <Privacy>{t('common.privacy-and-policy')}</Privacy>
+        <Link href="/policy">
+          <Privacy as="a">{t('common.privacy-and-policy')}</Privacy>
+        </Link>
         <SmallText style={{ gridArea: 'copyright' }}>{t('common.copyright')}</SmallText>
         <ButtonToTop
           onClick={() => {
