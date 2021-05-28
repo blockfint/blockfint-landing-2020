@@ -7,6 +7,7 @@ import nextI18NextConfig from '@blockfint/website/next-i18next.config'
 import { Layout } from '@blockfint/website/components/layouts'
 import { Author } from '@blockfint/website/containers/Author'
 import { getAllPosts, getAuthors, getPostsByAuthor, getSingleAuthor } from '@blockfint/website/api/ghostCMS'
+import { Authors, PostsOrPages } from '@tryghost/content-api'
 
 const Global = createGlobalStyle`
 body{
@@ -15,8 +16,8 @@ body{
 `
 
 export interface AuthorPageProps {
-  profile: any
-  posts: any
+  profile: Authors
+  posts: PostsOrPages
 }
 const BlogByAuthorNamePage: NextPage<AuthorPageProps> = ({ profile, posts }) => {
   return (

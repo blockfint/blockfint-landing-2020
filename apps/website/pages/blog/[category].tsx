@@ -7,6 +7,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
 import { Blog } from '@blockfint/website/containers/Blog'
 import { Layout } from '@blockfint/website/components/layouts'
+import { PostsOrPages } from '@tryghost/content-api'
 const Global = createGlobalStyle`
 body{
   ${typography}
@@ -15,7 +16,7 @@ body{
 interface Props {
   category: string
   categoryList: string[]
-  posts: any
+  posts: PostsOrPages
 }
 const BlogByCategoryPage: NextPage<Props> = ({ category, categoryList, posts }) => {
   return (

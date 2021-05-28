@@ -7,6 +7,7 @@ import { Layout } from '@blockfint/website/components/layouts'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
 import { getPostsByTag, getTags } from '@blockfint/website/api/ghostCMS'
+import { PostsOrPages } from '@tryghost/content-api'
 const Global = createGlobalStyle`
 body{
   ${typography}
@@ -14,7 +15,7 @@ body{
 `
 interface Props {
   name: string
-  posts: any
+  posts: PostsOrPages
 }
 const BlogByTagPage: NextPage<Props> = ({ name, posts }) => {
   return (
