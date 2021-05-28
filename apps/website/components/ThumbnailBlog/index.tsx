@@ -145,11 +145,11 @@ interface Props {
   title: string
   description: string
   publishDate: Date | Dayjs | string
-  tagLink: string
   blogLink: string
+  category?: string
+  categoryLink?: string
   image?: string
   size?: sizeType
-  tag?: string
   className?: string
 }
 export const ThumbnailBlog: React.FC<Props> = ({
@@ -158,8 +158,8 @@ export const ThumbnailBlog: React.FC<Props> = ({
   description,
   publishDate,
   size = 'S',
-  tag,
-  tagLink,
+  category,
+  categoryLink,
   blogLink,
   className
 }) => {
@@ -170,8 +170,8 @@ export const ThumbnailBlog: React.FC<Props> = ({
       </LinkWrapper>
       <TextSection size={size}>
         <Tag>
-          <LinkWrapper href={tagLink}>
-            <h6>{tag}</h6>
+          <LinkWrapper href={categoryLink}>
+            <h6>{category.toUpperCase()}</h6>
           </LinkWrapper>
         </Tag>
         <LinkWrapper href={blogLink}>

@@ -49,17 +49,18 @@ export const Blog: React.FC<Props> = ({ data }) => {
       <CustomContainer maxWidth="lg">
         <Heading>Blog</Heading>
         <BlogWrapper>
-          {data.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
+          {data.map(({ id, feature_image, title, og_description, published_at, tags, slug }) => {
             const category = tags.find(({ visibility }) => visibility === 'public') // find categories
             return (
               <ThumbnailBlog
+                key={id}
                 image={feature_image}
                 title={title}
                 description={og_description}
                 publishDate={dayjs(published_at)}
-                tag={category.name}
-                // tagLink={`/blog/${category.slug}`} // phase 3
-                tagLink={`/blog/${category.slug}/${slug}`} // phase 2
+                category={category.name}
+                // categoryLink={`/blog/${category.slug}`} // phase 3
+                categoryLink={`/blog/${category.slug}/${slug}`} // phase 2
                 blogLink={`/blog/${category.slug}/${slug}`}
               />
             )
