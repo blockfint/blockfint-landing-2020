@@ -130,7 +130,8 @@ const Description = styled.p`
   }
 `
 const Tag = styled.div`
-  width: 134px;
+  width: min-content;
+  padding: 0 0.5rem;
   height: 30px;
   background-color: #e0e0e0;
   text-align: center;

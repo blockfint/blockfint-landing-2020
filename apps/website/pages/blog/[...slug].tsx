@@ -26,6 +26,17 @@ const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = 
       images: [{ url: og_image, height: 630, width: 1200 }]
     }
   } as NextSeoProps
+  if (post) {
+    return (
+      <>
+        <Global />
+        <Layout>
+          <BlogDetail post={post} nextPosts={nextPosts} />
+        </Layout>
+      </>
+    )
+  }
+
   return (
     <>
       <Global />
@@ -43,17 +54,24 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const results = await getAllPosts()
   const paths = locales.flatMap((locale) =>
     results
-      .map(({ tags, slug }) => {
-        const mainTag = tags.find(({ visibility }) => visibility === 'public') // find categories
-        if (!mainTag) return null
-        const { slug: slugTag } = mainTag
-        return { params: { slug: [slugTag, slug] }, locale }
+      .map((post) => {
+        try {
+          const tags = post?.tags ?? []
+          const slug = post?.slug ?? ''
+          const mainTag = tags?.find(({ visibility }) => visibility === 'public') // find categories
+          if (!mainTag) return null
+          const { slug: slugTag } = mainTag
+          return { params: { slug: [slugTag, slug] }, locale }
+        } catch (error) {
+          console.log(error)
+          return null
+        }
       })
       .filter((i) => i !== null)
   )
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 export async function getStaticProps({ locale, params }) {
@@ -63,6 +81,7 @@ export async function getStaticProps({ locale, params }) {
   const post = await getSinglePost({ slug })
   const nextPosts = await getAllPosts({ filter: [`posts.slug:-${post.slug}`], limit: 6 })
   return {
-    props: { ...i18nContext, post, nextPosts }
+    props: { ...i18nContext, post, nextPosts },
+    revalidate: 5
   }
 }

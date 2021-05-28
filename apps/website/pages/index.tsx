@@ -42,6 +42,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       ...result,
       AllBlogs
     },
-    revalidate: 60
+    revalidate: 5
   }
 }

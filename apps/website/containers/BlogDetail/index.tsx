@@ -179,7 +179,9 @@ type Props = {
   nextPosts: PostOrPage[]
 }
 export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
-  const tags = useMemo(() => post.tags.map(({ name }) => name.replace('#', '')), [post.tags])
+  const tags = useMemo(() => post.tags.map(({ name, ...rest }) => ({ name: name.replace('#', ''), ...rest })), [
+    post.tags
+  ])
   return (
     <>
       <Wrapper>
@@ -203,9 +205,9 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
           </GhostContent>
           <Tag>
             Tags:{' '}
-            {tags.map((tag) => (
-              <Link key={tag} href={`/blog/tag/${tag}`} passHref>
-                <TagA>{`${tag} `}</TagA>
+            {tags.map(({ name, slug }) => (
+              <Link key={name} href={`/blog/tag/${slug}`} passHref>
+                <TagA>{`${name} `}</TagA>
               </Link>
             ))}
           </Tag>
