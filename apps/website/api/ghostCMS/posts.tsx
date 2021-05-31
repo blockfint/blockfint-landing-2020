@@ -1,4 +1,4 @@
-import { ghostApi } from '.'
+import { adminApi, ghostApi } from '.'
 import GhostContentAPI, {
   Params,
   PostOrPage,
@@ -54,6 +54,10 @@ export const getAllPosts = async (props?: Params): Promise<GhostPostOrPage[]> =>
     // remove posts that it haven't category tag
     return tags.some(({ visibility }) => visibility === 'public')
   })
+}
+
+export const getDraftPosts = async (): Promise<GhostPostOrPage[]> => {
+  return await adminApi.posts.browse({ include: ['tags', 'authors'], formats: 'html' })
 }
 
 export const getSinglePost = async (props?: { slug: string } | { id: string }): Promise<GhostPostOrPage> => {
