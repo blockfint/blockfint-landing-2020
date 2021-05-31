@@ -1,6 +1,7 @@
 import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { typography } from '@blockfint/website/styles/typography'
+import { getCategory } from '@blockfint/website/utils/getCategory'
 import Container from '@material-ui/core/Container'
 import { PostOrPage } from '@tryghost/content-api'
 import dayjs from 'dayjs'
@@ -50,7 +51,7 @@ export const Blog: React.FC<Props> = ({ data }) => {
         <Heading>Blog</Heading>
         <BlogWrapper>
           {data.map(({ id, feature_image, title, og_description, published_at, tags, slug }) => {
-            const category = tags.find(({ visibility }) => visibility === 'public') // find categories
+            const category = getCategory(tags) // find categories
             return (
               <ThumbnailBlog
                 key={id}
