@@ -30,6 +30,7 @@ const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = 
       <>
         <Global />
         <Layout>
+          <NextSeo {...SEO} />
           <BlogDetail post={post} nextPosts={nextPosts} />
         </Layout>
       </>
