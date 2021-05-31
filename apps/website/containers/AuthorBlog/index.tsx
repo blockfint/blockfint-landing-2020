@@ -6,8 +6,8 @@ import Container from '@material-ui/core/Container/Container'
 import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BlogButton } from '@blockfint/website/components/Buttons'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
-import { AuthorPageProps } from '@blockfint/website/pages/blog/author/[name]'
 import { getCategory } from '@blockfint/website/utils/getCategory'
+import { Author, PostsOrPages } from '@tryghost/content-api'
 const AuthorWrapper = styled.div`
   padding: 2.5rem 0 3.75rem;
   @media ${BREAKPOINT.tablet} {
@@ -44,7 +44,11 @@ const ButtonWrapper = styled.div`
     margin-bottom: 6.25rem;
   }
 `
-export const AuthorBlog: React.FC<AuthorPageProps> = ({ profile, posts }) => {
+interface AuthorBlogProps {
+  profile: Author
+  posts: PostsOrPages
+}
+export const AuthorBlog: React.FC<AuthorBlogProps> = ({ profile, posts }) => {
   const latestPost = posts?.[0]
   const postCategory = getCategory(latestPost?.tags)
   const otherPosts = posts?.slice(1)
@@ -59,8 +63,8 @@ export const AuthorBlog: React.FC<AuthorPageProps> = ({ profile, posts }) => {
         <Container maxWidth="lg">
           <ThumbnailBlog
             size="L"
-            category={postCategory.name}
-            categoryLink={`/blog/cat/${postCategory.slug}`}
+            category={postCategory?.name}
+            categoryLink={`/blog/cat/${postCategory?.slug}`}
             blogLink={`/blog/${latestPost?.slug}`}
             publishDate={latestPost?.published_at}
             title={latestPost?.title}
@@ -77,7 +81,7 @@ export const AuthorBlog: React.FC<AuthorPageProps> = ({ profile, posts }) => {
               <ThumbnailBlog
                 key={slug}
                 size="M"
-                category={category.name}
+                category={category?.name}
                 categoryLink={`/blog/cat/${category.slug}`}
                 blogLink={`/blog/${slug}`}
                 publishDate={published_at}

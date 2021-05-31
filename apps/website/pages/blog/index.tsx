@@ -7,20 +7,35 @@ import nextI18NextConfig from '@blockfint/website/next-i18next.config.js'
 import { NextPage } from 'next'
 import { Blog } from '@blockfint/website/containers/Blog'
 import { getAllPosts, getTags } from '@blockfint/website/api/ghostCMS'
+import { SettingsResponse, PostsOrPages } from '@tryghost/content-api'
+import { NextSeo, NextSeoProps } from 'next-seo'
+import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 const Global = createGlobalStyle`
 body{
   ${typography}
 }
 `
 interface Props {
+  meta: SettingsResponse
   categoryList: string[]
-  posts: any
+  posts: PostsOrPages
 }
-const BlogPage: NextPage<Props> = ({ categoryList, posts }) => {
+const BlogPage: NextPage<Props> = ({ categoryList, posts, meta }) => {
+  const { title, description, og_image, og_title, og_description } = meta
+  const SEO = {
+    title,
+    description,
+    openGraph: {
+      title: og_title,
+      description: og_description,
+      images: [{ url: og_image, alt: og_title }]
+    }
+  } as NextSeoProps
   return (
     <>
       <Global />
       <Layout transparent>
+        <NextSeo {...SEO} />
         <Blog categoryList={categoryList} posts={posts} />
       </Layout>
     </>
@@ -29,6 +44,7 @@ const BlogPage: NextPage<Props> = ({ categoryList, posts }) => {
 export default BlogPage
 export const getStaticProps = async ({ locale }) => {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
+  const meta = await getMeta()
   const ghostCat = await getTags()
   const listCat = ['technology', 'business', 'education', 'agriculture', 'inspiration']
   const categoryList = [
@@ -43,6 +59,7 @@ export const getStaticProps = async ({ locale }) => {
   return {
     props: {
       ...result,
+      meta,
       categoryList,
       posts
     },

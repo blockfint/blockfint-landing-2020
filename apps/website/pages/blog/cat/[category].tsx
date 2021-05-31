@@ -7,17 +7,30 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
 import { Blog } from '@blockfint/website/containers/Blog'
 import { Layout } from '@blockfint/website/components/layouts'
+import { PostsOrPages, SettingsResponse } from '@tryghost/content-api'
+import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
+import { NextSeo, NextSeoProps } from 'next-seo'
 const Global = createGlobalStyle`
 body{
   ${typography}
 }
 `
 interface Props {
+  meta?: SettingsResponse
   category?: string
   categoryList?: string[]
-  posts?: any
+  posts?: PostsOrPages
 }
-const BlogByCategoryPage: NextPage<Props> = ({ category, categoryList, posts }) => {
+const BlogByCategoryPage: NextPage<Props> = ({ meta, category, categoryList, posts }) => {
+  const SEO = {
+    title: meta?.title,
+    description: meta?.description,
+    openGraph: {
+      title: meta?.og_title,
+      description: meta?.og_description,
+      images: [{ url: meta?.og_image, alt: meta?.og_title }]
+    }
+  } as NextSeoProps
   if (!category || !categoryList || !posts) {
     return (
       <>
@@ -32,6 +45,7 @@ const BlogByCategoryPage: NextPage<Props> = ({ category, categoryList, posts }) 
     <>
       <Global />
       <Layout transparent>
+        <NextSeo {...SEO} />
         <Blog category={category} categoryList={categoryList} posts={posts} />
       </Layout>
     </>
@@ -66,13 +80,13 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 }
 export async function getStaticProps({ locale, params }) {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
-
+  const meta = await getMeta()
   const ghostCat = await getTags()
   const categoryList = createCatList(ghostCat)
   const { category } = params
   const posts = await getPostsByTag(category)
   return {
-    props: { ...result, category, categoryList, posts },
+    props: { ...result, meta, category, categoryList, posts },
     revalidate: 5
   }
 }

@@ -8,20 +8,29 @@ import { Layout } from '@blockfint/website/components/layouts'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
 import { PostOrPage } from '@tryghost/content-api'
-// import { useRouter } from 'next/router'
+import { NextSeo, NextSeoProps } from 'next-seo'
 const Global = createGlobalStyle`
 body{
   ${typography}
 }
 `
 const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = ({ post, nextPosts }) => {
-  // const {} = useRouter()
-
+  const SEO = {
+    title: post?.title,
+    canonical: post?.canonical_url,
+    description: post?.excerpt,
+    openGraph: {
+      title: post?.og_title,
+      description: post?.og_description,
+      images: [{ url: post?.og_image, height: 630, width: 1200 }]
+    }
+  } as NextSeoProps
   if (post) {
     return (
       <>
         <Global />
         <Layout>
+          <NextSeo {...SEO} />
           <BlogDetail post={post} nextPosts={nextPosts} />
         </Layout>
       </>
@@ -32,7 +41,8 @@ const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = 
     <>
       <Global />
       <Layout>
-        <p>Loading</p>
+        <NextSeo {...SEO} />
+        <BlogDetail post={post} nextPosts={nextPosts} />
       </Layout>
     </>
   )
@@ -42,7 +52,6 @@ export default BlogDetailPage
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const results = await getAllPosts()
-
   const paths = locales.flatMap((locale) =>
     results
       .map((post) => {
