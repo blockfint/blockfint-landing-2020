@@ -18,10 +18,10 @@ export const Home: React.FC<Props> = ({ blogsData = [] }) => {
   return (
     <>
       <Hero />
-      <GideonSection />
-      <ThinkerSection />
-      <PalmSection />
       <NeoBankSection />
+      <ThinkerSection />
+      <GideonSection />
+      <PalmSection />
       <ProductsBanner />
       <OurPartners />
       <OurTeam />
