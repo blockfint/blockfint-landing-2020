@@ -12,16 +12,16 @@ import { Blog } from './components/07-Blog'
 import { OurTeam } from './components/08-OurTeam'
 
 type Props = {
-  blogsData: PostOrPage[]
+  blogsData?: PostOrPage[]
 }
-export const Home: React.FC<Props> = ({ blogsData }) => {
+export const Home: React.FC<Props> = ({ blogsData = [] }) => {
   return (
     <>
       <Hero />
-      <GideonSection />
-      <ThinkerSection />
-      <PalmSection />
       <NeoBankSection />
+      <ThinkerSection />
+      <GideonSection />
+      <PalmSection />
       <ProductsBanner />
       <OurPartners />
       <OurTeam />

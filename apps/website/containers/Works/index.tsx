@@ -38,13 +38,6 @@ export const Works = () => {
   const projects = useMemo(
     () => [
       {
-        id: 'gideon',
-        name: 'Gideon',
-        image: '/images/gideon-card.png',
-        description: t('common.gideon-quote'),
-        link: '/products/gideon'
-      },
-      {
         id: 'neo_bank',
         name: 'Thinker Bank',
         image: '/images/neobank-card.png',
@@ -57,6 +50,13 @@ export const Works = () => {
         image: '/images/thinker-card.png',
         description: t('common.thinker-quote'),
         link: '/products/thinker'
+      },
+      {
+        id: 'gideon',
+        name: 'Gideon',
+        image: '/images/gideon-card.png',
+        description: t('common.gideon-quote'),
+        link: '/products/gideon'
       },
       {
         id: 'agritrac',
