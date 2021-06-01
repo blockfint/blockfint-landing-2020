@@ -151,11 +151,10 @@ const Title = styled.h2`
 `
 
 const TagA = styled.a`
-  color: inherit;
+  color: var(--primary);
+  font-weight: normal;
   text-decoration: inherit;
-  &:after {
-    content: ', ';
-  }
+  margin-left: 0.5rem;
   :last-child {
     &:after {
       content: '';
@@ -194,9 +193,9 @@ type Props = {
   nextPosts: PostOrPage[]
 }
 export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
-  const tags = useMemo(() => post?.tags?.map(({ name, ...rest }) => ({ name: name.replace('#', ''), ...rest })), [
-    post?.tags
-  ])
+  const tags = useMemo(() => {
+    return post.tags.filter(({ visibility }) => visibility === 'internal')
+  }, [post])
   return (
     <>
       <Wrapper>
@@ -222,7 +221,7 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
             <div dangerouslySetInnerHTML={{ __html: post?.html }} className="gh-content gh-canvas" />
           </GhostContent>
           <Tag>
-            Tags:{' '}
+            <span style={{ marginRight: '16px' }}>Tags:</span>
             {tags?.map(({ name, slug }) => (
               <Link key={name} href={`/blog/tag/${slug}`} passHref>
                 <TagA>{`${name} `}</TagA>
