@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { BlogButton } from '@blockfint/website/components/Buttons'
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
@@ -45,16 +45,21 @@ interface Props {
 }
 export const Tag: React.FC<Props> = ({ tag, posts }) => {
   const output = tag?.charAt(0)?.toUpperCase() + tag?.slice(1)
+  const isShowButton = posts.length > 9
+  const [nPost, setNPost] = useState(isShowButton ? 9 : posts.length)
+  const handleClick = () => {
+    setNPost(posts.length)
+  }
   return (
     <>
       <Container maxWidth="lg">
         <Heading>
           <h6>Tag</h6>
-          <TagText>{output ? output : ''}</TagText>
+          <TagText>#{output ? output : ''}</TagText>
         </Heading>
 
         <BlogWrapper>
-          {posts?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
+          {posts?.slice(0, nPost)?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
             const category = tags?.find(({ visibility }) => visibility === 'public')
             return (
               <ThumbnailBlog
@@ -70,9 +75,11 @@ export const Tag: React.FC<Props> = ({ tag, posts }) => {
             )
           })}
         </BlogWrapper>
-        <ButtonWrapper>
-          <BlogButton>See more</BlogButton>
-        </ButtonWrapper>
+        {isShowButton && nPost <= 9 && (
+          <ButtonWrapper>
+            <BlogButton onClick={handleClick}>See more</BlogButton>
+          </ButtonWrapper>
+        )}
       </Container>
       <ContactBanner />
     </>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
 import { AuthorBanner } from '@blockfint/website/components/AuthorBanner'
@@ -52,6 +52,12 @@ export const AuthorBlog: React.FC<AuthorBlogProps> = ({ profile, posts }) => {
   const latestPost = posts?.[0]
   const postCategory = getCategory(latestPost?.tags)
   const otherPosts = posts?.slice(1)
+  const postLimit = 3
+  const isShowButton = otherPosts?.length > postLimit
+  const [nPost, setNPost] = useState(isShowButton ? postLimit : otherPosts?.length)
+  const handleClick = () => {
+    setNPost(otherPosts?.length)
+  }
   return (
     <>
       <Container maxWidth="lg">
@@ -75,7 +81,7 @@ export const AuthorBlog: React.FC<AuthorBlogProps> = ({ profile, posts }) => {
       </Background>
       <Container maxWidth="lg">
         <BlogWrapper>
-          {otherPosts?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
+          {otherPosts?.slice(0, nPost)?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
             const category = getCategory(tags)
             return (
               <ThumbnailBlog
@@ -92,9 +98,11 @@ export const AuthorBlog: React.FC<AuthorBlogProps> = ({ profile, posts }) => {
             )
           })}
         </BlogWrapper>
-        <ButtonWrapper>
-          <BlogButton>See more</BlogButton>
-        </ButtonWrapper>
+        {isShowButton && nPost <= postLimit && (
+          <ButtonWrapper>
+            <BlogButton onClick={handleClick}>See more</BlogButton>
+          </ButtonWrapper>
+        )}
       </Container>
       <ContactBanner />
     </>
