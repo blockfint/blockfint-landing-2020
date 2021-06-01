@@ -45,10 +45,11 @@ interface Props {
 }
 export const Tag: React.FC<Props> = ({ tag, posts }) => {
   const output = tag?.charAt(0)?.toUpperCase() + tag?.slice(1)
-  const isShowButton = posts.length > 9
-  const [nPost, setNPost] = useState(isShowButton ? 9 : posts.length)
+  const postLimit = 9
+  const isShowButton = posts?.length > postLimit
+  const [nPost, setNPost] = useState(isShowButton ? postLimit : posts?.length)
   const handleClick = () => {
-    setNPost(posts.length)
+    setNPost(posts?.length)
   }
   return (
     <>
@@ -75,7 +76,7 @@ export const Tag: React.FC<Props> = ({ tag, posts }) => {
             )
           })}
         </BlogWrapper>
-        {isShowButton && nPost <= 9 && (
+        {isShowButton && nPost <= postLimit && (
           <ButtonWrapper>
             <BlogButton onClick={handleClick}>See more</BlogButton>
           </ButtonWrapper>

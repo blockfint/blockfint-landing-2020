@@ -54,10 +54,11 @@ interface BlogProps {
 }
 export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, posts }) => {
   const allCategory = ['All', ...categoryList.map((cat) => cat.charAt(0).toUpperCase() + cat.slice(1))]
-  const isShowButton = posts.length > 9
-  const [nPost, setNPost] = useState(isShowButton ? 9 : posts.length)
+  const postLimit = 9
+  const isShowButton = posts?.length > postLimit
+  const [nPost, setNPost] = useState(isShowButton ? postLimit : posts?.length)
   const handleClick = () => {
-    setNPost(posts.length)
+    setNPost(posts?.length)
   }
   return (
     <>
@@ -85,7 +86,7 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, post
             )
           })}
         </BlogWrapper>
-        {isShowButton && nPost <= 9 && (
+        {isShowButton && nPost <= postLimit && (
           <ButtonWrapper>
             <BlogButton onClick={handleClick}>See More</BlogButton>
           </ButtonWrapper>
