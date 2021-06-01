@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import dayjs, { Dayjs } from 'dayjs'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
-import { LinkWrapper } from './components/LinkWrapper'
+import { LinkWrapper } from '../LinkWrapper'
 const Wrapper = styled.div<{ size: sizeType }>`
   display: grid;
   grid-gap: 1rem;
@@ -73,7 +73,6 @@ const TextSection = styled.div<{ size: sizeType }>`
   display: grid;
   grid-row-gap: 0.5rem;
   align-items: center;
-
   ${({ size }) => {
     if (size === 'M') {
       return css`

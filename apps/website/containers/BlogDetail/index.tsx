@@ -217,6 +217,7 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
           <hr />
           <AuthorWrapper>
             <AuthorBanner
+              link={`/blog/author/${post?.authors[0]?.slug}`}
               authorName={post?.authors[0]?.name}
               description={post?.authors[0]?.bio}
               image={post?.authors[0]?.profile_image}

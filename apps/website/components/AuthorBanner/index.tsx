@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
+import { LinkWrapper } from '../LinkWrapper'
 const Container = styled.div`
   display: grid;
   grid-template-rows: repeat(2, max-content);
@@ -92,28 +93,51 @@ interface AuthorBannerProps {
   image?: string
   authorName: string
   description: string
+  link?: string
 }
 export const AuthorBanner: React.FC<AuthorBannerProps> = ({
   image = '/images/thumbnail.png',
   imgSize = 'large',
   authorName,
-  description
+  description,
+  link = ''
 }) => {
+  const WriterText = () => (imgSize === 'large' ? <h5>{authorName}</h5> : <h6>{`Writer: ${authorName}`}</h6>)
   return (
     <Container className={imgSize}>
       <ImageBorder className={imgSize}>
-        <Image
-          src={image ?? '/images/thumbnail.png'}
-          width={180}
-          height={180}
-          alt="Author"
-          layout="responsive"
-          objectPosition="top center"
-          objectFit="cover"
-        />
+        {link !== '' ? (
+          <LinkWrapper href={link}>
+            <Image
+              src={image ?? '/images/thumbnail.png'}
+              width={180}
+              height={180}
+              alt="Author"
+              layout="responsive"
+              objectPosition="top center"
+              objectFit="cover"
+            />
+          </LinkWrapper>
+        ) : (
+          <Image
+            src={image ?? '/images/thumbnail.png'}
+            width={180}
+            height={180}
+            alt="Author"
+            layout="responsive"
+            objectPosition="top center"
+            objectFit="cover"
+          />
+        )}
       </ImageBorder>
       <TextSection>
-        {imgSize === 'large' ? <h5>{authorName}</h5> : <h6>{`Writer: ${authorName}`}</h6>}
+        {link !== '' ? (
+          <LinkWrapper href={link}>
+            <WriterText />
+          </LinkWrapper>
+        ) : (
+          <WriterText />
+        )}
         <Description>{description}</Description>
       </TextSection>
     </Container>
