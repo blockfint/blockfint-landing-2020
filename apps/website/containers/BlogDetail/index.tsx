@@ -93,7 +93,19 @@ export const GhostContent = styled.div`
 
   //divider
   hr {
-    margin: 1.5rem 0;
+    border-color: transparent;
+    height: 80px;
+    font-size: 36px;
+    position: relative;
+    :before {
+      font-family: sans-serif;
+      content: '. . .';
+      line-height: 28px;
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   @media ${BREAKPOINT.tablet} {
@@ -107,6 +119,9 @@ export const GhostContent = styled.div`
     }
   }
   @media ${BREAKPOINT.desktop} {
+    hr {
+      height: 7.5rem;
+    }
     // container
 
     max-width: 50rem;
