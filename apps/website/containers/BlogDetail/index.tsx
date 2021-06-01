@@ -90,6 +90,28 @@ export const GhostContent = styled.div`
   ol {
     margin-left: 2ch;
   }
+  ol {
+    list-style: none;
+    margin: 40px 0;
+  }
+
+  ol li:before {
+    content: counter(custom) ' ';
+    font-family: 'Montserrat';
+    color: var(--primary);
+    padding-right: 1rem;
+  }
+
+  ol li:first-child {
+    counter-reset: custom;
+  }
+  li {
+    font-family: 'Montserrat', 'Sarabun';
+    font-size: 1rem;
+    line-height: 24px;
+    counter-increment: custom;
+    margin-bottom: 1rem;
+  }
 
   //divider
   hr {
@@ -119,6 +141,12 @@ export const GhostContent = styled.div`
     }
   }
   @media ${BREAKPOINT.desktop} {
+    ol {
+      margin: 56px 0;
+    }
+    li {
+      margin-bottom: 1.5rem;
+    }
     hr {
       height: 7.5rem;
     }
@@ -202,7 +230,7 @@ type Props = {
 }
 export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
   const tags = useMemo(() => {
-    return post.tags.filter(({ visibility }) => visibility === 'internal')
+    return post?.tags?.filter(({ visibility }) => visibility === 'internal')
   }, [post])
   return (
     <>
