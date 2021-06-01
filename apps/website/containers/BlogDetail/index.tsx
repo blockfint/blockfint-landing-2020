@@ -115,7 +115,19 @@ export const GhostContent = styled.div`
 
   //divider
   hr {
-    margin: 1.5rem 0;
+    border-color: transparent;
+    height: 80px;
+    font-size: 36px;
+    position: relative;
+    :before {
+      font-family: sans-serif;
+      content: '. . .';
+      line-height: 28px;
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   @media ${BREAKPOINT.tablet} {
@@ -134,6 +146,9 @@ export const GhostContent = styled.div`
     }
     li {
       margin-bottom: 1.5rem;
+    }
+    hr {
+      height: 7.5rem;
     }
     // container
 
@@ -164,11 +179,10 @@ const Title = styled.h2`
 `
 
 const TagA = styled.a`
-  color: inherit;
+  color: var(--primary);
+  font-weight: normal;
   text-decoration: inherit;
-  &:after {
-    content: ', ';
-  }
+  margin-left: 0.5rem;
   :last-child {
     &:after {
       content: '';
@@ -202,14 +216,22 @@ const Tag = styled.h6`
   text-align: center;
   margin-bottom: 1.5rem;
 `
+const Divider = styled.hr`
+  max-width: 32.5rem;
+  @media ${BREAKPOINT.desktop} {
+    max-width: 50rem;
+  }
+  border-style: dashed;
+  margin: 0 auto;
+`
 type Props = {
   post: PostOrPage
   nextPosts: PostOrPage[]
 }
 export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
-  const tags = useMemo(() => post?.tags?.map(({ name, ...rest }) => ({ name: name.replace('#', ''), ...rest })), [
-    post?.tags
-  ])
+  const tags = useMemo(() => {
+    return post.tags.filter(({ visibility }) => visibility === 'internal')
+  }, [post])
   return (
     <>
       <Wrapper>
@@ -235,14 +257,14 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
             <div dangerouslySetInnerHTML={{ __html: post?.html }} className="gh-content gh-canvas" />
           </GhostContent>
           <Tag>
-            Tags:{' '}
+            <span style={{ marginRight: '16px' }}>Tags:</span>
             {tags?.map(({ name, slug }) => (
               <Link key={name} href={`/blog/tag/${slug}`} passHref>
                 <TagA>{`${name} `}</TagA>
               </Link>
             ))}
           </Tag>
-          <hr />
+          <Divider />
           <AuthorWrapper>
             <AuthorBanner
               link={`/blog/author/${post?.authors[0]?.slug}`}
