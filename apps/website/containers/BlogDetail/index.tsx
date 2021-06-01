@@ -188,6 +188,14 @@ const Tag = styled.h6`
   text-align: center;
   margin-bottom: 1.5rem;
 `
+const Divider = styled.hr`
+  max-width: 32.5rem;
+  @media ${BREAKPOINT.desktop} {
+    max-width: 50rem;
+  }
+  border-style: dashed;
+  margin: 0 auto;
+`
 type Props = {
   post: PostOrPage
   nextPosts: PostOrPage[]
@@ -228,7 +236,7 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
               </Link>
             ))}
           </Tag>
-          <hr />
+          <Divider />
           <AuthorWrapper>
             <AuthorBanner
               link={`/blog/author/${post?.authors[0]?.slug}`}
