@@ -230,7 +230,7 @@ type Props = {
 }
 export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
   const tags = useMemo(() => {
-    return post.tags.filter(({ visibility }) => visibility === 'internal')
+    return post?.tags?.filter(({ visibility }) => visibility === 'internal')
   }, [post])
   return (
     <>
