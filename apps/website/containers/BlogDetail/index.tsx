@@ -54,6 +54,7 @@ export const GhostContent = styled.div`
   p {
     /* margin-top: 1.5rem; */
     min-height: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   //gallery
