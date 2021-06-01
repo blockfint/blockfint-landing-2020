@@ -42,7 +42,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     return item
   })
 
-  console.log(Blogs)
   return {
     props: {
       ...result,
