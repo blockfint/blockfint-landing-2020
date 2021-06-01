@@ -10,10 +10,10 @@ import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 import { NextSeo, NextSeoProps } from 'next-seo'
 
 interface Props {
-  Blogs: PostOrPage[]
+  AllBlogs: PostOrPage[]
   meta: SettingsResponse
 }
-const Homepage: NextPage<Props> = ({ Blogs, meta }) => {
+const Homepage: NextPage<Props> = ({ AllBlogs, meta }) => {
   const { title, description, og_image, og_title, og_description } = meta
   const SEO = {
     title,
@@ -27,7 +27,7 @@ const Homepage: NextPage<Props> = ({ Blogs, meta }) => {
   return (
     <Layout transparent>
       <NextSeo {...SEO} />
-      <Home blogsData={Blogs} />
+      <Home blogsData={AllBlogs} />
     </Layout>
   )
 }
@@ -37,17 +37,13 @@ export default Homepage
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const result = await serverSideTranslations(locale, ['common', 'home'], nextI18NextConfig)
   const meta = await getMeta()
-  const AllBlogs = await getAllPosts()
-  const Blogs = AllBlogs.slice(0, 2).map((item) => {
-    return item
-  })
-
-  console.log(Blogs)
+  const AllBlogs = await getAllPosts({ limit: 2 })
+  console.log(AllBlogs)
   return {
     props: {
       ...result,
       meta,
-      Blogs
+      AllBlogs
     },
     revalidate: 5
   }
