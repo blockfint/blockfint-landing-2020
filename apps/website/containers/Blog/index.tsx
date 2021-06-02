@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
 import { BlogButton } from '@blockfint/website/components/Buttons/BlogButton'
@@ -7,6 +7,7 @@ import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { Container } from '@material-ui/core'
 import { Category } from './components/Category'
+import { PostsOrPages } from '@tryghost/content-api'
 const HeadingText = styled.h2`
   text-align: center;
   padding: 1rem 0 2.5rem;
@@ -46,13 +47,23 @@ const ButtonWrapper = styled.div`
     margin-bottom: 100px;
   }
 `
+const Space = styled.div`
+  width: 100%;
+  height: 23.25rem;
+`
 interface BlogProps {
   category?: string
   categoryList?: string[]
-  posts: any
+  posts: PostsOrPages
 }
 export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, posts }) => {
   const allCategory = ['All', ...categoryList.map((cat) => cat.charAt(0).toUpperCase() + cat.slice(1))]
+  const postLimit = 9
+  const isShowButton = posts?.length > postLimit
+  const [nPost, setNPost] = useState(isShowButton ? postLimit : posts?.length)
+  const handleClick = () => {
+    setNPost(posts?.length)
+  }
   return (
     <>
       <Container maxWidth="lg">
@@ -63,7 +74,8 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, post
           ))}
         </CategoryWrapper>
         <BlogWrapper>
-          {posts?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
+          {posts.length === 0 && <Space />}
+          {posts?.slice(0, nPost)?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
             const category = tags?.find(({ visibility }) => visibility === 'public')
             return (
               <ThumbnailBlog
@@ -79,9 +91,11 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, post
             )
           })}
         </BlogWrapper>
-        <ButtonWrapper>
-          <BlogButton>See More</BlogButton>
-        </ButtonWrapper>
+        {isShowButton && nPost <= postLimit && (
+          <ButtonWrapper>
+            <BlogButton onClick={handleClick}>See More</BlogButton>
+          </ButtonWrapper>
+        )}
       </Container>
       <ContactBanner />
     </>
