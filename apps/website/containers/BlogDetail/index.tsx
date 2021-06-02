@@ -9,7 +9,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { Breadcrumb } from './components/Breadcrumb'
+// import { Breadcrumb } from './components/Breadcrumb'
 import { WhatNext } from './components/WhatNext'
 
 export const Wrapper = styled.div`
@@ -237,7 +237,7 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
     <>
       <Wrapper>
         <Container maxWidth="lg">
-          <Breadcrumb />
+          {/* <Breadcrumb /> */}
           <Title>{post?.title}</Title>
         </Container>
         {post?.feature_image && (
