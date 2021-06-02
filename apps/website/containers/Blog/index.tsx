@@ -47,6 +47,10 @@ const ButtonWrapper = styled.div`
     margin-bottom: 100px;
   }
 `
+const Space = styled.div`
+  width: 100%;
+  height: 23.25rem;
+`
 interface BlogProps {
   category?: string
   categoryList?: string[]
@@ -70,6 +74,7 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, post
           ))}
         </CategoryWrapper>
         <BlogWrapper>
+          {posts.length === 0 && <Space />}
           {posts?.slice(0, nPost)?.map(({ feature_image, title, og_description, published_at, tags, slug }) => {
             const category = tags?.find(({ visibility }) => visibility === 'public')
             return (
