@@ -254,6 +254,15 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
                 <RipleMiddle primary={t('common.about')} />
               </ListItem>
             </Link>
+            <Link passHref href={`/blog`} as={`/blog`}>
+              <ListItem
+                button
+                selected={selectedIndex === `/blog`}
+                onClick={(event) => handleListItemClick(event, `/blog`)}
+              >
+                <RipleMiddle primary={t('common.blog')} />
+              </ListItem>
+            </Link>
             <Link passHref href={`/works`} as={`/works`}>
               <ListItem
                 button

@@ -109,6 +109,10 @@ export const LabTabs = ({ status, id = '' }: PropsColor) => {
       path: '/about'
     },
     {
+      label: t('common.blog'),
+      path: '/blog'
+    },
+    {
       label: t('common.works'),
       path: '/works'
     },
