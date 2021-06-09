@@ -24,7 +24,7 @@ export const ProductThinker: React.FC = () => {
         }}
       >
         <Wrapper>
-          <Image src="/images/products/diagram-thinker.svg" width={937.5} height={625} />
+          <Image src="/images/products/diagram-thinker-los.png" width={2739} height={1488} />
         </Wrapper>
       </ProductDetail>
 
