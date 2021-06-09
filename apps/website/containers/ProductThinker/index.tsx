@@ -16,7 +16,7 @@ export const ProductThinker: React.FC = () => {
     <>
       <ProductDetail
         {...{
-          name: 'Thinker Wise',
+          name: 'Thinker LOS',
           title: t('common.thinker-quote'),
           description: t('work-details.thinker-desc'),
 
