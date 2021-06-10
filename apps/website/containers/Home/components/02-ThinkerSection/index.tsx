@@ -1,7 +1,7 @@
 import { PrimaryButton } from '@blockfint/website/components/Buttons'
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as ThinkerSmall } from '@blockfint/website/assets/logos/thinker-small.svg'
+import { ReactComponent as ThinkerSmall } from '@blockfint/website/assets/logos/thinker-los-small.svg'
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { ThinkerImage } from './components/ThinkerImage'

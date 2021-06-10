@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import dayjs, { Dayjs } from 'dayjs'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
-import { LinkWrapper } from './components/LinkWrapper'
+import { LinkWrapper } from '../LinkWrapper'
 const Wrapper = styled.div<{ size: sizeType }>`
   display: grid;
   grid-gap: 1rem;
@@ -73,7 +73,6 @@ const TextSection = styled.div<{ size: sizeType }>`
   display: grid;
   grid-row-gap: 0.5rem;
   align-items: center;
-
   ${({ size }) => {
     if (size === 'M') {
       return css`
@@ -130,7 +129,8 @@ const Description = styled.p`
   }
 `
 const Tag = styled.div`
-  width: 134px;
+  width: min-content;
+  padding: 0 0.5rem;
   height: 30px;
   background-color: #e0e0e0;
   text-align: center;
@@ -144,11 +144,11 @@ interface Props {
   title: string
   description: string
   publishDate: Date | Dayjs | string
-  tagLink: string
   blogLink: string
+  category?: string
+  categoryLink?: string
   image?: string
   size?: sizeType
-  tag?: string
   className?: string
 }
 export const ThumbnailBlog: React.FC<Props> = ({
@@ -157,8 +157,8 @@ export const ThumbnailBlog: React.FC<Props> = ({
   description,
   publishDate,
   size = 'S',
-  tag,
-  tagLink,
+  category,
+  categoryLink,
   blogLink,
   className
 }) => {
@@ -169,8 +169,8 @@ export const ThumbnailBlog: React.FC<Props> = ({
       </LinkWrapper>
       <TextSection size={size}>
         <Tag>
-          <LinkWrapper href={tagLink}>
-            <h6>{tag}</h6>
+          <LinkWrapper href={categoryLink}>
+            <h6>{category?.toUpperCase()}</h6>
           </LinkWrapper>
         </Tag>
         <LinkWrapper href={blogLink}>
@@ -179,7 +179,7 @@ export const ThumbnailBlog: React.FC<Props> = ({
         </LinkWrapper>
         <DateTime>
           <Icon src="/icons/clock.svg" alt="clock" />
-          <Date>{dayjs(publishDate).format('DD MMMM YYYY')}</Date>
+          <Date>{dayjs(publishDate)?.format('DD MMMM YYYY')}</Date>
         </DateTime>
       </TextSection>
     </Wrapper>

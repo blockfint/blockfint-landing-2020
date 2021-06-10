@@ -9,7 +9,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { Breadcrumb } from './components/Breadcrumb'
+// import { Breadcrumb } from './components/Breadcrumb'
 import { WhatNext } from './components/WhatNext'
 
 export const Wrapper = styled.div`
@@ -54,6 +54,7 @@ export const GhostContent = styled.div`
   p {
     /* margin-top: 1.5rem; */
     min-height: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   //gallery
@@ -90,10 +91,44 @@ export const GhostContent = styled.div`
   ol {
     margin-left: 2ch;
   }
+  ol {
+    list-style: none;
+    margin: 40px 0;
+  }
+
+  ol li:before {
+    content: counter(custom) ' ';
+    font-family: 'Montserrat';
+    color: var(--primary);
+    padding-right: 1rem;
+  }
+
+  ol li:first-child {
+    counter-reset: custom;
+  }
+  li {
+    font-family: 'Montserrat', 'Sarabun';
+    font-size: 1rem;
+    line-height: 24px;
+    counter-increment: custom;
+    margin-bottom: 1rem;
+  }
 
   //divider
   hr {
-    margin: 1.5rem 0;
+    border-color: transparent;
+    height: 80px;
+    font-size: 36px;
+    position: relative;
+    :before {
+      font-family: sans-serif;
+      content: '. . .';
+      line-height: 28px;
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   @media ${BREAKPOINT.tablet} {
@@ -107,6 +142,15 @@ export const GhostContent = styled.div`
     }
   }
   @media ${BREAKPOINT.desktop} {
+    ol {
+      margin: 56px 0;
+    }
+    li {
+      margin-bottom: 1.5rem;
+    }
+    hr {
+      height: 7.5rem;
+    }
     // container
 
     max-width: 50rem;
@@ -136,11 +180,10 @@ const Title = styled.h2`
 `
 
 const TagA = styled.a`
-  color: inherit;
+  color: var(--primary);
+  font-weight: normal;
   text-decoration: inherit;
-  &:after {
-    content: ', ';
-  }
+  margin-left: 0.5rem;
   :last-child {
     &:after {
       content: '';
@@ -174,47 +217,61 @@ const Tag = styled.h6`
   text-align: center;
   margin-bottom: 1.5rem;
 `
+const Divider = styled.hr`
+  max-width: 32.5rem;
+  @media ${BREAKPOINT.desktop} {
+    max-width: 50rem;
+  }
+  border-style: dashed;
+  margin: 0 auto;
+`
 type Props = {
   post: PostOrPage
   nextPosts: PostOrPage[]
 }
 export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
-  const tags = useMemo(() => post.tags.map(({ name }) => name.replace('#', '')), [post.tags])
+  const tags = useMemo(() => {
+    return post?.tags?.filter(({ visibility }) => visibility === 'internal')
+  }, [post])
   return (
     <>
       <Wrapper>
         <Container maxWidth="lg">
-          <Breadcrumb />
+          {/* <Breadcrumb /> */}
           <Title>{post?.title}</Title>
         </Container>
-        <TopImage>
-          <Image src={post?.feature_image} width={2000} height={1215} layout="responsive" />
-        </TopImage>
+        {post?.feature_image && (
+          <TopImage>
+            <Image src={post?.feature_image} width={2000} height={1215} layout="responsive" />
+          </TopImage>
+        )}
+
         <Container maxWidth="lg">
           <GhostContent>
             <LeftRight>
               <DateTime>
                 <Icon src="/icons/clock.svg" alt="clock" />
-                <Date>{dayjs(post.published_at).format('DD MMMM YYYY')}</Date>
+                <Date>{dayjs(post?.published_at).format('DD MMMM YYYY')}</Date>
               </DateTime>
               <ShareButton />
             </LeftRight>
             <div dangerouslySetInnerHTML={{ __html: post?.html }} className="gh-content gh-canvas" />
           </GhostContent>
           <Tag>
-            Tags:{' '}
-            {tags.map((tag) => (
-              <Link key={tag} href={`/blog/tag/${tag}`} passHref>
-                <TagA>{`${tag} `}</TagA>
+            <span style={{ marginRight: '16px' }}>Tags:</span>
+            {tags?.map(({ name, slug }) => (
+              <Link key={name} href={`/blog/tag/${slug}`} passHref>
+                <TagA>{`${name} `}</TagA>
               </Link>
             ))}
           </Tag>
-          <hr />
+          <Divider />
           <AuthorWrapper>
             <AuthorBanner
-              authorName={post.authors[0]?.name}
-              description={post.authors[0]?.bio}
-              image={post.authors[0]?.profile_image}
+              link={`/blog/author/${post?.authors[0]?.slug}`}
+              authorName={post?.authors[0]?.name}
+              description={post?.authors[0]?.bio}
+              image={post?.authors[0]?.profile_image}
               imgSize="small"
             />
           </AuthorWrapper>

@@ -25,7 +25,7 @@ export const Home: React.FC<Props> = ({ blogsData = [] }) => {
       <ProductsBanner />
       <OurPartners />
       <OurTeam />
-      {/* <Blog data={blogsData} /> */}
+      <Blog data={blogsData} />
       <ContactBanner />
     </>
   )

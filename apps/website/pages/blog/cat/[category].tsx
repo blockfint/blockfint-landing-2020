@@ -1,12 +1,12 @@
-import React from 'react'
 import { GetStaticPaths, NextPage } from 'next'
+import React from 'react'
 import { typography } from '@blockfint/website/styles/typography'
 import { createGlobalStyle } from 'styled-components'
-import { Tag } from '@blockfint/website/containers/Tag'
-import { Layout } from '@blockfint/website/components/layouts'
+import { getPostsByTag, getTags } from '@blockfint/website/api/ghostCMS'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '@blockfint/website/next-i18next.config'
-import { getPostsByTag, getTags } from '@blockfint/website/api/ghostCMS'
+import { Blog } from '@blockfint/website/containers/Blog'
+import { Layout } from '@blockfint/website/components/layouts'
 import { PostsOrPages, SettingsResponse } from '@tryghost/content-api'
 import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 import { NextSeo, NextSeoProps } from 'next-seo'
@@ -17,10 +17,11 @@ body{
 `
 interface Props {
   meta?: SettingsResponse
-  name?: string
+  category?: string
+  categoryList?: string[]
   posts?: PostsOrPages
 }
-const BlogByTagPage: NextPage<Props> = ({ meta, name, posts }) => {
+const BlogByCategoryPage: NextPage<Props> = ({ meta, category, categoryList, posts }) => {
   const SEO = {
     title: meta?.title,
     description: meta?.description,
@@ -30,27 +31,47 @@ const BlogByTagPage: NextPage<Props> = ({ meta, name, posts }) => {
       images: [{ url: meta?.og_image, alt: meta?.og_title }]
     }
   } as NextSeoProps
+  if (!category || !categoryList || !posts) {
+    return (
+      <>
+        <Global />
+        <Layout transparent>
+          <p>Loading</p>
+        </Layout>
+      </>
+    )
+  }
   return (
     <>
       <Global />
       <Layout transparent>
         <NextSeo {...SEO} />
-        <Tag tag={name} posts={posts} />
+        <Blog category={category} categoryList={categoryList} posts={posts} />
       </Layout>
     </>
   )
 }
 
-export default BlogByTagPage
-
+export default BlogByCategoryPage
+const createCatList = (ghostCat) => {
+  const listCat = ['technology', 'business', 'education', 'agriculture', 'inspiration']
+  const categoryList = [
+    ...listCat,
+    ...ghostCat
+      .filter((tag) => tag.visibility === 'public' && !listCat.includes(tag.slug))
+      .map(({ slug }) => {
+        return slug
+      })
+  ]
+  return categoryList
+}
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const results = await getTags()
+  const allCat = createCatList(results)
   const paths = locales.flatMap((locale) =>
-    results
-      .filter((tag) => tag.visibility === 'internal')
-      .map(({ slug }) => {
-        return { params: { name: slug }, locale }
-      })
+    allCat.map((category) => {
+      return { params: { category }, locale }
+    })
   )
   return {
     paths,
@@ -60,10 +81,12 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 export async function getStaticProps({ locale, params }) {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
   const meta = await getMeta()
-  const name = params?.name
-  const posts = await getPostsByTag(name)
+  const ghostCat = await getTags()
+  const categoryList = createCatList(ghostCat)
+  const { category } = params
+  const posts = await getPostsByTag(category)
   return {
-    revalidate: 5,
-    props: { ...result, meta, name, posts }
+    props: { ...result, meta, category, categoryList, posts },
+    revalidate: 5
   }
 }

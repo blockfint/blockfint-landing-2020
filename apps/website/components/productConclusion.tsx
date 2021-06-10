@@ -22,6 +22,10 @@ const List = styled.div`
   justify-content: flex-start;
   grid-gap: 2rem 6.25rem;
   @media ${BREAKPOINT.tablet} {
+    justify-content: flex-start;
+    grid-template-columns: repeat(2, 18.75rem);
+  }
+  @media ${BREAKPOINT.desktop} {
     justify-content: flex-end;
     grid-template-columns: repeat(2, 18.75rem);
   }

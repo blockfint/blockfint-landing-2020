@@ -50,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
   body {
-
+    background-color: #ffffff;
       font-family: 'Montserrat','Prompt', sans-serif;
       margin:0;
       font-size:1rem;

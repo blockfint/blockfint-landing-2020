@@ -47,16 +47,16 @@ export const WhatNext: React.FC<Props> = ({ nextPosts }) => {
         <Content>
           <h2 style={{ textAlign: 'center' }}>What to read next</h2>
           <BlogWrapper>
-            {nextPosts.map(({ title, tags, slug, excerpt, published_at, feature_image }) => {
+            {nextPosts?.map(({ title, tags, slug, excerpt, published_at, feature_image }) => {
               const mainTag = tags.find(({ visibility }) => visibility === 'public') // find categories
               return (
                 <ThumbnailBlog
                   className="item"
                   image={feature_image}
                   key={title}
-                  tag={mainTag?.name}
-                  tagLink={`/blog/${mainTag?.slug}`}
-                  blogLink={`/blog/${mainTag?.slug}/${slug}`}
+                  category={mainTag?.name}
+                  categoryLink={`/blog/cat/${mainTag?.slug}`}
+                  blogLink={`/blog/${slug}`}
                   title={title}
                   description={excerpt}
                   publishDate={published_at}

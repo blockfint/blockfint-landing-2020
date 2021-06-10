@@ -1,7 +1,7 @@
 import { PrimaryButton } from '@blockfint/website/components/Buttons'
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as NeoBankSmall } from '@blockfint/website/assets/logos/neobank-small.svg'
+import { ReactComponent as NeoBankSmall } from '@blockfint/website/assets/logos/thinker-bank-small.svg'
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { NeobankImage } from './components/NeobankImage'
