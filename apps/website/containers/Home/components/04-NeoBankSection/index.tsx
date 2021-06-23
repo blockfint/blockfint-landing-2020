@@ -33,7 +33,7 @@ export const NeoBankSection: React.FC = () => {
         <Title style={{ color: 'var(--primary)' }}>Thinker Bank</Title>
         <Title>{t('common.neobank-quote')}</Title>
         <Desc>{t('home.neobank-desc')}</Desc>
-        <Link href={'/products/neobank'} passHref>
+        <Link href={'/products/thinker-bank'} passHref>
           <a>
             <PrimaryButton logo={<NeoBankSmall />} background={'var(--gradient-neo-bank)'}>
               {t('common.read-more')}
