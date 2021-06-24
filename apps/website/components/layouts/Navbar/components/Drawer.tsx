@@ -1,19 +1,23 @@
-import React from 'react'
-import { Hamburger } from '@blockfint/website/components/Hamburger'
-import { makeStyles } from '@material-ui/core/styles'
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
-import Button from '@material-ui/core/Button'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import styled, { css, keyframes } from 'styled-components'
-import Link from 'next/link'
-import { useRouter } from 'next/dist/client/router'
-import { ReactComponent as BlockFintColor } from '@blockfint/website/assets/logos/Blockfint-Color.svg'
-import { useContactContext } from '@blockfint/website/components/ContactDialog'
-import { useTranslation } from 'react-i18next'
-import { I18nSelector } from '@blockfint/website/components/I18nSelector'
-type Anchor = 'top' | 'left' | 'bottom' | 'right'
+import React from 'react';
+import clsx from 'clsx';
+import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
+import { Hamburger } from '@blockfint/website/components/Hamburger';
+import { makeStyles } from '@material-ui/core/styles';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import styled, { css, keyframes } from 'styled-components';
+import Link from 'next/link';
+import { useRouter } from 'next/dist/client/router';
+import { ReactComponent as BlockFintColor } from '@blockfint/website/assets/logos/Blockfint-Color.svg';
+import { useContactContext } from '@blockfint/website/components/ContactDialog';
+
+type MoveProps = {
+  move: boolean;
+};
+type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
 const MoveDown = keyframes`
  from {
@@ -22,7 +26,7 @@ const MoveDown = keyframes`
     to {
       top: 0px;
     }
-`
+`;
 const MoveUp = keyframes`
  from {
       top: 0px;
@@ -30,15 +34,15 @@ const MoveUp = keyframes`
     to {
       top: 13.5px;
     }
-`
+`;
 const useStyles = makeStyles({
   list: {
-    width: 286
+    width: 286,
   },
   fullList: {
-    width: 'auto'
-  }
-})
+    width: 'auto',
+  },
+});
 
 const MainNav = styled(List)`
   .MuiButtonBase-root {
@@ -51,6 +55,10 @@ const MainNav = styled(List)`
   .MuiButtonBase-root:hover {
     background-color: white;
   }
+  /* .MuiList-root {
+    height: 6.25rem;
+
+  } */
 
   &&&.MuiList-padding {
     margin-left: 2.56rem;
@@ -83,8 +91,12 @@ const MainNav = styled(List)`
   .Mui-selected:hover {
     background-color: white;
   }
-`
-
+`;
+const DrawerPosition = styled('div')`
+  /* @media ${BREAKPOINT.tablet} {
+    padding-right: 1.5rem;
+  } */
+`;
 const BottomTitle = styled.div`
   position: fixed;
   bottom: 0;
@@ -110,14 +122,13 @@ const BottomTitle = styled.div`
         margin-right: 0.6875rem;
       }
       span {
-        margin-left: 2.5rem;
+        margin-left: 2.56rem;
       }
     }
   }
-`
+`;
 const RipleMiddle = styled(ListItemText)`
   span {
-    font-family: 'Montserrat', 'Prompt', sans-serif;
     position: relative;
     &.MuiTypography-displayBlock {
       width: fit-content;
@@ -139,8 +150,9 @@ const RipleMiddle = styled(ListItemText)`
     visibility: visible;
     transform: scaleX(1);
   }
-`
+`;
 const DrawerHamburgerButton = styled(Button)<{ move: string }>`
+  /* position: absolute; */
   min-width: unset;
   padding: 0;
   z-index: 1600 !important;
@@ -148,7 +160,15 @@ const DrawerHamburgerButton = styled(Button)<{ move: string }>`
   animation-name: example;
   animation-duration: 0.2s;
   animation-fill-mode: forwards;
-`
+  /* ${({ move }) =>
+    move === 'true'
+      ? css`
+          animation: 0.2s ${MoveDown} forwards;
+        `
+      : css`
+          animation: 0.2s ${MoveUp} forwards;
+        `}; */
+`;
 
 const TopLogoWithHam = styled.div`
   display: flex;
@@ -157,163 +177,189 @@ const TopLogoWithHam = styled.div`
 
   justify-content: space-between;
   padding-right: 1.5rem;
-`
-const Divider = styled.div`
-  display: grid;
-  background: black;
-  height: 1px;
-  margin: 2rem 2.5rem 2rem 0;
-`
-const DrawerContainer = styled.div`
-  background: var(--primary-2);
-  height: 100vh;
-  width: 18.75rem;
-`
+`;
 interface PropsColor {
-  status: boolean
-  id: string
+  status: boolean;
+  id: string;
 }
 
 export const Drawer = ({ status, id = '' }: PropsColor) => {
+  const classes = useStyles();
   const [state, setState] = React.useState({
-    right: false
-  })
-  const [ham, setHam] = React.useState(true)
-  const [animate, setAnimate] = React.useState(true)
-  const router = useRouter()
-  const [selectedIndex, setSelectedIndex] = React.useState(router.asPath)
-  const { onOpen } = useContactContext()
-  const { t } = useTranslation()
+    right: false,
+  });
+  const [ham, setHam] = React.useState(true);
+  const [animate, setAnimate] = React.useState(true);
+  const router = useRouter();
+  const [selectedIndex, setSelectedIndex] = React.useState(router.asPath);
+  const { onOpen } = useContactContext();
   const handleOpen = () => {
-    onOpen()
-  }
-  const handleListItemClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: any) => {
-    setSelectedIndex(index)
-  }
+    onOpen();
+  };
+  const handleListItemClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    index: any
+  ) => {
+    setSelectedIndex(index);
+    // console.log(router.asPath)
+  };
 
-  const toggleDrawer = (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+  // const { locale } = useIntl()
+
+  const toggleDrawer = (anchor: Anchor, open: boolean) => (
+    event: React.KeyboardEvent | React.MouseEvent
+  ) => {
     if (
       event &&
       event.type === 'keydown' &&
-      ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
     ) {
-      return
+      return;
     }
-    setState({ ...state, [anchor]: open })
-    setHam(!ham)
-    setAnimate(!animate)
-  }
+    setState({ ...state, [anchor]: open });
+    setHam(!ham);
+    setAnimate(!animate);
+    // console.log(state.right)
+  };
 
-  const anchor = 'right' as Anchor
-  const ColorToggle = state.right
-  return (
-    <>
-      <DrawerHamburgerButton move={ham.toString()} onClick={toggleDrawer(anchor, ham)} aria-label="Hamburger">
-        <Hamburger status={animate} ColorHam={status} DrawerToggle={ColorToggle} />
-      </DrawerHamburgerButton>
-      <SwipeableDrawer
-        anchor={anchor}
-        open={state[anchor]}
-        onClose={toggleDrawer(anchor, false)}
-        onOpen={toggleDrawer(anchor, true)}
-      >
-        <DrawerContainer
-          // className={clsx(classes.list, {
-          //   [classes.fullList]: anchor === 'top' || anchor === 'bottom'
-          // })}
-          role="presentation"
-          onClick={toggleDrawer(anchor, false)}
-          onKeyDown={toggleDrawer(anchor, false)}
+  const list = (anchor: Anchor) => (
+    <div
+      className={clsx(classes.list, {
+        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <TopLogoWithHam>
+        <div>
+          <a href="/" style={{ cursor: 'pointer' }}>
+            <BlockFintColor
+              style={{
+                marginTop: '2rem',
+                marginBottom: '2rem',
+                marginLeft: '2.56rem',
+                height: '2rem',
+                width: '9rem',
+              }}
+            />
+          </a>
+        </div>
+        <div>
+          <Hamburger
+            status={animate}
+            ColorHam={status}
+            DrawerToggle={ColorToggle}
+          />
+        </div>
+      </TopLogoWithHam>
+
+      <MainNav>
+        <Link passHref href={`/about`} as={`/about`}>
+          <ListItem
+            button
+            selected={selectedIndex === `/about`}
+            onClick={(event) => handleListItemClick(event, `/about`)}
+          >
+            <RipleMiddle primary="About" />
+          </ListItem>
+        </Link>
+        <Link passHref href={`/works`} as={`/works`}>
+          <ListItem
+            button
+            selected={selectedIndex === `/works`}
+            onClick={(event) => handleListItemClick(event, `/works`)}
+          >
+            <RipleMiddle primary="Works" />
+          </ListItem>
+        </Link>
+        <Link passHref href={`/team`} as={`/team`}>
+          <ListItem
+            button
+            selected={selectedIndex === `/team`}
+            onClick={(event) => handleListItemClick(event, `/team`)}
+          >
+            <RipleMiddle primary="Team" />
+          </ListItem>
+        </Link>
+
+        <ListItem
+          button
+          selected={selectedIndex === `/contact`}
+          onClick={handleOpen}
         >
-          <TopLogoWithHam>
-            <div>
-              <a href="/" style={{ cursor: 'pointer' }}>
-                <BlockFintColor
-                  style={{
-                    marginTop: '2rem',
-                    marginBottom: '2rem',
-                    marginLeft: '2.56rem',
-                    height: '2rem',
-                    width: '9rem'
-                  }}
-                />
+          <RipleMiddle primary="Contact" />
+        </ListItem>
+      </MainNav>
+
+      <BottomTitle>
+        <div className="title">
+          <div className="bottomIcons">
+            <span>
+              <a
+                href="https://www.facebook.com/Blockfint-498494450914265/"
+                style={{ cursor: 'pointer', color: 'white' }}
+              >
+                <img src="/icons/facebook.svg" alt="facebook" width="36" />
               </a>
-            </div>
-            <div>
-              <Hamburger status={animate} ColorHam={status} DrawerToggle={ColorToggle} />
-            </div>
-          </TopLogoWithHam>
+              <a
+                href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src="/icons/youtube.svg" alt="youtube" width="36" />
+              </a>
+              {/*{' '}
+              <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
+                <img src="/icons/twitter.svg" alt="twitter" width="36" />
+              </a>{' '}
+              */}
+              <a
+                href="https://www.instagram.com/blockfint/"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src="/icons/instagram.svg" alt="instagram" width="36" />
+              </a>
+              <a
+                href="https://th.linkedin.com/company/blockfint"
+                style={{ cursor: 'pointer' }}
+              >
+                <img src="/icons/linkin.svg" alt="linkin" width="36" />
+              </a>
+            </span>
+          </div>
+        </div>
+      </BottomTitle>
+    </div>
+  );
 
-          <MainNav>
-            <Link passHref href={`/about`} as={`/about`}>
-              <ListItem
-                button
-                selected={selectedIndex === `/about`}
-                onClick={(event) => handleListItemClick(event, `/about`)}
-              >
-                <RipleMiddle primary={t('common.about')} />
-              </ListItem>
-            </Link>
-            <Link passHref href={`/blog`} as={`/blog`}>
-              <ListItem
-                button
-                selected={selectedIndex === `/blog`}
-                onClick={(event) => handleListItemClick(event, `/blog`)}
-              >
-                <RipleMiddle primary={t('common.blog')} />
-              </ListItem>
-            </Link>
-            <Link passHref href={`/works`} as={`/works`}>
-              <ListItem
-                button
-                selected={selectedIndex === `/works`}
-                onClick={(event) => handleListItemClick(event, `/works`)}
-              >
-                <RipleMiddle primary={t('common.works')} />
-              </ListItem>
-            </Link>
-            <Link passHref href={`/team`} as={`/team`}>
-              <ListItem
-                button
-                selected={selectedIndex === `/team`}
-                onClick={(event) => handleListItemClick(event, `/team`)}
-              >
-                <RipleMiddle primary={t('common.team')} />
-              </ListItem>
-            </Link>
-            <ListItem button selected={selectedIndex === `/contact`} onClick={handleOpen}>
-              <RipleMiddle primary={t('common.contact')} />
-            </ListItem>
-            <Divider />
-            <I18nSelector />
-          </MainNav>
-
-          <BottomTitle>
-            <div className="title">
-              <div className="bottomIcons">
-                <span>
-                  <a
-                    href="https://www.facebook.com/Blockfint-498494450914265/"
-                    style={{ cursor: 'pointer', color: 'white' }}
-                  >
-                    <img src="/icons/facebook.svg" alt="facebook" width="36" />
-                  </a>
-                  <a href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g" style={{ cursor: 'pointer' }}>
-                    <img src="/icons/youtube.svg" alt="youtube" width="36" />
-                  </a>
-
-                  <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
-                    <img src="/icons/instagram.svg" alt="instagram" width="36" />
-                  </a>
-                  <a href="https://th.linkedin.com/company/blockfint" style={{ cursor: 'pointer' }}>
-                    <img src="/icons/linkin.svg" alt="linkin" width="36" />
-                  </a>
-                </span>
-              </div>
-            </div>
-          </BottomTitle>
-        </DrawerContainer>
-      </SwipeableDrawer>
-    </>
-  )
-}
+  const ColorToggle = state.right;
+  return (
+    <DrawerPosition>
+      {(['right'] as Anchor[]).map((anchor) => (
+        <React.Fragment key={anchor}>
+          <DrawerHamburgerButton
+            move={ham.toString()}
+            onClick={toggleDrawer(anchor, ham)}
+            aria-label="Hamburger"
+          >
+            <Hamburger
+              status={animate}
+              ColorHam={status}
+              DrawerToggle={ColorToggle}
+            />
+          </DrawerHamburgerButton>
+          <SwipeableDrawer
+            anchor={anchor}
+            // open={false}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+            onOpen={toggleDrawer(anchor, true)}
+          >
+            {list(anchor)}
+          </SwipeableDrawer>
+        </React.Fragment>
+      ))}
+    </DrawerPosition>
+  );
+};
