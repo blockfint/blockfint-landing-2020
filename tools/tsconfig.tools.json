@@ -5,8 +5,16 @@
     "rootDir": ".",
     "module": "commonjs",
     "target": "es5",
-    "types": ["node"],
+    "lib": [
+      "es2019",
+      "esnext"
+    ],
+    "types": [
+      "node"
+    ],
     "importHelpers": false
   },
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts"
+  ]
 }
