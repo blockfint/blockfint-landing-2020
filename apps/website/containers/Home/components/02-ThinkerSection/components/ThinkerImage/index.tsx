@@ -15,7 +15,7 @@ export const ThinkerImage: React.FC = () => {
   return (
     <Container maxWidth="lg">
       <Content>
-        <Image src="/images/thinker-los-banner.svg" width={1000} height={280} />
+        <Image src="/images/thinker-los-banner.png" width={3090} height={1410} quality={100} />
       </Content>
     </Container>
   )

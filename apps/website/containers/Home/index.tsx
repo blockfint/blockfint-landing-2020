@@ -10,6 +10,7 @@ import { ProductsBanner } from './components/05-ProductsBanner'
 import { OurPartners } from './components/06-OurPartners'
 import { Blog } from './components/07-Blog'
 import { OurTeam } from './components/08-OurTeam'
+import { ThinkerWiseSection } from './components/ThinkerSectionWise'
 
 type Props = {
   blogsData?: PostOrPage[]
@@ -20,6 +21,7 @@ export const Home: React.FC<Props> = ({ blogsData = [] }) => {
       <Hero />
       <NeoBankSection />
       <ThinkerSection />
+      <ThinkerWiseSection />
       <GideonSection />
       <PalmSection />
       <ProductsBanner />

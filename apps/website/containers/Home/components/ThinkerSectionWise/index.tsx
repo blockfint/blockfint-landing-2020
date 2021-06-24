@@ -1,7 +1,7 @@
 import { PrimaryButton } from '@blockfint/website/components/Buttons'
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as ThinkerSmall } from '@blockfint/website/assets/logos/thinker-los-small.svg'
+import { ReactComponent as ThinkerSmall } from '@blockfint/website/assets/logos/thinker-wise-small.svg'
 import { Container } from '@material-ui/core'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { ThinkerImage } from './components/ThinkerImage'
@@ -23,18 +23,18 @@ const Desc = styled.p`
   line-height: 1.88;
 `
 
-export const ThinkerSection: React.FC = () => {
+export const ThinkerWiseSection: React.FC = () => {
   const { t } = useTranslation()
   return (
     <Container maxWidth="lg">
       <Content>
         <ThinkerImage />
-        <Title style={{ color: 'var(--primary)' }}>Thinker LOS</Title>
-        <Title>{t('common.thinker-quote')}</Title>
-        <Desc>{t('home.thinker-desc')}</Desc>
-        <Link href={'/products/thinker-los'} passHref>
+        <Title style={{ color: 'var(--primary)' }}>Thinker Wise</Title>
+        <Title>{t('common.thinker-wise-quote')}</Title>
+        <Desc>{t('home.thinker-wise-desc')}</Desc>
+        <Link href={'/products/thinker-wise'} passHref>
           <a>
-            <PrimaryButton logo={<ThinkerSmall />} background={'var(--gradient-thinker-los)'}>
+            <PrimaryButton logo={<ThinkerSmall />} background={'var(--gradient-thinker-wise)'}>
               {t('common.read-more')}
             </PrimaryButton>
           </a>
