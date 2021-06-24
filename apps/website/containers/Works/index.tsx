@@ -42,14 +42,21 @@ export const Works = () => {
         name: 'Thinker Bank',
         image: '/images/neobank-card.png',
         description: t('common.neobank-quote'),
-        link: '/products/neobank'
+        link: '/products/thinker-bank'
       },
       {
         id: 'thinker',
         name: 'Thinker LOS',
         image: '/images/thinker-los-card.png',
         description: t('common.thinker-quote'),
-        link: '/products/thinker'
+        link: '/products/thinker-los'
+      },
+      {
+        id: 'thinker-wise',
+        name: 'Thinker WISE',
+        image: '/images/thinker-wise-card.png',
+        description: t('common.thinker-wise-quote'),
+        link: '/products/thinker-los'
       },
       {
         id: 'gideon',
