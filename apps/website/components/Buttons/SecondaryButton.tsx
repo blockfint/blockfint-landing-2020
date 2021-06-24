@@ -1,7 +1,7 @@
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
-import { HTMLMotionProps, motion } from 'framer-motion';
-import React from 'react';
-import styled from 'styled-components';
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
+import { HTMLMotionProps, motion } from 'framer-motion'
+import React from 'react'
+import styled from 'styled-components'
 
 const Button = styled(motion.button)`
   cursor: pointer;
@@ -23,10 +23,10 @@ const Button = styled(motion.button)`
   :focus {
     outline: none;
   }
-`;
+`
 type Props = {
-  onClick?: () => void;
-};
+  onClick?: () => void
+}
 export const SecondaryButton: React.FC<Props> = ({ children, onClick }) => {
   return (
     <Button
@@ -36,5 +36,5 @@ export const SecondaryButton: React.FC<Props> = ({ children, onClick }) => {
     >
       {children}
     </Button>
-  );
-};
+  )
+}
