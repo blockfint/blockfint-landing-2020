@@ -56,7 +56,7 @@ export const Works = () => {
         name: 'Thinker WISE',
         image: '/images/thinker-wise-card.png',
         description: t('common.thinker-wise-quote'),
-        link: '/products/thinker-los'
+        link: '/products/thinker-wise'
       },
       {
         id: 'gideon',
