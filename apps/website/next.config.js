@@ -5,7 +5,7 @@ const { i18n } = require('./next-i18next.config.js')
 module.exports = withNx({
   i18n,
   images: {
-    deviceSizes: [320, 420, 768, 1024, 1200],
+    deviceSizes: [320, 420, 768, 1024, 1200, 1920, 2040, 2400],
     domains: ['static.ghost.org', 'blog.blockfint.com']
   },
   webpack(config, options) {

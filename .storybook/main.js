@@ -1,7 +1,7 @@
 var webpack = require('webpack')
 module.exports = {
   stories: [],
-  addons: ['@storybook/addon-knobs/register', '@storybook/addon-essentials', 'storybook-addon-performance/register'],
+  addons: ['@storybook/addon-knobs', '@storybook/addon-essentials', 'storybook-addon-performance/register'],
   webpackFinal: (config) => {
     config.plugins.push(
       new webpack.DefinePlugin({
