@@ -1,14 +1,28 @@
 {
   "version": 2,
-  "cli": { "defaultCollection": "@nrwl/react" },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
   "generators": {
     "@nrwl/react": {
-      "application": { "style": "css", "linter": "eslint", "babel": true },
-      "component": { "style": "css" },
-      "library": { "style": "css", "linter": "eslint" }
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
     },
     "@nrwl/next": {
-      "application": { "style": "styled-components", "linter": "eslint" }
+      "application": {
+        "style": "styled-components",
+        "linter": "eslint"
+      }
     }
   },
   "projects": {
@@ -24,11 +38,16 @@
             "root": "apps/website",
             "outputPath": "dist/apps/website"
           },
-          "configurations": { "production": {} }
+          "configurations": {
+            "production": {}
+          }
         },
         "serve": {
           "executor": "@nrwl/next:server",
-          "options": { "buildTarget": "website:build", "dev": true },
+          "options": {
+            "buildTarget": "website:build",
+            "dev": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "website:build:production",
@@ -38,7 +57,9 @@
         },
         "export": {
           "executor": "@nrwl/next:export",
-          "options": { "buildTarget": "website:build:production" }
+          "options": {
+            "buildTarget": "website:build:production"
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -52,6 +73,38 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/website/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4403,
+            "staticDir": ["apps/website/public"],
+            "config": {
+              "configFolder": "apps/website/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/website",
+            "config": {
+              "configFolder": "apps/website/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       }
@@ -69,12 +122,16 @@
             "devServerTarget": "website:serve"
           },
           "configurations": {
-            "production": { "devServerTarget": "website:serve:production" }
+            "production": {
+              "devServerTarget": "website:serve:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/website-e2e/**/*.{js,ts}"] }
+          "options": {
+            "lintFilePatterns": ["apps/website-e2e/**/*.{js,ts}"]
+          }
         }
       }
     }

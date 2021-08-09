@@ -1,7 +1,7 @@
-import { BREAKPOINT } from '@blockfint/website/assets/globalStyle';
-import { motion } from 'framer-motion';
-import React from 'react';
-import styled from 'styled-components';
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
+import { motion } from 'framer-motion'
+import React from 'react'
+import styled from 'styled-components'
 
 const Button = styled(motion.button)`
   cursor: pointer;
@@ -23,7 +23,7 @@ const Button = styled(motion.button)`
   :focus {
     outline: none;
   }
-`;
+`
 export const OrangeButton: React.FC = ({ children }) => {
   return (
     <Button
@@ -32,5 +32,5 @@ export const OrangeButton: React.FC = ({ children }) => {
     >
       {children}
     </Button>
-  );
-};
+  )
+}
