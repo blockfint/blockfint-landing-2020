@@ -178,10 +178,10 @@ const Name_Positions = [
     key: 3
   },
   {
-    name: 'ponlawat-tantivongampa',
-    path: 'ponlawat',
-    position: 'ponlawat-position',
-    picture: 'oak2x.png',
+    name: 'phathsinee-wathanasaranphong',
+    path: 'phathsinee',
+    position: 'phathsinee-position',
+    picture: 'pae2X.png',
     key: 4
   },
   {
@@ -192,23 +192,23 @@ const Name_Positions = [
     key: 5
   },
   {
-    name: 'rattanapong-chairukwattana',
-    path: 'rattanapong',
-    position: 'rattanapong-position',
-    picture: 'pae2X.png',
-    key: 6
-  },
-  {
     name: 'nisita-siratranon',
     path: 'nisita',
     position: 'nisita-position',
     picture: 'nisita.jpg',
+    key: 6
+  },
+  {
+    name: 'ponlawat-tantivongampa',
+    path: 'ponlawat',
+    position: 'ponlawat-position',
+    picture: 'oak2x.png',
     key: 7
   },
   {
-    name: 'phathsinee-wathanasaranphong',
-    path: 'phathsinee',
-    position: 'phathsinee-position',
+    name: 'rattanapong-chairukwattana',
+    path: 'rattanapong',
+    position: 'rattanapong-position',
     picture: 'pae2X.png',
     key: 8
   },
