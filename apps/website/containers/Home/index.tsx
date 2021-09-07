@@ -1,4 +1,4 @@
-import { ContactBanner } from '@blockfint/website/components/ContactBanner'
+import { ContactBanner } from '../../components/ContactBanner'
 import { PostOrPage } from '@tryghost/content-api'
 import React from 'react'
 import { Hero } from './components/00-Hero'
@@ -11,6 +11,7 @@ import { OurPartners } from './components/06-OurPartners'
 import { Blog } from './components/07-Blog'
 import { OurTeam } from './components/08-OurTeam'
 import { ThinkerWiseSection } from './components/ThinkerSectionWise'
+import { VCSection } from './components/VC'
 
 type Props = {
   blogsData?: PostOrPage[]
@@ -24,6 +25,7 @@ export const Home: React.FC<Props> = ({ blogsData = [] }) => {
       <ThinkerWiseSection />
       <GideonSection />
       <PalmSection />
+      <VCSection />
       <ProductsBanner />
       <OurPartners />
       <OurTeam />
