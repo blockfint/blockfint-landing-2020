@@ -15,6 +15,7 @@ export const typography = css`
     line-height: 46px;
   }
   h3 {
+    letter-spacing: 0;
     font-weight: 700;
     font-size: 24px;
     line-height: 42px;
@@ -25,6 +26,7 @@ export const typography = css`
     line-height: 38px;
   }
   h5 {
+    letter-spacing: 0;
     font-weight: 700;
     font-size: 20px;
     line-height: 36px;

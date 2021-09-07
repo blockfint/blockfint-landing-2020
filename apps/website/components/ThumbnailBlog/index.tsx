@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components'
 import dayjs, { Dayjs } from 'dayjs'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { LinkWrapper } from '../LinkWrapper'
+import Image from 'next/image'
+
 const Wrapper = styled.div<{ size: sizeType }>`
   display: grid;
   grid-gap: 1rem;
@@ -26,12 +28,12 @@ const Wrapper = styled.div<{ size: sizeType }>`
     }
   }};
 `
-const ImageWrapper = styled.div<{ imgSrc: string; size: sizeType }>`
-  height: 172px;
+const ImageWrapper = styled.div<{ size: sizeType }>`
+  min-height: 172px;
   background-color: #c4c4c4;
-  background-image: url(${({ imgSrc }) => imgSrc});
   background-position: center;
   background-size: cover;
+  overflow: hidden;
   @media ${BREAKPOINT.desktop} {
     height: 196px;
   }
@@ -165,7 +167,9 @@ export const ThumbnailBlog: React.FC<Props> = ({
   return (
     <Wrapper size={size} className={className}>
       <LinkWrapper href={blogLink}>
-        <ImageWrapper className="imageWrapper" imgSrc={image} size={size} />
+        <ImageWrapper className="imageWrapper" size={size}>
+          <Image src={image} width={1920} height={1004} quality={100} layout="responsive" />
+        </ImageWrapper>
       </LinkWrapper>
       <TextSection size={size}>
         <Tag>

@@ -97,7 +97,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1.25rem;
       letter-spacing: -0.4px;
       @media ${BREAKPOINT.tablet}{
-        letter-spacing:-1.2px;
+        letter-spacing:0px;
         font-size: 2.125rem;
       }
     }
