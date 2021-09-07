@@ -64,5 +64,29 @@ export const peopleInfos = {
     imgSrc: 'pae2X.png',
     nickname: 'rattanapong-nickname',
     contact: null
+  },
+  nisita: {
+    name: 'nisita-name',
+    position: 'nisita-position',
+    desc: `nisita-desc`,
+    imgSrc: 'nisita.jpg',
+    nickname: 'nisita-nickname',
+    contact: null
+  },
+  phathsinee: {
+    name: 'phathsinee-name',
+    position: 'phathsinee-position',
+    desc: `phathsinee-desc`,
+    imgSrc: 'pae2X.png',
+    nickname: 'phathsinee-nickname',
+    contact: null
+  },
+  natnicha: {
+    name: 'natnicha-name',
+    position: 'natnicha-position',
+    desc: `natnicha-desc`,
+    imgSrc: 'natnicha.jpg',
+    nickname: 'natnicha-nickname',
+    contact: null
   }
 } as PeopleInfos

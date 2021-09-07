@@ -197,6 +197,27 @@ const Name_Positions = [
     position: 'rattanapong-position',
     picture: 'pae2X.png',
     key: 6
+  },
+  {
+    name: 'nisita-siratranon',
+    path: 'nisita',
+    position: 'nisita-position',
+    picture: 'nisita.jpg',
+    key: 7
+  },
+  {
+    name: 'phathsinee-wathanasaranphong',
+    path: 'phathsinee',
+    position: 'phathsinee-position',
+    picture: 'pae2X.png',
+    key: 8
+  },
+  {
+    name: 'natnicha-temsiriwat',
+    path: 'natnicha',
+    position: 'natnicha-position',
+    picture: 'natnicha.jpg',
+    key: 9
   }
 ]
 
