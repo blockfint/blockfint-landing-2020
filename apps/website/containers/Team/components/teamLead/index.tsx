@@ -181,7 +181,7 @@ const Name_Positions = [
     name: 'phathsinee-wathanasaranphong',
     path: 'phathsinee',
     position: 'phathsinee-position',
-    picture: 'pae2X.png',
+    picture: 'Aea.jpg',
     key: 4
   },
   {

@@ -34,6 +34,7 @@ const ImageWrapper = styled.div<{ size: sizeType }>`
   background-position: center;
   background-size: cover;
   overflow: hidden;
+  position: relative;
   @media ${BREAKPOINT.desktop} {
     height: 196px;
   }
@@ -168,7 +169,7 @@ export const ThumbnailBlog: React.FC<Props> = ({
     <Wrapper size={size} className={className}>
       <LinkWrapper href={blogLink}>
         <ImageWrapper className="imageWrapper" size={size}>
-          <Image src={image} width={1920} height={1004} quality={100} layout="responsive" />
+          <Image src={image} quality={100} layout="fill" objectFit="cover" />
         </ImageWrapper>
       </LinkWrapper>
       <TextSection size={size}>

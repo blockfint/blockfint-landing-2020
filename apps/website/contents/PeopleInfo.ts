@@ -77,7 +77,7 @@ export const peopleInfos = {
     name: 'phathsinee-name',
     position: 'phathsinee-position',
     desc: `phathsinee-desc`,
-    imgSrc: 'pae2X.png',
+    imgSrc: 'Aea.jpg',
     nickname: 'phathsinee-nickname',
     contact: null
   },
