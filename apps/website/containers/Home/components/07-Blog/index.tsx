@@ -2,11 +2,13 @@ import { ThumbnailBlog } from '@blockfint/website/components/ThumbnailBlog'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { typography } from '@blockfint/website/styles/typography'
 import { getCategory } from '@blockfint/website/utils/getCategory'
+import { BlogButton } from '@blockfint/website/components/Buttons'
 import Container from '@material-ui/core/Container'
 import { PostOrPage } from '@tryghost/content-api'
 import dayjs from 'dayjs'
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
+import { useTranslation } from 'react-i18next'
 const Heading = styled.h2`
   text-align: center;
 `
@@ -34,6 +36,11 @@ const BlogWrapper = styled.div`
     }
   }
 `
+
+const Center = styled.div`
+  display: grid;
+  justify-content: center;
+`
 const Global = createGlobalStyle`
 body{
   ${typography}
@@ -44,6 +51,7 @@ type Props = {
 }
 
 export const Blog: React.FC<Props> = ({ data }) => {
+  const { t } = useTranslation()
   return (
     <>
       <Global />
@@ -66,6 +74,9 @@ export const Blog: React.FC<Props> = ({ data }) => {
             )
           })}
         </BlogWrapper>
+        <Center>
+          <BlogButton>{t('common.go-to-blog')}</BlogButton>
+        </Center>
       </CustomContainer>
     </>
   )
