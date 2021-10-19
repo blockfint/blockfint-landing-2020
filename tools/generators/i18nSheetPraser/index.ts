@@ -1,19 +1,20 @@
 import { Tree, logger } from '@nrwl/devkit'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
+require('dotenv').config()
 const fs = require('fs')
 const path = require('path')
-const keys = require('./key.json')
 
 interface Schema {
   name: string
 }
 export default async function (host: Tree, schema: Schema) {
-  const doc = new GoogleSpreadsheet('1nKvK2A723Lw_U6CgQ31_yN0kLd4BEEAwOPd4NyQtg1Y')
+  const doc = new GoogleSpreadsheet(process.env.GOOGLE_SPREAD_SHEET_ID)
 
   await doc.useServiceAccountAuth({
-    client_email: keys.client_email,
-    private_key: keys.private_key
+    client_email: process.env.GOOGLE_BOT_EMAIL,
+    private_key: process.env.GOOGLE_BOT_PRIVATE_KEY
   })
+
   await doc.loadInfo() // loads document properties and worksheets
 
   const result = sheetConfigs.map(async ({ name, output }, index) => {
@@ -48,6 +49,9 @@ export default async function (host: Tree, schema: Schema) {
     locales.forEach((locale) => {
       const jsonData = JSON.stringify(mappedData[locale], null, 2)
       const rawPath = `apps/${schema.name}/locales/${locale}/${output}.json`
+
+      fs.mkdirSync(`apps/${schema.name}/locales/${locale}/`, { recursive: true })
+
       fs.writeFileSync(path.resolve(rawPath), jsonData)
       console.table(mappedData[locale])
       console.log(`output: ${rawPath} result: `)
