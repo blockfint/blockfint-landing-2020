@@ -9,6 +9,7 @@ import dayjs from 'dayjs'
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { useTranslation } from 'react-i18next'
+import Link from 'next/link'
 const Heading = styled.h2`
   text-align: center;
 `
@@ -75,7 +76,9 @@ export const Blog: React.FC<Props> = ({ data }) => {
           })}
         </BlogWrapper>
         <Center>
-          <BlogButton>{t('common.go-to-blog')}</BlogButton>
+          <Link href="/blog">
+            <BlogButton>{t('common.go-to-blog')}</BlogButton>
+          </Link>
         </Center>
       </CustomContainer>
     </>
