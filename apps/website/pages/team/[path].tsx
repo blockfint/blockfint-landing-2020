@@ -35,6 +35,7 @@ type Params = {
     path: string
   }
 }
+
 export const getStaticProps: GetStaticProps = async (ctx: Params) => {
   const result = await serverSideTranslations(ctx.locale, ['common', 'team-details'], nextI18NextConfig)
   const props = { ...peopleInfos[ctx.params?.path], ...result }

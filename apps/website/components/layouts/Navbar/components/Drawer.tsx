@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-import styled, { css, keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 import { ReactComponent as BlockFintColor } from '@blockfint/website/assets/logos/Blockfint-Color.svg'
@@ -254,7 +254,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
                 <RipleMiddle primary={t('common.about')} />
               </ListItem>
             </Link>
-            {/* <Link passHref href={`/blog`} as={`/blog`}>
+            <Link passHref href={`/blog`} as={`/blog`}>
               <ListItem
                 button
                 selected={selectedIndex === `/blog`}
@@ -262,7 +262,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
               >
                 <RipleMiddle primary={t('common.blog')} />
               </ListItem>
-            </Link> */}
+            </Link>
             <Link passHref href={`/works`} as={`/works`}>
               <ListItem
                 button

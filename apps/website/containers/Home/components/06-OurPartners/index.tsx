@@ -44,11 +44,12 @@ export const OurPartners: React.FC = () => {
         <Logo src={'images/partners/EA.png'} />
         <Logo src={'images/partners/Fiderser.png'} />
         <Logo src={'images/partners/KA.svg'} />
-        <Logo src={'images/partners/KTB.png'} />
         <Logo src={'images/partners/Ndid.png'} />
+        <Logo src={'images/partners/OS.png'} />
         <Logo src={'images/partners/PEA.png'} />
         <Logo src={'images/partners/SE.svg'} />
-        <Logo src={'images/partners/OS.png'} />
+        <Logo src={'images/partners/KTB.png'} />
+        <Logo src={'images/partners/convergence.png'} />
       </PartnerWrapper>
     </Container>
   )

@@ -71,6 +71,13 @@ export const Works = () => {
         image: '/images/agritrac-card.png',
         description: t('common.agri-quote'),
         link: '/products/agri-trac'
+      },
+      {
+        id: 'vc',
+        name: 'Verified Credentials',
+        image: '/images/vc-card.svg',
+        description: t('common.agri-quote'),
+        link: '/products/vc'
       }
     ],
     [t]
