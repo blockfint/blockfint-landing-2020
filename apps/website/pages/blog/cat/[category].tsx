@@ -54,7 +54,7 @@ const BlogByCategoryPage: NextPage<Props> = ({ meta, category, categoryList, pos
 
 export default BlogByCategoryPage
 const createCatList = (ghostCat) => {
-  const listCat = ['financial', 'energy', 'transformation', 'blockchain']
+  const listCat = [] // ['financial', 'energy', 'transformation', 'blockchain']
   const categoryList = [
     ...listCat,
     ...ghostCat

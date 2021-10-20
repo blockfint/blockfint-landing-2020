@@ -46,7 +46,7 @@ export const getStaticProps = async ({ locale }) => {
   const result = await serverSideTranslations(locale, ['common', 'about'], nextI18NextConfig)
   const meta = await getMeta()
   const ghostCat = await getTags()
-  const listCat = ['financial', 'energy', 'transformation', 'blockchain']
+  const listCat = [] // ['financial', 'energy', 'transformation', 'blockchain']
   const categoryList = [
     ...listCat,
     ...ghostCat
