@@ -31,7 +31,7 @@ const Wrapper = styled.div<{ size: sizeType }>`
 const ImageWrapper = styled.div<{ size: sizeType }>`
   aspect-ratio: 1200 / 628;
   min-height: 172px;
-  background-color: #c4c4c4;
+  /* background-color: #c4c4c4; */
   background-position: center;
   background-size: cover;
   /* overflow: hidden; */
