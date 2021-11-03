@@ -70,7 +70,7 @@ export const PostCard: React.FC<Props> = ({ title, desc, link = '/', imgSrc }) =
     <Link href={link} passHref>
       <Card initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} whileTap={{ backgroundColor: '#f3f3f3' }}>
         <ImageWrapper>
-          <Image src={imgSrc} layout="responsive" objectFit="cover" width={1080} height={812} />
+          <Image src={imgSrc} layout="responsive" objectFit="contain" width={1080} height={812} />
         </ImageWrapper>
         <Content>
           <Title>{title}</Title>
