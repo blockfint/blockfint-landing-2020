@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowLink } from '@blockfint/website/components/ArrowLink'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import Image from 'next/image'
+import { useTranslation } from 'next-i18next'
 const Card = styled(motion.div)`
   cursor: pointer;
   border-radius: 1rem;
@@ -64,16 +65,17 @@ interface Props {
   imgSrc?: string
 }
 export const PostCard: React.FC<Props> = ({ title, desc, link = '/', imgSrc }) => {
+  const { t } = useTranslation()
   return (
     <Link href={link} passHref>
       <Card initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} whileTap={{ backgroundColor: '#f3f3f3' }}>
         <ImageWrapper>
-          <Image src={imgSrc} layout="responsive" objectFit="cover" width={1080} height={812} />
+          <Image src={imgSrc} layout="responsive" objectFit="contain" width={1080} height={812} />
         </ImageWrapper>
         <Content>
           <Title>{title}</Title>
           <Desc>{desc}</Desc>
-          <ArrowLink>See more</ArrowLink>
+          <ArrowLink>{t('common.see-more')}</ArrowLink>
         </Content>
       </Card>
     </Link>

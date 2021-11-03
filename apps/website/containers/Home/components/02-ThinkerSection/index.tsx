@@ -32,9 +32,9 @@ export const ThinkerSection: React.FC = () => {
         <Title style={{ color: 'var(--primary)' }}>Thinker LOS</Title>
         <Title>{t('common.thinker-quote')}</Title>
         <Desc>{t('home.thinker-desc')}</Desc>
-        <Link href={'/products/thinker'} passHref>
+        <Link href={'/products/thinker-los'} passHref>
           <a>
-            <PrimaryButton logo={<ThinkerSmall />} background={'var(--gradient-thinker)'}>
+            <PrimaryButton logo={<ThinkerSmall />} background={'var(--gradient-thinker-los)'}>
               {t('common.read-more')}
             </PrimaryButton>
           </a>

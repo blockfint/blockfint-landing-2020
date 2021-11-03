@@ -26,8 +26,10 @@ const GlobalStyle = createGlobalStyle`
 
 --gradient-gideon:  radial-gradient(circle at 100% 0, #ebcc72, #fb8900 100%);
 --gradient-neo-bank:  radial-gradient(circle at 100% 0, #00ace8, #2f3396);
---gradient-palm:  radial-gradient(circle at 100% 0, #38ef7d, #11998e);
---gradient-thinker:  radial-gradient(circle at 100% 0, #0ea4c8, #097f9c);
+--gradient-palm:  radial-gradient(circle at 100% 0, #7bc8be, #3159dc);
+--gradient-thinker-wise:  radial-gradient(circle at 100% 0, #3F6CAF, #2F3D5B);
+--gradient-thinker-los:  radial-gradient(circle at 100% 0, #0ea4c8, #097f9c);
+--gradient-vc:   radial-gradient(circle at 0 0, #4dc7fa, #0090ff);
 
 --black:#000000;
 --grey-1:#333333;
@@ -95,7 +97,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1.25rem;
       letter-spacing: -0.4px;
       @media ${BREAKPOINT.tablet}{
-        letter-spacing:-1.2px;
+        letter-spacing:0px;
         font-size: 2.125rem;
       }
     }

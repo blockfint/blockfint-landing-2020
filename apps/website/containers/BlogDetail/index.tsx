@@ -242,7 +242,14 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
         </Container>
         {post?.feature_image && (
           <TopImage>
-            <Image src={post?.feature_image} width={2000} height={1215} layout="responsive" />
+            <Image
+              src={post?.feature_image}
+              width={2400}
+              height={1256}
+              layout="responsive"
+              placeholder="blur"
+              quality={100}
+            />
           </TopImage>
         )}
 
