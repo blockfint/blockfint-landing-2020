@@ -21,9 +21,6 @@ export const GhostContent = styled.div`
   margin: 0 auto;
   .gh-content {
     margin: 2.5rem auto 2.5rem;
-    strong {
-      font-family: 'Montserrat', 'Sarabun', sans-serif;
-    }
   }
   h2 {
     //h2 of Ghost are h5 of us (mobile)
