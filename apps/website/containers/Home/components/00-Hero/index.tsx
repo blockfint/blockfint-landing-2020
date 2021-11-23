@@ -12,7 +12,7 @@ import { useTranslation } from 'next-i18next'
 
 const Background = styled.div`
   margin-top: -5rem;
-  min-height: 42rem;
+  min-height: 46rem;
   overflow: hidden;
   @media ${BREAKPOINT.tablet} {
     min-height: 62rem;
@@ -79,9 +79,12 @@ const Desc = styled.p`
 const ScrollWrapper = styled.div`
   z-index: 1;
   position: absolute;
-  bottom: 7.5rem;
+  bottom: 8rem;
   left: 50%;
   transform: translateX(-50%);
+  @media ${BREAKPOINT.tablet} {
+    bottom: 7.5rem;
+  }
 `
 
 export const Hero: React.FC = () => {
