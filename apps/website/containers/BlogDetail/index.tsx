@@ -17,10 +17,22 @@ export const Wrapper = styled.div`
 `
 export const GhostContent = styled.div`
   // container
+
   max-width: 32.5rem;
   margin: 0 auto;
   .gh-content {
     margin: 2.5rem auto 2.5rem;
+  }
+  strong,
+  em,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li {
+    font-family: 'Montserrat', 'Sarabun', sans-serif;
   }
   h2 {
     //h2 of Ghost are h5 of us (mobile)
@@ -55,6 +67,7 @@ export const GhostContent = styled.div`
     /* margin-top: 1.5rem; */
     min-height: 1.5rem;
     margin-bottom: 1.5rem;
+    font-family: 'Montserrat', 'Sarabun', sans-serif;
   }
 
   //gallery
@@ -98,7 +111,7 @@ export const GhostContent = styled.div`
 
   ol li:before {
     content: counter(custom) ' ';
-    font-family: 'Montserrat';
+    /* font-family: 'Montserrat'; */
     color: var(--primary);
     padding-right: 1rem;
   }
@@ -107,7 +120,7 @@ export const GhostContent = styled.div`
     counter-reset: custom;
   }
   li {
-    font-family: 'Montserrat', 'Sarabun';
+    /* font-family: 'Montserrat', 'Sarabun'; */
     font-size: 1rem;
     line-height: 24px;
     counter-increment: custom;
@@ -177,6 +190,7 @@ const TopImage = styled.div`
 const Title = styled.h2`
   text-align: center;
   margin-bottom: 3.75rem;
+  font-family: 'Prompt', sans-serif;
 `
 
 const TagA = styled.a`
