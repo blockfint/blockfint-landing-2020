@@ -144,7 +144,7 @@ const Divider = styled.div`
   display: grid;
   background: black;
   height: 1px;
-  margin: 1.5rem 2.5rem 1.5rem 0;
+  margin: 1rem 2.5rem 1.5rem 0;
   @media ${BREAKPOINT.tablet} {
     margin: 2rem 2.5rem 2rem 0;
   }
@@ -162,6 +162,7 @@ const DrawerContainer = styled.div`
 `
 const Footer = styled.div`
   margin-left: 2.5rem;
+  margin-bottom: 1rem;
 `
 interface PropsColor {
   status: boolean
