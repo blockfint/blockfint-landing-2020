@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
 import { BlogButton } from '@blockfint/website/components/Buttons/BlogButton'
@@ -64,6 +64,10 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, post
   const handleClick = () => {
     setNPost(posts?.length)
   }
+  useEffect(() => {
+    if (isShowButton && nPost !== postLimit) setNPost(postLimit)
+    else if (!isShowButton && nPost !== posts?.length) setNPost(posts?.length)
+  }, [isShowButton, nPost, posts?.length])
   return (
     <>
       <Container maxWidth="lg">
