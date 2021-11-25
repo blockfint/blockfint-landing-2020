@@ -20,7 +20,7 @@ const Oval = styled.a`
 `
 const Container = styled.div`
   display: inline-grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, max-content);
   grid-gap: 0.5rem;
 `
 export const I18nSelector: React.FC = () => {

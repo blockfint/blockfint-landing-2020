@@ -13,6 +13,7 @@ import { ReactComponent as BlockFintColor } from '@blockfint/website/assets/logo
 import { useContactContext } from '@blockfint/website/components/ContactDialog'
 import { useTranslation } from 'react-i18next'
 import { I18nSelector } from '@blockfint/website/components/I18nSelector'
+import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 
 const MoveDown = keyframes`
@@ -41,20 +42,19 @@ const useStyles = makeStyles({
 })
 
 const MainNav = styled(List)`
+  overflow-y: auto;
   .MuiButtonBase-root {
-    height: 4.25rem;
-  }
-  .MuiListItem-button {
-    padding: 0;
+    padding: 0.875rem 0;
+    padding-left: 2.5rem;
   }
 
   .MuiButtonBase-root:hover {
     background-color: white;
   }
 
-  &&&.MuiList-padding {
-    margin-left: 2.56rem;
-  }
+  /* &&&.MuiList-padding {
+    padding-left: 2.56rem;
+  } */
   .MuiTypography-root {
     font-size: 1.625rem;
     font-weight: 600;
@@ -85,34 +85,17 @@ const MainNav = styled(List)`
   }
 `
 
-const BottomTitle = styled.div`
-  position: fixed;
-  bottom: 0;
-  padding-bottom: 10px;
-
-  .title {
-    span {
-      margin-left: 1.75rem;
-      width: 72px;
-      height: 24px;
-
-      font-size: 16px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.5;
-      letter-spacing: normal;
-    }
-    .bottomIcons {
-      margin-top: 0.6rem;
-      margin-bottom: 2.2rem;
-      img {
-        margin-right: 0.6875rem;
-      }
-      span {
-        margin-left: 2.5rem;
-      }
-    }
+const SocialGroup = styled.div`
+  margin-top: auto;
+  padding-bottom: 2.5rem;
+  margin-left: 2.5rem;
+  img {
+    margin-right: 0.6875rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  @media ${BREAKPOINT.tablet} {
+    padding-bottom: 3.75rem;
   }
 `
 const RipleMiddle = styled(ListItemText)`
@@ -154,7 +137,6 @@ const TopLogoWithHam = styled.div`
   display: flex;
   align-items: center;
   justify-items: center;
-
   justify-content: space-between;
   padding-right: 1.5rem;
 `
@@ -162,12 +144,24 @@ const Divider = styled.div`
   display: grid;
   background: black;
   height: 1px;
-  margin: 2rem 2.5rem 2rem 0;
+  margin: 1.5rem 2.5rem 1.5rem 0;
+  @media ${BREAKPOINT.tablet} {
+    margin: 2rem 2.5rem 2rem 0;
+  }
 `
 const DrawerContainer = styled.div`
   background: var(--primary-2);
-  height: 100vh;
+  height: 100%;
   width: 18.75rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: unset;
+  @media ${BREAKPOINT.tablet} {
+    height: 100vh;
+  }
+`
+const Footer = styled.div`
+  margin-left: 2.5rem;
 `
 interface PropsColor {
   status: boolean
@@ -230,8 +224,7 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
               <a href="/" style={{ cursor: 'pointer' }}>
                 <BlockFintColor
                   style={{
-                    marginTop: '2rem',
-                    marginBottom: '2rem',
+                    margin: '1.5rem 0',
                     marginLeft: '2.56rem',
                     height: '2rem',
                     width: '9rem'
@@ -243,7 +236,6 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
               <Hamburger status={animate} ColorHam={status} DrawerToggle={ColorToggle} />
             </div>
           </TopLogoWithHam>
-
           <MainNav>
             <Link passHref href={`/about`} as={`/about`}>
               <ListItem
@@ -284,34 +276,26 @@ export const Drawer = ({ status, id = '' }: PropsColor) => {
             <ListItem button selected={selectedIndex === `/contact`} onClick={handleOpen}>
               <RipleMiddle primary={t('common.contact')} />
             </ListItem>
+          </MainNav>
+          <Footer>
             <Divider />
             <I18nSelector />
-          </MainNav>
+          </Footer>
+          <SocialGroup>
+            <a href="https://www.facebook.com/Blockfint-498494450914265/" style={{ cursor: 'pointer', color: 'white' }}>
+              <img src="/icons/facebook.svg" alt="facebook" width="36" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g" style={{ cursor: 'pointer' }}>
+              <img src="/icons/youtube.svg" alt="youtube" width="36" />
+            </a>
 
-          <BottomTitle>
-            <div className="title">
-              <div className="bottomIcons">
-                <span>
-                  <a
-                    href="https://www.facebook.com/Blockfint-498494450914265/"
-                    style={{ cursor: 'pointer', color: 'white' }}
-                  >
-                    <img src="/icons/facebook.svg" alt="facebook" width="36" />
-                  </a>
-                  <a href="https://www.youtube.com/channel/UCTtEVhgmbDc9oYLy5mGC33g" style={{ cursor: 'pointer' }}>
-                    <img src="/icons/youtube.svg" alt="youtube" width="36" />
-                  </a>
-
-                  <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
-                    <img src="/icons/instagram.svg" alt="instagram" width="36" />
-                  </a>
-                  <a href="https://th.linkedin.com/company/blockfint" style={{ cursor: 'pointer' }}>
-                    <img src="/icons/linkin.svg" alt="linkin" width="36" />
-                  </a>
-                </span>
-              </div>
-            </div>
-          </BottomTitle>
+            <a href="https://www.instagram.com/blockfint/" style={{ cursor: 'pointer' }}>
+              <img src="/icons/instagram.svg" alt="instagram" width="36" />
+            </a>
+            <a href="https://th.linkedin.com/company/blockfint" style={{ cursor: 'pointer' }}>
+              <img src="/icons/linkin.svg" alt="linkin" width="36" />
+            </a>
+          </SocialGroup>
         </DrawerContainer>
       </SwipeableDrawer>
     </>
