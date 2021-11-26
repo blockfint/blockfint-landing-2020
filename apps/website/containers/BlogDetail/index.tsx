@@ -31,7 +31,8 @@ export const GhostContent = styled.div`
   h4,
   h5,
   h6,
-  li {
+  li,
+  blockquote {
     font-family: 'Montserrat', 'Sarabun', sans-serif;
   }
   h2 {
@@ -51,7 +52,7 @@ export const GhostContent = styled.div`
   }
   // Image Normal
   .kg-card {
-    margin-top: 2rem;
+    margin: 2.5rem 0;
     img {
       width: 100%;
       max-width: 100vw;
@@ -114,6 +115,7 @@ export const GhostContent = styled.div`
     /* font-family: 'Montserrat'; */
     color: var(--primary);
     padding-right: 1rem;
+    font-weight: 600;
   }
 
   ol li:first-child {
@@ -125,6 +127,9 @@ export const GhostContent = styled.div`
     line-height: 24px;
     counter-increment: custom;
     margin-bottom: 1rem;
+    ::marker {
+      color: var(--primary);
+    }
   }
 
   //divider
@@ -143,7 +148,19 @@ export const GhostContent = styled.div`
       transform: translateX(-50%);
     }
   }
-
+  blockquote {
+    border-left: 2px solid var(--primary);
+    padding-left: 1.5rem;
+    strong {
+      font-size: 24px;
+      font-weight: normal;
+      line-height: 1.58;
+      color: #333333;
+    }
+    font-size: 16px;
+    line-height: 1.88;
+    color: #828282;
+  }
   @media ${BREAKPOINT.tablet} {
     .gh-content {
       margin: 3.75rem auto 3.75rem;
