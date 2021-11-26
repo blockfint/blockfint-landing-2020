@@ -133,7 +133,7 @@ const Description = styled.p`
   }
 `
 const Tag = styled.div`
-  width: min-content;
+  width: max-content;
   padding: 0 0.5rem;
   height: 30px;
   background-color: #e0e0e0;
