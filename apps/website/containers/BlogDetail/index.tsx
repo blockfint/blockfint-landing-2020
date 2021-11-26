@@ -52,7 +52,7 @@ export const GhostContent = styled.div`
   }
   // Image Normal
   .kg-card {
-    margin-top: 2rem;
+    margin: 2.5rem 0;
     img {
       width: 100%;
       max-width: 100vw;
