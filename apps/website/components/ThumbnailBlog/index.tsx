@@ -136,7 +136,7 @@ const Tag = styled.div`
   width: max-content;
   padding: 0 0.5rem;
   height: 30px;
-  background-color: #e0e0e0;
+  background-color: #f0f5f5;
   text-align: center;
   color: #4f4f4f;
   @media ${BREAKPOINT.desktop} {
