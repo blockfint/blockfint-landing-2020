@@ -8,6 +8,7 @@ import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 import { Container } from '@material-ui/core'
 import { Category } from './components/Category'
 import { PostsOrPages } from '@tryghost/content-api'
+import { Background } from '@blockfint/website/components/layouts/Background'
 const HeadingText = styled.h2`
   text-align: center;
   padding: 1rem 0 2.5rem;
@@ -70,7 +71,7 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, post
     else if (!isShowButton && nPost !== posts?.length) setNPost(posts?.length)
   }, [isShowButton, nPost, posts?.length])
   return (
-    <>
+    <Background>
       <Container maxWidth="lg">
         <HeadingText>Blog</HeadingText>
         <CategoryWrapper>
@@ -103,6 +104,6 @@ export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, post
         )}
       </Container>
       <ContactBanner />
-    </>
+    </Background>
   )
 }
