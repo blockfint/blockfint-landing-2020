@@ -28,9 +28,10 @@ const CategoryWrapper = styled.div`
   }
 `
 const BlogWrapper = styled.div`
+  display: grid;
+  row-gap: 2.5rem;
   padding: 1.5rem 0 2.5rem;
   @media ${BREAKPOINT.tablet} {
-    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2.5rem 1.5rem;
   }
