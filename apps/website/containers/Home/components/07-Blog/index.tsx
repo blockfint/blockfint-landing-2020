@@ -14,9 +14,9 @@ const Heading = styled.h2`
   text-align: center;
 `
 const CustomContainer = styled(Container)`
-  padding: 3.75rem 1rem;
+  padding: 3.75rem 1.5rem 5rem;
   @media ${BREAKPOINT.tablet} {
-    padding: 5rem 1.5rem;
+    padding: 5rem 2.5rem;
   }
   @media ${BREAKPOINT.desktop} {
     padding: 3.75rem 1.5rem;
@@ -25,10 +25,11 @@ const CustomContainer = styled(Container)`
 const BlogWrapper = styled.div`
   margin-top: 1rem;
   display: grid;
-  grid-gap: 1.5rem;
+  grid-gap: 2.5rem;
   @media ${BREAKPOINT.tablet} {
     margin-top: 2.5rem;
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
   }
   @media ${BREAKPOINT.desktop} {
     grid-column-gap: 3rem;
@@ -41,6 +42,10 @@ const BlogWrapper = styled.div`
 const Center = styled.div`
   display: grid;
   justify-content: center;
+  margin-top: 3.75rem;
+  @media ${BREAKPOINT.tablet} {
+    margin-top: 5rem;
+  }
 `
 const Global = createGlobalStyle`
 body{

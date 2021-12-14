@@ -28,13 +28,14 @@ const Content = styled.div`
 
   @media ${BREAKPOINT.tablet} {
     justify-content: flex-start;
-    height: 14rem;
+    height: 11.5rem;
     margin: 0 auto;
     padding: 0 2.75rem;
     border-radius: 3.125rem;
   }
   @media ${BREAKPOINT.desktop} {
     padding: 0 6.25rem;
+    height: 14rem;
   }
 `
 const RightContent = styled.div`
@@ -62,14 +63,14 @@ const RightContent = styled.div`
 
 const ExploreImg = styled.div`
   position: absolute;
-  max-width: 100vw;
-  bottom: 57.5%;
-  left: -2rem;
+  max-width: 115vw;
+  bottom: 63.5%;
+  left: -6rem;
   /* transform: translateX(-50%); */
   @media ${BREAKPOINT.tablet} {
     transform: unset;
     left: -35%;
-    bottom: 1.5rem;
+    bottom: 1rem;
   }
   @media ${BREAKPOINT.desktop} {
     left: 0;
@@ -108,10 +109,10 @@ export const ProductsBanner: React.FC = () => {
             </ExploreImg>
           </ImageWrapper>
           <RightContent>
-            <h5>{t('home.interesting-in-our-products')}</h5>
+            <h4>{t('home.interesting-in-our-products')}</h4>
             <Link passHref href="/works">
               <a>
-                <SecondaryButton>{t('home.see-all-works')}</SecondaryButton>
+                <SecondaryButton style={{ fontWeight: 600 }}>{t('home.see-all-works')}</SecondaryButton>
               </a>
             </Link>
           </RightContent>

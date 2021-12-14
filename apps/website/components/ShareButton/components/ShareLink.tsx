@@ -24,7 +24,7 @@ export const ShareLink: React.FC = () => {
   return (
     <Wrapper>
       {linkShareList.map(({ name, link, src }) => (
-        <LinkWithIcon link={`${link}${window.location.href}`} alt={name} src={src} />
+        <LinkWithIcon key={name} link={`${link}${window.location.href}`} alt={name} src={src} />
       ))}
     </Wrapper>
   )

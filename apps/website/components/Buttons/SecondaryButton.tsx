@@ -26,10 +26,12 @@ const Button = styled(motion.button)`
 `
 type Props = {
   onClick?: () => void
+  style?: React.CSSProperties
 }
-export const SecondaryButton: React.FC<Props> = ({ children, onClick }) => {
+export const SecondaryButton: React.FC<Props> = ({ children, onClick, style }) => {
   return (
     <Button
+      style={style}
       onClick={onClick}
       whileTap={{ boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 0)', scale: 0.98 }}
       whileHover={{ boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 0.3)', scale: 1.02 }}
