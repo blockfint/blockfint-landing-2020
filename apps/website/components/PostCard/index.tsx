@@ -15,11 +15,12 @@ const Card = styled(motion.div)`
   display: grid;
   grid-template-rows: 15.375rem 1fr;
   overflow: hidden;
+  width: 100%;
+  position: relative;
   @media ${BREAKPOINT.tablet} {
     grid-template-columns: 17.5rem 1fr;
     grid-template-rows: auto;
     width: 42.875rem;
-
     height: 14rem;
   }
   @media ${BREAKPOINT.desktop} {
@@ -29,9 +30,9 @@ const Card = styled(motion.div)`
   }
 `
 
-const ImageWrapper = styled.div`
-  position: relative;
-`
+// const ImageWrapper = styled.div`
+//   position: relative;
+// `
 
 const Content = styled.div`
   display: grid;
@@ -69,9 +70,9 @@ export const PostCard: React.FC<Props> = ({ title, desc, link = '/', imgSrc }) =
   return (
     <Link href={link} passHref>
       <Card initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} whileTap={{ backgroundColor: '#f3f3f3' }}>
-        <ImageWrapper>
-          <Image src={imgSrc} layout="responsive" objectFit="contain" width={1080} height={812} />
-        </ImageWrapper>
+        {/* <ImageWrapper> */}
+          <Image src={imgSrc} layout="responsive" objectFit="cover" width='100%' height='100%' />
+        {/* </ImageWrapper> */}
         <Content>
           <Title>{title}</Title>
           <Desc>{desc}</Desc>
