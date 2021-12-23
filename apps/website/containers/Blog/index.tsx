@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
 import { BlogButton } from '@blockfint/website/components/Buttons/BlogButton'
@@ -61,8 +61,8 @@ interface BlogProps {
 export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, posts }) => {
   const allCategory = ['All', ...categoryList.map((cat) => cat.charAt(0).toUpperCase() + cat.slice(1))]
   const postLimit = 9
-  const isShowButton = posts?.length > postLimit
-  const [nPost, setNPost] = useState(isShowButton ? postLimit : posts?.length)
+  const [nPost, setNPost] = useState(postLimit)
+  const isShowButton = useMemo(() => posts?.length > nPost, [nPost, posts?.length])
   const handleClick = () => {
     setNPost(posts?.length)
   }
