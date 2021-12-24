@@ -21,6 +21,7 @@ const A = styled.a`
 `
 const Text = styled.h6`
   padding: 0.625rem 1.5rem;
+  text-transform: capitalize;
 `
 interface Props {
   href?: string
@@ -28,7 +29,7 @@ interface Props {
   selected?: boolean
 }
 export const Category = React.forwardRef<HTMLAnchorElement, Props>(({ text, href = null, selected = false }, ref) => {
-  const path = text === 'All' ? '/blog' : `/blog/cat/${text.toLowerCase()}`
+  const path = text === 'All' ? '/blog' : `/blog/cat/${text.toLowerCase().replace(' ', '-')}`
   return (
     <Link href={path} passHref>
       <A className={selected && 'selected'} href={href}>
