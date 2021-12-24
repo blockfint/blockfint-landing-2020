@@ -22,6 +22,7 @@ export const GhostContent = styled.div`
   margin: 0 auto;
   .gh-content {
     margin: 2.5rem auto 2.5rem;
+    overflow-wrap: break-word;
   }
   strong,
   em,
