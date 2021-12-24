@@ -59,7 +59,7 @@ interface BlogProps {
   posts: PostsOrPages
 }
 export const Blog: React.FC<BlogProps> = ({ category = 'all', categoryList, posts }) => {
-  const allCategory = ['All', ...categoryList.map((cat) => cat.charAt(0).toUpperCase() + cat.slice(1))]
+  const allCategory = ['All', ...categoryList.map((cat) => cat.replace('-', ' '))]
   const postLimit = 9
   const [nPost, setNPost] = useState(postLimit)
   const isShowButton = useMemo(() => posts?.length > nPost, [nPost, posts?.length])
