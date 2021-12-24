@@ -76,7 +76,7 @@ export const Works = () => {
         id: 'vc',
         name: 'Verified Credentials',
         image: '/images/vc-card.svg',
-        description: t('common.agri-quote'),
+        description: t('common.vc-quote'),
         link: '/products/vc'
       }
     ],
