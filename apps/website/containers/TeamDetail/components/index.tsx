@@ -236,7 +236,7 @@ export const TeamDetailpage: React.FC<PeopleInfo> = ({ name, position, desc, img
                 <div className="Contact">
                   {contact && (
                     <ContactDetail
-                      prefix={t(`team-details.email-prefix`, {
+                      prefix={t('team-details.email-prefix', {
                         name: t(`team-details.${nickname}`)
                       })}
                       contact={`${t(`team-details.${contact}`)}`}
