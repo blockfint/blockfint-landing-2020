@@ -23,6 +23,7 @@ export const GhostContent = styled.div`
   .gh-content {
     margin: 2.5rem auto 2.5rem;
     overflow-wrap: break-word;
+    letter-spacing: 0;
   }
   strong,
   em,
@@ -41,6 +42,7 @@ export const GhostContent = styled.div`
     font-weight: 700;
     font-size: 20px;
     line-height: 36px;
+    letter-spacing: 0;
   }
   h3 {
     //h3 of Ghost are h6 of us (mobile)
