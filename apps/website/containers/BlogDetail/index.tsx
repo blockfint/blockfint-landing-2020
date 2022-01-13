@@ -34,7 +34,8 @@ export const GhostContent = styled.div`
   h5,
   h6,
   li,
-  blockquote {
+  blockquote,
+  figcaption {
     font-family: 'Montserrat', 'Sarabun', sans-serif;
   }
   h2 {
@@ -104,13 +105,12 @@ export const GhostContent = styled.div`
   table {
     width: 100%;
   }
-  ul,
-  ol {
+  ul {
     margin-left: 2ch;
   }
   ol {
     list-style: none;
-    margin: 40px 0;
+    /* margin: 40px 0; */
   }
 
   ol li:before {
@@ -152,6 +152,7 @@ export const GhostContent = styled.div`
     }
   }
   blockquote {
+    margin-bottom: 1.5rem;
     border-left: 2px solid var(--primary);
     padding-left: 1.5rem;
     strong {
@@ -175,9 +176,9 @@ export const GhostContent = styled.div`
     }
   }
   @media ${BREAKPOINT.desktop} {
-    ol {
+    /* ol {
       margin: 56px 0;
-    }
+    } */
     li {
       margin-bottom: 1.5rem;
     }
