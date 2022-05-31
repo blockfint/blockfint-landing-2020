@@ -49,7 +49,7 @@ const postAndPageFetchOptions: Params = {
 }
 
 export const getAllPosts = async (props?: Params): Promise<GhostPostOrPage[]> => {
-  const posts = await ghostApi.posts.browse({ include: ['tags', 'authors'], ...props })
+  const posts = await ghostApi.posts.browse({ include: ['tags', 'authors'], limit: 'all', ...props })
   return posts.filter(({ tags }) => {
     // remove posts that it haven't category tag
     return tags.some(({ visibility }) => visibility === 'public')
