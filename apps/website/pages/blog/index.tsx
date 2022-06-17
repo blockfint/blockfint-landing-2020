@@ -56,6 +56,7 @@ export const getStaticProps = async ({ locale }) => {
       })
   ]
   const posts = await getAllPosts()
+  console.log('getstaticprops all post: ', posts.length)
   return {
     props: {
       ...result,

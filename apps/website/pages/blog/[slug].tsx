@@ -80,6 +80,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = params.slug as string
 
   const post = await getSinglePost({ slug })
+  console.log('getstaticprops single post: ', post)
   if (post) {
     const nextPosts = await getAllPosts({ filter: [`posts.slug:-${post.slug}`], limit: 6 })
     return {
