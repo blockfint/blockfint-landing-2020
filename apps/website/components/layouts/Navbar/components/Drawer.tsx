@@ -16,31 +16,6 @@ import { I18nSelector } from '@blockfint/website/components/I18nSelector'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 
-const MoveDown = keyframes`
- from {
-      top: 13.5px;
-    }
-    to {
-      top: 0px;
-    }
-`
-const MoveUp = keyframes`
- from {
-      top: 0px;
-    }
-    to {
-      top: 13.5px;
-    }
-`
-const useStyles = makeStyles({
-  list: {
-    width: 286
-  },
-  fullList: {
-    width: 'auto'
-  }
-})
-
 const MainNav = styled(List)`
   overflow-y: auto;
   .MuiButtonBase-root {
@@ -76,8 +51,8 @@ const MainNav = styled(List)`
       background-color: var(--black);
       visibility: visible;
       transform: scaleX(1);
-      visibility: visible;
-      transform: scaleX(1);
+      /* visibility: visible;
+      transform: scaleX(1); */
     }
   }
   .Mui-selected:hover {
@@ -169,7 +144,7 @@ interface PropsColor {
   id: string
 }
 
-export const Drawer = ({ status, id = '' }: PropsColor) => {
+export const Drawer = ({ status }: PropsColor) => {
   const [state, setState] = React.useState({
     right: false
   })

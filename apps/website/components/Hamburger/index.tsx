@@ -10,7 +10,6 @@ type OpenProps = {
 const StyledBurger = styled.div`
   width: 1.5rem;
   height: 1.5rem;
-
   z-index: 1600 !important;
   display: flex;
   justify-content: space-around;
