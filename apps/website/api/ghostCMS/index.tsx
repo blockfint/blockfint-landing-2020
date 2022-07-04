@@ -1,5 +1,5 @@
 import GhostContentAPI from '@tryghost/content-api'
-import GhostAdminAPI from '@tryghost/admin-api'
+// import GhostAdminAPI from '@tryghost/admin-api'
 
 // Create API instance with site credentials
 export const ghostApi = new GhostContentAPI({
@@ -8,14 +8,14 @@ export const ghostApi = new GhostContentAPI({
   version: 'v3'
 })
 
-export const adminApi = new GhostAdminAPI({
-  url: process.env.NEXT_PUBLIC_BLOG_URL,
-  key: process.env.NEXT_PUBLIC_ADMIN_API_KEY,
-  version: 'v3'
-})
+// export const adminApi = new GhostAdminAPI({
+//   url: process.env.NEXT_PUBLIC_BLOG_URL,
+//   key: process.env.NEXT_PUBLIC_ADMIN_API_KEY,
+//   version: 'v3'
+// })
 
 export {
-  getDraftPosts,
+  // getDraftPosts,
   getAllPosts,
   getSinglePost,
   getPostsByTag,
