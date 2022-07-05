@@ -5,11 +5,19 @@
   },
   "exclude": [
     "../**/*.spec.ts",
+    "../**/*.test.ts",
     "../**/*.spec.js",
+    "../**/*.test.js",
     "../**/*.spec.tsx",
-    "../**/*.spec.jsx"
+    "../**/*.test.tsx",
+    "../**/*.spec.jsx",
+    "../**/*.test.jsx",
+    "jest.config.ts"
   ],
-  "include": [
-    "../**/*"
+  "include": ["../**/*"],
+  "files": [
+    "../../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
+    "../../../node_modules/@nrwl/react/typings/image.d.ts",
+    "../../../node_modules/@nrwl/react/typings/styled-jsx.d.ts"
   ]
 }
