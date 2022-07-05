@@ -24,7 +24,7 @@ const Container = styled.div`
     }
   }
 `
-const ShareButtonCSR: React.FC = () => {
+const ShareButtonCSR = () => {
   const isSupportShare = useMemo(() => {
     if (navigator && navigator.share) {
       return true

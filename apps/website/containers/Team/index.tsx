@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 const Footer = styled.div`
   overflow: hidden;
 `
-export const Team: React.FC = () => {
+export const Team = () => {
   const { t } = useTranslation()
   const description = useMemo(
     () => [

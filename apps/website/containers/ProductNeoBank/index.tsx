@@ -6,7 +6,7 @@ import { IconWithInfoList } from './components/IconWithInfoList'
 import { ContactBanner } from '@blockfint/website/components/ContactBanner'
 import { useTranslation } from 'next-i18next'
 
-export const ProductNeoBank: React.FC = () => {
+export const ProductNeoBank = () => {
   const { t } = useTranslation()
   return (
     <>

@@ -20,7 +20,7 @@ const ContactContext = createContext<ContactInfo>({
   onClose: () => null
 })
 
-export const ContactDialog: React.FC = ({ children }) => {
+export const ContactDialog = (children: React.ReactNode) => {
   const [open, setOpen] = useState(false)
   const onClose = () => setOpen(false)
   const onOpen = () => {
@@ -32,7 +32,7 @@ export const ContactDialog: React.FC = ({ children }) => {
       <AnimatePresence>
         {open && (
           <>
-            <LockScroll />
+            {LockScroll}
             <FormContent onClose={onClose} />
           </>
         )}

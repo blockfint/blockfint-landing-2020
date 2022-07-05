@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   justify-content: center;
   display: flex;
 `
-export const ProductThinker: React.FC = () => {
+export const ProductThinker = () => {
   const { t } = useTranslation()
   return (
     <>

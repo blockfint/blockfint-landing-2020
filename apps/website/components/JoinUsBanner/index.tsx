@@ -75,7 +75,7 @@ const MailImage = styled.img`
     bottom: 3.5rem;
   }
 `
-export const JoinUsBanner: React.FC = () => {
+export const JoinUsBanner = () => {
   return (
     <Background>
       <Container maxWidth="lg">

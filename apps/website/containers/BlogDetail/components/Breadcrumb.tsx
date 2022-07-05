@@ -15,7 +15,7 @@ const A = styled.a`
   text-decoration: inherit;
   color: inherit;
 `
-export const Breadcrumb: React.FC = () => {
+export const Breadcrumb = () => {
   const router = useRouter()
   // const [category] = router.query.slug
   return (

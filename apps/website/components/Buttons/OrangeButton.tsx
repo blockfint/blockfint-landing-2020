@@ -24,7 +24,10 @@ const Button = styled(motion.button)`
     outline: none;
   }
 `
-export const OrangeButton: React.FC = ({ children }) => {
+interface Props {
+  children: React.ReactNode | string
+}
+export const OrangeButton = ({ children }: Props) => {
   return (
     <Button
       whileTap={{ boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 0)', scale: 0.98 }}

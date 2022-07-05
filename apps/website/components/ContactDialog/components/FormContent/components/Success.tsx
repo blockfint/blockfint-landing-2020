@@ -1,8 +1,8 @@
-import { ArrowLink } from '@blockfint/website/components/ArrowLink';
-import React from 'react';
-import styled from 'styled-components';
-import { ReactComponent as CheckSvg } from '@blockfint/website/assets/icons/check.svg';
-import { useContactContext } from '@blockfint/website/components/ContactDialog';
+import { ArrowLink } from '@blockfint/website/components/ArrowLink'
+import React from 'react'
+import styled from 'styled-components'
+import { ReactComponent as CheckSvg } from '@blockfint/website/assets/icons/check.svg'
+import { useContactContext } from '@blockfint/website/components/ContactDialog'
 
 const Container = styled.div`
   margin: auto;
@@ -11,15 +11,15 @@ const Container = styled.div`
   justify-items: center;
   text-align: center;
   grid-gap: 1.5rem;
-`;
+`
 const Texts = styled.div`
   justify-items: center;
   display: grid;
   text-align: center;
   grid-gap: 0.5rem;
-`;
-export const Success: React.FC = () => {
-  const { onClose } = useContactContext();
+`
+export const Success = () => {
+  const { onClose } = useContactContext()
   return (
     <Container>
       <CheckSvg />
@@ -31,5 +31,5 @@ export const Success: React.FC = () => {
         </a>
       </Texts>
     </Container>
-  );
-};
+  )
+}

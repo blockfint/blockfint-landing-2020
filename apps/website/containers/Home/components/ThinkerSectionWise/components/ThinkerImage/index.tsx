@@ -21,7 +21,7 @@ const ImageWrapper = styled.div`
   object-fit: contain;
   align-self: flex-start;
 `
-export const ThinkerImage: React.FC = () => {
+export const ThinkerImage = () => {
   return (
     <Container maxWidth="lg">
       <Content>

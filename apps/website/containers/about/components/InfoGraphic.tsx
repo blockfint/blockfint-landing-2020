@@ -58,7 +58,7 @@ const Background = styled.div`
     grid-column-gap: 5rem;
   }
 `
-export const InfoGraphic: React.FC = () => {
+export const InfoGraphic = () => {
   const { t } = useTranslation()
   return (
     <Background>

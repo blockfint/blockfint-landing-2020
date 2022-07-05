@@ -53,7 +53,7 @@ const StyledBlockRight = styled(BlockRight)`
   }
 `
 
-export const Background: React.FC = ({ children }) => {
+export const Background = (children: React.ReactNode | Element[] | any) => {
   return (
     <RelativeContainer>
       <MarginContainer>

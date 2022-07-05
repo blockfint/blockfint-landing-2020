@@ -46,7 +46,7 @@ const Background = styled.div`
     padding: 0 14.6875rem 6.25rem 8.4375rem;
   }
 `
-export const StoryAbout: React.FC = () => {
+export const StoryAbout = () => {
   const { t } = useTranslation()
   return (
     <Background>

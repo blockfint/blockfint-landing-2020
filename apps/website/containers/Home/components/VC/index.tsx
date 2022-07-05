@@ -23,7 +23,7 @@ const Desc = styled.p`
   line-height: 1.88;
 `
 
-export const VCSection: React.FC = () => {
+export const VCSection = () => {
   const { t } = useTranslation()
   return (
     <Container maxWidth="lg">

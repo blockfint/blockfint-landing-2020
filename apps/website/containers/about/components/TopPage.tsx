@@ -17,7 +17,7 @@ const StyledText = styled.h1`
     letter-spacing: -1.6px;
   }
 `
-export const TopPage: React.FC = () => {
+export const TopPage = () => {
   const { t } = useTranslation()
   return (
     <Background>

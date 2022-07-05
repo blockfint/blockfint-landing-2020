@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
-import React from 'react';
-import styled from 'styled-components';
+import { motion } from 'framer-motion'
+import React from 'react'
+import styled from 'styled-components'
 
 const Container = styled.span`
   position: relative;
-`;
+`
 const SpeedingLine = styled(motion.div)`
   position: absolute;
   width: 1px;
@@ -13,8 +13,8 @@ const SpeedingLine = styled(motion.div)`
   left: 50%;
   transform: translateX(-50%);
   top: 1.25rem;
-`;
-export const ScrollAnimation: React.FC = () => {
+`
+export const ScrollAnimation = () => {
   return (
     <Container>
       SCROLL
@@ -26,9 +26,9 @@ export const ScrollAnimation: React.FC = () => {
           ease: 'linear',
           times: [0, 0.5, 1],
           loop: Infinity,
-          repeatDelay: 0.5,
+          repeatDelay: 0.5
         }}
       />
     </Container>
-  );
-};
+  )
+}

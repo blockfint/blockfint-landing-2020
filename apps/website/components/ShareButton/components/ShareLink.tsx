@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   }
 `
 
-export const ShareLink: React.FC = () => {
+export const ShareLink = () => {
   return (
     <Wrapper>
       {linkShareList.map(({ name, link, src }) => (

@@ -87,7 +87,7 @@ const ScrollWrapper = styled.div`
   }
 `
 
-export const Hero: React.FC = () => {
+export const Hero = () => {
   const { t } = useTranslation()
   return (
     <Background>

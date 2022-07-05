@@ -32,7 +32,7 @@ const Logo = styled.img`
 
   object-fit: contain;
 `
-export const OurPartners: React.FC = () => {
+export const OurPartners = () => {
   const { t } = useTranslation()
   return (
     <Container maxWidth="lg">

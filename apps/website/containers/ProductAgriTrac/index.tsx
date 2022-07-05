@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   justify-content: center;
   display: flex;
 `
-export const ProductAgriTrac: React.FC = () => {
+export const ProductAgriTrac = () => {
   const { t } = useTranslation()
   return (
     <>

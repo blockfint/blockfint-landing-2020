@@ -8,7 +8,7 @@ const Container = styled.div`
   height: 2.75rem;
   min-width: 4.375rem;
 `
-export const ShareButton: React.FC = () => {
+export const ShareButton = () => {
   return (
     <Container>
       <ShareButtonCSR />

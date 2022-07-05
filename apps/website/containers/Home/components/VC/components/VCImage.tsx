@@ -11,7 +11,7 @@ const Content = styled.div`
   max-height: 30rem;
 `
 
-export const VCImage: React.FC = () => {
+export const VCImage = () => {
   return (
     <Container maxWidth="lg">
       <Content>

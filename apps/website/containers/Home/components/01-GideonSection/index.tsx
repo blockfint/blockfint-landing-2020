@@ -23,7 +23,7 @@ const Desc = styled.p`
   line-height: 1.88;
 `
 
-export const GideonSection: React.FC = () => {
+export const GideonSection = () => {
   const { t } = useTranslation()
   return (
     <Container maxWidth="lg">

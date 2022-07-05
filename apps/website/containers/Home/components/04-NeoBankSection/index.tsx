@@ -23,7 +23,7 @@ const Desc = styled.p`
   line-height: 1.88;
 `
 
-export const NeoBankSection: React.FC = () => {
+export const NeoBankSection = () => {
   const { t } = useTranslation()
   return (
     <Container maxWidth="lg">

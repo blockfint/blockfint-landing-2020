@@ -64,7 +64,7 @@ const ImageWrapper = styled.div`
   }
   object-fit: contain;
 `
-export const OurTeam: React.FC = () => {
+export const OurTeam = () => {
   const { t } = useTranslation()
   return (
     <Background>

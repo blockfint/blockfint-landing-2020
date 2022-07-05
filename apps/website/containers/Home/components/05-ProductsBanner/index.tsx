@@ -97,7 +97,7 @@ const ImageWrapper = styled.div`
     margin: 0;
   }
 `
-export const ProductsBanner: React.FC = () => {
+export const ProductsBanner = () => {
   const { t } = useTranslation()
   return (
     <Background>

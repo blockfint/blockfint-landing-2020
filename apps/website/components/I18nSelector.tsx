@@ -23,7 +23,7 @@ const Container = styled.div`
   grid-template-columns: repeat(2, max-content);
   grid-gap: 0.5rem;
 `
-export const I18nSelector: React.FC = () => {
+export const I18nSelector = () => {
   const router = useRouter()
   return (
     <Container>

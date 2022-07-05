@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   justify-content: center;
   display: flex;
 `
-export const ProductGideon: React.FC = () => {
+export const ProductGideon = () => {
   const { t } = useTranslation()
   return (
     <>

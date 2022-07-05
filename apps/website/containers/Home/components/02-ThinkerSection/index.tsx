@@ -23,7 +23,7 @@ const Desc = styled.p`
   line-height: 1.88;
 `
 
-export const ThinkerSection: React.FC = () => {
+export const ThinkerSection = () => {
   const { t } = useTranslation()
   return (
     <Container maxWidth="lg">

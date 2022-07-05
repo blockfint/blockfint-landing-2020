@@ -11,7 +11,7 @@ const Content = styled.div`
   max-height: 30rem;
 `
 
-export const ThinkerImage: React.FC = () => {
+export const ThinkerImage = () => {
   return (
     <Container maxWidth="lg">
       <Content>

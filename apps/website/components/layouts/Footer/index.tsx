@@ -149,7 +149,7 @@ const InLine = styled.div`
   flex-direction: row;
   align-items: center;
 `
-export const Footer: React.FC = () => {
+export const Footer = () => {
   const { t } = useTranslation()
   return (
     <Container maxWidth="lg">

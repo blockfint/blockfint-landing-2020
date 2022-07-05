@@ -51,7 +51,7 @@ const CopyButton = styled.button`
   cursor: pointer;
 `
 
-export const ShareWithModal: React.FC = () => {
+export const ShareWithModal = () => {
   const textLink = window.location.href
   const [open, setOpen] = React.useState(false)
   const [showAlert, setShowAlert] = React.useState({ open: false, massage: 'Copy to Clipboard!' })

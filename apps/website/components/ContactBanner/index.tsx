@@ -81,7 +81,7 @@ const MailImage = styled.div`
     bottom: 0rem;
   }
 `
-export const ContactBanner: React.FC = () => {
+export const ContactBanner = () => {
   const { t } = useTranslation()
   const { onOpen } = useContactContext()
   const handleOpen = () => {

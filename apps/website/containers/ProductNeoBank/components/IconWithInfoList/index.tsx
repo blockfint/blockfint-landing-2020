@@ -73,7 +73,7 @@ const Item = styled.div`
     line-height: 1.88;
   }
 `
-export const IconWithInfoList: React.FC = () => {
+export const IconWithInfoList = () => {
   const { t } = useTranslation()
   return (
     <Container>

@@ -26,7 +26,7 @@ const Floating = styled.div`
   bottom: 0;
 `
 
-export const GideonImage: React.FC = () => {
+export const GideonImage  = () => {
   const { ref, inView } = useInView()
   return (
     <Container ref={ref}>
@@ -84,7 +84,7 @@ type Position = {
   top?: number | string
   size?: string
 }
-const IconWrapper: React.FC<Position> = ({ children, size = '4em', ...position }) => (
+const IconWrapper <Position> = ({ children, size = '4em', ...position }) => (
   <Wrapper
     initial={{ ...position, fontSize: size }}
     animate={{ rotate: [0, -30, 30, 0] }}
