@@ -18,9 +18,10 @@ const RelativeBox = styled.div`
 interface Props {
   transparent?: boolean
   id?: string
+  children: React.ReactNode
 }
 const YRangeTrigger = [0, 64]
-export const Layout: React.FC<Props> = ({ children, transparent = false }) => {
+export const Layout = ({ children, transparent = false }: Props) => {
   const { scrollY } = useViewportScroll()
   // const background = useTransform(scrollY, YRangeTrigger, ['rgba(255,255,255,0)', 'rgba(255,255,255,1)'])
   const boxShadow = useTransform(scrollY, YRangeTrigger, [

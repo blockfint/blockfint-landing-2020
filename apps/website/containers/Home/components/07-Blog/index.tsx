@@ -60,7 +60,7 @@ export const Blog: React.FC<Props> = ({ data }) => {
   const { t } = useTranslation()
   return (
     <>
-      <Global />
+      {Global}
       <CustomContainer maxWidth="lg">
         <Heading>Blog</Heading>
         <BlogWrapper>

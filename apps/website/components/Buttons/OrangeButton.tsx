@@ -25,7 +25,7 @@ const Button = styled(motion.button)`
   }
 `
 interface Props {
-  children: React.ReactNode | string
+  children?: React.ReactNode | string
 }
 export const OrangeButton = ({ children }: Props) => {
   return (

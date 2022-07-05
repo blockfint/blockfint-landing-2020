@@ -28,7 +28,7 @@ const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = 
   if (post) {
     return (
       <>
-        <Global />
+        {Global}
         <Layout>
           <NextSeo {...SEO} />
           <BlogDetail post={post} nextPosts={nextPosts} />
@@ -39,7 +39,7 @@ const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = 
 
   return (
     <>
-      <Global />
+      {Global}
       <Layout>
         <NextSeo {...SEO} />
         <BlogDetail post={post} nextPosts={nextPosts} />

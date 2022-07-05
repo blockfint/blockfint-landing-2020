@@ -34,7 +34,7 @@ const BlogByCategoryPage: NextPage<Props> = ({ meta, category, categoryList, pos
   if (!category || !categoryList || !posts) {
     return (
       <>
-        <Global />
+        {Global}
         <Layout transparent>
           <p>Loading</p>
         </Layout>
@@ -43,7 +43,7 @@ const BlogByCategoryPage: NextPage<Props> = ({ meta, category, categoryList, pos
   }
   return (
     <>
-      <Global />
+      {Global}
       <Layout transparent>
         <NextSeo {...SEO} />
         <Blog category={category} categoryList={categoryList} posts={posts} />

@@ -20,7 +20,7 @@ const ContactContext = createContext<ContactInfo>({
   onClose: () => null
 })
 
-export const ContactDialog = (children: React.ReactNode) => {
+export const ContactDialog = (children: React.ReactNode | any) => {
   const [open, setOpen] = useState(false)
   const onClose = () => setOpen(false)
   const onOpen = () => {

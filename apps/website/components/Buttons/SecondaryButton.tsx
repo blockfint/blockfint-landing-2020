@@ -27,9 +27,9 @@ const Button = styled(motion.button)`
 type Props = {
   onClick?: () => void
   style?: React.CSSProperties
-  children: React.ReactNode | string
+  children?: React.ReactNode | string
 }
-export const SecondaryButton: React.FC<Props> = ({ children, onClick, style }) => {
+export const SecondaryButton = ({ children, onClick, style }: Props) => {
   return (
     <Button
       style={style}

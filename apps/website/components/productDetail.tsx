@@ -55,21 +55,13 @@ interface Props {
   name: string
   title: string
   description: string
-
+  children?: React.ReactNode | string
   linkHref?: string
   youtube?: string
   secondaryTitle?: string
 }
 
-export const ProductDetail: React.FC<Props> = ({
-  name,
-  title,
-  description,
-  linkHref,
-  secondaryTitle,
-  youtube,
-  children
-}) => {
+export const ProductDetail = ({ name, title, description, linkHref, secondaryTitle, youtube, children }: Props) => {
   const { t } = useTranslation()
   return (
     <Container maxWidth="lg">

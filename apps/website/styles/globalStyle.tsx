@@ -133,9 +133,9 @@ const GlobalStyle = createGlobalStyle`
 
 `
 
-export const AllStyleProvider: React.FC = ({ children }) => (
+export const AllStyleProvider = (children: React.ReactNode | any) => (
   <>
-    <GlobalStyle />
+    {GlobalStyle}
     <StylesProvider injectFirst>
       <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
     </StylesProvider>

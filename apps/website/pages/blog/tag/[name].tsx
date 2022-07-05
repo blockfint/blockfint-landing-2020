@@ -32,7 +32,7 @@ const BlogByTagPage: NextPage<Props> = ({ meta, name, posts }) => {
   } as NextSeoProps
   return (
     <>
-      <Global />
+      {Global}
       <Layout transparent>
         <NextSeo {...SEO} />
         <Tag tag={name} posts={posts} />

@@ -34,7 +34,7 @@ const BlogByAuthorNamePage: NextPage<AuthorPageProps> = ({ meta, profile, posts 
   } as NextSeoProps
   return (
     <>
-      <Global />
+      {Global}
       <Layout transparent>
         <NextSeo {...SEO} />
         <AuthorBlog profile={profile} posts={posts} />

@@ -8,8 +8,9 @@ const A = styled.a`
 `
 interface Props {
   href: string
+  children: React.ReactNode
 }
-export const LinkWrapper: React.FC<Props> = ({ href, children }) => {
+export const LinkWrapper = ({ href, children }: Props) => {
   return (
     <Link href={href} passHref>
       <A>{children}</A>

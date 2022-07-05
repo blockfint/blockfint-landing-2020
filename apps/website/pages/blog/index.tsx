@@ -33,7 +33,7 @@ const BlogPage: NextPage<Props> = ({ categoryList, posts, meta }) => {
   } as NextSeoProps
   return (
     <>
-      <Global />
+      {Global}
       <Layout transparent>
         <NextSeo {...SEO} />
         <Blog categoryList={categoryList} posts={posts} />

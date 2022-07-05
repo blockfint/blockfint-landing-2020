@@ -50,7 +50,7 @@ const List = styled.li`
 const PolicyPage = () => {
   return (
     <>
-      <Global />
+      {Global}
       <Layout>
         <Container>
           <TextBlock>
