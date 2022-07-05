@@ -1,15 +1,5 @@
-import { adminApi, ghostApi } from '.'
-import GhostContentAPI, {
-  Params,
-  PostOrPage,
-  SettingsResponse,
-  Pagination,
-  PostsOrPages,
-  Tag,
-  Author,
-  Tags,
-  Authors
-} from '@tryghost/content-api'
+import { ghostApi } from '.'
+import { Params, PostOrPage, Pagination, Tag, Tags, Authors } from '@tryghost/content-api'
 interface Dimensions {
   width: number
   height: number
