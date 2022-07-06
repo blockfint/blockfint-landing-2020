@@ -268,6 +268,7 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
   const tags = useMemo(() => {
     return post?.tags?.filter(({ visibility }) => visibility === 'internal')
   }, [post])
+  console.log(post?.feature_image)
   return (
     <>
       <Wrapper>
@@ -282,7 +283,6 @@ export const BlogDetail: React.FC<Props> = ({ post, nextPosts }) => {
               width={2400}
               height={1256}
               layout="responsive"
-              placeholder="blur"
               quality={100}
             />
           </TopImage>

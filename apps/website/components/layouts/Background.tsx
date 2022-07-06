@@ -52,8 +52,10 @@ const StyledBlockRight = styled(BlockRight)`
     top: 10rem;
   }
 `
-
-export const Background = (children: React.ReactNode | Element[] | any) => {
+interface Props {
+  children: React.ReactNode
+}
+export const Background = ({ children }: Props) => {
   return (
     <RelativeContainer>
       <MarginContainer>

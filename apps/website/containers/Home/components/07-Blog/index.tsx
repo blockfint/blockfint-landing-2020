@@ -47,7 +47,7 @@ const Center = styled.div`
     margin-top: 5rem;
   }
 `
-const Global = createGlobalStyle`
+const Global: any = createGlobalStyle`
 body{
   ${typography}
 }
@@ -60,7 +60,7 @@ export const Blog: React.FC<Props> = ({ data }) => {
   const { t } = useTranslation()
   return (
     <>
-      {Global}
+      <Global />
       <CustomContainer maxWidth="lg">
         <Heading>Blog</Heading>
         <BlogWrapper>

@@ -11,7 +11,7 @@ import { Author, PostsOrPages, SettingsResponse } from '@tryghost/content-api'
 import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 import { NextSeo, NextSeoProps } from 'next-seo'
 
-const Global = createGlobalStyle`
+const Global: any = createGlobalStyle`
 body{
   ${typography}
 }
@@ -34,7 +34,7 @@ const BlogByAuthorNamePage: NextPage<AuthorPageProps> = ({ meta, profile, posts 
   } as NextSeoProps
   return (
     <>
-      {Global}
+      <Global />
       <Layout transparent>
         <NextSeo {...SEO} />
         <AuthorBlog profile={profile} posts={posts} />

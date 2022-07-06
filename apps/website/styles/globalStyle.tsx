@@ -13,7 +13,7 @@ export const BREAKPOINT = {
   desktopHd: `only screen and (min-width: ${SIZE.desktopHd})`
 }
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle: any = createGlobalStyle`
 :root{
 
 --border-color:#fafafa;
@@ -132,10 +132,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
 `
-
-export const AllStyleProvider = (children: React.ReactNode | any) => (
+interface Props {
+  children: React.ReactNode
+}
+export const AllStyleProvider = ({ children }: Props) => (
   <>
-    {GlobalStyle}
+    <GlobalStyle />
     <StylesProvider injectFirst>
       <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
     </StylesProvider>

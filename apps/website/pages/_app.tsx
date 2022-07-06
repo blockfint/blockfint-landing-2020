@@ -28,6 +28,7 @@ class MyApp extends App {
           titleTemplate="%s | Make Future Innovations Happen Today"
           description="Make Future Innovations Happen Today"
         />
+
         <AllStyleProvider>
           <ContactDialog>
             <Component {...pageProps} />

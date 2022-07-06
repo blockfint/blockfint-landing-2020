@@ -10,7 +10,7 @@ import { Layout } from '@blockfint/website/components/layouts'
 import { PostsOrPages, SettingsResponse } from '@tryghost/content-api'
 import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 import { NextSeo, NextSeoProps } from 'next-seo'
-const Global = createGlobalStyle`
+const Global: any = createGlobalStyle`
 body{
   ${typography}
 }
@@ -34,7 +34,7 @@ const BlogByCategoryPage: NextPage<Props> = ({ meta, category, categoryList, pos
   if (!category || !categoryList || !posts) {
     return (
       <>
-        {Global}
+        <Global />
         <Layout transparent>
           <p>Loading</p>
         </Layout>
@@ -43,7 +43,7 @@ const BlogByCategoryPage: NextPage<Props> = ({ meta, category, categoryList, pos
   }
   return (
     <>
-      {Global}
+      <Global />
       <Layout transparent>
         <NextSeo {...SEO} />
         <Blog category={category} categoryList={categoryList} posts={posts} />

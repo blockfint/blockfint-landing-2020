@@ -136,7 +136,7 @@ body{
 export const decorators = [
   (Story) => (
     <AllStyleProvider>
-      {Global}
+      <Global />
       <Story />
     </AllStyleProvider>
   )

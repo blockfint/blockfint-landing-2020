@@ -5,7 +5,7 @@ import nextI18NextConfig from '../next-i18next.config.js'
 import { typography } from '@blockfint/website/styles/typography'
 import { BREAKPOINT } from '@blockfint/website/styles/globalStyle'
 
-const Global = createGlobalStyle`
+const Global: any = createGlobalStyle`
 body{
   ${typography}
 }
@@ -50,7 +50,7 @@ const List = styled.li`
 const PolicyPage = () => {
   return (
     <>
-      {Global}
+      <Global />
       <Layout>
         <Container>
           <TextBlock>

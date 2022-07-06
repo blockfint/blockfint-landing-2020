@@ -6,7 +6,7 @@ const FormContent = dynamic(() => import('./components/FormContent'), {
   loading: () => <span />,
   ssr: false
 })
-const LockScroll = createGlobalStyle`
+const LockScroll: any = createGlobalStyle`
   :root{
     overflow-y:hidden;
   }
@@ -20,19 +20,21 @@ const ContactContext = createContext<ContactInfo>({
   onClose: () => null
 })
 
-export const ContactDialog = (children: React.ReactNode | any) => {
+interface Props {
+  children: React.ReactNode
+}
+export const ContactDialog = ({ children }: Props) => {
   const [open, setOpen] = useState(false)
   const onClose = () => setOpen(false)
   const onOpen = () => {
     setOpen(true)
   }
-
   return (
     <ContactContext.Provider value={{ open, onOpen, onClose }}>
       <AnimatePresence>
         {open && (
           <>
-            {LockScroll}
+            <LockScroll />
             <FormContent onClose={onClose} />
           </>
         )}

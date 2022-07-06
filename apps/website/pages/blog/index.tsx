@@ -10,7 +10,7 @@ import { getAllPosts, getTags } from '@blockfint/website/api/ghostCMS'
 import { SettingsResponse, PostsOrPages } from '@tryghost/content-api'
 import { NextSeo, NextSeoProps } from 'next-seo'
 import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
-const Global = createGlobalStyle`
+const Global: any = createGlobalStyle`
 body{
   ${typography}
 }
@@ -33,7 +33,7 @@ const BlogPage: NextPage<Props> = ({ categoryList, posts, meta }) => {
   } as NextSeoProps
   return (
     <>
-      {Global}
+      <Global />
       <Layout transparent>
         <NextSeo {...SEO} />
         <Blog categoryList={categoryList} posts={posts} />
