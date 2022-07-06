@@ -7,13 +7,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    res.send('this is env' + process.env.MY_SECRET_TOKEN + 'this is req' + req.query.secret)
     await res.revalidate('/blog')
     return res.json({ revalidated: true })
   } catch (err) {
     // If there was an error, Next.js will continue
     // to show the last successfully generated page
-    res.send('this is env' + process.env.MY_SECRET_TOKEN + 'this is req' + req.query.secret)
 
     return res.status(500).send('Error revalidating', err)
   }
