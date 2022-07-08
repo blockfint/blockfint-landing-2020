@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "apps/website/pages/blog/index.tsx": {
+      "memory": 1024,
+      "maxDuration": 5
+    }
+  }
+}
