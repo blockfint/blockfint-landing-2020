@@ -7,7 +7,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    await res.revalidate('/blog')
+
+    const page = params.query['page'] || "";
+    await res.revalidate(page || "/blog")
     return res.json({ revalidated: true })
   } catch (err) {
     // If there was an error, Next.js will continue
