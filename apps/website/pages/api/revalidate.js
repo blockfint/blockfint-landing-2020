@@ -7,9 +7,8 @@ export default async function handler(req, res) {
   }
 
   try {
-
-    const page = req.query['page'] || "";
-    await res.revalidate(page || "/blog")
+    const page = req.query['page'] || ''
+    await res.revalidate(page || 'https://blockfint.com/blog')
     return res.json({ revalidated: true })
   } catch (err) {
     // If there was an error, Next.js will continue
