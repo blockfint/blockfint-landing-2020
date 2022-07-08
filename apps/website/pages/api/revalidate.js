@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
   try {
 
-    const page = params.query['page'] || "";
+    const page = req.query['page'] || "";
     await res.revalidate(page || "/blog")
     return res.json({ revalidated: true })
   } catch (err) {
