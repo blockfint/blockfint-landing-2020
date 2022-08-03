@@ -28,7 +28,6 @@ const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = 
       type: 'article'
     }
   } as NextSeoProps
-  console.log(post)
   if (post) {
     return (
       <>
