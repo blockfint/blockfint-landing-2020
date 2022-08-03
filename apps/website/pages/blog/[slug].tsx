@@ -23,9 +23,12 @@ const BlogDetailPage: NextPage<{ post: PostOrPage; nextPosts: PostOrPage[] }> = 
     openGraph: {
       title: post?.og_title,
       description: post?.og_description,
-      images: [{ url: post?.feature_image, height: 630, width: 1200, alt: 'blog' }]
+      images: [{ url: post?.feature_image, height: 630, width: 1200, alt: 'blog' }],
+      url: post?.url,
+      type: 'article'
     }
   } as NextSeoProps
+  console.log(post)
   if (post) {
     return (
       <>
