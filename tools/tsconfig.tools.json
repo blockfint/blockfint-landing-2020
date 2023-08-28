@@ -1,20 +1,20 @@
-{
-  "extends": "../tsconfig.base.json",
-  "compilerOptions": {
-    "outDir": "../dist/out-tsc/tools",
-    "rootDir": ".",
-    "module": "commonjs",
-    "target": "es5",
-    "lib": [
-      "es2019",
-      "esnext"
-    ],
-    "types": [
-      "node"
-    ],
-    "importHelpers": false
-  },
-  "include": [
-    "**/*.ts"
-  ]
-}
+// {
+//   "extends": "../tsconfig.base.json",
+//   "compilerOptions": {
+//     "outDir": "../dist/out-tsc/tools",
+//     "rootDir": ".",
+//     "module": "commonjs",
+//     "target": "es5",
+//     "lib": [
+//       "es2019",
+//       "esnext"
+//     ],
+//     "types": [
+//       "node"
+//     ],
+//     "importHelpers": false
+//   },
+//   "include": [
+//     "**/*.ts"
+//   ]
+// }
