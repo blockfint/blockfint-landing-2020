@@ -15,7 +15,7 @@ export const ThinkerImage = () => {
   return (
     <Container maxWidth="lg">
       <Content>
-        <Image src="/images/ThinkerFint.png" width={270} height={175} quality={100} />
+        <Image src="/images/Thinkerfint.png" width={270} height={175} quality={100} />
       </Content>
     </Container>
   )
