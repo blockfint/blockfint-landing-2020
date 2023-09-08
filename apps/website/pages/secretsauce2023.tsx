@@ -34,7 +34,7 @@ const SecretSaucePage: NextPage<Props> = ({ Blogs, meta }) => {
 export default SecretSaucePage
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const result = await serverSideTranslations(locale, ['common', 'home','secret-sauce'], nextI18NextConfig)
+  const result = await serverSideTranslations(locale,['common','home','secret-sauce'],nextI18NextConfig)
   const meta = await getMeta()
 
   return {
