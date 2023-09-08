@@ -31,7 +31,7 @@ const H3 = styled(motion.h3)`
   margin: 0 auto 2rem;
   max-width: 65rem;
   @media ${BREAKPOINT.tablet} {
-    margin: 0 auto 10rem;
+    margin: 0 auto 4rem;
     font-size: 2.125rem;
   }
 `
