@@ -163,19 +163,19 @@ const Name_Positions = [
     picture: 'num2X.png',
     key: 1
   },
-  {
-    name: 'shimmy-thomas',
-    path: 'thomas',
-    position: 'shimmy-position',
-    picture: 'Thomas.png',
-    key: 2
-  },
+  // {
+  //   name: 'shimmy-thomas',
+  //   path: 'thomas',
+  //   position: 'shimmy-position',
+  //   picture: 'Thomas.png',
+  //   key: 2
+  // },
   {
     name: 'wichai-patipaporn',
     path: 'wichai',
     position: 'wichai-position',
     picture: 'wichai2X.png',
-    key: 3
+    key: 2
   },
   // {
   //   name: 'phathsinee-wathanasaranphong',
@@ -189,7 +189,7 @@ const Name_Positions = [
     path: 'suwanna',
     position: 'suwanna-position',
     picture: 'suwan2x.png',
-    key: 4
+    key: 3
   },
   // {
   //   name: 'nisita-siratranon',
@@ -203,21 +203,21 @@ const Name_Positions = [
     path: 'ponlawat',
     position: 'ponlawat-position',
     picture: 'oak2x.png',
-    key: 5
+    key: 4
   },
   {
     name: 'rattanapong-chairukwattana',
     path: 'rattanapong',
     position: 'rattanapong-position',
     picture: 'pae2X.png',
-    key: 6
+    key: 5
   },
   {
     name: 'natnicha-temsiriwat',
     path: 'natnicha',
     position: 'natnicha-position',
     picture: 'natnicha.jpg',
-    key: 7
+    key: 6
   }
 ]
 
