@@ -19,17 +19,17 @@ type Props = {
 export const Home: React.FC<Props> = ({ blogsData = [] }) => {
   return (
     <>
-    <Hero />
-    <NeoBankSection />
-    <ThinkerSection />
-    <ThinkerWiseSection />
-    <GideonSection />
-    <PalmSection />
-    <VCSection />
-    <ProductsBanner />
-    <OurPartners />
-    <OurTeam />
-    <Blog data={blogsData} />
+      <Hero />
+      <NeoBankSection />
+      <ThinkerSection />
+      <ThinkerWiseSection />
+      <GideonSection />
+      <PalmSection />
+      <VCSection />
+      <ProductsBanner />
+      <OurPartners />
+      <OurTeam />
+      {/* <Blog data={blogsData} /> */}
 
       {/* 
       <ContactBanner /> */}

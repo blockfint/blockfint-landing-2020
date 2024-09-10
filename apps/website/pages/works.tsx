@@ -4,7 +4,6 @@ import { Works } from '@blockfint/website/containers/Works'
 import { Layout } from '@blockfint/website/components/layouts'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '../next-i18next.config.js'
-import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 import { SettingsResponse } from '@tryghost/content-api'
 import { NextSeo, NextSeoProps } from 'next-seo'
 interface Props {
@@ -33,11 +32,10 @@ export default work
 
 export const getStaticProps = async ({ locale }) => {
   const result = await serverSideTranslations(locale, ['common', 'works', 'project'], nextI18NextConfig)
-  const meta = await getMeta()
   return {
     props: {
       ...result,
-      meta
+      meta: {}
     }
   }
 }

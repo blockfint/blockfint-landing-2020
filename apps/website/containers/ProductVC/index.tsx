@@ -29,6 +29,7 @@ export const ProductVC = () => {
             width={2880}
             height={1280}
             placeholder="blur"
+            blurDataURL="/images/products/diagram-vc.jpg"
             alt={'Verified Credentials diagram'}
           />
         </Wrapper>
