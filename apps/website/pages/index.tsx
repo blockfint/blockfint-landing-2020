@@ -1,12 +1,10 @@
 import { Layout } from '@blockfint/website/components/layouts'
 import { Home } from '@blockfint/website/containers/Home'
 import { GetStaticProps, NextPage } from 'next'
-import { getAllPosts } from '../api/ghostCMS'
 import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '../next-i18next.config.js'
 import { PostOrPage, SettingsResponse } from '@tryghost/content-api'
-import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 import { NextSeo, NextSeoProps } from 'next-seo'
 
 interface Props {
@@ -36,17 +34,11 @@ export default Homepage
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const result = await serverSideTranslations(locale, ['common', 'home'], nextI18NextConfig)
-  const meta = await getMeta()
-  const AllBlogs = await getAllPosts()
-  const Blogs = AllBlogs.slice(0, 2).map((item) => {
-    return item
-  })
 
   return {
     props: {
       ...result,
-      meta,
-      Blogs
+      meta: {}
     },
     revalidate: 5
   }

@@ -4,7 +4,6 @@ import { NextPage } from 'next'
 import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '../../next-i18next.config'
-import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 import { SettingsResponse } from '@tryghost/content-api'
 import { NextSeo, NextSeoProps } from 'next-seo'
 interface Props {
@@ -32,11 +31,11 @@ const TeamPage: NextPage<Props> = ({ meta }) => {
 export default TeamPage
 export const getStaticProps = async ({ locale }) => {
   const result = await serverSideTranslations(locale, ['common', 'team'], nextI18NextConfig)
-  const meta = await getMeta()
+
   return {
     props: {
       ...result,
-      meta
+      meta: {}
     }
   }
 }

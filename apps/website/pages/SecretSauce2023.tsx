@@ -4,7 +4,6 @@ import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '../next-i18next.config.js'
 import { PostOrPage, SettingsResponse } from '@tryghost/content-api'
-import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 import { NextSeo, NextSeoProps } from 'next-seo'
 import { SecretSauce } from '@blockfint/website/containers/SecretSauce'
 
@@ -34,13 +33,12 @@ const SecretSaucePage: NextPage<Props> = ({ Blogs, meta }) => {
 export default SecretSaucePage
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const result = await serverSideTranslations(locale,['common','home','secret-sauce'],nextI18NextConfig)
-  const meta = await getMeta()
+  const result = await serverSideTranslations(locale, ['common', 'home', 'secret-sauce'], nextI18NextConfig)
 
   return {
     props: {
       ...result,
-      meta,
+      meta: {}
     },
     revalidate: 5
   }

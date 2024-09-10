@@ -5,8 +5,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import nextI18NextConfig from '../../next-i18next.config'
 import { SettingsResponse } from '@tryghost/content-api'
 import { NextSeo, NextSeoProps } from 'next-seo'
-import { getMeta } from '@blockfint/website/api/ghostCMS/settings'
 import { ProductVC } from '@blockfint/website/containers/ProductVC'
+
 interface Props {
   meta: SettingsResponse
 }
@@ -32,11 +32,11 @@ const VCPage: NextPage<Props> = ({ meta }) => {
 export default VCPage
 export const getStaticProps = async ({ locale }) => {
   const result = await serverSideTranslations(locale, ['common', 'work-details'], nextI18NextConfig)
-  const meta = await getMeta()
+
   return {
     props: {
       ...result,
-      meta
+      meta: {}
     }
   }
 }

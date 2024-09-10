@@ -222,7 +222,7 @@ export const Drawer = ({ status }: PropsColor) => {
                 <RipleMiddle primary={t('common.about')} />
               </ListItem>
             </Link>
-            <Link passHref href={`/blog`} as={`/blog`}>
+            {/* <Link passHref href={`/blog`} as={`/blog`}>
               <ListItem
                 button
                 selected={selectedIndex === `/blog`}
@@ -230,7 +230,7 @@ export const Drawer = ({ status }: PropsColor) => {
               >
                 <RipleMiddle primary={t('common.blog')} />
               </ListItem>
-            </Link>
+            </Link> */}
             <Link passHref href={`/works`} as={`/works`}>
               <ListItem
                 button
