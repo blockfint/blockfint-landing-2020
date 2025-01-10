@@ -12,7 +12,7 @@ export const ProductNeoBank = () => {
     <>
       <ProductDetail
         {...{
-          name: 'Thinker Bank',
+          name: t('common.thinker-Suite'),
           title: t('common.neobank-quote'),
           description: t('work-details.neobank-desc'),
 

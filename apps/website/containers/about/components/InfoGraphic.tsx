@@ -65,23 +65,23 @@ export const InfoGraphic = () => {
       <Group>
         <Image src="/employer.png" alt="employer" />
         <StyledNumber>
-          <Counter from={0} to={60} />+
+          <Counter from={0} to={140} />+
         </StyledNumber>
         <Text>{t('about.employees')}</Text>
       </Group>
       <Group>
         <Image src="/product.png" alt="product" />
         <StyledNumber>
-          <Counter from={0} to={4} />
+          <Counter from={0} to={10} />
         </StyledNumber>
         <Text>{t('about.products')}</Text>
       </Group>
       <Group>
         <Image src="/partner.png" alt="partner" />
         <StyledNumber>
-          <Counter from={0} to={10} />+
+          <Counter from={0} to={40} />+
         </StyledNumber>
-        <Text>{t('about.projects')}</Text>
+        <Text>{t('about.customers')}</Text>
       </Group>
     </Background>
   )
