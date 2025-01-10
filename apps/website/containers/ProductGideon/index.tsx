@@ -16,7 +16,7 @@ export const ProductGideon = () => {
     <>
       <ProductDetail
         {...{
-          name: 'Gideon',
+          name: t('common.gideonOne'),
           title: t('common.gideon-quote'),
           description: t('work-details.gideon-desc'),
           linkHref: 'https://gideon.energy',

@@ -29,7 +29,7 @@ export const GideonSection = () => {
     <Container maxWidth="lg">
       <Content>
         <GideonImage />
-        <Title style={{ color: 'var(--primary)' }}>Gideon</Title>
+        <Title style={{ color: 'var(--primary)' }}>{t('common.gideonOne')}</Title>
         <Title>{t('common.gideon-quote')}</Title>
         <Desc>{t('home.gideon-desc')}</Desc>
         <Link href={'/products/gideon'} passHref>

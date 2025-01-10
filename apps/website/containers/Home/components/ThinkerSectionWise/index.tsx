@@ -29,7 +29,7 @@ export const ThinkerWiseSection = () => {
     <Container maxWidth="lg">
       <Content>
         <ThinkerImage />
-        <Title style={{ color: 'var(--primary)' }}>Thinker Wise</Title>
+        <Title style={{ color: 'var(--primary)' }}>{t('common.thinker-VerID')}</Title>
         <Title>{t('common.thinker-wise-quote')}</Title>
         <Desc>{t('home.thinker-wise-desc')}</Desc>
         <Link href={'/products/thinker-wise'} passHref>

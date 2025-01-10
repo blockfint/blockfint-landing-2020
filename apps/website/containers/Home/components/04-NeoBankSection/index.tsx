@@ -30,7 +30,7 @@ export const NeoBankSection = () => {
       <Content>
         <NeobankImage />
 
-        <Title style={{ color: 'var(--primary)' }}>Thinker Bank</Title>
+        <Title style={{ color: 'var(--primary)' }}>{t('common.thinker-Suite')}</Title>
         <Title>{t('common.neobank-quote')}</Title>
         <Desc>{t('home.neobank-desc')}</Desc>
         <Link href={'/products/thinker-bank'} passHref>

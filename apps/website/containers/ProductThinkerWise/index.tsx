@@ -16,7 +16,7 @@ export const ProductThinkerWise = () => {
     <>
       <ProductDetail
         {...{
-          name: 'Thinker Wise',
+          name: t('common.thinker-VerID'),
           title: t('common.thinker-wise-quote'),
           description: t('work-details.thinker-wise-desc'),
 
