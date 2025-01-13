@@ -9,6 +9,7 @@ import { PrimaryButton } from '@blockfint/website/components/Buttons'
 import { ReactComponent as BlockfintSmallLogo } from '@blockfint/website/assets/logos/blockfint-small.svg'
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
+import { VideoIframe } from '@blockfint/website/components/VideoIframe'
 
 const Background = styled.div`
   margin-top: -5rem;
@@ -98,9 +99,10 @@ export const Hero = () => {
             <Title style={{ color: '#19213c' }}>Happen Today</Title>
           </div>
           <Desc>{t('home.section-1-desc')}</Desc>
+          <VideoIframe title={''} src="https://www.youtube-nocookie.com/embed/d-1b9D72pag" />
           <Link href="/about" passHref>
             <a>
-              <PrimaryButton logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}>
+              <PrimaryButton style={{ marginTop: '60px' }} logo={<BlockfintSmallLogo style={{ fontSize: '1.5rem' }} />}>
                 {t('common.about')}
               </PrimaryButton>
             </a>
