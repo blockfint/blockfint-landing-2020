@@ -80,7 +80,7 @@ const Desc = styled.p`
 const ScrollWrapper = styled.div`
   z-index: 1;
   position: absolute;
-  bottom: 8rem;
+  bottom: 4.5rem;
   left: 50%;
   transform: translateX(-50%);
   @media ${BREAKPOINT.tablet} {
